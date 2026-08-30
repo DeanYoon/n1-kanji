@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30g
+// VERSION 2026-08-30h
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -192,9 +192,9 @@ async function generate(cfg){
 }
 
 // ---------- day: 하루치 슬롯을 일괄 예약 ----------
-// 기본: 09:00~19:00, 10분 간격(61칸), 정시(매시 :00)만 신규 생성 · 나머지는 가중 랜덤 복습.
+// 기본: 09:00~23:00, 15분 간격(57칸), 정시(매시 :00)만 신규 생성 · 나머지는 가중 랜덤 복습.
 // cfg 로 조절: INTERVAL_MIN(간격,분) · NEW_EVERY_MIN(신규 주기,분) · START_HOUR · END_HOUR
-// ※ iOS는 앱당 예약 가능한 로컬 알림이 최대 64개라 기본값이 61개(여유 3개)로 잡혀 있음.
+// ※ iOS는 앱당 예약 가능한 로컬 알림이 최대 64개라 기본값이 57개(여유 7개)로 잡혀 있음.
 //   범위를 늘릴 땐 (END_HOUR-START_HOUR)*60/INTERVAL_MIN + 1 이 64를 넘지 않게.
 async function day(cfg){
   try {
@@ -206,7 +206,7 @@ async function day(cfg){
     if(!Array.isArray(s.history)) s.history = [];
 
     // 마이그레이션: 구버전(시간 단위, "n1-slot-9" 형식) 예약이 남아있으면 정리 —
-    // 신버전(10분 단위, 최대 61개)과 합쳐져 iOS 64개 제한을 넘는 걸 방지.
+    // 신버전(15분 단위, 최대 57개)과 합쳐져 iOS 64개 제한을 넘는 걸 방지.
     if(!s.migratedSlotIds){
       var legacy = [];
       for(var lh = 0; lh < 24; lh++) legacy.push("n1-slot-" + lh);
@@ -222,10 +222,10 @@ async function day(cfg){
     if(!Array.isArray(s.builtSlots[today])) s.builtSlots[today] = [];
     var already = s.builtSlots[today];
 
-    var STEP = cfg.INTERVAL_MIN || 10;
+    var STEP = cfg.INTERVAL_MIN || 15;
     var NEWEVERY = cfg.NEW_EVERY_MIN || 60;
     var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
-    var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 19;
+    var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
     var startMin = startH * 60, endMin = endH * 60;
     var now = new Date();
 
@@ -478,4 +478,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30g" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30h" };
