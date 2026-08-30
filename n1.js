@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30d
+// VERSION 2026-08-30e
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -74,6 +74,27 @@ function pickReview(history){
   var pool = fresh.length ? fresh : history;
   return pool.reduce(function(a, b){ return (a.lastShownAt <= b.lastShownAt ? a : b); });
 }
+
+// 가중 랜덤 복습 선택: 적게 노출됐을수록, "외웠음" 아직 안 됐을수록 뽑힐 확률이 높음.
+// 완전 랜덤이 아니라 "장기적으로 모든 문장이 비슷한 빈도로 노출"되도록 역빈도 가중.
+function pickWeightedReview(history){
+  if(!history.length) return null;
+  var weights = [], total = 0, i;
+  for(i = 0; i < history.length; i++){
+    var e = history[i];
+    var w = 1 / ((e.showCount || 1) + 1);
+    if(e.reviewed) w *= 0.4;   // 이미 외운 건 완전히 빼진 않고 가끔만
+    weights.push(w);
+    total += w;
+  }
+  var r = Math.random() * total;
+  for(i = 0; i < history.length; i++){
+    r -= weights[i];
+    if(r <= 0) return history[i];
+  }
+  return history[history.length - 1];
+}
+function pad2(n){ return (n < 10 ? "0" : "") + n; }
 
 function current(s){
   var h = s.history || [];
@@ -154,39 +175,93 @@ async function generate(cfg){
   }
 }
 
-// ---------- day: 1회 = 그날 HOURS 시각에 알림 일괄 예약 ----------
+// ---------- day: 하루치 슬롯을 일괄 예약 ----------
+// 기본: 09:00~19:00, 10분 간격(61칸), 정시(매시 :00)만 신규 생성 · 나머지는 가중 랜덤 복습.
+// cfg 로 조절: INTERVAL_MIN(간격,분) · NEW_EVERY_MIN(신규 주기,분) · START_HOUR · END_HOUR
+// ※ iOS는 앱당 예약 가능한 로컬 알림이 최대 64개라 기본값이 61개(여유 3개)로 잡혀 있음.
+//   범위를 늘릴 땐 (END_HOUR-START_HOUR)*60/INTERVAL_MIN + 1 이 64를 넘지 않게.
 async function day(cfg){
   try {
     var s = await readState();
     if(!s || !Array.isArray(s.kanjiList) || !s.kanjiList.length){
-      await notify("n1-err-day", "N1 하루치 실패", "먼저 n1-generate 를 한 번 실행해 상태 파일을 만드세요.");
+      await notify("n1-err-day", "N1 갱신 실패", "먼저 n1-generate 를 한 번 실행해 상태 파일을 만드세요.");
       return;
     }
+    if(!Array.isArray(s.history)) s.history = [];
+
     var today = dateJST();
-    if(s.builtDay === today){ console.log("이미 오늘치 예약됨"); return; }
-    var HOURS = (cfg.HOURS && cfg.HOURS.length) ? cfg.HOURS : [9,10,11,12,13,14,15,16,17,18,19,20];
+    if(!s.builtSlots || typeof s.builtSlots !== "object") s.builtSlots = {};
+    // 오늘 것만 남기고 지난 날짜 기록은 정리
+    var dk = Object.keys(s.builtSlots);
+    for(var di = 0; di < dk.length; di++){ if(dk[di] !== today) delete s.builtSlots[dk[di]]; }
+    if(!Array.isArray(s.builtSlots[today])) s.builtSlots[today] = [];
+    var already = s.builtSlots[today];
+
+    var STEP = cfg.INTERVAL_MIN || 10;
+    var NEWEVERY = cfg.NEW_EVERY_MIN || 60;
+    var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
+    var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 19;
+    var startMin = startH * 60, endMin = endH * 60;
     var now = new Date();
 
-    // 1단계: 메모리에서 전부 생성 (실패 시 저장 안 함 → 안전 재시도)
-    var plan = [];
-    for(var i = 0; i < HOURS.length; i++){
-      var h = HOURS[i];
-      var slot = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, 0, 0, 0);
-      var r = await advanceOne(cfg, s, slot.toISOString());
-      plan.push({ h: h, slot: slot, title: pushTitle(r.mode, r.cur, s), body: pushBody(r.cur) });
+    // 이 구간에서 아직 처리 안 한 슬롯만 골라내기 (재실행·2차 자동화와 안전하게 공존)
+    var todo = [];
+    for(var m = startMin; m <= endMin; m += STEP){
+      var hh = Math.floor(m / 60), mm = m % 60;
+      var key = pad2(hh) + ":" + pad2(mm);
+      if(already.indexOf(key) === -1){
+        todo.push({ h: hh, min: mm, key: key, isNew: (m % NEWEVERY === 0) });
+      }
     }
-    // 2단계: 예약 + 저장
+    if(!todo.length){ console.log("이 구간은 이미 처리됨(" + today + ")"); return; }
+
+    // 1단계: 메모리에서 전부 생성 (도중 실패하면 저장 안 함 → 안전 재시도)
+    var plan = [];
+    for(var i = 0; i < todo.length; i++){
+      var slot = todo[i];
+      var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), slot.h, slot.min, 0, 0);
+      var slotISO = slotDate.toISOString();
+      var cur, mode;
+
+      if(slot.isNew || s.history.length === 0){
+        mode = "new";
+        var kanji = s.kanjiList[s.progressIndex];
+        var c = await compose(cfg, kanji);
+        cur = {
+          id: slotISO + "#" + slot.key, date: today, targetKanji: kanji,
+          sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
+          kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
+          grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
+          reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
+        };
+        s.history.unshift(cur);
+        s.progressIndex += 1;
+        if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
+      } else {
+        mode = "review";
+        cur = pickWeightedReview(s.history);
+        cur.showCount = (cur.showCount || 1) + 1;
+        cur.lastShownAt = slotISO;
+        cur.lastSlotAt = slotISO;
+        cur.mode = "review";
+      }
+      plan.push({ key: slot.key, slotDate: slotDate, title: pushTitle(mode, cur, s), body: pushBody(cur) });
+    }
+
+    // 2단계: 알림 예약 + 저장 (전부 성공했을 때만)
     for(var j = 0; j < plan.length; j++){
       var p = plan[j];
-      if(p.slot.getTime() > Date.now() + 5000) await notify("n1-slot-" + p.h, p.title, p.body, p.slot);
+      if(p.slotDate.getTime() > Date.now() + 5000){
+        await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate);
+      }
+      already.push(p.key);
     }
-    s.builtDay = today;
     s.lastCurrentId = s.history[0] ? s.history[0].id : s.lastCurrentId;
     s.updatedAt = nowISO();
     writeState(s);
-    console.log("OK day " + plan.length + "칸 " + today);
+    console.log("OK day " + plan.length + "칸(" + today + " " + todo[0].key + "~" + todo[todo.length - 1].key + ") 처리");
   } catch(e){
-    await notify("n1-err-day", "N1 하루치 실패", (e && e.message ? e.message : e) + " · 다시 실행하면 처음부터 재시도");
+    await notify("n1-err-day", "N1 갱신 실패", (e && e.message ? e.message : e) + " · 다시 실행하면 남은 구간만 이어서 처리");
     throw e;
   }
 }
@@ -378,31 +453,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-// ---------- run: 실행 맥락을 감지해 알아서 분기 (스크립트 1개용) ----------
-async function run(cfg){
-  // 위젯(홈/잠금)으로 실행됨 → 위젯 렌더
-  if(config.runsInWidget || config.runsInAccessoryWidget) return widget(cfg);
-
-  // 단축어 자동화에서 파라미터로 넘어옴
-  var arg = null;
-  try { arg = args.shortcutParameter; } catch(e){}
-  if(typeof arg === "string") arg = arg.trim().toLowerCase();
-  if(arg === "day") return day(cfg);
-  if(arg === "generate" || arg === "gen") return generate(cfg);
-  if(arg === "review") return review(cfg);
-
-  // 그 외(앱에서 직접 탭, 위젯 탭) → 메뉴
-  var a = new Alert();
-  a.title = "N1 한자";
-  a.message = "무엇을 할까요?";
-  a.addAction("오늘 한자 1개 (generate)");
-  a.addAction("하루치 예약 (day)");
-  a.addAction("이력 · 외웠음 (review)");
-  a.addCancelAction("닫기");
-  var i = await a.present();
-  if(i === 0) return generate(cfg);
-  if(i === 1) return day(cfg);
-  if(i === 2) return review(cfg);
-}
-
-module.exports = { run: run, generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-31a" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30e" };
