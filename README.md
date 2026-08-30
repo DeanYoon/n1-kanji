@@ -3,7 +3,8 @@
 JLPT N2·N1 한자 학습 — 아이폰 온디바이스 (Scriptable).
 
 - **`n1.js`** — 로직 전체 (커리큘럼 706자, 예문 생성, 위젯, 이력). Scriptable 껍데기가 이 파일을 원격에서 읽어 실행.
-- **`stub.js`** — Scriptable에 넣을 껍데기 템플릿. 4개 스크립트(`n1-generate` / `n1-day` / `n1-widget` / `n1-review`)가 이 껍데기를 공유하고 `ACTION` 값만 다르게.
+- **`n1-config.js`** — Scriptable에서 **한 번만** 실행. `OPENROUTER_KEY`/`MODEL`을 Keychain(기기 안 보관함)에 저장.
+- **`stub.js`** — Scriptable에 넣을 껍데기 템플릿. 4개 스크립트(`n1-generate` / `n1-day` / `n1-widget` / `n1-review`)가 이 껍데기를 공유하고 `ACTION` 값만 다르게. 키는 Keychain에서 자동으로 읽어오므로 스크립트마다 따로 넣지 않음.
 
 ## 최신 코드 URL
 
