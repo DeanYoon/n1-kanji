@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30e
+// VERSION 2026-08-30f
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -188,6 +188,15 @@ async function day(cfg){
       return;
     }
     if(!Array.isArray(s.history)) s.history = [];
+
+    // 마이그레이션: 구버전(시간 단위, "n1-slot-9" 형식) 예약이 남아있으면 정리 —
+    // 신버전(10분 단위, 최대 61개)과 합쳐져 iOS 64개 제한을 넘는 걸 방지.
+    if(!s.migratedSlotIds){
+      var legacy = [];
+      for(var lh = 0; lh < 24; lh++) legacy.push("n1-slot-" + lh);
+      try { await Notification.removePending(legacy); } catch(e){}
+      s.migratedSlotIds = true;
+    }
 
     var today = dateJST();
     if(!s.builtSlots || typeof s.builtSlots !== "object") s.builtSlots = {};
@@ -453,4 +462,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30e" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30f" };
