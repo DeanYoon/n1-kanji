@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30f
+// VERSION 2026-08-30g
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -46,6 +46,27 @@ async function compose(cfg, kanji){
 "kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n" +
 "grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. point=문형, meaningKR=쓰임과 뜻을 한 줄로. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. 별도 표시는 붙이지 마세요.";
 
+  var res = await callOpenRouter(cfg, prompt, true);
+  // 일부 모델(예: Gemini 3.1 Pro)은 reasoning 끄기 자체를 거부(400) — 그때만 켜서 재시도
+  if(res && res.error && /reasoning/i.test(JSON.stringify(res.error))){
+    res = await callOpenRouter(cfg, prompt, false);
+  }
+  if(res && res.error) throw new Error("API: " + (res.error.message || JSON.stringify(res.error)));
+  var msg = res && res.choices && res.choices[0] && res.choices[0].message;
+  if(!msg || !msg.content) throw new Error("API 응답 형식 오류: " + JSON.stringify(res).slice(0, 300));
+  var t = String(msg.content).trim();
+  var a = t.indexOf("{"), b = t.lastIndexOf("}");
+  if(a >= 0 && b > a) t = t.slice(a, b + 1);
+  try {
+    return JSON.parse(t);
+  } catch(e){
+    throw new Error("모델이 JSON 형식을 안 지킴: " + t.slice(0, 200));
+  }
+}
+
+// max_tokens를 넉넉히 잡고(추론형 모델도 안 잘리게), 이 작업엔 깊은 추론이 불필요하므로
+// 기본은 reasoning 끔(속도·비용 절약). 끄기 자체를 거부하는 모델만 compose()에서 재시도.
+async function callOpenRouter(cfg, prompt, disableReasoning){
   var req = new Request("https://openrouter.ai/api/v1/chat/completions");
   req.method = "POST";
   req.headers = {
@@ -53,20 +74,15 @@ async function compose(cfg, kanji){
     "Content-Type": "application/json",
     "X-Title": "N1 Kanji"
   };
-  req.body = JSON.stringify({
+  var body = {
     model: cfg.MODEL || "anthropic/claude-sonnet-5",
-    max_tokens: 700,
+    max_tokens: 1200,
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
-  });
-  var res = await req.loadJSON();
-  if(res && res.error) throw new Error("API: " + (res.error.message || JSON.stringify(res.error)));
-  var msg = res && res.choices && res.choices[0] && res.choices[0].message;
-  if(!msg || !msg.content) throw new Error("API 응답 형식 오류: " + JSON.stringify(res).slice(0, 300));
-  var t = String(msg.content).trim();
-  var a = t.indexOf("{"), b = t.lastIndexOf("}");
-  if(a >= 0 && b > a) t = t.slice(a, b + 1);
-  return JSON.parse(t);
+  };
+  if(disableReasoning) body.reasoning = { enabled: false };
+  req.body = JSON.stringify(body);
+  return await req.loadJSON();
 }
 
 function pickReview(history){
@@ -462,4 +478,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30f" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30g" };
