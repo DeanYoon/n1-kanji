@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30h
+// VERSION 2026-08-30i
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -93,12 +93,15 @@ function pickReview(history){
 
 // 가중 랜덤 복습 선택: 적게 노출됐을수록, "외웠음" 아직 안 됐을수록 뽑힐 확률이 높음.
 // 완전 랜덤이 아니라 "장기적으로 모든 문장이 비슷한 빈도로 노출"되도록 역빈도 가중.
-function pickWeightedReview(history){
+// sessionBumps: 아직 저장은 안 됐지만 "이번 하루치 빌드에서 이미 뽑았다"는 걸 반영해
+//               같은 배치 안에서 같은 문장이 연달아 뽑히지 않게 하는 임시(메모리) 가중치.
+function pickWeightedReview(history, sessionBumps){
   if(!history.length) return null;
   var weights = [], total = 0, i;
   for(i = 0; i < history.length; i++){
     var e = history[i];
-    var w = 1 / ((e.showCount || 1) + 1);
+    var extra = (sessionBumps && sessionBumps[e.id]) || 0;
+    var w = 1 / ((e.showCount || 1) + extra + 1);
     if(e.reviewed) w *= 0.4;   // 이미 외운 건 완전히 빼진 않고 가끔만
     weights.push(w);
     total += w;
@@ -111,6 +114,32 @@ function pickWeightedReview(history){
   return history[history.length - 1];
 }
 function pad2(n){ return (n < 10 ? "0" : "") + n; }
+
+// 예약만 해두고 아직 실제 노출 시각이 안 지난 복습은 showCount를 올리지 않다가,
+// 시각이 지나면(=실제로 알림이 떴을 시점) 그제서야 반영. "만들기만 했는데 복습 횟수가
+// 벌써 올라가 있는" 문제를 막기 위함. generate/day/widget/review 시작할 때마다 호출.
+function reconcile(s){
+  if(!Array.isArray(s.pending) || !s.pending.length) return;
+  var now = Date.now(), remain = [];
+  for(var i = 0; i < s.pending.length; i++){
+    var p = s.pending[i];
+    if(Date.parse(p.slotISO) <= now){
+      for(var j = 0; j < s.history.length; j++){
+        if(s.history[j].id === p.id){
+          var e = s.history[j];
+          e.showCount = (e.showCount || 1) + 1;
+          e.lastShownAt = p.slotISO;
+          e.lastSlotAt = p.slotISO;
+          e.mode = "review";
+          break;
+        }
+      }
+    } else {
+      remain.push(p);
+    }
+  }
+  s.pending = remain;
+}
 
 function current(s){
   var h = s.history || [];
@@ -176,6 +205,8 @@ async function generate(cfg){
   try {
     var s = await readState();
     if(!s) s = JSON.parse(JSON.stringify(SEED));
+    if(!Array.isArray(s.history)) s.history = [];
+    reconcile(s);   // 예약해뒀던 복습 중 시각이 지난 게 있으면 먼저 반영
     var iso = nowISO();
     var r = await advanceOne(cfg, s, iso);
     s.lastCurrentId = r.cur.id;
@@ -204,6 +235,7 @@ async function day(cfg){
       return;
     }
     if(!Array.isArray(s.history)) s.history = [];
+    reconcile(s);   // 지난 배치에서 예약해둔 것 중 시각이 지난 게 있으면 먼저 반영
 
     // 마이그레이션: 구버전(시간 단위, "n1-slot-9" 형식) 예약이 남아있으면 정리 —
     // 신버전(15분 단위, 최대 57개)과 합쳐져 iOS 64개 제한을 넘는 걸 방지.
@@ -242,6 +274,8 @@ async function day(cfg){
 
     // 1단계: 메모리에서 전부 생성 (도중 실패하면 저장 안 함 → 안전 재시도)
     var plan = [];
+    var pending = [];       // 이번에 예약하는 복습들 — 저장은 아래 2단계에서 s.pending에 합침
+    var sessionBumps = {};  // 이 배치 안에서만 쓰는 임시 가중치(연속 중복 방지)
     for(var i = 0; i < todo.length; i++){
       var slot = todo[i];
       var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), slot.h, slot.min, 0, 0);
@@ -264,11 +298,11 @@ async function day(cfg){
         if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
       } else {
         mode = "review";
-        cur = pickWeightedReview(s.history);
-        cur.showCount = (cur.showCount || 1) + 1;
-        cur.lastShownAt = slotISO;
-        cur.lastSlotAt = slotISO;
-        cur.mode = "review";
+        cur = pickWeightedReview(s.history, sessionBumps);
+        // 아직 그 시각이 안 지났으니 showCount는 여기서 안 올림 — reconcile()이 나중에 처리.
+        // sessionBumps는 오늘치를 만드는 이 배치 안에서만 같은 문장이 연달아 안 뽑히게 하는 임시 가중치.
+        sessionBumps[cur.id] = (sessionBumps[cur.id] || 0) + 1;
+        pending.push({ id: cur.id, slotISO: slotISO });
       }
       plan.push({ key: slot.key, slotDate: slotDate, title: pushTitle(mode, cur, s), body: pushBody(cur) });
     }
@@ -281,6 +315,9 @@ async function day(cfg){
       }
       already.push(p.key);
     }
+    if(!Array.isArray(s.pending)) s.pending = [];
+    s.pending = s.pending.concat(pending);
+    reconcile(s);   // 이 중 이미 지난 시각이 있으면(과거로 예약된 경우 등) 바로 반영
     s.lastCurrentId = s.history[0] ? s.history[0].id : s.lastCurrentId;
     s.updatedAt = nowISO();
     writeState(s);
@@ -301,6 +338,7 @@ async function widget(cfg){
 
   var fam = config.widgetFamily || "medium";
   var s = await readState();
+  if(s && Array.isArray(s.history)) reconcile(s);
   var cur = s ? current(s) : null;
   var total = (s && s.kanjiList) ? s.kanjiList.length : 706;
   var isReview = cur && (cur.mode === "review" || (cur.showCount || 1) > 1);
@@ -416,6 +454,7 @@ async function review(cfg){
     await a0.present();
     return;
   }
+  reconcile(s);   // 예약해둔 복습 중 시각이 지난 게 있으면 목록에 반영
   var total = s.kanjiList ? s.kanjiList.length : 706;
   var table = new UITable();
   table.showSeparators = true;
@@ -478,4 +517,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30h" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30i" };
