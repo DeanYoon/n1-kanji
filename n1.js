@@ -378,4 +378,31 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30d" };
+// ---------- run: 실행 맥락을 감지해 알아서 분기 (스크립트 1개용) ----------
+async function run(cfg){
+  // 위젯(홈/잠금)으로 실행됨 → 위젯 렌더
+  if(config.runsInWidget || config.runsInAccessoryWidget) return widget(cfg);
+
+  // 단축어 자동화에서 파라미터로 넘어옴
+  var arg = null;
+  try { arg = args.shortcutParameter; } catch(e){}
+  if(typeof arg === "string") arg = arg.trim().toLowerCase();
+  if(arg === "day") return day(cfg);
+  if(arg === "generate" || arg === "gen") return generate(cfg);
+  if(arg === "review") return review(cfg);
+
+  // 그 외(앱에서 직접 탭, 위젯 탭) → 메뉴
+  var a = new Alert();
+  a.title = "N1 한자";
+  a.message = "무엇을 할까요?";
+  a.addAction("오늘 한자 1개 (generate)");
+  a.addAction("하루치 예약 (day)");
+  a.addAction("이력 · 외웠음 (review)");
+  a.addCancelAction("닫기");
+  var i = await a.present();
+  if(i === 0) return generate(cfg);
+  if(i === 1) return day(cfg);
+  if(i === 2) return review(cfg);
+}
+
+module.exports = { run: run, generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-31a" };
