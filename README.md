@@ -4,7 +4,8 @@ JLPT N2·N1 한자 학습 — 아이폰 온디바이스 (Scriptable).
 
 - **`n1.js`** — 로직 전체 (커리큘럼 706자, 예문 생성, 위젯, 이력). Scriptable 껍데기가 이 파일을 원격에서 읽어 실행.
 - **`n1-config.js`** — Scriptable에서 **한 번만** 실행. `OPENROUTER_KEY`/`MODEL`을 Keychain(기기 안 보관함)에 저장.
-- **`stub.js`** — Scriptable에 넣을 껍데기 템플릿. 4개 스크립트(`n1-generate` / `n1-day` / `n1-widget` / `n1-review`)에 **똑같은 코드**를 붙여넣고 **스크립트 이름만** 다르게 지으면 됨 — 동작(`ACTION`)은 `Script.name()`(스크립트 파일명)에서 자동 판별. `n1-` 접두사·대소문자·구분자는 무시하고, 못 알아보면 `generate`로 폴백. 키는 Keychain에서 자동으로 읽어오므로 스크립트마다 따로 넣지 않음.
+- **`stub.js`** — Scriptable에 넣을 껍데기 템플릿. 각 스크립트(`n1-generate` / `n1-day` / `n1-widget` / `n1-review` / `n1-watchday` / `n1-cloud`)에 **똑같은 코드**를 붙여넣고 **스크립트 이름만** 다르게 지으면 됨 — 동작(`ACTION`)은 `Script.name()`(스크립트 파일명)에서 자동 판별. `n1-` 접두사·대소문자·구분자는 무시하고, 못 알아보면 `generate`로 폴백. 키는 Keychain에서 자동으로 읽어오므로 스크립트마다 따로 넣지 않음.
+- **`n1-cloud`** — 지금 Gist에 올라가 있는 오늘치 데이터(다른 기기가 읽어가는 그 내용)를 폰에서 탭 한 번으로 확인. `UITable`로 슬롯 목록(시각·제목·단어)을 보여주고, 행을 탭하면 본문 전문을 표시. 읽기 전용이라 진도·알림엔 영향 없음. `GIST_ID`(+secret gist면 `GIST_TOKEN`)가 있어야 동작.
 
 ## 최신 코드 URL
 

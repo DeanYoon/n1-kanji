@@ -1,8 +1,8 @@
 "use strict";
 // ===== N1 한자 학습 · Scriptable 껍데기 =====
 // 먼저 n1-config 를 한 번 실행해 키를 저장해두세요.
-// 4개 스크립트(n1-generate / n1-day / n1-widget / n1-review)에 이 코드를 "그대로" 붙여넣고
-// 스크립트 이름만 각각 n1-generate / n1-day / n1-widget / n1-review 로 지어두면 됩니다.
+// 각 스크립트(n1-generate / n1-day / n1-widget / n1-review / n1-watchday / n1-cloud)에 이
+// 코드를 "그대로" 붙여넣고 스크립트 이름만 그렇게 지어두면 됩니다.
 // 동작은 스크립트 이름에서 자동 판별하므로 코드는 한 글자도 수정하지 않습니다.
 
 const CFG = {
@@ -15,18 +15,18 @@ const CFG = {
 };
 const SRC = "https://raw.githubusercontent.com/DeanYoon/n1-kanji/main/n1.js";
 
-// 스크립트 이름에서 동작을 자동 판별 — 4개 스크립트에 이 파일을 그대로 붙여넣고
-// 이름만 n1-generate / n1-day / n1-widget / n1-review 로 지어두면 됩니다(코드 수정 불필요).
+// 스크립트 이름에서 동작을 자동 판별 — 이 파일을 그대로 붙여넣고 이름만
+// n1-generate / n1-day / n1-widget / n1-review / n1-watchday / n1-cloud 로 지어두면 됩니다.
 // "n1-" 접두사·대소문자·하이픈/언더바/공백은 무시. 못 알아보면 generate로 폴백.
 const ACTION = (function(){
   var n = "";
   try { n = Script.name() || ""; } catch(e){}
   n = String(n).trim().toLowerCase().replace(/^n1[-_ ]*/, "").replace(/[-_ ]/g, "");
-  var MAP = { generate: "generate", gen: "generate", day: "day", widget: "widget", review: "review", watchday: "watchDay", watch: "watchDay" };
+  var MAP = { generate: "generate", gen: "generate", day: "day", widget: "widget", review: "review", watchday: "watchDay", watch: "watchDay", cloud: "cloud", gist: "cloud" };
   return MAP[n] || "generate";
 })();
 
-// ---------- 아래는 4개 모두 동일, 안 건드림 ----------
+// ---------- 아래는 모든 스크립트 공통, 안 건드림 ----------
 if(!CFG.OPENROUTER_KEY){
   const n = new Notification();
   n.title = "N1 설정 필요";
@@ -53,7 +53,7 @@ if(!CFG.OPENROUTER_KEY){
   new Function("module", _code)(_mod);
   const _fn = _mod.exports && _mod.exports[ACTION];
   if(typeof _fn !== "function"){
-    throw new Error("동작 '" + ACTION + "' 을(를) n1.js 에서 찾을 수 없습니다 — 스크립트 이름을 n1-generate / n1-day / n1-widget / n1-review 중 하나로 지어주세요.");
+    throw new Error("동작 '" + ACTION + "' 을(를) n1.js 에서 찾을 수 없습니다 — 스크립트 이름을 n1-generate / n1-day / n1-widget / n1-review / n1-watchday / n1-cloud 중 하나로 지어주세요.");
   }
   await _fn(CFG);
   Script.complete();
