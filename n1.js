@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30n
+// VERSION 2026-08-30o
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -397,6 +397,26 @@ function pickTapReview(s, cur){
   return picked;
 }
 
+// 위젯 탭 팝업 전용: "외웠음" 토글 없이 닫기/다음만 제공(위젯에서는 외웠음 처리 불가).
+// "다음"을 누르면 pickTapReview()로 다른 항목(가중 랜덤, 방금 본 것 제외)을 뽑아 계속 보여줌 —
+// 뽑힐 때마다 실제 노출로 반영(showCount 증가)하고 바로 저장.
+async function presentWidgetLoop(s, first){
+  var e = first;
+  while(e){
+    var a = new Alert();
+    a.title = e.targetKanji + "   ·   " + e.date;
+    a.message = detailText(e);
+    a.addAction("다음");
+    a.addCancelAction("닫기");
+    var pick = await a.present();
+    if(pick !== 0) break;   // 닫기
+    var nxt = pickTapReview(s, e);
+    if(!nxt) break;
+    writeState(s);
+    e = nxt;
+  }
+}
+
 // ---------- widget: 잠금/홈 위젯 ----------
 async function widget(cfg){
   var SCALE = cfg.SCALE || 1.15;
@@ -431,9 +451,9 @@ async function widget(cfg){
     w.refreshAfterDate = new Date(Date.now() + 5 * 60 * 1000);
     Script.setWidget(w);
     if(!config.runsInWidget){
-      // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
+      // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 팝업으로(닫기/다음만, 외웠음 불가).
       try {
-        if(cur){ await presentDetail(cur); writeState(s); }
+        if(cur){ await presentWidgetLoop(s, cur); writeState(s); }
         else { w.presentSmall(); }
       } catch(e){}
     }
@@ -518,9 +538,9 @@ async function widget(cfg){
   w.refreshAfterDate = new Date(Date.now() + 5 * 60 * 1000);
   Script.setWidget(w);
   if(!config.runsInWidget){
-    // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
+    // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 팝업으로(닫기/다음만, 외웠음 불가).
     try {
-      if(cur){ await presentDetail(cur); writeState(s); }
+      if(cur){ await presentWidgetLoop(s, cur); writeState(s); }
       else { w.presentLarge(); }
     } catch(e){}
   }
@@ -593,4 +613,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30n" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30o" };
