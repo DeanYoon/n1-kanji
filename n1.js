@@ -109,9 +109,14 @@ function validateFurigana(sentenceJP, furi){
 // 문제가 있었음(예: "変わる"의 "る"가 통째로 사라짐) — 그래서 drawText(text, point)로
 // 바꿈. drawText는 rect 제약이 없어 절대 글자를 숨기지 않고, 추정이 살짝 빗나가도
 // 인접 세그먼트와 조금 겹치는 정도로만 그침(훨씬 안전한 실패 방식).
-// opts: {fontSize, inkColor, softColor, maxWidth, maxLines}
+// opts: {fontSize, inkColor, softColor, maxWidth, maxLines, maxHeight}
 //   maxWidth: 한 줄의 폭 예산(pt). maxLines>1이면 이 폭을 넘길 것 같은 세그먼트부터
-//             다음 줄로 넘김(줄바꿈). 그래도 넘치면 이미지 전체를 축소.
+//             다음 줄로 넘김(줄바꿈).
+//   maxHeight: 전체 이미지 높이 예산(pt) — 줄바꿈으로 몇 줄이 되든 이 높이는 절대 못
+//              넘도록 강제 축소. (이전 버그: 폭만 맞추고 높이는 안 재서, 2줄로 감싸질 때
+//              위젯 레이아웃 전체를 밀어내고 잘라버림. maxHeight로 그 사고를 막음 —
+//              대신 긴 문장은 2줄로 나뉜 만큼 "같은 총 높이 안에서" 한 줄일 때보다
+//              글자가 커질 수 있는 게 이 줄바꿈 기능의 실질적 이득.)
 function buildFuriganaImage(segments, opts){
   var sz = opts.fontSize;
   var fz = Math.max(9, Math.round(sz * 0.42));
@@ -148,11 +153,17 @@ function buildFuriganaImage(segments, opts){
 
   var maxLineW = 0;
   for(i = 0; i < lineWidths.length; i++){ if(lineWidths[i] > maxLineW) maxLineW = lineWidths[i]; }
-  var scale = 1;
-  if(opts.maxWidth && maxLineW > opts.maxWidth) scale = opts.maxWidth / maxLineW;
+  var totalH = rowH * lines.length + lineGap * (lines.length - 1);
+
+  // 폭 제약과 높이 제약을 각각 계산해서 더 강하게 줄여야 하는 쪽에 맞춤(폭이든 높이든
+  // 절대 넘지 않도록) — 두 스케일 중 작은 쪽을 씀. 가로세로 같은 비율로 줄어서 글자가
+  // 찌그러지지 않음.
+  var scaleW = (opts.maxWidth && maxLineW > opts.maxWidth) ? (opts.maxWidth / maxLineW) : 1;
+  var scaleH = (opts.maxHeight && totalH > opts.maxHeight) ? (opts.maxHeight / totalH) : 1;
+  var scale = Math.min(scaleW, scaleH);
 
   var W = Math.max(1, Math.round(maxLineW * scale));
-  var H = Math.max(1, Math.round((rowH * lines.length + lineGap * (lines.length - 1)) * scale));
+  var H = Math.max(1, Math.round(totalH * scale));
 
   var ctx = new DrawContext();
   ctx.size = new Size(W, H);
@@ -605,7 +616,8 @@ async function widget(cfg){
     trs.font = Font.mediumSystemFont(f(11)); trs.textColor = new Color(c.soft);
     trs.minimumScaleFactor = MINS;
   } else {
-    var sentPx = big ? 54 : 37;   // 한자 문장 기본 크기(large는 최대 2줄 감쌈으로 더 키움)
+    var sentPx = big ? 48 : 34;   // 한자 문장 기본 크기 — 아래 maxHeight가 실제 상한을 강제하므로
+                                   // 여긴 "목표치"일 뿐, 안 맞으면 자동으로 줄어듦
     var drewFuri = false;
     if(Array.isArray(cur.furigana) && cur.furigana.length){
       // 한자 위에 작은 읽기(후리가나)를 이미지로 그려서 붙임 — furigana 데이터 있는
@@ -614,11 +626,17 @@ async function widget(cfg){
         var fi = buildFuriganaImage(cur.furigana, {
           fontSize: f(sentPx), inkColor: new Color(c.ink), softColor: new Color(c.soft),
           // 위젯 실제 물리 폭에 대한 근사치(pt) — SCALE로 다시 키우면 오히려 넘칠 수 있어
-          // f()로 스케일링하지 않고 고정값으로 둠. 잘리면 줄이고, 여유 있으면 올려도 됨.
+          // f()로 스케일링하지 않고 고정값으로 둠.
           maxWidth: 435,
-          // large는 세로 여유가 있어 최대 2줄까지 감싸서(줄바꿈) 폰트를 더 키울 수 있게 함 —
-          // medium은 세로 공간이 빠듯해 1줄 유지(넘치면 기존처럼 전체 축소).
-          maxLines: big ? 2 : 1
+          // large는 최대 2줄까지 감싸서(줄바꿈) 긴 문장의 글자를 덜 축소시킴 —
+          // medium은 세로 공간이 빠듯해 1줄 유지.
+          maxLines: big ? 2 : 1,
+          // 실측 레이아웃(위/아래 여백 + 헤더 + 번역 + 단어/문법 노트 + 하단 날짜)을 뺀
+          // 실제 남는 세로 공간의 근사치. 몇 줄로 감싸지든 이 높이는 절대 못 넘게 강제 —
+          // 이전 버그(폭만 맞추고 높이는 무제한으로 커져서 아래 내용을 다 밀어내고 잘림)
+          // 재발 방지. 문장이 길어서 2줄이 되면 "이 높이 안에서" 나눠 쓰는 거라 1줄일 때
+          // 보다 글자가 작아질 수 있음 — 세로 공간이 그만큼 빠듯하다는 뜻.
+          maxHeight: big ? 100 : 72
         });
         var fimg = w.addImage(fi.image);
         fimg.imageSize = new Size(fi.width, fi.height);
@@ -742,4 +760,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30t" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30u" };
