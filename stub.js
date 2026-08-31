@@ -1,8 +1,9 @@
 "use strict";
 // ===== N1 한자 학습 · Scriptable 껍데기 =====
 // 먼저 n1-config 를 한 번 실행해 키를 저장해두세요.
-// 이 껍데기는 4개 스크립트(n1-generate/n1-day/n1-widget/n1-review) 전부 동일 —
-// 바꿀 건 ACTION 한 줄뿐입니다.
+// 4개 스크립트(n1-generate / n1-day / n1-widget / n1-review)에 이 코드를 "그대로" 붙여넣고
+// 스크립트 이름만 각각 n1-generate / n1-day / n1-widget / n1-review 로 지어두면 됩니다.
+// 동작은 스크립트 이름에서 자동 판별하므로 코드는 한 글자도 수정하지 않습니다.
 
 const CFG = {
   OPENROUTER_KEY: Keychain.contains("N1_OPENROUTER_KEY") ? Keychain.get("N1_OPENROUTER_KEY") : "",
@@ -13,7 +14,17 @@ const CFG = {
   // START_HOUR: 9, END_HOUR: 19, INTERVAL_MIN: 10, NEW_EVERY_MIN: 60, SCALE: 1.15, MINS: 0.4
 };
 const SRC = "https://raw.githubusercontent.com/DeanYoon/n1-kanji/main/n1.js";
-const ACTION = "generate";   // ← 스크립트마다 다르게:  n1-generate→"generate"  n1-day→"day"  n1-widget→"widget"  n1-review→"review"
+
+// 스크립트 이름에서 동작을 자동 판별 — 4개 스크립트에 이 파일을 그대로 붙여넣고
+// 이름만 n1-generate / n1-day / n1-widget / n1-review 로 지어두면 됩니다(코드 수정 불필요).
+// "n1-" 접두사·대소문자·하이픈/언더바/공백은 무시. 못 알아보면 generate로 폴백.
+const ACTION = (function(){
+  var n = "";
+  try { n = Script.name() || ""; } catch(e){}
+  n = String(n).trim().toLowerCase().replace(/^n1[-_ ]*/, "").replace(/[-_ ]/g, "");
+  var MAP = { generate: "generate", gen: "generate", day: "day", widget: "widget", review: "review", watchday: "watchDay", watch: "watchDay" };
+  return MAP[n] || "generate";
+})();
 
 // ---------- 아래는 4개 모두 동일, 안 건드림 ----------
 if(!CFG.OPENROUTER_KEY){
@@ -40,6 +51,10 @@ if(!CFG.OPENROUTER_KEY){
 
   const _mod = {};
   new Function("module", _code)(_mod);
-  await _mod.exports[ACTION](CFG);
+  const _fn = _mod.exports && _mod.exports[ACTION];
+  if(typeof _fn !== "function"){
+    throw new Error("동작 '" + ACTION + "' 을(를) n1.js 에서 찾을 수 없습니다 — 스크립트 이름을 n1-generate / n1-day / n1-widget / n1-review 중 하나로 지어주세요.");
+  }
+  await _fn(CFG);
   Script.complete();
 }
