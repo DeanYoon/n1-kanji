@@ -104,54 +104,84 @@ function validateFurigana(sentenceJP, furi){
 // furigana 세그먼트를 이미지로 그려서 위젯에 넣을 수 있게 만듦(한자 위에 작은 읽기).
 // Scriptable DrawContext에는 텍스트 폭을 재는 API가 없어서, "글자 수 × 폰트 크기 비율"로
 // 세그먼트 폭을 추정해서 칸을 나눈다 — 실기기 폰트에 따라 살짝 밀릴 수 있음, 그럴 땐
-// CHAR_W_RATIO를 조절. opts: {fontSize, inkColor, softColor, maxWidth}
+// CHAR_W_RATIO를 조절.
+// drawTextInRect()는 추정 폭이 실제보다 좁으면 글자를 "다음 줄로 밀어서 감춰버리는"
+// 문제가 있었음(예: "変わる"의 "る"가 통째로 사라짐) — 그래서 drawText(text, point)로
+// 바꿈. drawText는 rect 제약이 없어 절대 글자를 숨기지 않고, 추정이 살짝 빗나가도
+// 인접 세그먼트와 조금 겹치는 정도로만 그침(훨씬 안전한 실패 방식).
+// opts: {fontSize, inkColor, softColor, maxWidth, maxLines}
+//   maxWidth: 한 줄의 폭 예산(pt). maxLines>1이면 이 폭을 넘길 것 같은 세그먼트부터
+//             다음 줄로 넘김(줄바꿈). 그래도 넘치면 이미지 전체를 축소.
 function buildFuriganaImage(segments, opts){
   var sz = opts.fontSize;
   var fz = Math.max(9, Math.round(sz * 0.42));
-  var CHAR_W_RATIO = 0.92;   // 1.0으로 폭을 넉넉히 잡으니 안전 축소가 과하게 걸려 글씨가 작아 보였음
+  var CHAR_W_RATIO = 1.05;   // drawText는 추정이 넉넉해도(=조금 남는 정도) 안전하므로 넉넉하게
   var cw = sz * CHAR_W_RATIO;
   var fcw = fz * CHAR_W_RATIO;
   var mainH = Math.round(sz * 1.25);
   var furiH = Math.round(fz * 1.35);
   var pad = Math.max(2, Math.round(sz * 0.06));   // 글씨 커진 만큼 세그먼트 간격도 비례
+  var lineGap = Math.max(1, Math.round(sz * 0.08));
+  var rowH = furiH + mainH;
+  var maxLines = Math.max(1, opts.maxLines || 1);
+  var maxWidth = opts.maxWidth || Infinity;
 
-  var widths = [], total = 0, i;
+  var segs = [], i;
   for(i = 0; i < segments.length; i++){
     var seg = segments[i];
     var mainW = seg.t.length * cw;
     var furiW = seg.r ? seg.r.length * fcw : 0;
-    var segW = Math.max(mainW, furiW) + pad;
-    widths.push(segW);
-    total += segW;
+    segs.push({ t: seg.t, r: seg.r, mainW: mainW, furiW: furiW, segW: Math.max(mainW, furiW) + pad });
   }
 
+  // 줄 채우기: 폭이 넘칠 것 같으면 다음 줄로(단, maxLines 넘어가면 마지막 줄에 계속 이어붙임)
+  var lines = [[]], lineWidths = [0];
+  for(i = 0; i < segs.length; i++){
+    var s = segs[i];
+    var li = lines.length - 1;
+    if(lineWidths[li] > 0 && (lineWidths[li] + s.segW) > maxWidth && lines.length < maxLines){
+      lines.push([]); lineWidths.push(0); li++;
+    }
+    lines[li].push(s);
+    lineWidths[li] += s.segW;
+  }
+
+  var maxLineW = 0;
+  for(i = 0; i < lineWidths.length; i++){ if(lineWidths[i] > maxLineW) maxLineW = lineWidths[i]; }
   var scale = 1;
-  if(opts.maxWidth && total > opts.maxWidth) scale = opts.maxWidth / total;
-  var W = Math.max(1, Math.round(total * scale));
-  var H = Math.round((furiH + mainH) * scale);
+  if(opts.maxWidth && maxLineW > opts.maxWidth) scale = opts.maxWidth / maxLineW;
+
+  var W = Math.max(1, Math.round(maxLineW * scale));
+  var H = Math.max(1, Math.round((rowH * lines.length + lineGap * (lines.length - 1)) * scale));
 
   var ctx = new DrawContext();
   ctx.size = new Size(W, H);
   ctx.opaque = false;
   ctx.respectScreenScale = true;
-  ctx.setTextAlignedCenter();
 
   var mainFont = Font.semiboldSystemFont(Math.max(8, Math.round(sz * scale)));
   var furiFont = Font.systemFont(Math.max(7, Math.round(fz * scale)));
 
-  var x = 0;
-  for(i = 0; i < segments.length; i++){
-    var s = segments[i];
-    var w0 = widths[i] * scale;
-    if(s.r){
-      ctx.setFont(furiFont);
-      ctx.setTextColor(opts.softColor);
-      ctx.drawTextInRect(s.r, new Rect(x, 0, w0, furiH * scale));
+  var y = 0;
+  for(var li2 = 0; li2 < lines.length; li2++){
+    var line = lines[li2];
+    var x = 0;
+    for(i = 0; i < line.length; i++){
+      var s2 = line[i];
+      var w0 = s2.segW * scale;
+      if(s2.r){
+        ctx.setFont(furiFont);
+        ctx.setTextColor(opts.softColor);
+        var furiW0 = s2.furiW * scale;
+        ctx.drawText(s2.r, new Point(x + (w0 - furiW0) / 2, y));
+      }
+      ctx.setFont(mainFont);
+      ctx.setTextColor(opts.inkColor);
+      var mainW0 = s2.mainW * scale;
+      ctx.drawText(s2.t, new Point(x + (w0 - mainW0) / 2, y + furiH * scale));
+      x += w0;
     }
-    ctx.setFont(mainFont);
-    ctx.setTextColor(opts.inkColor);
-    ctx.drawTextInRect(s.t, new Rect(x, furiH * scale, w0, mainH * scale));
-    x += w0;
+    y += (rowH + lineGap) * scale;
   }
   return { image: ctx.getImage(), width: W, height: H };
 }
@@ -575,7 +605,7 @@ async function widget(cfg){
     trs.font = Font.mediumSystemFont(f(11)); trs.textColor = new Color(c.soft);
     trs.minimumScaleFactor = MINS;
   } else {
-    var sentPx = big ? 45 : 33;   // 한자 문장 기본 크기(실기기 확인 후 30/22 -> 1.5배)
+    var sentPx = big ? 54 : 37;   // 한자 문장 기본 크기(large는 최대 2줄 감쌈으로 더 키움)
     var drewFuri = false;
     if(Array.isArray(cur.furigana) && cur.furigana.length){
       // 한자 위에 작은 읽기(후리가나)를 이미지로 그려서 붙임 — furigana 데이터 있는
@@ -585,8 +615,10 @@ async function widget(cfg){
           fontSize: f(sentPx), inkColor: new Color(c.ink), softColor: new Color(c.soft),
           // 위젯 실제 물리 폭에 대한 근사치(pt) — SCALE로 다시 키우면 오히려 넘칠 수 있어
           // f()로 스케일링하지 않고 고정값으로 둠. 잘리면 줄이고, 여유 있으면 올려도 됨.
-          // (실기기 확인 후 290 -> 1.5배)
-          maxWidth: 435
+          maxWidth: 435,
+          // large는 세로 여유가 있어 최대 2줄까지 감싸서(줄바꿈) 폰트를 더 키울 수 있게 함 —
+          // medium은 세로 공간이 빠듯해 1줄 유지(넘치면 기존처럼 전체 축소).
+          maxLines: big ? 2 : 1
         });
         var fimg = w.addImage(fi.image);
         fimg.imageSize = new Size(fi.width, fi.height);
@@ -710,4 +742,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30s" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30t" };
