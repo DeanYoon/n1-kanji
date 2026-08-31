@@ -809,34 +809,65 @@ async function review(cfg){
   await table.present(true);
 }
 
-// ---------- watchWord: 애플워치 글랜스 전용 — generate()/day()와 완전히 별개 트랙 ----------
-// state를 읽기만 하고 절대 쓰지 않음(writeState 호출 없음) — API 호출도, history의
-// showCount/lastShownAt 갱신도, progressIndex/lastNewAt 진행도 전혀 안 건드림. 그래서
-// 이 액션을 몇 분 간격으로 돌리든 generate()/day() 쪽 신규·복습 판단·진도에는 0% 영향.
-// 지금 진행 중인 항목(current() — 위젯이 보여주는 것과 동일한 기준)의 "단어" 하나만
-// 뽑아서(단어/후리가나/한글번역) 별도 알림 식별자(n1-watchword)로 알림 — n1-current(문장
-// 알림, generate()가 씀)와 안 겹침. 아이폰 알림은 페어링된 애플워치로 자동 미러링되므로
-// (기기의 Watch 앱 > Notifications 에서 Scriptable 알림 미러링이 켜져 있어야 함) 손목
-// 들면 이 단어 카드가 바로 보임 — Scriptable 자체엔 워치 전용 API가 없어서 알림
-// 미러링이 유일한 경로.
-async function watchWord(cfg){
-  var s = await readState();
-  if(!s || !Array.isArray(s.history) || !s.history.length) return;
-  var cur = current(s);
-  if(!cur) return;
-  var hw = pickHeadword(cur);
-  var title, body;
-  if(hw){
-    title = hw.word;
-    body = hw.reading + "\n" + hw.meaningKR;
-  } else {
-    // kanjiNotes 없는(furigana 기능 이전) 옛 항목만 폴백: 목표 한자 + 문장 읽기/번역
-    title = cur.targetKanji;
-    body = cur.readingHiragana + "\n" + cur.translationKR;
+// ---------- watchDay: 애플워치 단어 알림을 하루치 미리 예약 (n1-day처럼 하루 1회 실행) ----------
+// generate()/day()와 완전히 격리: state는 읽기만 하고 writeState()를 아예 호출 안 함 —
+// API 호출 없음, history/progressIndex/lastNewAt/showCount 등 아무것도 안 건드림(그래서
+// 이걸 몇 번을 다시 실행해도 신규·복습 판단·진도에는 0% 영향).
+//
+// iOS 로컬 알림은 앱(=Scriptable) 하나당 최대 64개까지만 예약 가능 — n1-day 의 문장
+// 알림(최대 57개)과 합치면 바로 초과라서, 문장 알림은 끄고(=n1-day 자동화 중지) 이
+// watchDay 하나만 쓰는 걸 전제로 함. WATCH_START_HOUR~WATCH_END_HOUR 구간을
+// WATCH_INTERVAL_MIN(기본 10분) 간격으로 채우되, 64개를 넘기지 않도록 기본 구간을
+// 9~19시(10시간·61개)로 좁혀둠 — 더 넓히고 싶으면 간격을 늘리거나 구간을 줄여야 함.
+//
+// 각 슬롯마다 가중 랜덤(pickWeightedReview, day()/generate()와 같은 공식 — 덜 노출됐거나
+// "외웠음" 아직 안 된 문장 위주)으로 이력 하나를 골라, 그 안의 목표 한자가 포함된
+// 단어(kanjiNotes)를 뽑아 "단어 / 후리가나 / 한글번역"으로 알림 예약. 아이폰 알림은
+// 페어링된 애플워치로 자동 미러링되므로(기기의 Watch 앱 > Notifications 에서 Scriptable
+// 미러링이 켜져 있어야 함) 그 시각에 손목 들면 바로 보임 — Scriptable 자체엔 워치 전용
+// API가 없어서 알림 미러링이 유일한 경로.
+async function watchDay(cfg){
+  try {
+    var s = await readState();
+    if(!s || !Array.isArray(s.history) || !s.history.length){
+      await notify("n1-watch-err", "워치 단어 알림 예약 실패", "먼저 n1-generate 를 한 번 실행해 이력을 만드세요.");
+      return;
+    }
+    var STEP = cfg.WATCH_INTERVAL_MIN || 10;
+    var startH = (cfg.WATCH_START_HOUR != null) ? cfg.WATCH_START_HOUR : 9;
+    var endH = (cfg.WATCH_END_HOUR != null) ? cfg.WATCH_END_HOUR : 19;
+    var startMin = startH * 60, endMin = endH * 60;
+    var slotCount = Math.floor((endMin - startMin) / STEP) + 1;
+    if(slotCount > 64){
+      await notify("n1-watch-err", "워치 단어 알림 설정 오류",
+        slotCount + "개 필요(64개 초과) — WATCH_START_HOUR~WATCH_END_HOUR 구간을 줄이거나 WATCH_INTERVAL_MIN을 늘리세요.");
+      return;
+    }
+
+    var now = new Date(), today = dateJST();
+    var sessionBumps = {}, count = 0;
+    for(var m = startMin; m <= endMin; m += STEP){
+      var hh = Math.floor(m / 60), mm = m % 60, key = pad2(hh) + ":" + pad2(mm);
+      var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hh, mm, 0, 0);
+      if(slotDate.getTime() <= Date.now() + 5000) continue;   // 이미 지난 시각은 건너뜀
+
+      var picked = pickWeightedReview(s.history, sessionBumps);
+      if(!picked) continue;
+      sessionBumps[picked.id] = (sessionBumps[picked.id] || 0) + 1;
+
+      var hw = pickHeadword(picked);
+      var title, body;
+      if(hw){ title = hw.word; body = hw.reading + "\n" + hw.meaningKR; }
+      else { title = picked.targetKanji; body = picked.readingHiragana + "\n" + picked.translationKR; }   // 옛 항목 폴백
+
+      await notify("n1-watch-" + today + "-" + key.replace(":", ""), title, body, slotDate);
+      count++;
+    }
+    console.log("OK watchDay " + count + "칸 예약(" + today + " " + pad2(startH) + ":00~" + pad2(endH) + ":00, " + STEP + "분 간격)");
+  } catch(e){
+    await notify("n1-watch-err", "워치 단어 알림 예약 실패", String(e && e.message ? e.message : e));
+    throw e;
   }
-  try { await Notification.removeDelivered(["n1-watchword"]); } catch(e){}
-  try { await Notification.removePending(["n1-watchword"]); } catch(e){}
-  await notify("n1-watchword", title, body, null);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchWord: watchWord, VERSION: "2026-08-30y" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-30z" };
