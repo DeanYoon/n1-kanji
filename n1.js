@@ -331,7 +331,7 @@ async function composeNewEntry(cfg, s, slotISO, idSuffix){
   };
   s.history.unshift(cur);
 
-  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 1;
+  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 3;   // 기본값: 한자당 예문 3개
   s.kanjiRepCount = (s.kanjiRepCount || 0) + 1;
   if(s.kanjiRepCount >= reps){
     s.progressIndex += 1;
@@ -402,7 +402,7 @@ function isDueForNew(cfg, s){
   }
   // NEW_EVERY_MIN: 0 을 CFG에 넣으면 "항상 신규" 테스트 모드가 되도록 명시적 null 체크
   // (예전엔 `|| 60`이라 0을 넣어도 falsy라서 60으로 되돌아가는 버그가 있었음).
-  var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 60;
+  var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 30;   // REPS_PER_KANJI=3 기본값과 맞춰 하루 생성량 보정
   if(!s.lastNewAt) return true;
   return (Date.now() - Date.parse(s.lastNewAt)) / 60000 >= every;
 }
@@ -477,7 +477,12 @@ async function day(cfg){
     var already = s.builtSlots[today];
 
     var STEP = cfg.INTERVAL_MIN || 15;
-    var NEWEVERY = cfg.NEW_EVERY_MIN || 60;
+    // 기본 30분(15분 그리드에 맞춰 15의 배수여야 정확히 작동 — 아무 값이나 넣으면 그리드와
+    // 안 맞아떨어져 의도와 다르게 동작할 수 있음). 60→30으로 낮춰서 "새 슬롯" 개수를
+    // 09~23시 기준 약 15개/일 → 약 29개/일로 올림. REPS_PER_KANJI 기본값(3)과 나누면
+    // 하루 약 9~10개 "한자" 진도(=29÷3) — 706자를 12월 초 시험 전에 다 돌기 위해 잡았던
+    // "하루 약 10개 신규 한자" 페이스를, 한자당 예문이 3개로 늘어난 만큼 보정한 값.
+    var NEWEVERY = cfg.NEW_EVERY_MIN || 30;
     var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
     var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
     var startMin = startH * 60, endMin = endH * 60;
@@ -905,4 +910,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31c" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31d" };
