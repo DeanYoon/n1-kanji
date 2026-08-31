@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30l
+// VERSION 2026-08-30m
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -200,7 +200,20 @@ function pushBody(cur){
   return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;
 }
 
-// ---------- generate: 1회 = 한자 1개 ----------
+// n1-generate 가 실제로 몇 시에 불렸는지로 동작을 나눔 — 외부 자동화가 INTERVAL_MIN(기본 15분)
+// 간격으로 이 스크립트를 직접 반복 실행하는 걸 전제로 함:
+// · 정각 부근(:00/:15/:30/:45 등, ±GRID_TOLERANCE_MIN분)에 불렸으면 "정규 틱" — 기존 로직 그대로
+//   (advanceOne: 신규/복습 교대, 신규면 API 호출로 새 문장 생성).
+// · 그 사이 다른 시각에 불렸으면 "여분 호출" — API 호출 없이, 기존 이력 중 복습 횟수 적은 걸
+//   하나 골라 복습으로만 반영(day()의 가중 랜덤과 동일 공식. pickTapReview 재사용).
+function isOnGrid(cfg){
+  var step = cfg.INTERVAL_MIN || 15;
+  var tol = (cfg.GRID_TOLERANCE_MIN != null) ? cfg.GRID_TOLERANCE_MIN : 1;
+  var mm = new Date().getMinutes() % step;
+  return mm <= tol || mm >= (step - tol);
+}
+
+// ---------- generate: 1회 = 한자 1개(정규 틱) 또는 기존 문장 복습 1건(그 사이 호출) ----------
 async function generate(cfg){
   try {
     var s = await readState();
@@ -208,7 +221,13 @@ async function generate(cfg){
     if(!Array.isArray(s.history)) s.history = [];
     reconcile(s);   // 예약해뒀던 복습 중 시각이 지난 게 있으면 먼저 반영
     var iso = nowISO();
-    var r = await advanceOne(cfg, s, iso);
+    var r;
+    if(isOnGrid(cfg) || s.history.length === 0){
+      r = await advanceOne(cfg, s, iso);   // 정규 틱(또는 첫 실행): 기존 로직 그대로
+    } else {
+      var picked = pickTapReview(s, current(s));   // 그 사이 호출: API 호출 없이 복습만 반영
+      r = picked ? { cur: picked, mode: "review" } : await advanceOne(cfg, s, iso);
+    }
     s.lastCurrentId = r.cur.id;
     s.updatedAt = iso;
     writeState(s);
@@ -410,10 +429,9 @@ async function widget(cfg){
     w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
     Script.setWidget(w);
     if(!config.runsInWidget){
-      // 탭해서 열린 경우: 미리보기 대신 다른 항목(가중 랜덤 복습)을 팝업으로 바로 보여줌.
+      // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
       try {
-        var tapped0 = pickTapReview(s, cur);
-        if(tapped0){ writeState(s); await presentDetail(tapped0); writeState(s); }
+        if(cur){ await presentDetail(cur); writeState(s); }
         else { w.presentSmall(); }
       } catch(e){}
     }
@@ -498,10 +516,9 @@ async function widget(cfg){
   w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
   Script.setWidget(w);
   if(!config.runsInWidget){
-    // 탭해서 열린 경우: 미리보기 대신 다른 항목(가중 랜덤 복습)을 팝업으로 바로 보여줌.
+    // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
     try {
-      var tapped = pickTapReview(s, cur);
-      if(tapped){ writeState(s); await presentDetail(tapped); writeState(s); }
+      if(cur){ await presentDetail(cur); writeState(s); }
       else { w.presentLarge(); }
     } catch(e){}
   }
@@ -574,4 +591,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30l" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30m" };
