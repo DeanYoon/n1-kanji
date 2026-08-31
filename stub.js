@@ -6,7 +6,9 @@
 
 const CFG = {
   OPENROUTER_KEY: Keychain.contains("N1_OPENROUTER_KEY") ? Keychain.get("N1_OPENROUTER_KEY") : "",
-  MODEL: Keychain.contains("N1_MODEL") ? Keychain.get("N1_MODEL") : "anthropic/claude-sonnet-5"
+  MODEL: Keychain.contains("N1_MODEL") ? Keychain.get("N1_MODEL") : "anthropic/claude-sonnet-5",
+  GIST_ID: Keychain.contains("N1_GIST_ID") ? Keychain.get("N1_GIST_ID") : "",
+  GIST_TOKEN: Keychain.contains("N1_GIST_TOKEN") ? Keychain.get("N1_GIST_TOKEN") : ""
   // 필요하면 여기에 추가로 넣기(선택, 안 넣으면 기본값 사용):
   // START_HOUR: 9, END_HOUR: 19, INTERVAL_MIN: 10, NEW_EVERY_MIN: 60, SCALE: 1.15, MINS: 0.4
 };

@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30s
+// VERSION 2026-08-31f
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -289,6 +289,32 @@ function current(s){
   return h.reduce(function(a, b){ return (slotT(a) <= slotT(b) ? a : b); });
 }
 
+// ---------- 클라우드 동기화(GitHub Gist) ----------
+// 윈도우 등 다른 기기에서 "폰이 지금 보여주는 것과 동일한" 단어를 알림으로 띄울 수 있도록,
+// day() 가 그 날 예약한 슬롯(시각·제목·본문)을 그대로 Gist 하나에 올려둠. cfg.GIST_ID /
+// cfg.GIST_TOKEN 이 없으면(=설정 안 했으면) 조용히 스킵 — 클라우드 동기화는 완전히 선택
+// 사항이고, 실패해도 로컬 알림/위젯 동작에는 전혀 영향 없음(항상 try/catch로 무시).
+async function pushCloud(cfg, today, slots){
+  if(!cfg.GIST_ID || !cfg.GIST_TOKEN) return;
+  try {
+    var sorted = slots.slice().sort(function(a, b){ return a.key < b.key ? -1 : a.key > b.key ? 1 : 0; });
+    var payload = { date: today, slots: sorted, updatedAt: nowISO() };
+    var req = new Request("https://api.github.com/gists/" + cfg.GIST_ID);
+    req.method = "PATCH";
+    req.headers = {
+      "Authorization": "Bearer " + cfg.GIST_TOKEN,
+      "Accept": "application/vnd.github+json",
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+    req.body = JSON.stringify({ files: { "n1-today.json": { content: JSON.stringify(payload) } } });
+    await req.loadJSON();
+    console.log("[n1] 클라우드 동기화 OK · " + sorted.length + "칸");
+  } catch(e){
+    console.log("[n1] 클라우드 동기화 실패(무시): " + e);
+  }
+}
+
 async function notify(id, title, body, triggerDate, openURL){
   var n = new Notification();
   n.identifier = id;
@@ -441,10 +467,20 @@ async function generate(cfg){
     }
     s.lastCurrentId = r.cur.id;
     s.updatedAt = iso;
+    // day()와 같은 방식으로 "지금" 항목도 클라우드에 한 칸 올려둠(주로 day() 자동화를
+    // 안 쓰고 generate()만 수동/주기 실행하는 경우 대비) — 오늘치 cloudSlots에 병합.
+    var gToday = dateJST(), gNow = new Date();
+    var gKey = pad2(gNow.getHours()) + ":" + pad2(gNow.getMinutes());
+    if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+    var gdk = Object.keys(s.cloudSlots);
+    for(var gdi = 0; gdi < gdk.length; gdi++){ if(gdk[gdi] !== gToday) delete s.cloudSlots[gdk[gdi]]; }
+    if(!Array.isArray(s.cloudSlots[gToday])) s.cloudSlots[gToday] = [];
+    s.cloudSlots[gToday].push({ key: gKey, title: pushTitle(r.mode, r.cur, s), body: pushBody(r.cur) });
     writeState(s);
     try { await Notification.removeDelivered(["n1-current"]); } catch(e){}
     try { await Notification.removePending(["n1-current"]); } catch(e){}
     await notify("n1-current", pushTitle(r.mode, r.cur, s), pushBody(r.cur), null, reviewURL(cfg));
+    await pushCloud(cfg, gToday, s.cloudSlots[gToday]);
     console.log("OK generate " + r.mode + " " + r.cur.targetKanji);
   } catch(e){
     await notify("n1-err-" + Date.now(), "N1 생성 실패", String(e && e.message ? e.message : e));
@@ -549,7 +585,17 @@ async function day(cfg){
     reconcile(s);   // 이 중 이미 지난 시각이 있으면(과거로 예약된 경우 등) 바로 반영
     s.lastCurrentId = s.history[0] ? s.history[0].id : s.lastCurrentId;
     s.updatedAt = nowISO();
+    // 오늘치 슬롯(시각·제목·본문)을 누적 저장 후 클라우드에 통째로 올림 — day()가 하루에
+    // 여러 번(구간별로) 불려도 이전에 이미 올린 슬롯이 안 지워지도록 병합.
+    if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+    var cdk = Object.keys(s.cloudSlots);
+    for(var cdi = 0; cdi < cdk.length; cdi++){ if(cdk[cdi] !== today) delete s.cloudSlots[cdk[cdi]]; }
+    if(!Array.isArray(s.cloudSlots[today])) s.cloudSlots[today] = [];
+    for(var pk = 0; pk < plan.length; pk++){
+      s.cloudSlots[today].push({ key: plan[pk].key, title: plan[pk].title, body: plan[pk].body });
+    }
     writeState(s);
+    await pushCloud(cfg, today, s.cloudSlots[today]);
     console.log("OK day " + plan.length + "칸(" + today + " " + todo[0].key + "~" + todo[todo.length - 1].key + ") 처리");
   } catch(e){
     await notify("n1-err-day", "N1 갱신 실패", (e && e.message ? e.message : e) + " · 다시 실행하면 남은 구간만 이어서 처리");
@@ -920,4 +966,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31e" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31f" };
