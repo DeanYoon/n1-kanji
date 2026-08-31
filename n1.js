@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30q
+// VERSION 2026-08-30r
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -108,7 +108,7 @@ function validateFurigana(sentenceJP, furi){
 function buildFuriganaImage(segments, opts){
   var sz = opts.fontSize;
   var fz = Math.max(9, Math.round(sz * 0.42));
-  var CHAR_W_RATIO = 1.0;
+  var CHAR_W_RATIO = 0.92;   // 1.0으로 폭을 넉넉히 잡으니 안전 축소가 과하게 걸려 글씨가 작아 보였음
   var cw = sz * CHAR_W_RATIO;
   var fcw = fz * CHAR_W_RATIO;
   var mainH = Math.round(sz * 1.25);
@@ -575,7 +575,7 @@ async function widget(cfg){
     trs.font = Font.mediumSystemFont(f(11)); trs.textColor = new Color(c.soft);
     trs.minimumScaleFactor = MINS;
   } else {
-    var sentPx = big ? 25 : 18;
+    var sentPx = big ? 30 : 22;   // 한자 문장 기본 크기(이전 25/18에서 키움)
     var drewFuri = false;
     if(Array.isArray(cur.furigana) && cur.furigana.length){
       // 한자 위에 작은 읽기(후리가나)를 이미지로 그려서 붙임 — furigana 데이터 있는
@@ -583,7 +583,9 @@ async function widget(cfg){
       try {
         var fi = buildFuriganaImage(cur.furigana, {
           fontSize: f(sentPx), inkColor: new Color(c.ink), softColor: new Color(c.soft),
-          maxWidth: f(280)
+          // 위젯 실제 물리 폭에 대한 근사치(pt) — SCALE로 다시 키우면 오히려 넘칠 수 있어
+          // f()로 스케일링하지 않고 고정값으로 둠. 잘리면 줄이고, 여유 있으면 올려도 됨.
+          maxWidth: 290
         });
         var fimg = w.addImage(fi.image);
         fimg.imageSize = new Size(fi.width, fi.height);
@@ -598,7 +600,7 @@ async function widget(cfg){
       sj.minimumScaleFactor = MINS;
       w.addSpacer(f(4));
       var rd = w.addText(cur.readingHiragana);
-      rd.font = Font.systemFont(f(big ? 14 : 12)); rd.textColor = new Color(c.soft);
+      rd.font = Font.systemFont(f(big ? 17 : 14)); rd.textColor = new Color(c.soft);
       rd.minimumScaleFactor = MINS;
     }
     w.addSpacer(f(big ? 10 : 8));
@@ -707,4 +709,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30q" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30r" };
