@@ -5,9 +5,20 @@
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
+// "예전 데이터가 계속 불려온다" 같은 문제를 실기기에서 못 열어보고는 진단할 방법이 없어서,
+// 실제로 어떤 저장소(iCloud/로컬)의 어느 경로를 읽고 있는지, 그 경로에 파일이 있다고
+// 판단했는지를 매번 console.log로 남김. Scriptable에서 스크립트를 수동 실행(▶)하면
+// 화면 하단 콘솔에서 이 로그를 바로 볼 수 있음 — Files 앱에서 지운 파일이 실제로 이
+// 경로와 같은지 대조하는 데 씀.
 function getFM(){
-  try { var g = FileManager.iCloud(); g.documentsDirectory(); return g; }
-  catch(e){ return FileManager.local(); }
+  try {
+    var g = FileManager.iCloud(); g.documentsDirectory();
+    console.log("[n1] FileManager: iCloud");
+    return g;
+  } catch(e){
+    console.log("[n1] FileManager: local (iCloud 사용 불가: " + e + ")");
+    return FileManager.local();
+  }
 }
 function stateDir(fm){
   var d = fm.joinPath(fm.documentsDirectory(), DIR_NAME);
@@ -17,9 +28,15 @@ function stateDir(fm){
 function statePath(fm){ return fm.joinPath(stateDir(fm), FILE_NAME); }
 async function readState(){
   var fm = getFM(), p = statePath(fm);
-  if(!fm.fileExists(p)) return null;
+  var exists = fm.fileExists(p);
+  console.log("[n1] state 경로: " + p + " · 존재: " + exists);
+  if(!exists) return null;
   try { if(fm.isFileStoredIniCloud(p) && !fm.isFileDownloaded(p)) await fm.downloadFileFromiCloud(p); } catch(e){}
-  try { return JSON.parse(fm.readString(p)); } catch(e){ return null; }
+  try {
+    var parsed = JSON.parse(fm.readString(p));
+    console.log("[n1] state 로드됨 · history " + ((parsed.history && parsed.history.length) || 0) + "건 · progressIndex " + parsed.progressIndex + " · updatedAt " + parsed.updatedAt);
+    return parsed;
+  } catch(e){ return null; }
 }
 function writeState(s){ var fm = getFM(); fm.writeString(statePath(fm), JSON.stringify(s)); }
 
@@ -333,7 +350,16 @@ function isDueForNew(cfg, s){
 async function generate(cfg){
   try {
     var s = await readState();
+    var freshStart = !s;
     if(!s) s = JSON.parse(JSON.stringify(SEED));
+    if(freshStart){
+      // state 파일이 없어서(=지워서) 새로 시작하는 경우 — day()가 예전에 미리 예약해둔
+      // 로컬 알림들은 그때 문장 내용이 이미 텍스트로 박제되어 있어서, state를 지워도
+      // 알아서 사라지지 않고 원래 예약 시각마다(예: 15분 간격) 계속 옛날 내용 그대로
+      // 뜸. "지웠는데 계속 옛날 데이터가 보인다"는 증상은 새 state가 아니라 십중팔구
+      // 이 남아있던 예약 알림들 — 그래서 진짜 리셋일 때는 예약된 알림도 싹 같이 정리.
+      try { await Notification.removeAllPending(); } catch(e){}
+    }
     if(!Array.isArray(s.history)) s.history = [];
     reconcile(s);   // 예약해뒀던 복습 중 시각이 지난 게 있으면 먼저 반영
     var iso = nowISO();
@@ -767,4 +793,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30v" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30w" };
