@@ -625,9 +625,13 @@ async function widget(cfg){
       try {
         var fi = buildFuriganaImage(cur.furigana, {
           fontSize: f(sentPx), inkColor: new Color(c.ink), softColor: new Color(c.soft),
-          // 위젯 실제 물리 폭에 대한 근사치(pt) — SCALE로 다시 키우면 오히려 넘칠 수 있어
-          // f()로 스케일링하지 않고 고정값으로 둠.
-          maxWidth: 435,
+          // 위젯 실제 물리 폭(패딩 뺀 콘텐츠 폭)에 대한 근사치(pt) — large/medium 위젯
+          // 실측 폭은 기기 불문 대략 300pt 안팎이라 290이 안전한 값(예전에 실기기로
+          // 확인했던 값). ※ 지난번에 "1.5배 키워달라"는 요청을 글자 크기뿐 아니라 이
+          // 물리 폭 상수에도 잘못 적용해서 435로 올렸었는데, 이 값은 폰트 크기와 무관하게
+          // 위젯의 실제 하드웨어 폭이라 절대 그렇게 같이 늘리면 안 됐음 — 그게 폭 오버플로우
+          // (좌우로 잘려 보이던 증상)의 직접 원인. 다시 290으로 되돌림.
+          maxWidth: 290,
           // large는 최대 2줄까지 감싸서(줄바꿈) 긴 문장의 글자를 덜 축소시킴 —
           // medium은 세로 공간이 빠듯해 1줄 유지.
           maxLines: big ? 2 : 1,
@@ -661,19 +665,22 @@ async function widget(cfg){
 
     if(big){
       w.addSpacer(f(10));
-      var vn = (cur.kanjiNotes || []).slice(0, 2);
+      // 생성 시 단어는 2~4개 저장되는데 여기선 2개만 잘라서 보여주고 있었음 — 저장된 건
+      // 다 보이게 4개까지 늘림(그만큼 문법은 2개로 줄이고 폰트/줄간격도 살짝 줄여서
+      // 세로 공간 총량은 비슷하게 유지 — 안 그러면 furigana 문장 영역이 다시 밀려 잘림).
+      var vn = (cur.kanjiNotes || []).slice(0, 4);
       for(var vi = 0; vi < vn.length; vi++){
         var nt = vn[vi];
         var lv = w.addText("語  " + nt.word + "  " + nt.reading + "  " + nt.meaningKR);
-        lv.font = Font.systemFont(f(13)); lv.textColor = new Color(c.soft);
-        lv.minimumScaleFactor = MINS; w.addSpacer(f(3));
+        lv.font = Font.systemFont(f(12)); lv.textColor = new Color(c.soft);
+        lv.minimumScaleFactor = MINS; w.addSpacer(f(2));
       }
-      var gn = (cur.grammarNotes || []).slice(0, 3);
+      var gn = (cur.grammarNotes || []).slice(0, 2);
       for(var gi = 0; gi < gn.length; gi++){
         var g = gn[gi];
         var lg = w.addText("文  " + g.point + "  " + g.meaningKR);
-        lg.font = Font.systemFont(f(13)); lg.textColor = new Color(c.indigo);
-        lg.minimumScaleFactor = MINS; w.addSpacer(f(3));
+        lg.font = Font.systemFont(f(12)); lg.textColor = new Color(c.indigo);
+        lg.minimumScaleFactor = MINS; w.addSpacer(f(2));
       }
     }
   }
@@ -760,4 +767,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30u" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30v" };
