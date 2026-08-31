@@ -282,13 +282,14 @@ function current(s){
   return h.reduce(function(a, b){ return (slotT(a) <= slotT(b) ? a : b); });
 }
 
-async function notify(id, title, body, triggerDate){
+async function notify(id, title, body, triggerDate, openURL){
   var n = new Notification();
   n.identifier = id;
   n.threadIdentifier = "n1-kanji";
   n.title = title;
   n.body = body;
   n.sound = "default";
+  if(openURL) n.openURL = openURL;   // 탭하면 이 URL로 이동(주로 n1-review 열어서 전체 내용 보여줌)
   if(triggerDate) n.setTriggerDate(triggerDate);
   await n.schedule();
 }
@@ -339,8 +340,20 @@ function pickHeadword(cur){
   }
   return notes[0] || null;
 }
+// 알림 본문 — 문장 통째로 넣으면 알림 배너에서 길이 제한으로 잘려서 그걸로는 학습이
+// 안 된다는 피드백으로, 워치 알림과 동일하게 "단어 / 후리가나 / 한글번역" 3줄로 줄임.
+// 대신 알림을 탭하면(openURL, notify() 호출부에서 reviewURL(cfg) 넘김) n1-review 가
+// 열리는데, review()는 시작하자마자 current() 항목(=지금 이 알림이 보여준 것과 동일한
+// 항목) 전체 내용을 모달로 먼저 띄우므로 탭 한 번으로 문장·문법 노트까지 다 볼 수 있음.
 function pushBody(cur){
-  return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;
+  var hw = pickHeadword(cur);
+  if(hw) return hw.word + "\n" + hw.reading + "\n" + hw.meaningKR;
+  return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;   // 옛 항목 폴백
+}
+// 알림을 탭했을 때 n1-review를 열게 하는 URL. 스크립트 이름이 기본값("n1-review")과
+// 다르면 cfg.REVIEW_SCRIPT_NAME으로 맞춰 쓸 수 있음.
+function reviewURL(cfg){
+  return "scriptable:///run/" + encodeURIComponent((cfg && cfg.REVIEW_SCRIPT_NAME) || "n1-review");
 }
 
 // n1-generate 가 몇 번이든, 언제(불규칙하게라도) 불리든 상관없이 신규 생성 빈도를
@@ -391,7 +404,7 @@ async function generate(cfg){
     writeState(s);
     try { await Notification.removeDelivered(["n1-current"]); } catch(e){}
     try { await Notification.removePending(["n1-current"]); } catch(e){}
-    await notify("n1-current", pushTitle(r.mode, r.cur, s), pushBody(r.cur), null);
+    await notify("n1-current", pushTitle(r.mode, r.cur, s), pushBody(r.cur), null, reviewURL(cfg));
     console.log("OK generate " + r.mode + " " + r.cur.targetKanji);
   } catch(e){
     await notify("n1-err-" + Date.now(), "N1 생성 실패", String(e && e.message ? e.message : e));
@@ -493,7 +506,7 @@ async function day(cfg){
     for(var j = 0; j < plan.length; j++){
       var p = plan[j];
       if(!cfg.SKIP_PUSH && p.slotDate.getTime() > Date.now() + 5000){
-        await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate);
+        await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate, reviewURL(cfg));
       }
       already.push(p.key);
     }
@@ -873,4 +886,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31a" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31b" };
