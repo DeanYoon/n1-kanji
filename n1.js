@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30k
+// VERSION 2026-08-30l
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -328,6 +328,54 @@ async function day(cfg){
   }
 }
 
+// 항목 하나를 사람이 읽을 상세 텍스트로.
+function detailText(e){
+  var msg = e.sentenceJP + "\n" + e.readingHiragana + "\n" + e.translationKR;
+  if(Array.isArray(e.kanjiNotes) && e.kanjiNotes.length){
+    msg += "\n\n[단어]\n" + e.kanjiNotes.map(function(n){
+      return "· " + n.word + " (" + n.reading + ") " + n.meaningKR;
+    }).join("\n");
+  }
+  if(Array.isArray(e.grammarNotes) && e.grammarNotes.length){
+    msg += "\n\n[문법]\n" + e.grammarNotes.map(function(g){
+      return "· " + g.point + " — " + g.meaningKR;
+    }).join("\n");
+  }
+  return msg;
+}
+
+// 항목 하나의 상세 팝업(+ 외웠음 토글). widget 탭, review 목록 양쪽에서 공용으로 사용.
+// reviewed 를 토글했으면 true 를 반환 — 호출 쪽에서 writeState() 하도록.
+async function presentDetail(e){
+  var a = new Alert();
+  a.title = e.targetKanji + "   ·   " + e.date;
+  a.message = detailText(e);
+  a.addAction(e.reviewed ? "외웠음 해제" : "외웠음 표시");
+  a.addCancelAction("닫기");
+  var pick = await a.present();
+  if(pick === 0){ e.reviewed = !e.reviewed; return true; }
+  return false;
+}
+
+// 위젯을 탭했을 때 보여줄 항목 고르기: 지금 위젯에 뜬 것(cur)과는 다른 걸,
+// day()와 동일한 가중 랜덤(복습 적은/안 외운 것 우선)으로 이력에서 골라 노출 1회로 반영.
+function pickTapReview(s, cur){
+  if(!s || !Array.isArray(s.history) || !s.history.length) return null;
+  var pool = s.history;
+  if(cur && cur.id && pool.length > 1){
+    var filtered = pool.filter(function(e){ return e.id !== cur.id; });
+    if(filtered.length) pool = filtered;
+  }
+  var picked = pickWeightedReview(pool, null);
+  if(!picked) return null;
+  picked.showCount = (picked.showCount || 1) + 1;
+  var iso = nowISO();
+  picked.lastShownAt = iso;
+  picked.lastSlotAt = iso;
+  picked.mode = "review";
+  return picked;
+}
+
 // ---------- widget: 잠금/홈 위젯 ----------
 async function widget(cfg){
   var SCALE = cfg.SCALE || 1.15;
@@ -343,13 +391,6 @@ async function widget(cfg){
   var total = (s && s.kanjiList) ? s.kanjiList.length : 706;
   var isReview = cur && (cur.mode === "review" || (cur.showCount || 1) > 1);
   var w = new ListWidget();
-
-  // 위젯 탭 시 iOS/Scriptable이 이 URL을 지원하는 경우 n1-review 로 바로 이동 시도.
-  // (지원 안 되거나 무시돼도 무방 — review() 쪽에서 항상 current() 항목을 먼저 보여주므로
-  //  결국 어떻게 열리든 방금 위젯에 보이던 문장이 바로 모달로 뜸)
-  if(cur && cur.id){
-    w.url = "scriptable:///run/n1-review";
-  }
 
   if(fam.indexOf("accessory") === 0){
     if(!cur){ w.addText("N1 · n1-generate 실행"); }
@@ -368,7 +409,14 @@ async function widget(cfg){
     }
     w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
     Script.setWidget(w);
-    if(!config.runsInWidget){ try { w.presentSmall(); } catch(e){} }
+    if(!config.runsInWidget){
+      // 탭해서 열린 경우: 미리보기 대신 다른 항목(가중 랜덤 복습)을 팝업으로 바로 보여줌.
+      try {
+        var tapped0 = pickTapReview(s, cur);
+        if(tapped0){ writeState(s); await presentDetail(tapped0); writeState(s); }
+        else { w.presentSmall(); }
+      } catch(e){}
+    }
     return;
   }
 
@@ -449,7 +497,14 @@ async function widget(cfg){
 
   w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
   Script.setWidget(w);
-  if(!config.runsInWidget){ try { w.presentLarge(); } catch(e){} }
+  if(!config.runsInWidget){
+    // 탭해서 열린 경우: 미리보기 대신 다른 항목(가중 랜덤 복습)을 팝업으로 바로 보여줌.
+    try {
+      var tapped = pickTapReview(s, cur);
+      if(tapped){ writeState(s); await presentDetail(tapped); writeState(s); }
+      else { w.presentLarge(); }
+    } catch(e){}
+  }
 }
 
 // ---------- review: 이력 목록 + 외웠음 체크 + 단어/문법 ----------
@@ -466,26 +521,10 @@ async function review(cfg){
   var table = new UITable();
   table.showSeparators = true;
 
-  // 항목 하나의 상세 팝업(문장/뜻/단어/문법 + 외웠음 토글). row 탭과 위젯 jump 양쪽에서 공용으로 사용.
+  // row 탭 시 상세 팝업(공용 presentDetail 사용) 후 토글 반영.
   async function showDetail(e){
-    var a = new Alert();
-    a.title = e.targetKanji + "   ·   " + e.date;
-    var msg = e.sentenceJP + "\n" + e.readingHiragana + "\n" + e.translationKR;
-    if(Array.isArray(e.kanjiNotes) && e.kanjiNotes.length){
-      msg += "\n\n[단어]\n" + e.kanjiNotes.map(function(n){
-        return "· " + n.word + " (" + n.reading + ") " + n.meaningKR;
-      }).join("\n");
-    }
-    if(Array.isArray(e.grammarNotes) && e.grammarNotes.length){
-      msg += "\n\n[문법]\n" + e.grammarNotes.map(function(g){
-        return "· " + g.point + " — " + g.meaningKR;
-      }).join("\n");
-    }
-    a.message = msg;
-    a.addAction(e.reviewed ? "외웠음 해제" : "외웠음 표시");
-    a.addCancelAction("닫기");
-    var pick = await a.present();
-    if(pick === 0){ e.reviewed = !e.reviewed; writeState(s); draw(); table.reload(); }
+    var toggled = await presentDetail(e);
+    if(toggled){ writeState(s); draw(); table.reload(); }
   }
 
   function draw(){
@@ -535,4 +574,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30k" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30l" };
