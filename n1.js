@@ -294,8 +294,12 @@ function current(s){
 // day() 가 그 날 예약한 슬롯(시각·제목·본문)을 그대로 Gist 하나에 올려둠. cfg.GIST_ID /
 // cfg.GIST_TOKEN 이 없으면(=설정 안 했으면) 조용히 스킵 — 클라우드 동기화는 완전히 선택
 // 사항이고, 실패해도 로컬 알림/위젯 동작에는 전혀 영향 없음(항상 try/catch로 무시).
+// 반환값(호출부가 실행 요약에 그대로 반영):
+//   { ok:true, count:N }        — N칸 업로드 성공
+//   { ok:false, reason:"..." }  — 네트워크/권한 등으로 실패(로컬 동작엔 영향 없음)
+//   { skipped:true, reason:"GIST 미설정" } — 클라우드 동기화 자체를 안 켬
 async function pushCloud(cfg, today, slots){
-  if(!cfg.GIST_ID || !cfg.GIST_TOKEN) return;
+  if(!cfg.GIST_ID || !cfg.GIST_TOKEN) return { skipped: true, reason: "GIST 미설정" };
   try {
     var sorted = slots.slice().sort(function(a, b){ return a.key < b.key ? -1 : a.key > b.key ? 1 : 0; });
     var payload = { date: today, slots: sorted, updatedAt: nowISO() };
@@ -308,11 +312,53 @@ async function pushCloud(cfg, today, slots){
       "X-GitHub-Api-Version": "2022-11-28"
     };
     req.body = JSON.stringify({ files: { "n1-today.json": { content: JSON.stringify(payload) } } });
-    await req.loadJSON();
+    var resp = await req.loadJSON();
+    // loadJSON 은 HTTP 에러여도 예외를 안 던지고 GitHub 에러 본문({message,...})을 그대로 줌 —
+    // 그런 경우도 실패로 잡아냄.
+    if(resp && resp.message && !resp.files){
+      console.log("[n1] 클라우드 동기화 실패(무시): " + resp.message);
+      return { ok: false, reason: resp.message };
+    }
     console.log("[n1] 클라우드 동기화 OK · " + sorted.length + "칸");
+    return { ok: true, count: sorted.length };
   } catch(e){
-    console.log("[n1] 클라우드 동기화 실패(무시): " + e);
+    var msg = String(e && e.message ? e.message : e);
+    console.log("[n1] 클라우드 동기화 실패(무시): " + msg);
+    return { ok: false, reason: msg };
   }
+}
+
+// day()/generate() 실행 결과를 사용자에게 "보이게" 만든다.
+//   · config.runsInApp(앱에서 ▶ 로 수동 실행)  → Alert 로 즉시 표시
+//   · 그 외(자동화·알림·위젯 컨텍스트)          → 조용한 성공은 console.log 만,
+//                                                실패(isError)일 때만 Notification
+// 어느 경우든 console.log 에는 항상 남긴다.
+async function reportRun(title, lines, isError){
+  var body = lines.filter(function(x){ return x != null && x !== ""; }).join("\n");
+  console.log("[n1] " + title + "\n" + body);
+  var inApp = false;
+  try { inApp = (typeof config !== "undefined") && config.runsInApp; } catch(e){}
+  if(inApp){
+    try {
+      var a = new Alert();
+      a.title = title;
+      a.message = body;
+      a.addAction("확인");
+      await a.present();
+    } catch(e){}
+    return;
+  }
+  if(isError){
+    try { await notify("n1-run-" + Date.now(), title, body); } catch(e){}
+  }
+}
+
+// pushCloud() 반환값을 요약 한 줄로.
+function cloudResultLine(res){
+  if(!res) return "클라우드: 결과 없음";
+  if(res.skipped) return "클라우드: 꺼짐(" + (res.reason || "GIST 미설정") + ")";
+  if(res.ok) return "클라우드: 동기화 OK · " + res.count + "칸";
+  return "클라우드: 실패 — " + (res.reason || "알 수 없음");
 }
 
 // 같은 key 슬롯이 이미 있으면 덮어쓰고(중복 제거), 없으면 추가 — day()/generate() 가
@@ -554,6 +600,7 @@ async function generate(cfg){
     await notify("n1-current", pushTitle(r.mode, r.cur, s), pushBody(r.cur), null, reviewURL(cfg));
     // day()와 같은 방식으로 "지금" 항목도 클라우드에 한 칸 올려둠(주로 day() 자동화를
     // 안 쓰고 generate()만 수동/주기 실행하는 경우 대비). 완전히 선택적 — 자체 try/catch.
+    var cloudRes = { skipped: true, reason: "GIST 미설정" };
     if(cfg && cfg.GIST_ID && cfg.GIST_TOKEN){
       try {
         var gToday = dateJST(), gNow = new Date();
@@ -564,14 +611,22 @@ async function generate(cfg){
         if(!Array.isArray(s.cloudSlots[gToday])) s.cloudSlots[gToday] = [];
         upsertSlot(s.cloudSlots[gToday], { key: gKey, title: pushTitle(r.mode, r.cur, s), body: pushBody(r.cur) });
         writeState(s);
-        await pushCloud(cfg, gToday, s.cloudSlots[gToday]);
+        cloudRes = await pushCloud(cfg, gToday, s.cloudSlots[gToday]);
       } catch(ce){
+        cloudRes = { ok: false, reason: String(ce && ce.message ? ce.message : ce) };
         console.log("[n1] generate 클라우드 동기화 실패(무시): " + (ce && ce.stack ? ce.stack : ce));
       }
     }
     console.log("OK generate " + r.mode + " " + r.cur.targetKanji);
+    await reportRun("N1 생성 완료", [
+      (r.mode === "review" ? "복습" : "신규") + " · " + r.cur.targetKanji +
+        "   진도 " + s.progressIndex + " / " + s.kanjiList.length,
+      "이력 " + s.history.length + "건",
+      cloudResultLine(cloudRes)
+    ], false);
   } catch(e){
-    await notify("n1-err-" + Date.now(), "N1 생성 실패", String(e && e.message ? e.message : e));
+    console.log("[n1] generate() 실패: " + (e && e.stack ? e.stack : (e && e.message ? e.message : e)));
+    await reportRun("N1 생성 실패", [String(e && e.message ? e.message : e)], true);
     throw e;
   }
 }
@@ -590,7 +645,7 @@ async function day(cfg){
     var s = await readState();
     if(!s || !Array.isArray(s.kanjiList) || !s.kanjiList.length){
       console.log("[n1] day() 중단 · 상태 파일 없음/손상 — n1-generate 먼저 실행 필요");
-      await notify("n1-err-day", "N1 갱신 실패", "먼저 n1-generate 를 한 번 실행해 상태 파일을 만드세요.");
+      await reportRun("N1 갱신 실패", ["상태 파일이 없습니다.", "먼저 n1-generate 를 한 번 실행하세요."], true);
       return;
     }
     if(!Array.isArray(s.history)) s.history = [];
@@ -642,6 +697,7 @@ async function day(cfg){
       // 한 번 더 올려둔다(새 코드로 처음 실행되는 경우 대비). 클라우드 관련 작업은
       // 전부 아래 한 블록 안에서 자체 try/catch — 실패해도 day() 는 정상 종료.
       console.log("이 구간은 이미 처리됨(" + today + ")");
+      var erCloud = { skipped: true, reason: "GIST 미설정" };
       if(cloudOn){
         try {
           if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
@@ -660,17 +716,24 @@ async function day(cfg){
             }
           }
           if(todaySlots && todaySlots.length){
-            await pushCloud(cfg, today, todaySlots);
+            erCloud = await pushCloud(cfg, today, todaySlots);
           } else {
+            erCloud = { ok: false, reason: "복원할 오늘치 슬롯 없음" };
             console.log("[n1] 복원할 오늘치 슬롯이 없어 클라우드 업데이트 스킵");
           }
         } catch(ce){
+          erCloud = { ok: false, reason: String(ce && ce.message ? ce.message : ce) };
           console.log("[n1] 클라우드 동기화(복원 경로) 실패(무시): " + (ce && ce.stack ? ce.stack : ce));
         }
       } else {
         console.log("[n1] cloud off · 복원/업로드 스킵");
       }
       console.log("[n1] day() 종료 · 예약할 슬롯 없음");
+      await reportRun("N1 갱신 — 예약할 것 없음", [
+        "이미 오늘 예약 완료 — 신규 0칸",
+        "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")",
+        cloudResultLine(erCloud)
+      ], false);
       return;
     }
 
@@ -678,6 +741,7 @@ async function day(cfg){
     var plan = [];
     var pending = [];       // 이번에 예약하는 복습들 — 저장은 아래 2단계에서 s.pending에 합침
     var sessionBumps = {};  // 이 배치 안에서만 쓰는 임시 가중치(연속 중복 방지)
+    var newCount = 0;       // 이번 실행에서 새로 만든 신규 예문 수(요약용)
     for(var i = 0; i < todo.length; i++){
       var slot = todo[i];
       var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), slot.h, slot.min, 0, 0);
@@ -687,6 +751,7 @@ async function day(cfg){
       if(slot.isNew || s.history.length === 0){
         mode = "new";
         cur = await composeNewEntry(cfg, s, slotISO, slot.key);
+        newCount++;
       } else {
         mode = "review";
         cur = pickWeightedReview(s.history, sessionBumps);
@@ -723,6 +788,7 @@ async function day(cfg){
     // 오늘치 슬롯(시각·제목·본문)을 누적 저장 후 클라우드에 통째로 올림 — day()가 하루에
     // 여러 번(구간별로) 불려도 이전에 이미 올린 슬롯이 안 지워지도록 병합. 클라우드는
     // 완전히 선택적: 아래 전체를 자체 try/catch 로 감싸 실패해도 로그만 남기고 계속.
+    var dayCloud = { skipped: true, reason: "GIST 미설정" };
     if(cloudOn){
       try {
         if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
@@ -733,17 +799,27 @@ async function day(cfg){
           upsertSlot(s.cloudSlots[today], { key: plan[pk].key, title: plan[pk].title, body: plan[pk].body });
         }
         writeState(s);
-        await pushCloud(cfg, today, s.cloudSlots[today]);
+        dayCloud = await pushCloud(cfg, today, s.cloudSlots[today]);
       } catch(ce){
+        dayCloud = { ok: false, reason: String(ce && ce.message ? ce.message : ce) };
         console.log("[n1] 클라우드 동기화 실패(무시): " + (ce && ce.stack ? ce.stack : ce));
       }
     } else {
       console.log("[n1] cloud off · 클라우드 업로드 스킵");
     }
     console.log("OK day " + plan.length + "칸(" + today + " " + todo[0].key + "~" + todo[todo.length - 1].key + ") 처리");
+    await reportRun("N1 갱신 완료", [
+      "이번 실행: " + plan.length + "칸 예약(신규 " + newCount + " · 복습 " + (plan.length - newCount) + ")",
+      "구간 " + todo[0].key + "~" + todo[todo.length - 1].key + " · 진도 " + s.progressIndex + " / " + s.kanjiList.length,
+      "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")",
+      cloudResultLine(dayCloud)
+    ], false);
   } catch(e){
     console.log("[n1] day() 실패: " + (e && e.stack ? e.stack : (e && e.message ? e.message : e)));
-    await notify("n1-err-day", "N1 갱신 실패", (e && e.message ? e.message : e) + " · 다시 실행하면 남은 구간만 이어서 처리");
+    await reportRun("N1 갱신 실패", [
+      String(e && e.message ? e.message : e),
+      "다시 실행하면 남은 구간만 이어서 처리됩니다."
+    ], true);
     throw e;
   }
 }
@@ -1111,4 +1187,113 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31h" };
+// ---------- cloud: 지금 Gist 에 올라가 있는 오늘치 데이터를 눈으로 확인 ----------
+// day()/generate() 가 클라우드에 올린 그 데이터(다른 기기가 읽어가는 것)를 폰에서 탭 한 번으로
+// 확인하기 위한 읽기 전용 액션 — state 파일·진도·알림 아무것도 안 건드림.
+//   · cfg.GIST_TOKEN 있으면  https://api.github.com/gists/<GIST_ID> 인증 GET(secret gist 대응)
+//   · 토큰 없으면            같은 엔드포인트를 비인증 GET 으로 폴백(public gist 만, 레이트리밋 있음)
+//     ※ gist "raw" 호스트(gist.githubusercontent.com)는 URL 에 계정명이 필요한데 그 값을 저장해
+//       두지 않으므로, 계정명 없이도 확실히 동작하는 비인증 API 경로를 폴백으로 씀.
+//   · cfg.GIST_ID 자체가 없으면 안내만 하고 종료.
+async function cloud(cfg){
+  var inApp = false;
+  try { inApp = (typeof config !== "undefined") && config.runsInApp; } catch(e){}
+
+  async function show(title, msg){
+    console.log("[n1] cloud() · " + title + "\n" + msg);
+    if(inApp){
+      try { var a = new Alert(); a.title = title; a.message = msg; a.addAction("확인"); await a.present(); } catch(e){}
+    } else {
+      try { await notify("n1-cloud-" + Date.now(), title, msg); } catch(e){}
+    }
+  }
+
+  if(!cfg || !cfg.GIST_ID){
+    return show("클라우드 미설정", "클라우드 동기화가 설정되지 않았습니다.\nn1-config 에서 GIST_ID / GIST_TOKEN 을 채운 뒤 다시 실행하세요.");
+  }
+
+  // ---- 1) Gist 에서 n1-today.json 읽기 ----
+  var raw = null, via = cfg.GIST_TOKEN ? "API(인증)" : "API(비인증)";
+  try {
+    var req = new Request("https://api.github.com/gists/" + cfg.GIST_ID);
+    req.method = "GET";
+    var headers = { "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Cache-Control": "no-cache" };
+    if(cfg.GIST_TOKEN) headers["Authorization"] = "Bearer " + cfg.GIST_TOKEN;
+    req.headers = headers;
+    var meta = await req.loadJSON();
+    var status = (req.response && req.response.statusCode) || 0;
+    if(status === 401) return show("클라우드 확인 실패", "인증 실패(401) — GIST_TOKEN 이 만료됐거나 잘못됐습니다.");
+    if(status === 403) return show("클라우드 확인 실패", "요청이 거부됨(403) — API 레이트리밋이거나 토큰 권한 부족.\n잠시 후 다시 시도하세요.");
+    if(status === 404) return show("클라우드 확인 실패", "Gist 를 찾을 수 없습니다(404) — GIST_ID 를 확인하세요.\n(secret gist 는 GIST_TOKEN 이 필요합니다.)");
+    if(meta && meta.message && !meta.files) return show("클라우드 확인 실패", "GitHub 오류: " + meta.message);
+    var file = meta && meta.files && meta.files["n1-today.json"];
+    if(!file) return show("클라우드 데이터 없음", "Gist 안에 n1-today.json 이 아직 없습니다 — n1-day 를 한 번 실행하세요.");
+    raw = (file.truncated && file.raw_url) ? await new Request(file.raw_url).loadString() : file.content;
+  } catch(e){
+    return show("클라우드 확인 실패", "네트워크/조회 실패: " + String(e && e.message ? e.message : e));
+  }
+
+  if(raw == null || String(raw).trim() === "") return show("클라우드 확인 실패", "받아온 데이터가 비어 있습니다.");
+
+  var data;
+  try { data = JSON.parse(raw); }
+  catch(e){ return show("클라우드 확인 실패", "JSON 파싱 실패: " + String(e && e.message ? e.message : e) + "\n\n원문 일부:\n" + String(raw).slice(0, 200)); }
+
+  var slots = (data && Array.isArray(data.slots)) ? data.slots.slice() : [];
+  if(!slots.length) return show("클라우드 데이터 없음", "아직 업로드된 데이터가 없습니다 — n1-day 를 실행하세요.");
+
+  slots.sort(function(a, b){ var ak = a.key || "", bk = b.key || ""; return ak < bk ? -1 : ak > bk ? 1 : 0; });
+
+  // ---- 2) 표시 ----
+  var today = dateJST();
+  var match = (data.date === today);
+  var updatedLocal = "";
+  try {
+    var u = new Date(data.updatedAt);
+    if(!isNaN(u.getTime())){
+      updatedLocal = pad2(u.getMonth() + 1) + "/" + pad2(u.getDate()) + " " + pad2(u.getHours()) + ":" + pad2(u.getMinutes());
+    }
+  } catch(e){}
+
+  var header =
+    "날짜: " + (data.date || "?") + (match ? "   ✓ 오늘과 일치" : "   ⚠︎ 오늘(" + today + ")과 다름") + "\n" +
+    "업데이트: " + (updatedLocal || data.updatedAt || "?") + "\n" +
+    "슬롯 " + slots.length + "칸 · 조회: " + via;
+
+  console.log("[n1] cloud()\n" + header);
+
+  if(!inApp){
+    try { await notify("n1-cloud-" + Date.now(), "클라우드 오늘치 · " + slots.length + "칸", header); } catch(e){}
+    return;
+  }
+
+  var table = new UITable();
+  table.showSeparators = true;
+  var hr = new UITableRow();
+  hr.isHeader = true;
+  hr.addText("클라우드 오늘치 · " + slots.length + "칸", header.replace(/\n/g, "   ·   "));
+  table.addRow(hr);
+  for(var i = 0; i < slots.length; i++){
+    (function(sl){
+      var row = new UITableRow();
+      row.height = 52;
+      var bodyFirst = String(sl.body || "").split("\n")[0];
+      var main = row.addText((sl.key || "??:??") + "   " + (sl.title || ""), bodyFirst);
+      main.titleFont = Font.mediumSystemFont(14);
+      main.subtitleFont = Font.systemFont(12);
+      main.subtitleColor = Color.gray();
+      row.dismissOnSelect = false;
+      row.onSelect = function(){
+        var a = new Alert();
+        a.title = (sl.key || "") + "   " + (sl.title || "");
+        a.message = String(sl.body || "(본문 없음)");
+        a.addAction("확인");
+        a.present();
+      };
+      table.addRow(row);
+    })(slots[i]);
+  }
+  await table.present(false);
+}
+
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31h" };
