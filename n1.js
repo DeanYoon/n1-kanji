@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30m
+// VERSION 2026-08-30n
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -165,9 +165,11 @@ async function notify(id, title, body, triggerDate){
 }
 
 // 한 칸 진행(신규/복습). s 를 그 자리에서 수정하고 {cur, mode} 반환.
-async function advanceOne(cfg, s, slotISO){
+// forceMode 를 주면 그 모드로 강제(생략 시 옛 runCounter 홀짝 교대 — 지금은 generate() 가
+// isDueForNew() 로 항상 forceMode 를 넘기므로 실질적으로 안 쓰임, 다른 호출부 대비 유지).
+async function advanceOne(cfg, s, slotISO, forceMode){
   if(!Array.isArray(s.history)) s.history = [];
-  var mode = (s.runCounter % 2 === 1 && s.history.length > 0) ? "review" : "new";
+  var mode = forceMode || ((s.runCounter % 2 === 1 && s.history.length > 0) ? "review" : "new");
   var cur;
   if(mode === "new"){
     var kanji = s.kanjiList[s.progressIndex];
@@ -182,6 +184,7 @@ async function advanceOne(cfg, s, slotISO){
     s.history.unshift(cur);
     s.progressIndex += 1;
     if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
+    s.lastNewAt = slotISO;   // isDueForNew() 판단용 — 마지막 신규 생성 시각
   } else {
     cur = pickReview(s.history);
     cur.showCount = (cur.showCount || 1) + 1;
@@ -200,20 +203,18 @@ function pushBody(cur){
   return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;
 }
 
-// n1-generate 가 실제로 몇 시에 불렸는지로 동작을 나눔 — 외부 자동화가 INTERVAL_MIN(기본 15분)
-// 간격으로 이 스크립트를 직접 반복 실행하는 걸 전제로 함:
-// · 정각 부근(:00/:15/:30/:45 등, ±GRID_TOLERANCE_MIN분)에 불렸으면 "정규 틱" — 기존 로직 그대로
-//   (advanceOne: 신규/복습 교대, 신규면 API 호출로 새 문장 생성).
-// · 그 사이 다른 시각에 불렸으면 "여분 호출" — API 호출 없이, 기존 이력 중 복습 횟수 적은 걸
-//   하나 골라 복습으로만 반영(day()의 가중 랜덤과 동일 공식. pickTapReview 재사용).
-function isOnGrid(cfg){
-  var step = cfg.INTERVAL_MIN || 15;
-  var tol = (cfg.GRID_TOLERANCE_MIN != null) ? cfg.GRID_TOLERANCE_MIN : 1;
-  var mm = new Date().getMinutes() % step;
-  return mm <= tol || mm >= (step - tol);
+// n1-generate 가 몇 번이든, 언제(불규칙하게라도) 불리든 상관없이 신규 생성 빈도를
+// "시간당 대략 1개"로 유지하기 위한 판단 — 정각/그리드가 아니라 마지막 신규 생성(s.lastNewAt)
+// 이후 실제로 지난 시간으로 판단. NEW_EVERY_MIN(기본 60분) 안 지났으면 아직 신규 낼 때가
+// 아니라는 뜻 — 그 호출은 API 호출 없이 기존 이력 중 복습 횟수 적은 걸 복습으로만 반영
+// (day()와 같은 가중 랜덤 공식. pickTapReview 재사용).
+function isDueForNew(cfg, s){
+  var every = cfg.NEW_EVERY_MIN || 60;
+  if(!s.lastNewAt) return true;
+  return (Date.now() - Date.parse(s.lastNewAt)) / 60000 >= every;
 }
 
-// ---------- generate: 1회 = 한자 1개(정규 틱) 또는 기존 문장 복습 1건(그 사이 호출) ----------
+// ---------- generate: 1회 = 한자 1개(신규가 밀렸을 때) 또는 기존 문장 복습 1건(그 사이 호출) ----------
 async function generate(cfg){
   try {
     var s = await readState();
@@ -222,11 +223,11 @@ async function generate(cfg){
     reconcile(s);   // 예약해뒀던 복습 중 시각이 지난 게 있으면 먼저 반영
     var iso = nowISO();
     var r;
-    if(isOnGrid(cfg) || s.history.length === 0){
-      r = await advanceOne(cfg, s, iso);   // 정규 틱(또는 첫 실행): 기존 로직 그대로
+    if(isDueForNew(cfg, s) || s.history.length === 0){
+      r = await advanceOne(cfg, s, iso, "new");   // 신규 낼 때: API 호출로 새 문장 생성
     } else {
-      var picked = pickTapReview(s, current(s));   // 그 사이 호출: API 호출 없이 복습만 반영
-      r = picked ? { cur: picked, mode: "review" } : await advanceOne(cfg, s, iso);
+      var picked = pickTapReview(s, current(s));   // 아직 신규 아닐 때: API 호출 없이 복습만 반영
+      r = picked ? { cur: picked, mode: "review" } : await advanceOne(cfg, s, iso, "new");
     }
     s.lastCurrentId = r.cur.id;
     s.updatedAt = iso;
@@ -315,6 +316,7 @@ async function day(cfg){
         s.history.unshift(cur);
         s.progressIndex += 1;
         if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
+        s.lastNewAt = slotISO;   // generate()의 isDueForNew() 판단용
       } else {
         mode = "review";
         cur = pickWeightedReview(s.history, sessionBumps);
@@ -426,7 +428,7 @@ async function widget(cfg){
       var l2 = w.addText(cur.sentenceJP); l2.font = Font.semiboldSystemFont(14); l2.lineLimit = 1;
       var l3 = w.addText(cur.translationKR); l3.font = Font.systemFont(12); l3.lineLimit = 1;
     }
-    w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
+    w.refreshAfterDate = new Date(Date.now() + 5 * 60 * 1000);
     Script.setWidget(w);
     if(!config.runsInWidget){
       // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
@@ -513,7 +515,7 @@ async function widget(cfg){
   var foot = w.addText(cur.date + (cur.showCount > 1 ? "   ·   복습 " + (cur.showCount - 1) + "회" : ""));
   foot.font = Font.systemFont(f(big ? 11 : 9)); foot.textColor = new Color(c.faint);
 
-  w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);
+  w.refreshAfterDate = new Date(Date.now() + 5 * 60 * 1000);
   Script.setWidget(w);
   if(!config.runsInWidget){
     // 탭해서 열린 경우: 미리보기 대신 지금 위젯에 뜬 항목을 그대로 팝업으로 보여줌.
@@ -591,4 +593,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30m" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30n" };
