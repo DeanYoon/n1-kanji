@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30j
+// VERSION 2026-08-30k
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -344,10 +344,11 @@ async function widget(cfg){
   var isReview = cur && (cur.mode === "review" || (cur.showCount || 1) > 1);
   var w = new ListWidget();
 
-  // 위젯 탭 시: 기본 미리보기 대신 n1-review 를 바로 열고, 지금 보고 있던 항목을 넘김.
-  // (n1-review 스크립트 자체는 안 건드림 — 같은 껍데기가 ACTION="review"로 n1.js의 review()를 실행)
+  // 위젯 탭 시 iOS/Scriptable이 이 URL을 지원하는 경우 n1-review 로 바로 이동 시도.
+  // (지원 안 되거나 무시돼도 무방 — review() 쪽에서 항상 current() 항목을 먼저 보여주므로
+  //  결국 어떻게 열리든 방금 위젯에 보이던 문장이 바로 모달로 뜸)
   if(cur && cur.id){
-    w.url = "scriptable:///run/n1-review?jump=" + encodeURIComponent(cur.id);
+    w.url = "scriptable:///run/n1-review";
   }
 
   if(fam.indexOf("accessory") === 0){
@@ -524,19 +525,14 @@ async function review(cfg){
 
   draw();
 
-  // 위젯을 탭해서 열린 경우(?jump=id): 목록보다 먼저 그 항목의 상세를 바로 띄움.
+  // n1-review 를 여는 방식(위젯 탭이든 수동 실행이든)과 상관없이, 지금 위젯이 보여주는 것과
+  // 동일한 항목(current())을 목록보다 먼저 모달로 바로 띄움 — 리스트에서 찾을 필요 없게.
   try {
-    var jumpId = (typeof args !== "undefined" && args.queryParameters && args.queryParameters.jump) || null;
-    if(jumpId){
-      var target = null;
-      for(var ji = 0; ji < s.history.length; ji++){
-        if(s.history[ji].id === jumpId){ target = s.history[ji]; break; }
-      }
-      if(target) await showDetail(target);
-    }
+    var top = current(s);
+    if(top) await showDetail(top);
   } catch(e){}
 
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30j" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30k" };
