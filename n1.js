@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-31h
+// VERSION 2026-08-31i
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -369,6 +369,43 @@ function upsertSlot(arr, slot){
     if(arr[i] && arr[i].key === slot.key){ arr[i] = slot; return; }
   }
   arr.push(slot);
+}
+
+// 슬롯 배열을 key 오름차순으로 정렬한 "새" 배열로(원본 불변). key/title/body 만 남겨
+// 정규화 — gist 에서 온 슬롯에 잡다한 필드가 붙어 있어도 비교/업로드가 안정적이게.
+function sortSlots(arr){
+  var a = (Array.isArray(arr) ? arr : []).filter(function(x){ return x && x.key; })
+    .map(function(x){ return { key: x.key, title: x.title || "", body: x.body || "" }; });
+  a.sort(function(p, q){ return p.key < q.key ? -1 : p.key > q.key ? 1 : 0; });
+  return a;
+}
+
+// 정렬 후 key/title/body 까지 완전히 같은지(깊은 비교) — 병합 결과가 원격과 똑같으면
+// 굳이 PATCH 안 해서 불필요한 API 호출·Gist 리비전을 막는 데 씀.
+function slotsEqual(a, b){
+  var x = sortSlots(a), y = sortSlots(b);
+  if(x.length !== y.length) return false;
+  for(var i = 0; i < x.length; i++){
+    if(x[i].key !== y[i].key || x[i].title !== y[i].title || x[i].body !== y[i].body) return false;
+  }
+  return true;
+}
+
+// key 기준 합집합. 같은 key 가 양쪽에 있으면 로컬 우선(폰이 원본). 결과는 key 오름차순.
+function mergeSlots(localSlots, remoteSlots){
+  var byKey = {}, i;
+  for(i = 0; i < remoteSlots.length; i++){
+    var r = remoteSlots[i];
+    if(r && r.key) byKey[r.key] = { key: r.key, title: r.title || "", body: r.body || "" };
+  }
+  for(i = 0; i < localSlots.length; i++){
+    var l = localSlots[i];
+    if(l && l.key) byKey[l.key] = { key: l.key, title: l.title || "", body: l.body || "" };
+  }
+  var keys = Object.keys(byKey).sort();
+  var out = [];
+  for(i = 0; i < keys.length; i++) out.push(byKey[keys[i]]);
+  return out;
 }
 
 // s.cloudSlots[today] 가 비었거나 없을 때(= pushCloud 기능이 생기기 전에 오늘 day()가
@@ -1187,14 +1224,26 @@ async function watchDay(cfg){
   }
 }
 
-// ---------- cloud: 지금 Gist 에 올라가 있는 오늘치 데이터를 눈으로 확인 ----------
-// day()/generate() 가 클라우드에 올린 그 데이터(다른 기기가 읽어가는 것)를 폰에서 탭 한 번으로
-// 확인하기 위한 읽기 전용 액션 — state 파일·진도·알림 아무것도 안 건드림.
-//   · cfg.GIST_TOKEN 있으면  https://api.github.com/gists/<GIST_ID> 인증 GET(secret gist 대응)
-//   · 토큰 없으면            같은 엔드포인트를 비인증 GET 으로 폴백(public gist 만, 레이트리밋 있음)
-//     ※ gist "raw" 호스트(gist.githubusercontent.com)는 URL 에 계정명이 필요한데 그 값을 저장해
-//       두지 않으므로, 계정명 없이도 확실히 동작하는 비인증 API 경로를 폴백으로 씀.
-//   · cfg.GIST_ID 자체가 없으면 안내만 하고 종료.
+// ---------- cloud: 폰 로컬 상태와 Gist 를 "같아지도록" 맞춤(동기화) ----------
+// 예전 cloud() 는 Gist 를 읽어서 보여주기만 했음. 이제는: 폰(iOS) 로컬에 쌓인 오늘치
+// 슬롯이 원본(source of truth)이고 Gist 는 그 사본이라는 전제로, 탭 한 번에 양쪽을
+// 같게 만든다. day()/generate() 가 이미 쓰는 pushCloud() · restoreTodaySlots() 를 그대로
+// 재사용하므로 업로드 포맷·복원 로직이 완전히 일치.
+//
+// 흐름:
+//   1) 로컬 오늘치 슬롯 구성 — s.cloudSlots[today] 우선, 없으면 restoreTodaySlots() 로
+//      복원해 채우고 s.cloudSlots[today] 에 저장(writeState).
+//   2) 원격(Gist) 조회 — 예전 cloud() 와 동일한 인증/비인증 GET.
+//   3) 병합 — 원격 date 가 오늘과 다르면 로컬로 통째 교체, 같으면 key 합집합(로컬 우선),
+//      결과는 key 오름차순.
+//   4) 차이 있을 때만 pushCloud() 로 업로드(정렬 후 key/title/body 깊은 비교). 업로드
+//      성공 시 병합 결과를 s.cloudSlots[today] 에도 반영(writeState).
+//   5) 결과 표시 — inApp 이면 UITable(행마다 +/~/무표시로 출처 구분), 자동 실행이면 Notification 요약.
+//
+// 안전장치:
+//   · 로컬이 0칸으로 복원되면 절대 업로드 안 함(빈 데이터로 Gist 덮어쓰기 방지).
+//   · 원격 조회 실패 시 병합 자체를 안 함(덮어쓰기로 인한 데이터 유실 방지).
+//   · 모든 단계 개별 try/catch — 조용히 죽지 않게.
 async function cloud(cfg){
   var inApp = false;
   try { inApp = (typeof config !== "undefined") && config.runsInApp; } catch(e){}
@@ -1212,8 +1261,54 @@ async function cloud(cfg){
     return show("클라우드 미설정", "클라우드 동기화가 설정되지 않았습니다.\nn1-config 에서 GIST_ID / GIST_TOKEN 을 채운 뒤 다시 실행하세요.");
   }
 
-  // ---- 1) Gist 에서 n1-today.json 읽기 ----
-  var raw = null, via = cfg.GIST_TOKEN ? "API(인증)" : "API(비인증)";
+  var today = dateJST();
+
+  // ---- 1) 로컬 오늘치 슬롯 구성 ----
+  var s = null;
+  try { s = await readState(); }
+  catch(e){ return show("로컬 상태 조회 실패", "state 파일을 읽지 못했습니다: " + String(e && e.message ? e.message : e)); }
+  if(!s || !Array.isArray(s.kanjiList)){
+    return show("로컬 상태 없음", "로컬 state 파일이 없거나 손상됐습니다 — 먼저 n1-generate 를 한 번 실행하세요.");
+  }
+
+  var localSlots = [];
+  try {
+    if(s.cloudSlots && typeof s.cloudSlots === "object" &&
+       Array.isArray(s.cloudSlots[today]) && s.cloudSlots[today].length){
+      localSlots = s.cloudSlots[today];
+    } else {
+      // s.cloudSlots[today] 가 비었거나 없음(pushCloud 생기기 전 오늘 day()가 이미 돈 경우) —
+      // 기존 상태에서 복원해 채운다. 복원 자체 실패는 격리하고 아래 0칸 안전장치로 넘어감.
+      var restored = [];
+      try { restored = await restoreTodaySlots(s, today); }
+      catch(re){ console.log("[n1] cloud() · restoreTodaySlots 실패(무시): " + re); }
+      if(restored && restored.length){
+        try {
+          if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+          s.cloudSlots[today] = restored;
+          s.updatedAt = nowISO();
+          writeState(s);
+          console.log("[n1] cloud() · 오늘치 슬롯 " + restored.length + "칸 복원·저장");
+        } catch(we){ console.log("[n1] cloud() · 복원 결과 저장 실패(무시): " + we); }
+        localSlots = restored;
+      }
+    }
+  } catch(e){
+    console.log("[n1] cloud() · 로컬 슬롯 구성 실패(무시): " + e);
+  }
+  localSlots = sortSlots(localSlots);
+
+  // 안전장치: 로컬이 0칸이면 여기서 중단 — 빈 데이터로 Gist 를 절대 덮어쓰지 않는다.
+  if(!localSlots.length){
+    return show("로컬에 오늘치 데이터가 없습니다",
+      "로컬에서 오늘치(" + today + ") 슬롯을 하나도 찾지 못했습니다.\n" +
+      "빈 데이터로 클라우드를 덮어쓰지 않도록 동기화를 중단합니다.\n" +
+      "먼저 n1-generate / n1-day 를 실행하세요.");
+  }
+
+  // ---- 2) 원격(Gist) 조회 ---- (예전 cloud() 와 동일한 방식)
+  var via = cfg.GIST_TOKEN ? "API(인증)" : "API(비인증)";
+  var remote = null, fetchErr = null;
   try {
     var req = new Request("https://api.github.com/gists/" + cfg.GIST_ID);
     req.method = "GET";
@@ -1222,48 +1317,111 @@ async function cloud(cfg){
     req.headers = headers;
     var meta = await req.loadJSON();
     var status = (req.response && req.response.statusCode) || 0;
-    if(status === 401) return show("클라우드 확인 실패", "인증 실패(401) — GIST_TOKEN 이 만료됐거나 잘못됐습니다.");
-    if(status === 403) return show("클라우드 확인 실패", "요청이 거부됨(403) — API 레이트리밋이거나 토큰 권한 부족.\n잠시 후 다시 시도하세요.");
-    if(status === 404) return show("클라우드 확인 실패", "Gist 를 찾을 수 없습니다(404) — GIST_ID 를 확인하세요.\n(secret gist 는 GIST_TOKEN 이 필요합니다.)");
-    if(meta && meta.message && !meta.files) return show("클라우드 확인 실패", "GitHub 오류: " + meta.message);
-    var file = meta && meta.files && meta.files["n1-today.json"];
-    if(!file) return show("클라우드 데이터 없음", "Gist 안에 n1-today.json 이 아직 없습니다 — n1-day 를 한 번 실행하세요.");
-    raw = (file.truncated && file.raw_url) ? await new Request(file.raw_url).loadString() : file.content;
+    if(status === 401) fetchErr = "인증 실패(401) — GIST_TOKEN 이 만료됐거나 잘못됐습니다.";
+    else if(status === 403) fetchErr = "요청 거부(403) — API 레이트리밋이거나 토큰 권한 부족.";
+    else if(status === 404) fetchErr = "Gist 를 찾을 수 없습니다(404) — GIST_ID 를 확인하세요.";
+    else if(meta && meta.message && !meta.files) fetchErr = "GitHub 오류: " + meta.message;
+    else {
+      var file = meta && meta.files && meta.files["n1-today.json"];
+      if(!file){
+        remote = { date: null, slots: [], missing: true };   // 원격에 아직 파일 없음 = 빈 원격
+      } else {
+        var raw = (file.truncated && file.raw_url) ? await new Request(file.raw_url).loadString() : file.content;
+        if(raw == null || String(raw).trim() === ""){
+          remote = { date: null, slots: [], missing: true };
+        } else {
+          var data = JSON.parse(raw);
+          remote = { date: data.date || null, slots: Array.isArray(data.slots) ? data.slots : [], updatedAt: data.updatedAt };
+        }
+      }
+    }
   } catch(e){
-    return show("클라우드 확인 실패", "네트워크/조회 실패: " + String(e && e.message ? e.message : e));
+    fetchErr = "네트워크/조회/파싱 실패: " + String(e && e.message ? e.message : e);
   }
 
-  if(raw == null || String(raw).trim() === "") return show("클라우드 확인 실패", "받아온 데이터가 비어 있습니다.");
+  // 안전장치: 원격 조회 실패 시 병합·업로드 안 함(덮어쓰기로 데이터 유실 방지).
+  if(fetchErr || !remote){
+    return show("클라우드 조회 실패 — 동기화 중단",
+      (fetchErr || "원격 데이터를 가져오지 못했습니다.") + "\n\n" +
+      "데이터 유실 방지를 위해 병합/업로드를 하지 않았습니다.\n" +
+      "로컬 오늘치: " + localSlots.length + "칸 (그대로 유지)");
+  }
 
-  var data;
-  try { data = JSON.parse(raw); }
-  catch(e){ return show("클라우드 확인 실패", "JSON 파싱 실패: " + String(e && e.message ? e.message : e) + "\n\n원문 일부:\n" + String(raw).slice(0, 200)); }
-
-  var slots = (data && Array.isArray(data.slots)) ? data.slots.slice() : [];
-  if(!slots.length) return show("클라우드 데이터 없음", "아직 업로드된 데이터가 없습니다 — n1-day 를 실행하세요.");
-
-  slots.sort(function(a, b){ var ak = a.key || "", bk = b.key || ""; return ak < bk ? -1 : ak > bk ? 1 : 0; });
-
-  // ---- 2) 표시 ----
-  var today = dateJST();
-  var match = (data.date === today);
-  var updatedLocal = "";
+  // ---- 3) 병합 ----
+  var remoteSlots = sortSlots(remote.slots);
+  var remoteMatch = (remote.date === today);
+  var merged, replaced = false;
   try {
-    var u = new Date(data.updatedAt);
-    if(!isNaN(u.getTime())){
-      updatedLocal = pad2(u.getMonth() + 1) + "/" + pad2(u.getDate()) + " " + pad2(u.getHours()) + ":" + pad2(u.getMinutes());
+    if(remoteMatch){
+      merged = mergeSlots(localSlots, remoteSlots);          // key 합집합, 로컬 우선
+    } else {
+      merged = localSlots.slice();                            // 어제 데이터 등 → 로컬로 통째 교체
+      replaced = true;
     }
-  } catch(e){}
+  } catch(e){
+    return show("병합 실패", "슬롯 병합 중 오류: " + String(e && e.message ? e.message : e));
+  }
+  merged = sortSlots(merged);
 
-  var header =
-    "날짜: " + (data.date || "?") + (match ? "   ✓ 오늘과 일치" : "   ⚠︎ 오늘(" + today + ")과 다름") + "\n" +
-    "업데이트: " + (updatedLocal || data.updatedAt || "?") + "\n" +
-    "슬롯 " + slots.length + "칸 · 조회: " + via;
+  // 각 슬롯이 원격 대비 어떤 상태인지: new(원격에 없음) · upd(내용 다름) · same
+  var remoteByKey = {};
+  for(var ri = 0; ri < remoteSlots.length; ri++) remoteByKey[remoteSlots[ri].key] = remoteSlots[ri];
+  function slotState(sl){
+    var r = remoteByKey[sl.key];
+    if(!r) return "new";
+    if(r.title !== sl.title || r.body !== sl.body) return "upd";
+    return "same";
+  }
+  var newCount = 0, updCount = 0;
+  for(var mi = 0; mi < merged.length; mi++){
+    var st0 = slotState(merged[mi]);
+    if(st0 === "new") newCount++;
+    else if(st0 === "upd") updCount++;
+  }
+  var changedCount = newCount + updCount;
 
+  // ---- 4) 차이 있을 때만 업로드 ----
+  // 원격 date 가 오늘과 같고 슬롯 내용까지 동일하면 PATCH 스킵. date 가 다르면(어제 등)
+  // 슬롯이 우연히 같아도 date 를 오늘로 고쳐야 하므로 업로드.
+  var identical = remoteMatch && slotsEqual(merged, remoteSlots);
+  var uploadRes;
+  if(identical){
+    uploadRes = { skipped: true, reason: "이미 동일" };
+    console.log("[n1] cloud() · 병합 결과가 원격과 동일 — 업로드 스킵(" + merged.length + "칸)");
+  } else {
+    try { uploadRes = await pushCloud(cfg, today, merged); }
+    catch(e){ uploadRes = { ok: false, reason: String(e && e.message ? e.message : e) }; }
+    if(uploadRes && uploadRes.ok){
+      try {
+        if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+        s.cloudSlots[today] = merged.slice();
+        s.updatedAt = nowISO();
+        writeState(s);
+      } catch(we){ console.log("[n1] cloud() · 병합 결과 로컬 반영 실패(무시): " + we); }
+    }
+  }
+
+  // ---- 5) 결과 표시 ----
+  var summaryLine;
+  if(identical){
+    summaryLine = "이미 동일 (" + merged.length + "칸)";
+  } else if(uploadRes && uploadRes.ok){
+    summaryLine = "로컬 " + localSlots.length + "칸 · 클라우드 " + remoteSlots.length +
+      "칸 → 최신화 " + changedCount + "칸 업로드";
+  } else {
+    summaryLine = "로컬 " + localSlots.length + "칸 · 클라우드 " + remoteSlots.length +
+      "칸 → 업로드 실패: " + ((uploadRes && uploadRes.reason) || "알 수 없음");
+  }
+  var modeLine = replaced
+    ? (remote.missing
+        ? ("원격에 데이터 없음 → 로컬 " + merged.length + "칸 전체 업로드")
+        : ("원격 날짜(" + (remote.date || "?") + ")가 오늘과 달라 로컬로 통째 교체 · 결과 " + merged.length + "칸"))
+    : ("병합: key 합집합(로컬 우선) · 결과 " + merged.length + "칸 (신규 " + newCount + " · 갱신 " + updCount + ")");
+  var header = summaryLine + "\n" + modeLine + "\n조회: " + via;
   console.log("[n1] cloud()\n" + header);
 
   if(!inApp){
-    try { await notify("n1-cloud-" + Date.now(), "클라우드 오늘치 · " + slots.length + "칸", header); } catch(e){}
+    try { await notify("n1-cloud-" + Date.now(), "클라우드 동기화 · " + merged.length + "칸", header); } catch(e){}
     return;
   }
 
@@ -1271,14 +1429,16 @@ async function cloud(cfg){
   table.showSeparators = true;
   var hr = new UITableRow();
   hr.isHeader = true;
-  hr.addText("클라우드 오늘치 · " + slots.length + "칸", header.replace(/\n/g, "   ·   "));
+  hr.addText("클라우드 동기화 · " + merged.length + "칸", header.replace(/\n/g, "   ·   "));
   table.addRow(hr);
-  for(var i = 0; i < slots.length; i++){
+  for(var i = 0; i < merged.length; i++){
     (function(sl){
+      var st = slotState(sl);
+      var mark = st === "new" ? "+ " : st === "upd" ? "~ " : "";
       var row = new UITableRow();
       row.height = 52;
       var bodyFirst = String(sl.body || "").split("\n")[0];
-      var main = row.addText((sl.key || "??:??") + "   " + (sl.title || ""), bodyFirst);
+      var main = row.addText(mark + (sl.key || "??:??") + "   " + (sl.title || ""), bodyFirst);
       main.titleFont = Font.mediumSystemFont(14);
       main.subtitleFont = Font.systemFont(12);
       main.subtitleColor = Color.gray();
@@ -1291,9 +1451,9 @@ async function cloud(cfg){
         a.present();
       };
       table.addRow(row);
-    })(slots[i]);
+    })(merged[i]);
   }
   await table.present(false);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31h" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31i" };
