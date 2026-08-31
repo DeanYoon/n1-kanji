@@ -47,14 +47,21 @@ function slotT(e){ return Date.parse(e.lastSlotAt || e.lastShownAt || e.id) || 0
 // ---------- 커리큘럼: N2 고빈도 → N1 고빈도 (706자) ----------
 var SEED = {
   kanjiList: "丈介伸依偉偶傾叫含咲喫埋域塗墨奥姓委娘封岸巡彼御怒怖恋恐恥悩憎戻押捜据掃掘掛昇曇柔殿沸泊泥涙涼渡湿準濃爆猫甘疲皆眠磨祈突籍粒緊締縫繁繰缶罰羅翼耐聴肌胃脚腕膚膜膨致舞舟舶芝菊薄融衝袋裂裕裸褒覆触訂託訟訴診詐詩詰詳誇誓誘請譲豚豪貢販賛賠賢購贈超趣距跳踏躍軒軟軸輩込迅迎迫途逮遅遣遭遷遺避郊郎酢銘銭鋭鎖闘陣陰陳隔隠隻雅雇雷需霜霧露響頻頼顧飢飾餓駄駆騎騒騰驚髪鬼魂魅魔麗仁仮仰企伊伏伐伯伴価侵促俊保修俳倉倫偏健偽傍傑催債傷僕僚僧儀充克免典兼冒冠准凝凡凶刀刃刑削剛剣創功劣励勘勧勲匠匿升卑卓博即却厳又及叔句司吉后吐哀哲唆唯唱啓善喚喪嘆嘉器囚坑坪垂執培基堅堤塁塊塑塾墓墜墳壁壇壊士壮奇奈奉奔奏契奪奮奴如妙妨姫姿威婆媒嫁嫌孔孤宗宙宜宣宮宰宴密寛寧審寮寸射尋尚就尺尼尽尾屈展属履岐岳峠峡峰崇崩嵐巣巧己帆帝帳幕幣幹幻幽序庶康庸廃廊廉廷弁弓弔弦弧張弾彩彫影往征径徐従微徳徴徹忌忍志応忠怠怪恒恨恩恵悔悟悦惑惜惨惰愁愚慈態慎慕慢慮慰慶憂憤憩憲憶懇懸我戒房扇扶批把抑抗択披抵抽拍拒拓拘拠拡括挑挙振授掌排推措掲描提揚握揮援揺搬搭携摂摘摩撃撤撮擁操攻故敏救敢整敵敷斉斜施旗既旨旬旭昆昭是晶暁暑暇暖暦暫曹朗朱朴朽杉李条松析架柄染柳栗株核栽桃案桑桜梅梨棄棋棚棟検概標模樹欄欺款歓殊殖殴殻氏汁江汽沖没沢沼沿泡泣泰洞津洪派浄浜浦浩浪浸涯淡添渇渉渋渓渦湧滋滞源溝滅滑滝漂漆漏漠漫漬潔潜潤潮澄激濁瀬災炉炊炎為烈焦煮煩熊熟黙牧狂狩独狭猛猟献猶猿獄獣獲玄率琴環甚甲畔異疫疾症痘痢痴癒癖皇盆益盛盟監盤盲盾眉看眺眼督睡瞬瞳矛矢矯砕砲硝硫碑磁礁礎祥票視禅禍秀秘租秩称稚稲稼稿穀穂穏穴窃窒窮窯竜端笛第筋策節箇範篤粋粗粘糖糧系糾紀紋納級紛素紡索紫累紳紺結絞統絹継維綱網".split(""),
-  progressIndex: 0, cycle: 1, runCounter: 0,
+  progressIndex: 0, cycle: 1, runCounter: 0, kanjiRepCount: 0,
   history: []
 };
 
 // ---------- 예문 생성 (OpenRouter) ----------
-async function compose(cfg, kanji){
+// priorWords: 이 한자로 이미 예문에 썼던 단어들(REPS_PER_KANJI>1일 때, 같은 한자를
+// 여러 번 생성하면서 매번 똑같은 단어만 나오는 걸 막기 위한 힌트) — 없으면 그냥 생략.
+async function compose(cfg, kanji, priorWords){
+  var avoidLine = "";
+  if(Array.isArray(priorWords) && priorWords.length){
+    avoidLine = "이 한자로 이미 다음 단어를 예문에 썼습니다 — 이번엔 가능하면 다른 단어·다른 문형으로 만드세요: " +
+      priorWords.join(", ") + "\n\n";
+  }
   var prompt =
-"당신은 JLPT 일본어 예문 작성기입니다. 목표 한자: 「" + kanji + "」\n\n" +
+"당신은 JLPT 일본어 예문 작성기입니다. 목표 한자: 「" + kanji + "」\n\n" + avoidLine +
 "「" + kanji + "」를 사용한 자연스럽고 짧은(약 10~25자) 일본어 문장 1개를 만드세요. " +
 "목표 한자는 실제로 자주 쓰이는 용법으로, 문장의 나머지 어휘는 JLPT N2 중심(필요하면 N1)으로 구성하세요. " +
 "너무 쉬운 N4/N5 남발도, 너무 마이너한 어휘도 피하세요.\n\n" +
@@ -297,25 +304,50 @@ async function notify(id, title, body, triggerDate, openURL){
 // 한 칸 진행(신규/복습). s 를 그 자리에서 수정하고 {cur, mode} 반환.
 // forceMode 를 주면 그 모드로 강제(생략 시 옛 runCounter 홀짝 교대 — 지금은 generate() 가
 // isDueForNew() 로 항상 forceMode 를 넘기므로 실질적으로 안 쓰임, 다른 호출부 대비 유지).
+// 한 한자에 대해 새 예문 1개를 만들어 history에 추가 — 진짜로 "다음 한자로 넘어갈지"는
+// cfg.REPS_PER_KANJI(기본 1)에 달림: 이 값만큼 같은 한자로 반복 생성한 뒤에야
+// progressIndex가 전진함(REPS_PER_KANJI=3이면 한 한자당 예문 3개 만들고서야 다음 한자로).
+// 반복 생성할 때 매번 똑같은 단어만 나오지 않도록, 이 한자로 이미 나온 단어들을
+// compose()에 힌트로 넘김. advanceOne()과 day()의 신규 분기가 이 함수로 통일돼있어서
+// REPS_PER_KANJI가 둘 다에 똑같이 적용됨.
+async function composeNewEntry(cfg, s, slotISO, idSuffix){
+  if(!Array.isArray(s.history)) s.history = [];
+  var kanji = s.kanjiList[s.progressIndex];
+  var priorWords = [];
+  for(var i = 0; i < s.history.length; i++){
+    if(s.history[i].targetKanji === kanji){
+      var hw = pickHeadword(s.history[i]);
+      if(hw && hw.word && priorWords.indexOf(hw.word) < 0) priorWords.push(hw.word);
+    }
+  }
+  var c = await compose(cfg, kanji, priorWords);
+  var cur = {
+    id: slotISO + "#" + idSuffix, date: dateJST(), targetKanji: kanji,
+    sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
+    furigana: validateFurigana(c.sentenceJP, c.furigana),
+    kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
+    grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
+    reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
+  };
+  s.history.unshift(cur);
+
+  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 1;
+  s.kanjiRepCount = (s.kanjiRepCount || 0) + 1;
+  if(s.kanjiRepCount >= reps){
+    s.progressIndex += 1;
+    if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
+    s.kanjiRepCount = 0;
+  }
+  s.lastNewAt = slotISO;   // isDueForNew() 판단용 — 마지막 신규 생성 시각
+  return cur;
+}
+
 async function advanceOne(cfg, s, slotISO, forceMode){
   if(!Array.isArray(s.history)) s.history = [];
   var mode = forceMode || ((s.runCounter % 2 === 1 && s.history.length > 0) ? "review" : "new");
   var cur;
   if(mode === "new"){
-    var kanji = s.kanjiList[s.progressIndex];
-    var c = await compose(cfg, kanji);
-    cur = {
-      id: slotISO + "#" + s.runCounter, date: dateJST(), targetKanji: kanji,
-      sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
-      furigana: validateFurigana(c.sentenceJP, c.furigana),
-      kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
-      grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
-      reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
-    };
-    s.history.unshift(cur);
-    s.progressIndex += 1;
-    if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
-    s.lastNewAt = slotISO;   // isDueForNew() 판단용 — 마지막 신규 생성 시각
+    cur = await composeNewEntry(cfg, s, slotISO, s.runCounter);
   } else {
     cur = pickReview(s.history);
     cur.showCount = (cur.showCount || 1) + 1;
@@ -474,20 +506,7 @@ async function day(cfg){
 
       if(slot.isNew || s.history.length === 0){
         mode = "new";
-        var kanji = s.kanjiList[s.progressIndex];
-        var c = await compose(cfg, kanji);
-        cur = {
-          id: slotISO + "#" + slot.key, date: today, targetKanji: kanji,
-          sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
-          furigana: validateFurigana(c.sentenceJP, c.furigana),
-          kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
-          grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
-          reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
-        };
-        s.history.unshift(cur);
-        s.progressIndex += 1;
-        if(s.progressIndex >= s.kanjiList.length){ s.progressIndex = 0; s.cycle += 1; }
-        s.lastNewAt = slotISO;   // generate()의 isDueForNew() 판단용
+        cur = await composeNewEntry(cfg, s, slotISO, slot.key);
       } else {
         mode = "review";
         cur = pickWeightedReview(s.history, sessionBumps);
@@ -886,4 +905,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31b" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31c" };
