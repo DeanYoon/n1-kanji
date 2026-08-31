@@ -329,7 +329,22 @@ async function advanceOne(cfg, s, slotISO, forceMode){
 function pushTitle(mode, cur, s){
   return (mode === "review" ? "[복습] " : "[신규] ") + cur.targetKanji + "   " + s.progressIndex + " / " + s.kanjiList.length;
 }
+// cur.kanjiNotes 중 목표 한자(cur.targetKanji)가 들어간 단어를 고름 — 프롬프트가
+// "「한자」가 들어간 단어를 반드시 하나 넣으라"고 강제하므로 거의 항상 있음. 없으면(옛
+// 항목 등) kanjiNotes 첫 항목, 그것도 없으면 null(호출부에서 문장 폴백으로 처리).
+function pickHeadword(cur){
+  var notes = Array.isArray(cur.kanjiNotes) ? cur.kanjiNotes : [];
+  for(var i = 0; i < notes.length; i++){
+    if(notes[i] && notes[i].word && cur.targetKanji && notes[i].word.indexOf(cur.targetKanji) >= 0) return notes[i];
+  }
+  return notes[0] || null;
+}
+// 알림 본문 — 애플워치에서 손목 들면 바로 보이는 게(문장 3줄보다) 단어 카드가 더
+// 유용하다는 피드백으로 "단어 / 후리가나(단어 읽기) / 한글 번역" 3줄로 변경.
+// kanjiNotes 없는(이 기능 추가 이전) 옛 항목만 예전처럼 문장 통째로 폴백.
 function pushBody(cur){
+  var hw = pickHeadword(cur);
+  if(hw) return hw.word + "\n" + hw.reading + "\n" + hw.meaningKR;
   return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;
 }
 
@@ -338,7 +353,13 @@ function pushBody(cur){
 // 이후 실제로 지난 시간으로 판단. NEW_EVERY_MIN(기본 60분) 안 지났으면 아직 신규 낼 때가
 // 아니라는 뜻 — 그 호출은 API 호출 없이 기존 이력 중 복습 횟수 적은 걸 복습으로만 반영
 // (day()와 같은 가중 랜덤 공식. pickTapReview 재사용).
+// NEW_CUTOFF_DATE(선택, cfg): "YYYY-MM-DD" 같은 날짜를 넣으면 그 날짜(UTC 자정) 이후엔
+// NEW_EVERY_MIN과 무관하게 무조건 false — 시험 D-데이 전 "신규 도입 끊고 복습만" 자동 전환용.
 function isDueForNew(cfg, s){
+  if(cfg.NEW_CUTOFF_DATE){
+    var cutoff = Date.parse(cfg.NEW_CUTOFF_DATE);
+    if(!isNaN(cutoff) && Date.now() >= cutoff) return false;
+  }
   // NEW_EVERY_MIN: 0 을 CFG에 넣으면 "항상 신규" 테스트 모드가 되도록 명시적 null 체크
   // (예전엔 `|| 60`이라 0을 넣어도 falsy라서 60으로 되돌아가는 버그가 있었음).
   var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 60;
@@ -793,4 +814,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30w" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30x" };
