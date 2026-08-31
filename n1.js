@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30p
+// VERSION 2026-08-30q
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -281,7 +281,9 @@ function pushBody(cur){
 // 아니라는 뜻 — 그 호출은 API 호출 없이 기존 이력 중 복습 횟수 적은 걸 복습으로만 반영
 // (day()와 같은 가중 랜덤 공식. pickTapReview 재사용).
 function isDueForNew(cfg, s){
-  var every = cfg.NEW_EVERY_MIN || 60;
+  // NEW_EVERY_MIN: 0 을 CFG에 넣으면 "항상 신규" 테스트 모드가 되도록 명시적 null 체크
+  // (예전엔 `|| 60`이라 0을 넣어도 falsy라서 60으로 되돌아가는 버그가 있었음).
+  var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 60;
   if(!s.lastNewAt) return true;
   return (Date.now() - Date.parse(s.lastNewAt)) / 60000 >= every;
 }
@@ -705,4 +707,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30p" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30q" };
