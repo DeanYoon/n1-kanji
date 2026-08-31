@@ -339,12 +339,7 @@ function pickHeadword(cur){
   }
   return notes[0] || null;
 }
-// 알림 본문 — 애플워치에서 손목 들면 바로 보이는 게(문장 3줄보다) 단어 카드가 더
-// 유용하다는 피드백으로 "단어 / 후리가나(단어 읽기) / 한글 번역" 3줄로 변경.
-// kanjiNotes 없는(이 기능 추가 이전) 옛 항목만 예전처럼 문장 통째로 폴백.
 function pushBody(cur){
-  var hw = pickHeadword(cur);
-  if(hw) return hw.word + "\n" + hw.reading + "\n" + hw.meaningKR;
   return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;
 }
 
@@ -814,4 +809,34 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30x" };
+// ---------- watchWord: 애플워치 글랜스 전용 — generate()/day()와 완전히 별개 트랙 ----------
+// state를 읽기만 하고 절대 쓰지 않음(writeState 호출 없음) — API 호출도, history의
+// showCount/lastShownAt 갱신도, progressIndex/lastNewAt 진행도 전혀 안 건드림. 그래서
+// 이 액션을 몇 분 간격으로 돌리든 generate()/day() 쪽 신규·복습 판단·진도에는 0% 영향.
+// 지금 진행 중인 항목(current() — 위젯이 보여주는 것과 동일한 기준)의 "단어" 하나만
+// 뽑아서(단어/후리가나/한글번역) 별도 알림 식별자(n1-watchword)로 알림 — n1-current(문장
+// 알림, generate()가 씀)와 안 겹침. 아이폰 알림은 페어링된 애플워치로 자동 미러링되므로
+// (기기의 Watch 앱 > Notifications 에서 Scriptable 알림 미러링이 켜져 있어야 함) 손목
+// 들면 이 단어 카드가 바로 보임 — Scriptable 자체엔 워치 전용 API가 없어서 알림
+// 미러링이 유일한 경로.
+async function watchWord(cfg){
+  var s = await readState();
+  if(!s || !Array.isArray(s.history) || !s.history.length) return;
+  var cur = current(s);
+  if(!cur) return;
+  var hw = pickHeadword(cur);
+  var title, body;
+  if(hw){
+    title = hw.word;
+    body = hw.reading + "\n" + hw.meaningKR;
+  } else {
+    // kanjiNotes 없는(furigana 기능 이전) 옛 항목만 폴백: 목표 한자 + 문장 읽기/번역
+    title = cur.targetKanji;
+    body = cur.readingHiragana + "\n" + cur.translationKR;
+  }
+  try { await Notification.removeDelivered(["n1-watchword"]); } catch(e){}
+  try { await Notification.removePending(["n1-watchword"]); } catch(e){}
+  await notify("n1-watchword", title, body, null);
+}
+
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchWord: watchWord, VERSION: "2026-08-30y" };
