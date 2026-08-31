@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30o
+// VERSION 2026-08-30p
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -42,7 +42,10 @@ async function compose(cfg, kanji){
 "목표 한자는 실제로 자주 쓰이는 용법으로, 문장의 나머지 어휘는 JLPT N2 중심(필요하면 N1)으로 구성하세요. " +
 "너무 쉬운 N4/N5 남발도, 너무 마이너한 어휘도 피하세요.\n\n" +
 "다음 JSON 객체 하나만 출력하세요. 코드블록·설명·그 외 텍스트 금지:\n" +
-'{"sentenceJP":"...","readingHiragana":"문장 전체를 히라가나로","translationKR":"자연스러운 한국어 번역","kanjiNotes":[{"word":"...","reading":"...","meaningKR":"..."}],"grammarNotes":[{"point":"...","meaningKR":"..."}]}\n\n' +
+'{"sentenceJP":"...","readingHiragana":"문장 전체를 히라가나로","translationKR":"자연스러운 한국어 번역","furigana":[{"t":"세그먼트 원문","r":"그 세그먼트 읽기(히라가나)"}],"kanjiNotes":[{"word":"...","reading":"...","meaningKR":"..."}],"grammarNotes":[{"point":"...","meaningKR":"..."}]}\n\n' +
+"furigana: sentenceJP를 처음부터 끝까지 빠짐없이 순서대로 잘라 배열로 나열하세요 — 모든 원소의 t를 순서대로 이어붙이면 sentenceJP와 완전히 동일해야 합니다(한 글자도 빠지거나 겹치면 안 됨, 공백도 그대로 포함). " +
+"한자가 하나라도 포함된 연속 구간은 하나의 세그먼트로 묶고 그 부분 전체의 읽기를 r에 히라가나로 넣으세요. " +
+"가나·구두점·숫자·알파벳만 있는 구간은 한자와 같은 세그먼트로 섞지 말고 별도 세그먼트로 분리하고, 그 경우 r은 빈 문자열로 두세요.\n\n" +
 "kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n" +
 "grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. point=문형, meaningKR=쓰임과 뜻을 한 줄로. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. 별도 표시는 붙이지 마세요.";
 
@@ -76,13 +79,81 @@ async function callOpenRouter(cfg, prompt, disableReasoning){
   };
   var body = {
     model: cfg.MODEL || "anthropic/claude-sonnet-5",
-    max_tokens: 1200,
+    max_tokens: 1500,   // furigana 필드가 추가돼서 응답이 좀 더 길어짐
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
   };
   if(disableReasoning) body.reasoning = { enabled: false };
   req.body = JSON.stringify(body);
   return await req.loadJSON();
+}
+
+// compose()가 만든 furigana 배열이 실제로 sentenceJP와 한 글자도 안 틀리고 맞는지 검증.
+// 모델이 실수로 글자를 빠뜨리거나 순서를 바꾸면 위젯에 이상하게 그려지므로, 안 맞으면
+// null 반환 — 위젯 쪽에서 null이면 기존 두 줄(문장/히라가나) 방식으로 자동 폴백.
+function validateFurigana(sentenceJP, furi){
+  if(!Array.isArray(furi) || !furi.length) return null;
+  var joined = "";
+  for(var i = 0; i < furi.length; i++){
+    if(!furi[i] || typeof furi[i].t !== "string") return null;
+    joined += furi[i].t;
+  }
+  return (joined === sentenceJP) ? furi : null;
+}
+
+// furigana 세그먼트를 이미지로 그려서 위젯에 넣을 수 있게 만듦(한자 위에 작은 읽기).
+// Scriptable DrawContext에는 텍스트 폭을 재는 API가 없어서, "글자 수 × 폰트 크기 비율"로
+// 세그먼트 폭을 추정해서 칸을 나눈다 — 실기기 폰트에 따라 살짝 밀릴 수 있음, 그럴 땐
+// CHAR_W_RATIO를 조절. opts: {fontSize, inkColor, softColor, maxWidth}
+function buildFuriganaImage(segments, opts){
+  var sz = opts.fontSize;
+  var fz = Math.max(9, Math.round(sz * 0.42));
+  var CHAR_W_RATIO = 1.0;
+  var cw = sz * CHAR_W_RATIO;
+  var fcw = fz * CHAR_W_RATIO;
+  var mainH = Math.round(sz * 1.25);
+  var furiH = Math.round(fz * 1.35);
+  var pad = 2;
+
+  var widths = [], total = 0, i;
+  for(i = 0; i < segments.length; i++){
+    var seg = segments[i];
+    var mainW = seg.t.length * cw;
+    var furiW = seg.r ? seg.r.length * fcw : 0;
+    var segW = Math.max(mainW, furiW) + pad;
+    widths.push(segW);
+    total += segW;
+  }
+
+  var scale = 1;
+  if(opts.maxWidth && total > opts.maxWidth) scale = opts.maxWidth / total;
+  var W = Math.max(1, Math.round(total * scale));
+  var H = Math.round((furiH + mainH) * scale);
+
+  var ctx = new DrawContext();
+  ctx.size = new Size(W, H);
+  ctx.opaque = false;
+  ctx.respectScreenScale = true;
+  ctx.setTextAlignedCenter();
+
+  var mainFont = Font.semiboldSystemFont(Math.max(8, Math.round(sz * scale)));
+  var furiFont = Font.systemFont(Math.max(7, Math.round(fz * scale)));
+
+  var x = 0;
+  for(i = 0; i < segments.length; i++){
+    var s = segments[i];
+    var w0 = widths[i] * scale;
+    if(s.r){
+      ctx.setFont(furiFont);
+      ctx.setTextColor(opts.softColor);
+      ctx.drawTextInRect(s.r, new Rect(x, 0, w0, furiH * scale));
+    }
+    ctx.setFont(mainFont);
+    ctx.setTextColor(opts.inkColor);
+    ctx.drawTextInRect(s.t, new Rect(x, furiH * scale, w0, mainH * scale));
+    x += w0;
+  }
+  return { image: ctx.getImage(), width: W, height: H };
 }
 
 function pickReview(history){
@@ -177,6 +248,7 @@ async function advanceOne(cfg, s, slotISO, forceMode){
     cur = {
       id: slotISO + "#" + s.runCounter, date: dateJST(), targetKanji: kanji,
       sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
+      furigana: validateFurigana(c.sentenceJP, c.furigana),
       kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
       grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
       reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
@@ -309,6 +381,7 @@ async function day(cfg){
         cur = {
           id: slotISO + "#" + slot.key, date: today, targetKanji: kanji,
           sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
+          furigana: validateFurigana(c.sentenceJP, c.furigana),
           kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
           grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
           reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
@@ -500,13 +573,32 @@ async function widget(cfg){
     trs.font = Font.mediumSystemFont(f(11)); trs.textColor = new Color(c.soft);
     trs.minimumScaleFactor = MINS;
   } else {
-    var sj = w.addText(cur.sentenceJP);
-    sj.font = jpSemi(big ? 25 : 18); sj.textColor = new Color(c.ink);
-    sj.minimumScaleFactor = MINS;
-    w.addSpacer(f(4));
-    var rd = w.addText(cur.readingHiragana);
-    rd.font = Font.systemFont(f(big ? 14 : 12)); rd.textColor = new Color(c.soft);
-    rd.minimumScaleFactor = MINS;
+    var sentPx = big ? 25 : 18;
+    var drewFuri = false;
+    if(Array.isArray(cur.furigana) && cur.furigana.length){
+      // 한자 위에 작은 읽기(후리가나)를 이미지로 그려서 붙임 — furigana 데이터 있는
+      // (이 기능 추가 이후 생성된) 항목만 해당. 실패하면 아래 폴백으로 자동 전환.
+      try {
+        var fi = buildFuriganaImage(cur.furigana, {
+          fontSize: f(sentPx), inkColor: new Color(c.ink), softColor: new Color(c.soft),
+          maxWidth: f(280)
+        });
+        var fimg = w.addImage(fi.image);
+        fimg.imageSize = new Size(fi.width, fi.height);
+        fimg.leftAlignImage();
+        drewFuri = true;
+      } catch(furiErr){ drewFuri = false; }
+    }
+    if(!drewFuri){
+      // furigana 데이터 없는(옛) 항목이거나 렌더 실패 시: 기존 두 줄(문장 / 히라가나) 방식
+      var sj = w.addText(cur.sentenceJP);
+      sj.font = jpSemi(sentPx); sj.textColor = new Color(c.ink);
+      sj.minimumScaleFactor = MINS;
+      w.addSpacer(f(4));
+      var rd = w.addText(cur.readingHiragana);
+      rd.font = Font.systemFont(f(big ? 14 : 12)); rd.textColor = new Color(c.soft);
+      rd.minimumScaleFactor = MINS;
+    }
     w.addSpacer(f(big ? 10 : 8));
     var tr = w.addText(cur.translationKR);
     tr.font = Font.mediumSystemFont(f(big ? 17 : 14)); tr.textColor = new Color(c.ink);
@@ -613,4 +705,4 @@ async function review(cfg){
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30o" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30p" };
