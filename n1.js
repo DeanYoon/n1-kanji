@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-30i
+// VERSION 2026-08-30j
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -344,6 +344,12 @@ async function widget(cfg){
   var isReview = cur && (cur.mode === "review" || (cur.showCount || 1) > 1);
   var w = new ListWidget();
 
+  // 위젯 탭 시: 기본 미리보기 대신 n1-review 를 바로 열고, 지금 보고 있던 항목을 넘김.
+  // (n1-review 스크립트 자체는 안 건드림 — 같은 껍데기가 ACTION="review"로 n1.js의 review()를 실행)
+  if(cur && cur.id){
+    w.url = "scriptable:///run/n1-review?jump=" + encodeURIComponent(cur.id);
+  }
+
   if(fam.indexOf("accessory") === 0){
     if(!cur){ w.addText("N1 · n1-generate 실행"); }
     else if(fam === "accessoryInline"){ w.addText("N1 " + cur.targetKanji + "  " + cur.sentenceJP); }
@@ -459,6 +465,28 @@ async function review(cfg){
   var table = new UITable();
   table.showSeparators = true;
 
+  // 항목 하나의 상세 팝업(문장/뜻/단어/문법 + 외웠음 토글). row 탭과 위젯 jump 양쪽에서 공용으로 사용.
+  async function showDetail(e){
+    var a = new Alert();
+    a.title = e.targetKanji + "   ·   " + e.date;
+    var msg = e.sentenceJP + "\n" + e.readingHiragana + "\n" + e.translationKR;
+    if(Array.isArray(e.kanjiNotes) && e.kanjiNotes.length){
+      msg += "\n\n[단어]\n" + e.kanjiNotes.map(function(n){
+        return "· " + n.word + " (" + n.reading + ") " + n.meaningKR;
+      }).join("\n");
+    }
+    if(Array.isArray(e.grammarNotes) && e.grammarNotes.length){
+      msg += "\n\n[문법]\n" + e.grammarNotes.map(function(g){
+        return "· " + g.point + " — " + g.meaningKR;
+      }).join("\n");
+    }
+    a.message = msg;
+    a.addAction(e.reviewed ? "외웠음 해제" : "외웠음 표시");
+    a.addCancelAction("닫기");
+    var pick = await a.present();
+    if(pick === 0){ e.reviewed = !e.reviewed; writeState(s); draw(); table.reload(); }
+  }
+
   function draw(){
     table.removeAllRows();
     var hist = s.history;
@@ -488,33 +516,27 @@ async function review(cfg){
       mark.centerAligned();
       row.dismissOnSelect = false;
       (function(e){
-        row.onSelect = async function(){
-          var a = new Alert();
-          a.title = e.targetKanji + "   ·   " + e.date;
-          var msg = e.sentenceJP + "\n" + e.readingHiragana + "\n" + e.translationKR;
-          if(Array.isArray(e.kanjiNotes) && e.kanjiNotes.length){
-            msg += "\n\n[단어]\n" + e.kanjiNotes.map(function(n){
-              return "· " + n.word + " (" + n.reading + ") " + n.meaningKR;
-            }).join("\n");
-          }
-          if(Array.isArray(e.grammarNotes) && e.grammarNotes.length){
-            msg += "\n\n[문법]\n" + e.grammarNotes.map(function(g){
-              return "· " + g.point + " — " + g.meaningKR;
-            }).join("\n");
-          }
-          a.message = msg;
-          a.addAction(e.reviewed ? "외웠음 해제" : "외웠음 표시");
-          a.addCancelAction("닫기");
-          var pick = await a.present();
-          if(pick === 0){ e.reviewed = !e.reviewed; writeState(s); draw(); table.reload(); }
-        };
+        row.onSelect = function(){ showDetail(e); };
       })(e);
       table.addRow(row);
     }
   }
 
   draw();
+
+  // 위젯을 탭해서 열린 경우(?jump=id): 목록보다 먼저 그 항목의 상세를 바로 띄움.
+  try {
+    var jumpId = (typeof args !== "undefined" && args.queryParameters && args.queryParameters.jump) || null;
+    if(jumpId){
+      var target = null;
+      for(var ji = 0; ji < s.history.length; ji++){
+        if(s.history[ji].id === jumpId){ target = s.history[ji]; break; }
+      }
+      if(target) await showDetail(target);
+    }
+  } catch(e){}
+
   await table.present(true);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30i" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, VERSION: "2026-08-30j" };
