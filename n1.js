@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-31i
+// VERSION 2026-08-31j
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -42,6 +42,12 @@ function writeState(s){ var fm = getFM(); fm.writeString(statePath(fm), JSON.str
 
 function nowISO(){ return new Date().toISOString().replace(/\.\d{3}Z$/, "Z"); }
 function dateJST(){ return new Date(Date.now() + 9*3600*1000).toISOString().slice(0,10); }
+// 임의 시각(ms epoch 또는 파싱 가능한 문자열)의 JST 날짜(YYYY-MM-DD). 못 읽으면 null.
+function jstDay(t){
+  var ms = (typeof t === "number") ? t : Date.parse(String(t));
+  if(isNaN(ms)) return null;
+  return new Date(ms + 9*3600*1000).toISOString().slice(0,10);
+}
 function slotT(e){ return Date.parse(e.lastSlotAt || e.lastShownAt || e.id) || 0; }
 
 // ---------- 커리큘럼: N2 고빈도 → N1 고빈도 (706자) ----------
@@ -361,26 +367,41 @@ function cloudResultLine(res){
   return "클라우드: 실패 — " + (res.reason || "알 수 없음");
 }
 
-// 같은 key 슬롯이 이미 있으면 덮어쓰고(중복 제거), 없으면 추가 — day()/generate() 가
-// 하루에 여러 번 불려도 s.cloudSlots[today] 에 같은 시각 슬롯이 중복 누적되지 않게.
-function upsertSlot(arr, slot){
-  if(!Array.isArray(arr) || !slot) return;   // 방어: 배열 아닌 값·undefined 가 넘어와도 죽지 않게
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i] && arr[i].key === slot.key){ arr[i] = slot; return; }
-  }
-  arr.push(slot);
+// 슬롯 동일성 판정 기준: key 단독이 아니라 (key, title, body) 3개 조합.
+// 같은 분(minute)에 서로 다른 단어가 2개 이상 생성되는 건 정상이므로, key 만으로
+// 중복 제거하면 서로 다른 항목이 사라진다(문제 2). 3개 값을 JSON 배열로 직렬화해 서명.
+function slotSig(sl){
+  return JSON.stringify([sl && sl.key || "", sl && sl.title || "", sl && sl.body || ""]);
 }
 
-// 슬롯 배열을 key 오름차순으로 정렬한 "새" 배열로(원본 불변). key/title/body 만 남겨
-// 정규화 — gist 에서 온 슬롯에 잡다한 필드가 붙어 있어도 비교/업로드가 안정적이게.
+// (key,title,body) 가 완전히 같은 슬롯이 이미 있으면 추가하지 않고, 없으면 추가.
+// day()/generate() 가 하루에 여러 번 불려도 정확히 같은 슬롯은 중복 누적되지 않되,
+// 같은 시각의 다른 단어는 각각 보존된다.
+function upsertSlot(arr, slot){
+  if(!Array.isArray(arr) || !slot || !slot.key) return;   // 방어: 배열 아닌 값·undefined·key 없음
+  var sig = slotSig(slot);
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] && slotSig(arr[i]) === sig) return;   // 이미 동일 — 중복 추가 안 함
+  }
+  arr.push({ key: slot.key, title: slot.title || "", body: slot.body || "" });
+}
+
+// 슬롯 배열을 정렬한 "새" 배열로(원본 불변). key 오름차순이 1차, 같으면 title → body 순.
+// key/title/body 만 남겨 정규화 — gist 에서 온 슬롯에 잡다한 필드가 붙어 있어도 비교/
+// 업로드가 안정적이게. (중복 제거는 하지 않음 — mergeSlots/upsertSlot 이 담당)
 function sortSlots(arr){
   var a = (Array.isArray(arr) ? arr : []).filter(function(x){ return x && x.key; })
     .map(function(x){ return { key: x.key, title: x.title || "", body: x.body || "" }; });
-  a.sort(function(p, q){ return p.key < q.key ? -1 : p.key > q.key ? 1 : 0; });
+  a.sort(function(p, q){
+    if(p.key !== q.key) return p.key < q.key ? -1 : 1;
+    if(p.title !== q.title) return p.title < q.title ? -1 : 1;
+    if(p.body !== q.body) return p.body < q.body ? -1 : 1;
+    return 0;
+  });
   return a;
 }
 
-// 정렬 후 key/title/body 까지 완전히 같은지(깊은 비교) — 병합 결과가 원격과 똑같으면
+// 정렬 후 (key,title,body) 까지 완전히 같은지(깊은 비교) — 병합 결과가 원격과 똑같으면
 // 굳이 PATCH 안 해서 불필요한 API 호출·Gist 리비전을 막는 데 씀.
 function slotsEqual(a, b){
   var x = sortSlots(a), y = sortSlots(b);
@@ -391,40 +412,50 @@ function slotsEqual(a, b){
   return true;
 }
 
-// key 기준 합집합. 같은 key 가 양쪽에 있으면 로컬 우선(폰이 원본). 결과는 key 오름차순.
+// (key,title,body) 기준 합집합. 같은 key 라도 title/body 가 다르면 둘 다 보존(문제 2).
+// 원격 먼저 넣고 로컬로 덮어써서, 완전히 같은 슬롯이 양쪽에 있을 때 로컬 값을 우선.
+// 결과 정렬은 호출부(sortSlots)에 맡김.
 function mergeSlots(localSlots, remoteSlots){
-  var byKey = {}, i;
-  for(i = 0; i < remoteSlots.length; i++){
-    var r = remoteSlots[i];
-    if(r && r.key) byKey[r.key] = { key: r.key, title: r.title || "", body: r.body || "" };
+  var bySig = {}, order = [], i;
+  function add(sl){
+    if(!sl || !sl.key) return;
+    var norm = { key: sl.key, title: sl.title || "", body: sl.body || "" };
+    var sig = slotSig(norm);
+    if(!bySig[sig]) order.push(sig);
+    bySig[sig] = norm;
   }
-  for(i = 0; i < localSlots.length; i++){
-    var l = localSlots[i];
-    if(l && l.key) byKey[l.key] = { key: l.key, title: l.title || "", body: l.body || "" };
-  }
-  var keys = Object.keys(byKey).sort();
+  for(i = 0; i < (remoteSlots || []).length; i++) add(remoteSlots[i]);
+  for(i = 0; i < (localSlots || []).length; i++) add(localSlots[i]);
   var out = [];
-  for(i = 0; i < keys.length; i++) out.push(byKey[keys[i]]);
+  for(i = 0; i < order.length; i++) out.push(bySig[order[i]]);
   return out;
 }
 
-// s.cloudSlots[today] 가 비었거나 없을 때(= pushCloud 기능이 생기기 전에 오늘 day()가
-// 이미 돌아서, 예약은 다 됐지만 클라우드엔 아무것도 안 올라간 경우) 기존 상태에서
-// 오늘치 슬롯 목록을 최대한 복원해 [{key,title,body}] 로 돌려줌.
+// 기존 상태(예약된 알림 · history · s.pending)에서 오늘치 슬롯 목록을 최대한 복원해
+// [{key,title,body}] 로 돌려줌. cloud() 는 이제 s.cloudSlots[today] 유무와 상관없이
+// 항상 이걸 부르고 그 결과를 기존 cloudSlots 와 합집합한다.
 // 근거로 삼는 데이터:
 //   (1) 이미 예약돼 있는 로컬 알림(identifier "n1-slot-<today>-HHMM") — 제목·본문이
 //       그 시점 pushTitle()/pushBody() 포맷 그대로 박제돼 있어 가장 정확.
-//   (2) 그걸로 못 채운 시각은 s.history(오늘 date) + s.pending(예약된 복습)에서
-//       pushTitle()/pushBody() 를 다시 돌려 동일 포맷으로 재구성.
-// 시각(key)은 예약/노출 시각(lastSlotAt/lastShownAt/slotISO) 우선, 없으면 항목
-// 타임스탬프(id 앞부분)에서 HH:mm 추출. 중복 key 는 하나로 합침. 정말 복원할 게
-// 하나도 없으면 [] 반환 → 호출부에서 gist 를 빈 데이터로 덮어쓰지 않도록 스킵.
+//   (2) s.history 중 "오늘"인 항목 + s.pending(예약된 복습)에서 pushTitle()/pushBody()
+//       를 다시 돌려 동일 포맷으로 재구성.
+// 동일성은 (key,title,body) 3개 조합(slotSig) — 같은 시각(key)에 서로 다른 단어가
+// 2개 이상 있어도 전부 보존한다. 정말 복원할 게 하나도 없으면 [] 반환.
 async function restoreTodaySlots(s, today){
-  var byKey = {};
+  var out = [], seen = {};
+  function push(slot){
+    if(!slot || !slot.key) return false;
+    var norm = { key: slot.key, title: slot.title || "", body: slot.body || "" };
+    var sig = slotSig(norm);
+    if(seen[sig]) return false;
+    seen[sig] = 1;
+    out.push(norm);
+    return true;
+  }
+  var cPend = 0, cHist = 0, cSPend = 0;
 
-  // Notification.allPending() 는 Promise 를 반환하는 비동기 API — 반드시 await.
-  // 위젯/알림 컨텍스트에서 미묘하게 실패할 수 있으므로 통째로 try/catch, 실패해도
-  // 아래 history/pending 기반 재구성으로 계속 진행.
+  // (1) 이미 예약된 로컬 알림 — 가장 정확. allPending() 은 비동기 API(반드시 await),
+  //     위젯/알림 컨텍스트에서 실패할 수 있으므로 통째로 try/catch.
   try {
     var pend = await Notification.allPending();
     var prefix = "n1-slot-" + today + "-";
@@ -435,7 +466,7 @@ async function restoreTodaySlots(s, today){
       if(!/^\d{4}$/.test(hhmm)) continue;
       if(!n.title) continue;
       var nk = hhmm.slice(0, 2) + ":" + hhmm.slice(2);
-      byKey[nk] = { key: nk, title: n.title, body: n.body || "" };
+      if(push({ key: nk, title: n.title, body: n.body || "" })) cPend++;
     }
   } catch(e){ console.log("[n1] restore · allPending 조회 실패(무시): " + e); }
 
@@ -445,36 +476,53 @@ async function restoreTodaySlots(s, today){
     return pad2(d.getHours()) + ":" + pad2(d.getMinutes());
   }
 
+  // 항목이 "오늘"인지 — e.date(YYYY-MM-DD) 우선, 없거나 어긋나도 타임스탬프성 필드들을
+  // JST 날짜로 환산해 하나라도 오늘이면 오늘로 인정. 전부 다른 날이면 확실히 제외.
+  // (옛 항목에 e.date 가 없거나, 어제 늦게 만들어 오늘 노출된 복습이 누락되던 걸 방지)
+  function entryIsToday(e){
+    if(!e) return false;
+    if(e.date && String(e.date).slice(0, 10) === today) return true;
+    var cands = [e.lastSlotAt, e.lastShownAt, e.lastReviewAt, e.createdAt, e.slotISO];
+    if(typeof e.id === "string") cands.push(e.id.split("#")[0]);
+    for(var i = 0; i < cands.length; i++){
+      if(cands[i] == null) continue;
+      if(jstDay(cands[i]) === today) return true;
+    }
+    return false;
+  }
+
   var hist = Array.isArray(s.history) ? s.history : [];
   for(var h = 0; h < hist.length; h++){
     var e = hist[h];
-    if(!e || e.date !== today) continue;
+    if(!entryIsToday(e)) continue;
     var iso = e.lastSlotAt || e.lastShownAt || (typeof e.id === "string" ? e.id.split("#")[0] : null);
     var ek = keyFromISO(iso);
-    if(!ek || byKey[ek]) continue;
+    if(!ek) continue;
     // pushTitle()/pushBody() 가 옛/손상 항목에서 던지더라도 그 한 칸만 건너뛰고 계속.
     try {
       var mode = ((e.showCount || 1) > 1 || e.mode === "review") ? "review" : "new";
-      byKey[ek] = { key: ek, title: pushTitle(mode, e, s), body: pushBody(e) };
+      if(push({ key: ek, title: pushTitle(mode, e, s), body: pushBody(e) })) cHist++;
     } catch(te){ console.log("[n1] restore · history 항목 스킵: " + te); }
   }
 
   var pendArr = Array.isArray(s.pending) ? s.pending : [];
   for(var p = 0; p < pendArr.length; p++){
     var it = pendArr[p];
-    var pk = keyFromISO(it && it.slotISO);
-    if(!pk || byKey[pk]) continue;
+    if(!it || !it.slotISO) continue;
+    if(jstDay(it.slotISO) !== today) continue;   // 오늘 예약분만(내일치 등 제외)
+    var pk = keyFromISO(it.slotISO);
+    if(!pk) continue;
     var ent = null;
     for(var q = 0; q < hist.length; q++){ if(hist[q] && hist[q].id === it.id){ ent = hist[q]; break; } }
     if(!ent) continue;
     try {
-      byKey[pk] = { key: pk, title: pushTitle("review", ent, s), body: pushBody(ent) };
+      if(push({ key: pk, title: pushTitle("review", ent, s), body: pushBody(ent) })) cSPend++;
     } catch(pe){ console.log("[n1] restore · pending 항목 스킵: " + pe); }
   }
 
-  var keys = Object.keys(byKey).sort();
-  var out = [];
-  for(var k = 0; k < keys.length; k++) out.push(byKey[keys[k]]);
+  out = sortSlots(out);
+  console.log("[n1] restoreTodaySlots(" + today + ") · 복원 " + out.length + "칸 " +
+    "(알림 " + cPend + " · history " + cHist + " · s.pending " + cSPend + ")");
   return out;
 }
 
@@ -1231,11 +1279,11 @@ async function watchDay(cfg){
 // 재사용하므로 업로드 포맷·복원 로직이 완전히 일치.
 //
 // 흐름:
-//   1) 로컬 오늘치 슬롯 구성 — s.cloudSlots[today] 우선, 없으면 restoreTodaySlots() 로
-//      복원해 채우고 s.cloudSlots[today] 에 저장(writeState).
+//   1) 로컬 오늘치 슬롯 구성 — 항상 restoreTodaySlots() 를 돌리고 그 결과와 기존
+//      s.cloudSlots[today] 를 (key,title,body) 합집합으로 병합해 s.cloudSlots[today] 에 저장.
 //   2) 원격(Gist) 조회 — 예전 cloud() 와 동일한 인증/비인증 GET.
-//   3) 병합 — 원격 date 가 오늘과 다르면 로컬로 통째 교체, 같으면 key 합집합(로컬 우선),
-//      결과는 key 오름차순.
+//   3) 병합 — 원격 date 가 오늘과 다르면 로컬로 통째 교체, 같으면 (key,title,body) 합집합
+//      (로컬 우선). 같은 key 라도 title/body 가 다르면 둘 다 보존.
 //   4) 차이 있을 때만 pushCloud() 로 업로드(정렬 후 key/title/body 깊은 비교). 업로드
 //      성공 시 병합 결과를 s.cloudSlots[today] 에도 반영(writeState).
 //   5) 결과 표시 — inApp 이면 UITable(행마다 +/~/무표시로 출처 구분), 자동 실행이면 Notification 요약.
@@ -1271,27 +1319,33 @@ async function cloud(cfg){
     return show("로컬 상태 없음", "로컬 state 파일이 없거나 손상됐습니다 — 먼저 n1-generate 를 한 번 실행하세요.");
   }
 
+  // 항상 restoreTodaySlots() 를 돌리고, 그 결과와 기존 s.cloudSlots[today] 를 (key,title,body)
+  // 합집합으로 병합해 로컬 슬롯을 구성한다. 예전엔 s.cloudSlots[today] 가 비었을 때만
+  // 복원 경로를 탔는데, generate() 가 올린 몇 칸만 들어 있으면 그 앞의 예약분(알림·history)이
+  // 통째로 누락됐다(문제 1). 둘 중 하나가 비어도 동작.
+  var restoredCount = 0, existingCount = 0;
   var localSlots = [];
   try {
-    if(s.cloudSlots && typeof s.cloudSlots === "object" &&
-       Array.isArray(s.cloudSlots[today]) && s.cloudSlots[today].length){
-      localSlots = s.cloudSlots[today];
-    } else {
-      // s.cloudSlots[today] 가 비었거나 없음(pushCloud 생기기 전 오늘 day()가 이미 돈 경우) —
-      // 기존 상태에서 복원해 채운다. 복원 자체 실패는 격리하고 아래 0칸 안전장치로 넘어감.
-      var restored = [];
-      try { restored = await restoreTodaySlots(s, today); }
-      catch(re){ console.log("[n1] cloud() · restoreTodaySlots 실패(무시): " + re); }
-      if(restored && restored.length){
-        try {
-          if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
-          s.cloudSlots[today] = restored;
-          s.updatedAt = nowISO();
-          writeState(s);
-          console.log("[n1] cloud() · 오늘치 슬롯 " + restored.length + "칸 복원·저장");
-        } catch(we){ console.log("[n1] cloud() · 복원 결과 저장 실패(무시): " + we); }
-        localSlots = restored;
-      }
+    var existing = (s.cloudSlots && typeof s.cloudSlots === "object" && Array.isArray(s.cloudSlots[today]))
+      ? s.cloudSlots[today] : [];
+    existingCount = sortSlots(existing).length;
+
+    var restored = [];
+    try { restored = await restoreTodaySlots(s, today); }
+    catch(re){ console.log("[n1] cloud() · restoreTodaySlots 실패(무시): " + re); }
+    restoredCount = (restored && restored.length) ? restored.length : 0;
+
+    localSlots = sortSlots(mergeSlots(sortSlots(restored || []), sortSlots(existing)));
+
+    if(localSlots.length){
+      try {
+        if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+        s.cloudSlots[today] = localSlots.slice();
+        s.updatedAt = nowISO();
+        writeState(s);
+        console.log("[n1] cloud() · 로컬 오늘치 슬롯 구성 " + localSlots.length +
+          "칸 (복원 " + restoredCount + " · 기존 " + existingCount + ") 저장");
+      } catch(we){ console.log("[n1] cloud() · 로컬 슬롯 저장 실패(무시): " + we); }
     }
   } catch(e){
     console.log("[n1] cloud() · 로컬 슬롯 구성 실패(무시): " + e);
@@ -1353,7 +1407,7 @@ async function cloud(cfg){
   var merged, replaced = false;
   try {
     if(remoteMatch){
-      merged = mergeSlots(localSlots, remoteSlots);          // key 합집합, 로컬 우선
+      merged = mergeSlots(localSlots, remoteSlots);          // (key,title,body) 합집합, 로컬 우선
     } else {
       merged = localSlots.slice();                            // 어제 데이터 등 → 로컬로 통째 교체
       replaced = true;
@@ -1363,14 +1417,17 @@ async function cloud(cfg){
   }
   merged = sortSlots(merged);
 
-  // 각 슬롯이 원격 대비 어떤 상태인지: new(원격에 없음) · upd(내용 다름) · same
-  var remoteByKey = {};
-  for(var ri = 0; ri < remoteSlots.length; ri++) remoteByKey[remoteSlots[ri].key] = remoteSlots[ri];
+  // 각 슬롯이 원격 대비 어떤 상태인지: same(원격에 똑같은 key,title,body 있음) ·
+  // upd(같은 key 는 있으나 내용 다름) · new(그 key 자체가 원격에 없음)
+  var remoteKeys = {}, remoteSigs = {};
+  for(var ri = 0; ri < remoteSlots.length; ri++){
+    remoteKeys[remoteSlots[ri].key] = 1;
+    remoteSigs[slotSig(remoteSlots[ri])] = 1;
+  }
   function slotState(sl){
-    var r = remoteByKey[sl.key];
-    if(!r) return "new";
-    if(r.title !== sl.title || r.body !== sl.body) return "upd";
-    return "same";
+    if(remoteSigs[slotSig(sl)]) return "same";
+    if(remoteKeys[sl.key]) return "upd";
+    return "new";
   }
   var newCount = 0, updCount = 0;
   for(var mi = 0; mi < merged.length; mi++){
@@ -1402,21 +1459,22 @@ async function cloud(cfg){
   }
 
   // ---- 5) 결과 표시 ----
+  // 로컬이 몇 칸인지(복원/기존 내역 포함) 항상 명확히 보이게 — 진단에 필요(문제 3).
+  var localLine = "로컬 " + localSlots.length + "칸(복원 " + restoredCount + " · 기존 " + existingCount + ")" +
+    " · 클라우드 " + remoteSlots.length + "칸 → 결과 " + merged.length + "칸";
   var summaryLine;
   if(identical){
-    summaryLine = "이미 동일 (" + merged.length + "칸)";
+    summaryLine = localLine + " · 이미 동일(업로드 스킵)";
   } else if(uploadRes && uploadRes.ok){
-    summaryLine = "로컬 " + localSlots.length + "칸 · 클라우드 " + remoteSlots.length +
-      "칸 → 최신화 " + changedCount + "칸 업로드";
+    summaryLine = localLine + " · 최신화 " + changedCount + "칸 업로드";
   } else {
-    summaryLine = "로컬 " + localSlots.length + "칸 · 클라우드 " + remoteSlots.length +
-      "칸 → 업로드 실패: " + ((uploadRes && uploadRes.reason) || "알 수 없음");
+    summaryLine = localLine + " · 업로드 실패: " + ((uploadRes && uploadRes.reason) || "알 수 없음");
   }
   var modeLine = replaced
     ? (remote.missing
         ? ("원격에 데이터 없음 → 로컬 " + merged.length + "칸 전체 업로드")
         : ("원격 날짜(" + (remote.date || "?") + ")가 오늘과 달라 로컬로 통째 교체 · 결과 " + merged.length + "칸"))
-    : ("병합: key 합집합(로컬 우선) · 결과 " + merged.length + "칸 (신규 " + newCount + " · 갱신 " + updCount + ")");
+    : ("병합: (key,title,body) 합집합(로컬 우선) · 결과 " + merged.length + "칸 (신규 " + newCount + " · 갱신 " + updCount + ")");
   var header = summaryLine + "\n" + modeLine + "\n조회: " + via;
   console.log("[n1] cloud()\n" + header);
 
@@ -1456,4 +1514,4 @@ async function cloud(cfg){
   await table.present(false);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31i" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31j" };
