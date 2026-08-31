@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-31f
+// VERSION 2026-08-31g
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -315,6 +315,77 @@ async function pushCloud(cfg, today, slots){
   }
 }
 
+// 같은 key 슬롯이 이미 있으면 덮어쓰고(중복 제거), 없으면 추가 — day()/generate() 가
+// 하루에 여러 번 불려도 s.cloudSlots[today] 에 같은 시각 슬롯이 중복 누적되지 않게.
+function upsertSlot(arr, slot){
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i].key === slot.key){ arr[i] = slot; return; }
+  }
+  arr.push(slot);
+}
+
+// s.cloudSlots[today] 가 비었거나 없을 때(= pushCloud 기능이 생기기 전에 오늘 day()가
+// 이미 돌아서, 예약은 다 됐지만 클라우드엔 아무것도 안 올라간 경우) 기존 상태에서
+// 오늘치 슬롯 목록을 최대한 복원해 [{key,title,body}] 로 돌려줌.
+// 근거로 삼는 데이터:
+//   (1) 이미 예약돼 있는 로컬 알림(identifier "n1-slot-<today>-HHMM") — 제목·본문이
+//       그 시점 pushTitle()/pushBody() 포맷 그대로 박제돼 있어 가장 정확.
+//   (2) 그걸로 못 채운 시각은 s.history(오늘 date) + s.pending(예약된 복습)에서
+//       pushTitle()/pushBody() 를 다시 돌려 동일 포맷으로 재구성.
+// 시각(key)은 예약/노출 시각(lastSlotAt/lastShownAt/slotISO) 우선, 없으면 항목
+// 타임스탬프(id 앞부분)에서 HH:mm 추출. 중복 key 는 하나로 합침. 정말 복원할 게
+// 하나도 없으면 [] 반환 → 호출부에서 gist 를 빈 데이터로 덮어쓰지 않도록 스킵.
+async function restoreTodaySlots(s, today){
+  var byKey = {};
+
+  try {
+    var pend = await Notification.allPending();
+    var prefix = "n1-slot-" + today + "-";
+    for(var i = 0; i < pend.length; i++){
+      var n = pend[i];
+      if(!n || !n.identifier || n.identifier.indexOf(prefix) !== 0) continue;
+      var hhmm = n.identifier.slice(prefix.length);
+      if(!/^\d{4}$/.test(hhmm)) continue;
+      if(!n.title) continue;
+      var nk = hhmm.slice(0, 2) + ":" + hhmm.slice(2);
+      byKey[nk] = { key: nk, title: n.title, body: n.body || "" };
+    }
+  } catch(e){}
+
+  function keyFromISO(iso){
+    var d = new Date(iso);
+    if(isNaN(d.getTime())) return null;
+    return pad2(d.getHours()) + ":" + pad2(d.getMinutes());
+  }
+
+  var hist = Array.isArray(s.history) ? s.history : [];
+  for(var h = 0; h < hist.length; h++){
+    var e = hist[h];
+    if(e.date !== today) continue;
+    var iso = e.lastSlotAt || e.lastShownAt || (typeof e.id === "string" ? e.id.split("#")[0] : null);
+    var ek = keyFromISO(iso);
+    if(!ek || byKey[ek]) continue;
+    var mode = ((e.showCount || 1) > 1 || e.mode === "review") ? "review" : "new";
+    byKey[ek] = { key: ek, title: pushTitle(mode, e, s), body: pushBody(e) };
+  }
+
+  var pendArr = Array.isArray(s.pending) ? s.pending : [];
+  for(var p = 0; p < pendArr.length; p++){
+    var it = pendArr[p];
+    var pk = keyFromISO(it && it.slotISO);
+    if(!pk || byKey[pk]) continue;
+    var ent = null;
+    for(var q = 0; q < hist.length; q++){ if(hist[q].id === it.id){ ent = hist[q]; break; } }
+    if(!ent) continue;
+    byKey[pk] = { key: pk, title: pushTitle("review", ent, s), body: pushBody(ent) };
+  }
+
+  var keys = Object.keys(byKey).sort();
+  var out = [];
+  for(var k = 0; k < keys.length; k++) out.push(byKey[keys[k]]);
+  return out;
+}
+
 async function notify(id, title, body, triggerDate, openURL){
   var n = new Notification();
   n.identifier = id;
@@ -475,7 +546,7 @@ async function generate(cfg){
     var gdk = Object.keys(s.cloudSlots);
     for(var gdi = 0; gdi < gdk.length; gdi++){ if(gdk[gdi] !== gToday) delete s.cloudSlots[gdk[gdi]]; }
     if(!Array.isArray(s.cloudSlots[gToday])) s.cloudSlots[gToday] = [];
-    s.cloudSlots[gToday].push({ key: gKey, title: pushTitle(r.mode, r.cur, s), body: pushBody(r.cur) });
+    upsertSlot(s.cloudSlots[gToday], { key: gKey, title: pushTitle(r.mode, r.cur, s), body: pushBody(r.cur) });
     writeState(s);
     try { await Notification.removeDelivered(["n1-current"]); } catch(e){}
     try { await Notification.removePending(["n1-current"]); } catch(e){}
@@ -543,7 +614,32 @@ async function day(cfg){
         todo.push({ h: hh, min: mm, key: key, isNew: !pastCutoff && (m % NEWEVERY === 0) });
       }
     }
-    if(!todo.length){ console.log("이 구간은 이미 처리됨(" + today + ")"); return; }
+    if(!todo.length){
+      // 이 구간은 이미 예약이 끝났음 — 하지만 새 코드로 처음 실행되는 경우엔 클라우드에
+      // 아직 오늘치가 안 올라가 있을 수 있으므로, 예약할 게 없어도 오늘치는 항상 올린다.
+      console.log("이 구간은 이미 처리됨(" + today + ")");
+      if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+      var edk = Object.keys(s.cloudSlots);
+      for(var edi = 0; edi < edk.length; edi++){ if(edk[edi] !== today) delete s.cloudSlots[edk[edi]]; }
+      var todaySlots = (Array.isArray(s.cloudSlots[today]) && s.cloudSlots[today].length) ? s.cloudSlots[today] : null;
+      if(!todaySlots){
+        // pushCloud 생기기 전 오늘 day()가 이미 돈 경우 — 기존 상태에서 복원
+        var restored = await restoreTodaySlots(s, today);
+        if(restored.length){
+          s.cloudSlots[today] = restored;
+          todaySlots = restored;
+          s.updatedAt = nowISO();
+          writeState(s);
+          console.log("[n1] 오늘치 슬롯 " + restored.length + "칸 복원");
+        }
+      }
+      if(todaySlots && todaySlots.length){
+        await pushCloud(cfg, today, todaySlots);
+      } else {
+        console.log("[n1] 복원할 오늘치 슬롯이 없어 클라우드 업데이트 스킵");
+      }
+      return;
+    }
 
     // 1단계: 메모리에서 전부 생성 (도중 실패하면 저장 안 함 → 안전 재시도)
     var plan = [];
@@ -592,7 +688,7 @@ async function day(cfg){
     for(var cdi = 0; cdi < cdk.length; cdi++){ if(cdk[cdi] !== today) delete s.cloudSlots[cdk[cdi]]; }
     if(!Array.isArray(s.cloudSlots[today])) s.cloudSlots[today] = [];
     for(var pk = 0; pk < plan.length; pk++){
-      s.cloudSlots[today].push({ key: plan[pk].key, title: plan[pk].title, body: plan[pk].body });
+      upsertSlot(s.cloudSlots[today], { key: plan[pk].key, title: plan[pk].title, body: plan[pk].body });
     }
     writeState(s);
     await pushCloud(cfg, today, s.cloudSlots[today]);
@@ -966,4 +1062,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31f" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31g" };
