@@ -487,9 +487,12 @@ async function day(cfg){
     }
 
     // 2단계: 알림 예약 + 저장 (전부 성공했을 때만)
+    // SKIP_PUSH: true 면 신규 생성·진도(progressIndex)·복습 예약(pending)은 평소처럼 다
+    // 하되, 실제 알림(Notification)만 안 쏨 — watchDay 가 64개 알림 한도를 다 쓰도록
+    // 문장 쪽 알림만 끄고 싶을 때 씀(커리큘럼 진행 자체는 안 끊김).
     for(var j = 0; j < plan.length; j++){
       var p = plan[j];
-      if(p.slotDate.getTime() > Date.now() + 5000){
+      if(!cfg.SKIP_PUSH && p.slotDate.getTime() > Date.now() + 5000){
         await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate);
       }
       already.push(p.key);
@@ -870,4 +873,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-30z" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31a" };
