@@ -388,18 +388,26 @@ function reviewURL(cfg){
   return "scriptable:///run/" + encodeURIComponent((cfg && cfg.REVIEW_SCRIPT_NAME) || "n1-review");
 }
 
+// 신규 도입을 끊을 날짜 — 706자 × REPS_PER_KANJI(기본 3) 한 바퀴가 지금 페이스(하루 약
+// 29개 신규)로 대략 끝나는 시점(2026-11-12)을 기본값으로 잡아둠. 그 날짜부터는 신규
+// 생성 없이 순수 복습만(시험 전 마지막 몇 주는 새 걸 우겨넣기보다 복습이 기억에 더
+// 유리하다는 스페이싱 효과 근거). cfg.NEW_CUTOFF_DATE로 덮어쓸 수 있고, 아예 신규를
+// 안 끊고 싶으면 cfg.NEW_CUTOFF_DATE: null 로 넣으면 됨(그럼 무기한 계속 신규 생성).
+// generate()(isDueForNew)와 day() 둘 다 여기(isPastNewCutoff)로 통일해서 씀.
+function isPastNewCutoff(cfg){
+  var cutoffStr = (cfg && cfg.NEW_CUTOFF_DATE !== undefined) ? cfg.NEW_CUTOFF_DATE : "2026-11-12";
+  if(!cutoffStr) return false;
+  var cutoff = Date.parse(cutoffStr);
+  return !isNaN(cutoff) && Date.now() >= cutoff;
+}
+
 // n1-generate 가 몇 번이든, 언제(불규칙하게라도) 불리든 상관없이 신규 생성 빈도를
 // "시간당 대략 1개"로 유지하기 위한 판단 — 정각/그리드가 아니라 마지막 신규 생성(s.lastNewAt)
-// 이후 실제로 지난 시간으로 판단. NEW_EVERY_MIN(기본 60분) 안 지났으면 아직 신규 낼 때가
+// 이후 실제로 지난 시간으로 판단. NEW_EVERY_MIN(기본 30분) 안 지났으면 아직 신규 낼 때가
 // 아니라는 뜻 — 그 호출은 API 호출 없이 기존 이력 중 복습 횟수 적은 걸 복습으로만 반영
 // (day()와 같은 가중 랜덤 공식. pickTapReview 재사용).
-// NEW_CUTOFF_DATE(선택, cfg): "YYYY-MM-DD" 같은 날짜를 넣으면 그 날짜(UTC 자정) 이후엔
-// NEW_EVERY_MIN과 무관하게 무조건 false — 시험 D-데이 전 "신규 도입 끊고 복습만" 자동 전환용.
 function isDueForNew(cfg, s){
-  if(cfg.NEW_CUTOFF_DATE){
-    var cutoff = Date.parse(cfg.NEW_CUTOFF_DATE);
-    if(!isNaN(cutoff) && Date.now() >= cutoff) return false;
-  }
+  if(isPastNewCutoff(cfg)) return false;
   // NEW_EVERY_MIN: 0 을 CFG에 넣으면 "항상 신규" 테스트 모드가 되도록 명시적 null 체크
   // (예전엔 `|| 60`이라 0을 넣어도 falsy라서 60으로 되돌아가는 버그가 있었음).
   var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 30;   // REPS_PER_KANJI=3 기본값과 맞춰 하루 생성량 보정
@@ -489,12 +497,14 @@ async function day(cfg){
     var now = new Date();
 
     // 이 구간에서 아직 처리 안 한 슬롯만 골라내기 (재실행·2차 자동화와 안전하게 공존)
+    // pastCutoff면(isPastNewCutoff, 기본 2026-11-12) 모든 슬롯을 복습으로 — 신규 생성 없음.
+    var pastCutoff = isPastNewCutoff(cfg);
     var todo = [];
     for(var m = startMin; m <= endMin; m += STEP){
       var hh = Math.floor(m / 60), mm = m % 60;
       var key = pad2(hh) + ":" + pad2(mm);
       if(already.indexOf(key) === -1){
-        todo.push({ h: hh, min: mm, key: key, isNew: (m % NEWEVERY === 0) });
+        todo.push({ h: hh, min: mm, key: key, isNew: !pastCutoff && (m % NEWEVERY === 0) });
       }
     }
     if(!todo.length){ console.log("이 구간은 이미 처리됨(" + today + ")"); return; }
@@ -910,4 +920,4 @@ async function watchDay(cfg){
   }
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31d" };
+module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, VERSION: "2026-08-31e" };
