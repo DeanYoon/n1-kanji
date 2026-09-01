@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01b
+// VERSION 2026-09-01c
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -92,39 +92,89 @@ async function compose(cfg, kanji, priorWords){
 "kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n" +
 "grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. point=문형, meaningKR=쓰임과 뜻을 한 줄로. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. 별도 표시는 붙이지 마세요.";
 
-  var res = await callOpenRouter(cfg, prompt, true);
-  // 일부 모델(예: Gemini 3.1 Pro)은 reasoning 끄기 자체를 거부(400) — 그때만 켜서 재시도
-  if(res && res.error && /reasoning/i.test(JSON.stringify(res.error))){
-    res = await callOpenRouter(cfg, prompt, false);
-  }
-  if(res && res.error) throw new Error("API: " + (res.error.message || JSON.stringify(res.error)));
-  var msg = res && res.choices && res.choices[0] && res.choices[0].message;
-  if(!msg || !msg.content) throw new Error("API 응답 형식 오류: " + JSON.stringify(res).slice(0, 300));
-  var t = String(msg.content).trim();
-  var a = t.indexOf("{"), b = t.lastIndexOf("}");
-  if(a >= 0 && b > a) t = t.slice(a, b + 1);
-  try {
-    return JSON.parse(t);
-  } catch(e){
-    throw new Error("모델이 JSON 형식을 안 지킴: " + t.slice(0, 200));
-  }
+  return await requestSentence(cfg, prompt);
 }
 
-// max_tokens를 넉넉히 잡고(추론형 모델도 안 잘리게), 이 작업엔 깊은 추론이 불필요하므로
-// 기본은 reasoning 끔(속도·비용 절약). 끄기 자체를 거부하는 모델만 compose()에서 재시도.
-async function callOpenRouter(cfg, prompt, disableReasoning){
+// OpenRouter 호출을 감싸며 "모델 계열별 파라미터 차이"를 방어한다. 폰·클라우드 공용(n1.js) —
+// 양쪽 다 이 폴백 사다리의 혜택을 받는다. 폴백이 발동하면 반드시 console.log 로 남긴다:
+//   (1) reasoning 끄기를 거부(400) → reasoning 켜서 재시도
+//        (예: 일부 Gemini 계열, 일부 OpenAI 추론 모델)
+//   (2) max_tokens 를 거부하고 max_completion_tokens 를 요구(400) → 파라미터 키를 바꿔 재시도
+//        (OpenAI GPT-5 계열에서 흔함 — 400 응답 본문에 "max_completion_tokens" 가 들어옴)
+//   (3) 응답이 비었거나 JSON 파싱 실패 → 추론형 모델이 토큰 예산을 추론에 다 써서
+//        content 가 안 왔을 수 있음 → max_tokens 를 4000 으로 올려 딱 1회 재시도
+async function requestSentence(cfg, prompt){
+  var opts = { disableReasoning: true, maxTokens: 1500, tokenParam: "max_tokens" };
+  var res = await callOpenRouter(cfg, prompt, opts);
+
+  if(isApiError(res) && /reasoning/i.test(JSON.stringify(res.error))){
+    console.log("[n1] 폴백(1): 모델이 reasoning 끄기를 거부 → reasoning 켜서 재시도");
+    opts.disableReasoning = false;
+    res = await callOpenRouter(cfg, prompt, opts);
+  }
+
+  if(isApiError(res) && /max_completion_tokens/i.test(JSON.stringify(res.error))){
+    console.log("[n1] 폴백(2): 모델이 max_tokens 를 거부 → max_completion_tokens 로 바꿔 재시도");
+    opts.tokenParam = "max_completion_tokens";
+    res = await callOpenRouter(cfg, prompt, opts);
+  }
+
+  if(isApiError(res)) throw new Error("API: " + (res.error.message || JSON.stringify(res.error)));
+
+  var obj = parseSentenceJSON(pickContent(res));
+  if(obj === null){
+    console.log("[n1] 폴백(3): 응답이 비었거나 JSON 파싱 실패 → max_tokens 1500→4000 으로 올려 1회 재시도");
+    opts.maxTokens = 4000;
+    res = await callOpenRouter(cfg, prompt, opts);
+    if(isApiError(res)) throw new Error("API: " + (res.error.message || JSON.stringify(res.error)));
+    obj = parseSentenceJSON(pickContent(res));
+  }
+
+  if(obj === null){
+    var content = pickContent(res);
+    throw new Error(content
+      ? "모델이 JSON 형식을 안 지킴: " + content.slice(0, 200)
+      : "API 응답 형식 오류: " + JSON.stringify(res).slice(0, 300));
+  }
+  return obj;
+}
+
+function isApiError(res){ return !!(res && res.error); }
+
+function pickContent(res){
+  var msg = res && res.choices && res.choices[0] && res.choices[0].message;
+  return (msg && typeof msg.content === "string") ? msg.content : "";
+}
+
+// content 에서 첫 '{' ~ 마지막 '}' 구간만 잘라 JSON.parse. 실패·빈 문자열이면 null.
+function parseSentenceJSON(content){
+  var t = String(content || "").trim();
+  if(!t) return null;
+  var a = t.indexOf("{"), b = t.lastIndexOf("}");
+  if(a >= 0 && b > a) t = t.slice(a, b + 1);
+  try { return JSON.parse(t); } catch(e){ return null; }
+}
+
+// 이 작업엔 깊은 추론이 불필요하므로 기본은 reasoning 끔(속도·비용 절약). 모델 계열별
+// 파라미터 차이(max_tokens vs max_completion_tokens, reasoning 끄기 거부)와 빈 응답 대응은
+// requestSentence() 가 폴백으로 처리하고, 이 함수는 opts 대로 한 번만 쏜다.
+// opts: { disableReasoning:bool, maxTokens:number, tokenParam:"max_tokens"|"max_completion_tokens" }
+async function callOpenRouter(cfg, prompt, opts){
+  opts = opts || {};
+  var tokenParam = opts.tokenParam || "max_tokens";
+  var maxTokens = opts.maxTokens || 1500;   // furigana 필드가 추가돼서 응답이 좀 더 길어짐
   var headers = {
     "Authorization": "Bearer " + cfg.OPENROUTER_KEY,
     "Content-Type": "application/json",
     "X-Title": "N1 Kanji"
   };
   var body = {
-    model: cfg.MODEL || "anthropic/claude-sonnet-5",
-    max_tokens: 1500,   // furigana 필드가 추가돼서 응답이 좀 더 길어짐
+    model: cfg.MODEL || "openai/gpt-5.6-sol",
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
   };
-  if(disableReasoning) body.reasoning = { enabled: false };
+  body[tokenParam] = maxTokens;
+  if(opts.disableReasoning) body.reasoning = { enabled: false };
   var url = "https://openrouter.ai/api/v1/chat/completions";
   // 폰(Scriptable)은 Request, 클라우드(Node 20+)는 내장 fetch — 어느 쪽이든 반환 계약은
   // "파싱된 JSON 객체"(성공 응답이든 {error:...} 든)로 동일하게 맞춘다.
@@ -1756,7 +1806,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01b",
+  VERSION: "2026-09-01c",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,

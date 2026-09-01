@@ -1,6 +1,6 @@
 "use strict";
 const OPENROUTER_KEY = "여기에_OPENROUTER_KEY";
-const MODEL = "anthropic/claude-sonnet-5";
+const MODEL = "openai/gpt-5.6-sol";
 const GIST_ID = "";
 const GIST_TOKEN = "";
 

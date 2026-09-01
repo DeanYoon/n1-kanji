@@ -22,7 +22,7 @@
 //   OPENROUTER_KEY        (필수, --dry-run 이면 불필요)
 //   GIST_TOKEN            (필수, --dry-run 이면 불필요) — gist scope PAT
 //   GIST_ID              기본 3c7a0d99f309aa0dfea3861a7df296d4
-//   MODEL                기본 anthropic/claude-sonnet-5
+//   MODEL                기본 openai/gpt-5.6-sol
 //   TZ                   기본 Asia/Seoul
 //   INIT_PROGRESS_INDEX  상태가 아예 없을 때의 시작 진도 (기본 0)
 
@@ -41,7 +41,7 @@ const cfg = {
   OPENROUTER_KEY: process.env.OPENROUTER_KEY || "",
   GIST_TOKEN: process.env.GIST_TOKEN || "",
   GIST_ID: process.env.GIST_ID || DEFAULT_GIST_ID,
-  MODEL: process.env.MODEL || "anthropic/claude-sonnet-5",
+  MODEL: process.env.MODEL || "openai/gpt-5.6-sol",
   // 폰의 day() 기본값과 동일 (planDay 가 읽는 키): START_HOUR 9 · END_HOUR 23 ·
   // INTERVAL_MIN 15 · NEW_EVERY_MIN 30 · REPS_PER_KANJI 3. 필요하면 여기서 덮어쓰기.
 };

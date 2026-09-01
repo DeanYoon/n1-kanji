@@ -28,7 +28,7 @@ JLPT N2·N1 한자 학습 — 예문 생성은 클라우드(GitHub Actions), 알
 | `OPENROUTER_KEY` | OpenRouter API 키 (`sk-or-…`) |
 | `GIST_TOKEN` | `gist` scope 만 있는 GitHub PAT — `n1-today.json` / `n1-state.json` 쓰기용 |
 
-`GIST_ID` 는 기본값(`3c7a0d99f309aa0dfea3861a7df296d4`)을 쓰며, 바꾸려면 워크플로 `env:` 에 `GIST_ID` 를 추가한다. `MODEL` 기본값은 `anthropic/claude-sonnet-5`.
+`GIST_ID` 는 기본값(`3c7a0d99f309aa0dfea3861a7df296d4`)을 쓰며, 바꾸려면 워크플로 `env:` 에 `GIST_ID` 를 추가한다. `MODEL` 은 워크플로 `env:` 에 `openai/gpt-5.6-sol` 로 명시돼 있고, 코드 기본값(`n1.js` / `stub.js` / `n1-config.js` / `scripts/generate-day.mjs`)도 동일하다. **모델을 바꿀 때는 워크플로 `env:` 와 폰 `n1-config.js` 를 함께 갱신**해야 클라우드·폰이 어긋나지 않는다.
 
 **수동 실행 / 로컬 확인**
 
