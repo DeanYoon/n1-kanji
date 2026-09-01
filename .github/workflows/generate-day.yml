@@ -1,0 +1,46 @@
+name: generate-day
+
+# 하루치 예문 슬롯을 클라우드에서 미리 만들어 Gist 에 올린다.
+# 폰이 꺼져 있어도 그날 09:00~23:00 슬롯이 준비돼 있게 하는 게 목적.
+
+on:
+  schedule:
+    # cron 은 UTC 기준. 20:00 UTC = 다음날 05:00 KST (한국시간 새벽 5시).
+    # 학습 시작(09:00 KST)보다 충분히 이르게 하루치를 만들어 둔다.
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "계획만 출력 (API 호출·Gist 쓰기 없음)"
+        type: boolean
+        default: false
+      force:
+        description: "오늘 이미 만들었어도 다시 생성"
+        type: boolean
+        default: false
+
+# 스케줄 실행과 수동 실행이 겹쳐 Gist 를 동시에 쓰는 일이 없도록 직렬화.
+concurrency:
+  group: generate-day
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TZ: Asia/Seoul
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+      # GIST_ID / MODEL / INIT_PROGRESS_INDEX 를 바꾸려면 여기(또는 repo variables)에서 지정.
+      # 미지정 시 scripts/generate-day.mjs 의 기본값 사용.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: generate-day
+        # 스크립트가 0 이 아닌 코드로 끝나면(die()) 이 스텝이 실패 → 워크플로가 빨갛게 뜬다.
+        run: node scripts/generate-day.mjs ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.force && '--force' || '' }}

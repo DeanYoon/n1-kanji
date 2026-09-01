@@ -1,7 +1,18 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-08-31j
+// VERSION 2026-09-01a
+
+// ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
+// 이 파일은 두 곳에서 로드된다:
+//   1) 폰 — Scriptable 껍데기(stub.js)가 raw URL 에서 통째로 fetch 해 실행. 기존과 동일.
+//   2) 클라우드 — scripts/generate-day.mjs 가 require() 로 이 모듈의 "순수 로직"만 재사용
+//      (planDay / composeNewEntry / compose / pushTitle …). GitHub Actions 에서 하루치
+//      슬롯을 미리 만들어 Gist 에 올리는 용도.
+// 파일을 쪼개지 않고(=단일 파일 유지, 껍데기는 여전히 한 파일만 fetch, 빌드 단계 없음,
+// 오프라인 캐시도 그대로) 환경만 감지해서 HTTP 전송 계층만 갈아끼운다. Scriptable 에는
+// FileManager 전역이 항상 존재하므로 그 유무로 판별.
+var IS_NODE = (typeof FileManager === "undefined");
 
 var DIR_NAME = "n1-kanji", FILE_NAME = "n1_state.json";
 
@@ -42,11 +53,13 @@ function writeState(s){ var fm = getFM(); fm.writeString(statePath(fm), JSON.str
 
 function nowISO(){ return new Date().toISOString().replace(/\.\d{3}Z$/, "Z"); }
 function dateJST(){ return new Date(Date.now() + 9*3600*1000).toISOString().slice(0,10); }
-// 임의 시각(ms epoch 또는 파싱 가능한 문자열)의 JST 날짜(YYYY-MM-DD). 못 읽으면 null.
-function jstDay(t){
+// 임의 시각의 JST 벽시계 HH:mm(2자리 0패딩). 슬롯 key 는 예약 시각(JST) 기준이므로
+// 기기 로컬 타임존과 무관하게 UTC+9 로 고정 변환. 못 읽으면 null.
+function jstHM(t){
   var ms = (typeof t === "number") ? t : Date.parse(String(t));
   if(isNaN(ms)) return null;
-  return new Date(ms + 9*3600*1000).toISOString().slice(0,10);
+  var d = new Date(ms + 9*3600*1000);
+  return pad2(d.getUTCHours()) + ":" + pad2(d.getUTCMinutes());
 }
 function slotT(e){ return Date.parse(e.lastSlotAt || e.lastShownAt || e.id) || 0; }
 
@@ -100,9 +113,7 @@ async function compose(cfg, kanji, priorWords){
 // max_tokens를 넉넉히 잡고(추론형 모델도 안 잘리게), 이 작업엔 깊은 추론이 불필요하므로
 // 기본은 reasoning 끔(속도·비용 절약). 끄기 자체를 거부하는 모델만 compose()에서 재시도.
 async function callOpenRouter(cfg, prompt, disableReasoning){
-  var req = new Request("https://openrouter.ai/api/v1/chat/completions");
-  req.method = "POST";
-  req.headers = {
+  var headers = {
     "Authorization": "Bearer " + cfg.OPENROUTER_KEY,
     "Content-Type": "application/json",
     "X-Title": "N1 Kanji"
@@ -114,8 +125,20 @@ async function callOpenRouter(cfg, prompt, disableReasoning){
     response_format: { type: "json_object" }
   };
   if(disableReasoning) body.reasoning = { enabled: false };
-  req.body = JSON.stringify(body);
-  return await req.loadJSON();
+  var url = "https://openrouter.ai/api/v1/chat/completions";
+  // 폰(Scriptable)은 Request, 클라우드(Node 20+)는 내장 fetch — 어느 쪽이든 반환 계약은
+  // "파싱된 JSON 객체"(성공 응답이든 {error:...} 든)로 동일하게 맞춘다.
+  if(!IS_NODE){
+    var req = new Request(url);
+    req.method = "POST";
+    req.headers = headers;
+    req.body = JSON.stringify(body);
+    return await req.loadJSON();
+  }
+  var res = await fetch(url, { method: "POST", headers: headers, body: JSON.stringify(body) });
+  var text = await res.text();
+  try { return JSON.parse(text); }
+  catch(e){ return { error: { message: "OpenRouter 응답이 JSON 이 아님(HTTP " + res.status + "): " + String(text).slice(0, 200) } }; }
 }
 
 // compose()가 만든 furigana 배열이 실제로 sentenceJP와 한 글자도 안 틀리고 맞는지 검증.
@@ -431,16 +454,22 @@ function mergeSlots(localSlots, remoteSlots){
   return out;
 }
 
-// 기존 상태(예약된 알림 · history · s.pending)에서 오늘치 슬롯 목록을 최대한 복원해
-// [{key,title,body}] 로 돌려줌. cloud() 는 이제 s.cloudSlots[today] 유무와 상관없이
-// 항상 이걸 부르고 그 결과를 기존 cloudSlots 와 합집합한다.
-// 근거로 삼는 데이터:
-//   (1) 이미 예약돼 있는 로컬 알림(identifier "n1-slot-<today>-HHMM") — 제목·본문이
-//       그 시점 pushTitle()/pushBody() 포맷 그대로 박제돼 있어 가장 정확.
-//   (2) s.history 중 "오늘"인 항목 + s.pending(예약된 복습)에서 pushTitle()/pushBody()
-//       를 다시 돌려 동일 포맷으로 재구성.
-// 동일성은 (key,title,body) 3개 조합(slotSig) — 같은 시각(key)에 서로 다른 단어가
-// 2개 이상 있어도 전부 보존한다. 정말 복원할 게 하나도 없으면 [] 반환.
+// 기존 상태에서 오늘치 슬롯 목록을 [{key,title,body}] 로 복원. cloud() 는 s.cloudSlots[today]
+// 유무와 상관없이 항상 이걸 부르고 그 결과를 기존 cloudSlots 와 합집합한다.
+// 실제 n1_state.json 스키마 기준(2026-08-31j):
+//   (A) s.history — e.date === today 인 항목 전부. key 는:
+//        1) id 의 "#" 뒤가 HH:mm 형식이면 그것(= 그 항목의 예정 슬롯 시각, JST).
+//           예: "2026-08-31T14:00:00.000Z#23:00" → "23:00"
+//        2) 아니면(숫자 인덱스 등) lastSlotAt(없으면 lastShownAt)을 JST(UTC+9) HH:mm 로.
+//        3) 둘 다 없으면 스킵.
+//       title/body 는 pushTitle(mode, e, s) / pushBody(e) 재사용. mode 없으면
+//       showCount>1 ? "review" : "new".
+//   (B) s.pending — 앞으로 예약된 복습. slotISO 를 JST HH:mm 로 key, id 로 history 에서
+//       원본 항목을 찾아 pushTitle("review", ent, s) / pushBody(ent). 못 찾으면 스킵.
+//   (C) 예약된 로컬 알림(Notification.allPending, id "n1-slot-<today>-HHMM") — 보조.
+//       없어도 A·B 만으로 충분.
+// A+B+C 를 (key,title,body) 3개 조합 기준 합집합 — 같은 key 라도 title/body 가 다르면
+// 둘 다 보존(같은 분에 두 단어 있어도 유실 금지). 복원할 게 없으면 [] 반환.
 async function restoreTodaySlots(s, today){
   var out = [], seen = {};
   function push(slot){
@@ -452,10 +481,56 @@ async function restoreTodaySlots(s, today){
     out.push(norm);
     return true;
   }
-  var cPend = 0, cHist = 0, cSPend = 0;
+  var cHist = 0, cPend = 0, cNotif = 0;
 
-  // (1) 이미 예약된 로컬 알림 — 가장 정확. allPending() 은 비동기 API(반드시 await),
-  //     위젯/알림 컨텍스트에서 실패할 수 있으므로 통째로 try/catch.
+  // "9:15" → "09:15" 로 정규화. HH:mm 형식이 아니면 null.
+  function normHM(str){
+    var m = /^(\d{1,2}):(\d{2})$/.exec(String(str || "").trim());
+    if(!m) return null;
+    var hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
+    if(hh > 23 || mm > 59) return null;
+    return pad2(hh) + ":" + pad2(mm);
+  }
+  // id "…#접미사" 에서 접미사만.
+  function idSuffix(id){
+    if(typeof id !== "string") return null;
+    var i = id.indexOf("#");
+    return i < 0 ? null : id.slice(i + 1);
+  }
+
+  var hist = Array.isArray(s.history) ? s.history : [];
+
+  // ---- (A) history (오늘 항목 전부) ----
+  for(var h = 0; h < hist.length; h++){
+    var e = hist[h];
+    if(!e || e.date !== today) continue;
+    var ek = normHM(idSuffix(e.id))                       // 1) id 접미사가 HH:mm
+          || jstHM(e.lastSlotAt || e.lastShownAt);        // 2) 예약/노출 시각 → JST HH:mm
+    if(!ek) continue;                                     // 3) 스킵
+    // pushTitle()/pushBody() 가 옛/손상 항목에서 던지더라도 그 한 칸만 건너뛰고 계속.
+    try {
+      var mode = e.mode || ((e.showCount || 1) > 1 ? "review" : "new");
+      if(push({ key: ek, title: pushTitle(mode, e, s), body: pushBody(e) })) cHist++;
+    } catch(te){ console.log("[n1] restore · history 항목 스킵: " + te); }
+  }
+
+  // ---- (B) s.pending (앞으로 예약된 복습) ----
+  var pendArr = Array.isArray(s.pending) ? s.pending : [];
+  for(var p = 0; p < pendArr.length; p++){
+    var it = pendArr[p];
+    if(!it || !it.slotISO) continue;
+    var pk = jstHM(it.slotISO);
+    if(!pk) continue;
+    var ent = null;
+    for(var q = 0; q < hist.length; q++){ if(hist[q] && hist[q].id === it.id){ ent = hist[q]; break; } }
+    if(!ent) continue;
+    try {
+      if(push({ key: pk, title: pushTitle("review", ent, s), body: pushBody(ent) })) cPend++;
+    } catch(pe){ console.log("[n1] restore · pending 항목 스킵: " + pe); }
+  }
+
+  // ---- (C) 예약된 로컬 알림 (보조) ----
+  // allPending() 은 비동기 API(반드시 await), 위젯/알림 컨텍스트에서 실패할 수 있어 try/catch.
   try {
     var pend = await Notification.allPending();
     var prefix = "n1-slot-" + today + "-";
@@ -466,63 +541,13 @@ async function restoreTodaySlots(s, today){
       if(!/^\d{4}$/.test(hhmm)) continue;
       if(!n.title) continue;
       var nk = hhmm.slice(0, 2) + ":" + hhmm.slice(2);
-      if(push({ key: nk, title: n.title, body: n.body || "" })) cPend++;
+      if(push({ key: nk, title: n.title, body: n.body || "" })) cNotif++;
     }
   } catch(e){ console.log("[n1] restore · allPending 조회 실패(무시): " + e); }
 
-  function keyFromISO(iso){
-    var d = new Date(iso);
-    if(isNaN(d.getTime())) return null;
-    return pad2(d.getHours()) + ":" + pad2(d.getMinutes());
-  }
-
-  // 항목이 "오늘"인지 — e.date(YYYY-MM-DD) 우선, 없거나 어긋나도 타임스탬프성 필드들을
-  // JST 날짜로 환산해 하나라도 오늘이면 오늘로 인정. 전부 다른 날이면 확실히 제외.
-  // (옛 항목에 e.date 가 없거나, 어제 늦게 만들어 오늘 노출된 복습이 누락되던 걸 방지)
-  function entryIsToday(e){
-    if(!e) return false;
-    if(e.date && String(e.date).slice(0, 10) === today) return true;
-    var cands = [e.lastSlotAt, e.lastShownAt, e.lastReviewAt, e.createdAt, e.slotISO];
-    if(typeof e.id === "string") cands.push(e.id.split("#")[0]);
-    for(var i = 0; i < cands.length; i++){
-      if(cands[i] == null) continue;
-      if(jstDay(cands[i]) === today) return true;
-    }
-    return false;
-  }
-
-  var hist = Array.isArray(s.history) ? s.history : [];
-  for(var h = 0; h < hist.length; h++){
-    var e = hist[h];
-    if(!entryIsToday(e)) continue;
-    var iso = e.lastSlotAt || e.lastShownAt || (typeof e.id === "string" ? e.id.split("#")[0] : null);
-    var ek = keyFromISO(iso);
-    if(!ek) continue;
-    // pushTitle()/pushBody() 가 옛/손상 항목에서 던지더라도 그 한 칸만 건너뛰고 계속.
-    try {
-      var mode = ((e.showCount || 1) > 1 || e.mode === "review") ? "review" : "new";
-      if(push({ key: ek, title: pushTitle(mode, e, s), body: pushBody(e) })) cHist++;
-    } catch(te){ console.log("[n1] restore · history 항목 스킵: " + te); }
-  }
-
-  var pendArr = Array.isArray(s.pending) ? s.pending : [];
-  for(var p = 0; p < pendArr.length; p++){
-    var it = pendArr[p];
-    if(!it || !it.slotISO) continue;
-    if(jstDay(it.slotISO) !== today) continue;   // 오늘 예약분만(내일치 등 제외)
-    var pk = keyFromISO(it.slotISO);
-    if(!pk) continue;
-    var ent = null;
-    for(var q = 0; q < hist.length; q++){ if(hist[q] && hist[q].id === it.id){ ent = hist[q]; break; } }
-    if(!ent) continue;
-    try {
-      if(push({ key: pk, title: pushTitle("review", ent, s), body: pushBody(ent) })) cSPend++;
-    } catch(pe){ console.log("[n1] restore · pending 항목 스킵: " + pe); }
-  }
-
   out = sortSlots(out);
-  console.log("[n1] restoreTodaySlots(" + today + ") · 복원 " + out.length + "칸 " +
-    "(알림 " + cPend + " · history " + cHist + " · s.pending " + cSPend + ")");
+  console.log("[n1] 복원: history " + cHist + " · pending " + cPend + " · 알림 " + cNotif +
+    " → 병합 후 " + out.length + "칸");
   return out;
 }
 
@@ -558,6 +583,15 @@ async function composeNewEntry(cfg, s, slotISO, idSuffix){
     }
   }
   var c = await compose(cfg, kanji, priorWords);
+  return commitNewEntry(cfg, s, slotISO, idSuffix, kanji, c);
+}
+
+// compose() 가 만든 예문 객체(c)를 history 에 넣고 커리큘럼 진도를 전진시킨다.
+// composeNewEntry() 에서 분리한 이유: 클라우드 dry-run(예문 생성 없이 계획만 확인)에서도
+// 진도 전진 규칙(REPS_PER_KANJI · cycle 넘김 · lastNewAt)을 똑같이 태우기 위함 —
+// dry-run 은 c 자리에 가짜 예문만 넣고 이 함수를 부른다. 진도 규칙은 여기 한 곳에만.
+function commitNewEntry(cfg, s, slotISO, idSuffix, kanji, c){
+  if(!Array.isArray(s.history)) s.history = [];
   var cur = {
     id: slotISO + "#" + idSuffix, date: dateJST(), targetKanji: kanji,
     sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
@@ -716,6 +750,85 @@ async function generate(cfg){
   }
 }
 
+// ---------- planDay: 하루치 슬롯 계획 (순수 로직 · 폰/클라우드 공용) ----------
+// day()(폰) 와 scripts/generate-day.mjs(클라우드) 가 공유하는 유일한 계획 경로.
+// 여기 한 곳에만 있는 규칙:
+//   · 그리드     — START_HOUR~END_HOUR 를 INTERVAL_MIN 간격(기본 09:00~23:00 / 15분).
+//   · 신규 주기  — 슬롯 분(分)이 NEW_EVERY_MIN 의 배수면 신규(기본 30분마다), 나머지는 복습.
+//   · 컷오프     — isPastNewCutoff(cfg) 면 전량 복습(신규 0).
+//   · 복습 선택  — pickWeightedReview(가중 랜덤) + sessionBumps(이 배치 내 연속중복 방지).
+// s 를 그 자리에서 수정: 신규 슬롯마다 composeNewEntry() 가 history 에 unshift 하고
+// progressIndex/kanjiRepCount/cycle/lastNewAt 를 전진. 복습 슬롯은 pending 에 쌓임.
+//
+// opts:
+//   now              Date      "오늘"의 기준(슬롯 Date 구성). 기본 new Date().
+//   alreadyKeys      string[]  이미 처리된 slot key(재실행 시 건너뜀). 기본 [].
+//   compose          fn        신규 예문 생성기 (cfg,s,slotISO,idSuffix)=>entry.
+//                              기본 composeNewEntry. dry-run 은 API 안 부르는 stub 주입.
+//   newErrorFallback bool      신규 생성 실패 시 그 칸을 복습으로 대체하고 계속할지.
+//                              기본 false(예외 전파 = 기존 day() 동작). 클라우드가 true.
+//   onNewError       fn        newErrorFallback 시 (err, slot) 로 실패 보고.
+// 반환: { todo, plan:[{key,slotDate,slotISO,title,body,mode}], pending:[{id,slotISO}],
+//        newCount, reviewCount }
+async function planDay(cfg, s, opts){
+  opts = opts || {};
+  var now = opts.now || new Date();
+  var makeNew = opts.compose || composeNewEntry;
+  var alreadyKeys = opts.alreadyKeys || [];
+  if(!Array.isArray(s.history)) s.history = [];
+
+  var STEP = cfg.INTERVAL_MIN || 15;
+  var NEWEVERY = cfg.NEW_EVERY_MIN || 30;
+  var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
+  var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
+  var startMin = startH * 60, endMin = endH * 60;
+  var pastCutoff = isPastNewCutoff(cfg);
+
+  var todo = [];
+  for(var mnt = startMin; mnt <= endMin; mnt += STEP){
+    var hh = Math.floor(mnt / 60), mm = mnt % 60;
+    var key = pad2(hh) + ":" + pad2(mm);
+    if(alreadyKeys.indexOf(key) === -1){
+      todo.push({ h: hh, min: mm, key: key, isNew: !pastCutoff && (mnt % NEWEVERY === 0) });
+    }
+  }
+
+  var plan = [], pending = [], sessionBumps = {}, newCount = 0;
+  for(var i = 0; i < todo.length; i++){
+    var slot = todo[i];
+    var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), slot.h, slot.min, 0, 0);
+    var slotISO = slotDate.toISOString();
+    var cur, mode;
+
+    if(slot.isNew || s.history.length === 0){
+      try {
+        cur = await makeNew(cfg, s, slotISO, slot.key);
+        mode = "new";
+        newCount++;
+      } catch(newErr){
+        // 첫 예문(history 0건)도 못 만들면 계획 자체가 불가능 — 그건 항상 던진다.
+        if(!opts.newErrorFallback || s.history.length === 0) throw newErr;
+        if(typeof opts.onNewError === "function") opts.onNewError(newErr, slot);
+        mode = "review";
+        cur = pickWeightedReview(s.history, sessionBumps);
+        sessionBumps[cur.id] = (sessionBumps[cur.id] || 0) + 1;
+        pending.push({ id: cur.id, slotISO: slotISO });
+      }
+    } else {
+      mode = "review";
+      cur = pickWeightedReview(s.history, sessionBumps);
+      // 아직 그 시각이 안 지났으니 showCount는 여기서 안 올림 — reconcile()이 나중에 처리.
+      sessionBumps[cur.id] = (sessionBumps[cur.id] || 0) + 1;
+      pending.push({ id: cur.id, slotISO: slotISO });
+    }
+    plan.push({
+      key: slot.key, slotDate: slotDate, slotISO: slotISO,
+      title: pushTitle(mode, cur, s), body: pushBody(cur), mode: mode
+    });
+  }
+  return { todo: todo, plan: plan, pending: pending, newCount: newCount, reviewCount: plan.length - newCount };
+}
+
 // ---------- day: 하루치 슬롯을 일괄 예약 ----------
 // 기본: 09:00~23:00, 15분 간격(57칸), 정시(매시 :00)만 신규 생성 · 나머지는 가중 랜덤 복습.
 // cfg 로 조절: INTERVAL_MIN(간격,분) · NEW_EVERY_MIN(신규 주기,분) · START_HOUR · END_HOUR
@@ -753,29 +866,12 @@ async function day(cfg){
     if(!Array.isArray(s.builtSlots[today])) s.builtSlots[today] = [];
     var already = s.builtSlots[today];
 
-    var STEP = cfg.INTERVAL_MIN || 15;
-    // 기본 30분(15분 그리드에 맞춰 15의 배수여야 정확히 작동 — 아무 값이나 넣으면 그리드와
-    // 안 맞아떨어져 의도와 다르게 동작할 수 있음). 60→30으로 낮춰서 "새 슬롯" 개수를
-    // 09~23시 기준 약 15개/일 → 약 29개/일로 올림. REPS_PER_KANJI 기본값(3)과 나누면
-    // 하루 약 9~10개 "한자" 진도(=29÷3) — 706자를 12월 초 시험 전에 다 돌기 위해 잡았던
-    // "하루 약 10개 신규 한자" 페이스를, 한자당 예문이 3개로 늘어난 만큼 보정한 값.
-    var NEWEVERY = cfg.NEW_EVERY_MIN || 30;
-    var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
-    var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
-    var startMin = startH * 60, endMin = endH * 60;
-    var now = new Date();
-
-    // 이 구간에서 아직 처리 안 한 슬롯만 골라내기 (재실행·2차 자동화와 안전하게 공존)
-    // pastCutoff면(isPastNewCutoff, 기본 2026-11-12) 모든 슬롯을 복습으로 — 신규 생성 없음.
-    var pastCutoff = isPastNewCutoff(cfg);
-    var todo = [];
-    for(var m = startMin; m <= endMin; m += STEP){
-      var hh = Math.floor(m / 60), mm = m % 60;
-      var key = pad2(hh) + ":" + pad2(mm);
-      if(already.indexOf(key) === -1){
-        todo.push({ h: hh, min: mm, key: key, isNew: !pastCutoff && (m % NEWEVERY === 0) });
-      }
-    }
+    // 슬롯 계획(그리드·신규/복습 규칙·가중 랜덤 복습·배치 내 연속중복 방지)은 planDay()
+    // 한 곳에만 있다 — 클라우드 생성기(scripts/generate-day.mjs)도 같은 함수를 부른다.
+    // 신규 슬롯은 planDay() 안에서 composeNewEntry() 로 실제 API 호출까지 끝냄. 도중
+    // 실패하면 여기 도달 전에 예외로 빠져 저장이 안 되므로 안전 재시도 성질은 그대로.
+    var planned = await planDay(cfg, s, { now: new Date(), alreadyKeys: already });
+    var todo = planned.todo;
     console.log("[n1] day() · 이번 구간 처리 대상 " + todo.length + "칸");
     if(!todo.length){
       // 이 구간은 이미 예약이 끝났음 — 예약할 게 없어도, 클라우드가 켜져 있으면 오늘치를
@@ -822,31 +918,11 @@ async function day(cfg){
       return;
     }
 
-    // 1단계: 메모리에서 전부 생성 (도중 실패하면 저장 안 함 → 안전 재시도)
-    var plan = [];
-    var pending = [];       // 이번에 예약하는 복습들 — 저장은 아래 2단계에서 s.pending에 합침
-    var sessionBumps = {};  // 이 배치 안에서만 쓰는 임시 가중치(연속 중복 방지)
-    var newCount = 0;       // 이번 실행에서 새로 만든 신규 예문 수(요약용)
-    for(var i = 0; i < todo.length; i++){
-      var slot = todo[i];
-      var slotDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), slot.h, slot.min, 0, 0);
-      var slotISO = slotDate.toISOString();
-      var cur, mode;
-
-      if(slot.isNew || s.history.length === 0){
-        mode = "new";
-        cur = await composeNewEntry(cfg, s, slotISO, slot.key);
-        newCount++;
-      } else {
-        mode = "review";
-        cur = pickWeightedReview(s.history, sessionBumps);
-        // 아직 그 시각이 안 지났으니 showCount는 여기서 안 올림 — reconcile()이 나중에 처리.
-        // sessionBumps는 오늘치를 만드는 이 배치 안에서만 같은 문장이 연달아 안 뽑히게 하는 임시 가중치.
-        sessionBumps[cur.id] = (sessionBumps[cur.id] || 0) + 1;
-        pending.push({ id: cur.id, slotISO: slotISO });
-      }
-      plan.push({ key: slot.key, slotDate: slotDate, title: pushTitle(mode, cur, s), body: pushBody(cur) });
-    }
+    // 1단계 완료: planDay() 가 메모리에서 plan/pending 을 만들었고(신규는 API 호출까지),
+    // s.history/progressIndex/lastNewAt 도 그 안에서 전진됨. 아직 writeState() 전.
+    var plan = planned.plan;             // [{key,slotDate,slotISO,title,body,mode}]
+    var pending = planned.pending;       // [{id,slotISO}] — 아래 2단계에서 s.pending에 합침
+    var newCount = planned.newCount;     // 이번 실행에서 새로 만든 신규 예문 수(요약용)
     console.log("[n1] day() · plan " + plan.length + "칸 생성 완료(신규 API 호출 포함) · 예약 시작");
 
     // 2단계: 알림 예약 + 저장 (전부 성공했을 때만)
@@ -1514,4 +1590,26 @@ async function cloud(cfg){
   await table.present(false);
 }
 
-module.exports = { generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud, VERSION: "2026-08-31j" };
+module.exports = {
+  // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
+  generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
+  VERSION: "2026-09-01a",
+  // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
+  //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
+  SEED: SEED,
+  planDay: planDay,
+  composeNewEntry: composeNewEntry,
+  commitNewEntry: commitNewEntry,
+  compose: compose,
+  reconcile: reconcile,
+  pickWeightedReview: pickWeightedReview,
+  pushTitle: pushTitle,
+  pushBody: pushBody,
+  pickHeadword: pickHeadword,
+  sortSlots: sortSlots,
+  slotSig: slotSig,
+  isPastNewCutoff: isPastNewCutoff,
+  dateJST: dateJST,
+  nowISO: nowISO,
+  pad2: pad2
+};
