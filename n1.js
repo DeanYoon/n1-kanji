@@ -1600,35 +1600,17 @@ async function watchDay(cfg){
   }
 }
 
-// ---------- cloud: 폰 로컬 상태와 Gist 를 "같아지도록" 맞춤(동기화) ----------
-// 예전 cloud() 는 Gist 를 읽어서 보여주기만 했음. 이제는: 폰(iOS) 로컬에 쌓인 오늘치
-// 슬롯이 원본(source of truth)이고 Gist 는 그 사본이라는 전제로, 탭 한 번에 양쪽을
-// 같게 만든다. day()/generate() 가 이미 쓰는 pushCloud() · restoreTodaySlots() 를 그대로
-// 재사용하므로 업로드 포맷·복원 로직이 완전히 일치.
-//
-// 흐름:
-//   1) 로컬 오늘치 슬롯 구성 — 항상 restoreTodaySlots() 를 돌리고 그 결과와 기존
-//      s.cloudSlots[today] 를 (key,title,body) 합집합으로 병합해 s.cloudSlots[today] 에 저장.
-//   2) 원격(Gist) 조회 — 예전 cloud() 와 동일한 인증/비인증 GET.
-//   3) 병합 — 원격 date 가 오늘과 다르면 로컬로 통째 교체, 같으면 (key,title,body) 합집합
-//      (로컬 우선). 같은 key 라도 title/body 가 다르면 둘 다 보존.
-//   3b) 폰 전체 상태(s) 를 Gist 의 n1-state.json 으로 올릴지 판단(planStateUpload) —
-//      원격에 없으면 시드, 있으면 로컬 updatedAt 이 원격보다 최신일 때만. 클라우드
-//      생성기(scripts/generate-day.mjs)가 이 파일로 진도를 이어가므로 수동 붙여넣기가
-//      더는 필요 없다. 슬롯 동기화와 완전히 독립(개별 try/catch·각각 결과 보고).
-//   4) 차이 있을 때만 pushCloud() 로 업로드(정렬 후 key/title/body 깊은 비교). 상태도
-//      올릴 게 있으면 같은 PATCH 요청에 n1-state.json 을 함께 실어 API 호출 1회로.
-//      (슬롯이 이미 원격과 동일해 PATCH 를 건너뛰는 경우엔 pushCloudState() 단독 PATCH.)
-//   5) 결과 표시 — inApp 이면 UITable(행마다 +/~/무표시로 출처 구분), 자동 실행이면 Notification 요약.
-//      헤더에 "상태: …" 한 줄(업로드 OK / 최신·생략 / 클라우드가 더 최신 / 업로드 실패).
-//
-// 안전장치:
-//   · 로컬이 0칸으로 복원되면 절대 업로드 안 함(빈 데이터로 Gist 덮어쓰기 방지).
-//   · 원격 조회 실패 시 병합 자체를 안 함(덮어쓰기로 인한 데이터 유실 방지).
-//   · 상태 업로드는 history 가 비었거나 kanjiList 가 비면 안 함(빈 상태로 클라우드
-//     진도를 덮으면 유실). JSON 직렬화 왕복 확인, 1MB 초과 시 경고 로그.
-//   · updatedAt 을 파싱 못 하거나 원격이 더 최신이면 업로드하지 않고 그 사실을 알림.
-//   · 모든 단계 개별 try/catch — 조용히 죽지 않게.
+// ---------- cloud: 로컬 상태(주로 "외웠음" 표시)를 클라우드로 올림 ----------
+// 예전 cloud() 는 "폰이 오늘치 슬롯의 원본"이라는 전제로 로컬 history 에서 슬롯을
+// 재구성해 클라우드와 병합했다. 지금은 그 전제가 깨졌다 — 슬롯은 새벽에 클라우드
+// (scripts/generate-day.mjs) 혼자 만들고, day() 는 그걸 읽기만 한다. 그런데 그 재구성
+// (restoreTodaySlots)이 "지금" 진도 번호로 제목을 다시 만들다 보니, 하루 동안 진도가
+// 오르며 제목이 조금씩 달라졌던 진짜 슬롯들과 달라 보여서 같은 시각인데 "다른 슬롯"으로
+// 계속 중복 누적되는 버그가 있었다(57칸이 110칸까지 불어남). 그 재구성/병합/업로드를
+// 통째로 없앴다 — 이제 슬롯은 클라우드→폰 단방향(day() 담당)이고, cloud() 는 반대
+// 방향(폰→클라우드)만 맡는다: 로컬에서만 바뀌는 값(review 의 "외웠음" 표시 등)이 담긴
+// n1-state.json 을 필요할 때만 올린다. planStateUpload() 의 "로컬이 원격보다 최신일
+// 때만 업로드"(안 그러면 클라우드가 그날 밤 만든 새 진도를 되돌려 씀) 규칙은 그대로.
 async function cloud(cfg){
   var inApp = false;
   try { inApp = (typeof config !== "undefined") && config.runsInApp; } catch(e){}
@@ -1647,260 +1629,52 @@ async function cloud(cfg){
   }
 
   var today = dateJST();
-
-  // ---- 1) 로컬 오늘치 슬롯 구성 ----
   var s = null;
   try { s = await readState(); }
   catch(e){ return show("로컬 상태 조회 실패", "state 파일을 읽지 못했습니다: " + String(e && e.message ? e.message : e)); }
   if(!s || !Array.isArray(s.kanjiList)){
-    return show("로컬 상태 없음", "로컬 state 파일이 없거나 손상됐습니다 — 먼저 n1-generate 를 한 번 실행하세요.");
+    return show("로컬 상태 없음", "로컬 state 파일이 없거나 손상됐습니다 — 먼저 n1-day 를 한 번 실행하세요.");
   }
-  // ⚠️ s.updatedAt 을 아래 슬롯 구성에서 nowISO() 로 덮어쓰므로, 원격 상태와 비교할
-  // "진짜" 로컬 갱신 시각은 지금 캡처해 둔다. (cloud() 는 진도·history 는 안 건드림)
-  var localStateUpdatedAt = s.updatedAt;
+  var localStateUpdatedAt = s.updatedAt;   // planStateUpload 가 s.updatedAt 을 안 건드리지만, 의도 명시.
 
-  // 항상 restoreTodaySlots() 를 돌리고, 그 결과와 기존 s.cloudSlots[today] 를 (key,title,body)
-  // 합집합으로 병합해 로컬 슬롯을 구성한다. 예전엔 s.cloudSlots[today] 가 비었을 때만
-  // 복원 경로를 탔는데, generate() 가 올린 몇 칸만 들어 있으면 그 앞의 예약분(알림·history)이
-  // 통째로 누락됐다(문제 1). 둘 중 하나가 비어도 동작.
-  var restoredCount = 0, existingCount = 0;
-  var localSlots = [];
-  try {
-    var existing = (s.cloudSlots && typeof s.cloudSlots === "object" && Array.isArray(s.cloudSlots[today]))
-      ? s.cloudSlots[today] : [];
-    existingCount = sortSlots(existing).length;
-
-    var restored = [];
-    try { restored = await restoreTodaySlots(s, today); }
-    catch(re){ console.log("[n1] cloud() · restoreTodaySlots 실패(무시): " + re); }
-    restoredCount = (restored && restored.length) ? restored.length : 0;
-
-    localSlots = sortSlots(mergeSlots(sortSlots(restored || []), sortSlots(existing)));
-
-    if(localSlots.length){
-      try {
-        if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
-        s.cloudSlots[today] = localSlots.slice();
-        s.updatedAt = nowISO();
-        writeState(s);
-        console.log("[n1] cloud() · 로컬 오늘치 슬롯 구성 " + localSlots.length +
-          "칸 (복원 " + restoredCount + " · 기존 " + existingCount + ") 저장");
-      } catch(we){ console.log("[n1] cloud() · 로컬 슬롯 저장 실패(무시): " + we); }
-    }
-  } catch(e){
-    console.log("[n1] cloud() · 로컬 슬롯 구성 실패(무시): " + e);
-  }
-  localSlots = sortSlots(localSlots);
-
-  // 안전장치: 로컬이 0칸이면 여기서 중단 — 빈 데이터로 Gist 를 절대 덮어쓰지 않는다.
-  if(!localSlots.length){
-    return show("로컬에 오늘치 데이터가 없습니다",
-      "로컬에서 오늘치(" + today + ") 슬롯을 하나도 찾지 못했습니다.\n" +
-      "빈 데이터로 클라우드를 덮어쓰지 않도록 동기화를 중단합니다.\n" +
-      "먼저 n1-generate / n1-day 를 실행하세요.");
+  var bundle = await fetchCloudBundle(cfg);
+  if(bundle.err){
+    return show("클라우드 조회 실패", bundle.err + "\n\n데이터 유실 방지를 위해 업로드하지 않았습니다.");
   }
 
-  // ---- 2) 원격(Gist) 조회 ---- (예전 cloud() 와 동일한 방식)
-  var via = cfg.GIST_TOKEN ? "API(인증)" : "API(비인증)";
-  var remote = null, fetchErr = null, remoteStateRaw = null;
-  try {
-    var req = new Request("https://api.github.com/gists/" + cfg.GIST_ID);
-    req.method = "GET";
-    var headers = { "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Cache-Control": "no-cache" };
-    if(cfg.GIST_TOKEN) headers["Authorization"] = "Bearer " + cfg.GIST_TOKEN;
-    req.headers = headers;
-    var meta = await req.loadJSON();
-    var status = (req.response && req.response.statusCode) || 0;
-    if(status === 401) fetchErr = "인증 실패(401) — GIST_TOKEN 이 만료됐거나 잘못됐습니다.";
-    else if(status === 403) fetchErr = "요청 거부(403) — API 레이트리밋이거나 토큰 권한 부족.";
-    else if(status === 404) fetchErr = "Gist 를 찾을 수 없습니다(404) — GIST_ID 를 확인하세요.";
-    else if(meta && meta.message && !meta.files) fetchErr = "GitHub 오류: " + meta.message;
-    else {
-      var file = meta && meta.files && meta.files["n1-today.json"];
-      if(!file){
-        remote = { date: null, slots: [], missing: true };   // 원격에 아직 파일 없음 = 빈 원격
-      } else {
-        var raw = (file.truncated && file.raw_url) ? await new Request(file.raw_url).loadString() : file.content;
-        if(raw == null || String(raw).trim() === ""){
-          remote = { date: null, slots: [], missing: true };
-        } else {
-          var data = JSON.parse(raw);
-          remote = { date: data.date || null, slots: Array.isArray(data.slots) ? data.slots : [], updatedAt: data.updatedAt };
-        }
-      }
-      // 같은 GET 응답에서 원격 상태(n1-state.json)도 꺼내 둔다 — 추가 API 호출 없음.
-      try {
-        var sfile = meta && meta.files && meta.files["n1-state.json"];
-        if(sfile){
-          remoteStateRaw = (sfile.truncated && sfile.raw_url)
-            ? await new Request(sfile.raw_url).loadString()
-            : sfile.content;
-        }
-      } catch(se){ console.log("[n1] cloud() · 원격 n1-state.json 읽기 실패(무시): " + se); }
-    }
-  } catch(e){
-    fetchErr = "네트워크/조회/파싱 실패: " + String(e && e.message ? e.message : e);
-  }
-
-  // 안전장치: 원격 조회 실패 시 병합·업로드 안 함(덮어쓰기로 데이터 유실 방지).
-  if(fetchErr || !remote){
-    return show("클라우드 조회 실패 — 동기화 중단",
-      (fetchErr || "원격 데이터를 가져오지 못했습니다.") + "\n\n" +
-      "데이터 유실 방지를 위해 병합/업로드를 하지 않았습니다.\n" +
-      "로컬 오늘치: " + localSlots.length + "칸 (그대로 유지)");
-  }
-
-  // ---- 3) 병합 ----
-  var remoteSlots = sortSlots(remote.slots);
-  var remoteMatch = (remote.date === today);
-  var merged, replaced = false;
-  try {
-    if(remoteMatch){
-      merged = mergeSlots(localSlots, remoteSlots);          // (key,title,body) 합집합, 로컬 우선
-    } else {
-      merged = localSlots.slice();                            // 어제 데이터 등 → 로컬로 통째 교체
-      replaced = true;
-    }
-  } catch(e){
-    return show("병합 실패", "슬롯 병합 중 오류: " + String(e && e.message ? e.message : e));
-  }
-  merged = sortSlots(merged);
-
-  // 각 슬롯이 원격 대비 어떤 상태인지: same(원격에 똑같은 key,title,body 있음) ·
-  // upd(같은 key 는 있으나 내용 다름) · new(그 key 자체가 원격에 없음)
-  var remoteKeys = {}, remoteSigs = {};
-  for(var ri = 0; ri < remoteSlots.length; ri++){
-    remoteKeys[remoteSlots[ri].key] = 1;
-    remoteSigs[slotSig(remoteSlots[ri])] = 1;
-  }
-  function slotState(sl){
-    if(remoteSigs[slotSig(sl)]) return "same";
-    if(remoteKeys[sl.key]) return "upd";
-    return "new";
-  }
-  var newCount = 0, updCount = 0;
-  for(var mi = 0; mi < merged.length; mi++){
-    var st0 = slotState(merged[mi]);
-    if(st0 === "new") newCount++;
-    else if(st0 === "upd") updCount++;
-  }
-  var changedCount = newCount + updCount;
-
-  // ---- 3b) 폰 전체 상태 업로드 판단 (슬롯 동기화와 완전히 독립) ----
-  // 여기서 던지는 예외가 슬롯 동기화를 무효화하지 않도록 통째로 try/catch.
   var statePlan;
   try {
-    statePlan = planStateUpload(s, localStateUpdatedAt, remoteStateRaw);
+    statePlan = planStateUpload(s, localStateUpdatedAt, bundle.stateRaw);
   } catch(e){
     statePlan = { upload: false, json: null,
       line: "상태: 업로드 실패 — 판단 중 오류: " + String(e && e.message ? e.message : e) };
   }
-  console.log("[n1] cloud() · " + statePlan.line + (statePlan.upload ? " (예정)" : ""));
 
-  // ---- 4) 차이 있을 때만 업로드 ----
-  // 원격 date 가 오늘과 같고 슬롯 내용까지 동일하면 PATCH 스킵. date 가 다르면(어제 등)
-  // 슬롯이 우연히 같아도 date 를 오늘로 고쳐야 하므로 업로드.
-  // 상태(n1-state.json)를 올려야 하면 가능한 한 슬롯 PATCH 에 함께 실어 API 호출 1회로.
-  var identical = remoteMatch && slotsEqual(merged, remoteSlots);
-  var stateExtra = statePlan.upload ? { "n1-state.json": statePlan.json } : null;
-  var stateUploaded = false, stateUploadErr = null;
-  var uploadRes;
-  if(identical){
-    uploadRes = { skipped: true, reason: "이미 동일" };
-    console.log("[n1] cloud() · 병합 결과가 원격과 동일 — 슬롯 업로드 스킵(" + merged.length + "칸)");
-    // 슬롯 PATCH 는 건너뛰지만 상태는 올려야 할 수 있음 → n1-state.json 단독 PATCH.
-    if(stateExtra){
-      try {
-        var sres = await pushCloudState(cfg, statePlan.json);
-        if(sres && sres.ok) stateUploaded = true;
-        else stateUploadErr = (sres && sres.reason) || "알 수 없음";
-      } catch(e){ stateUploadErr = String(e && e.message ? e.message : e); }
-    }
-  } else {
-    try { uploadRes = await pushCloud(cfg, today, merged, stateExtra); }
-    catch(e){ uploadRes = { ok: false, reason: String(e && e.message ? e.message : e) }; }
-    if(uploadRes && uploadRes.ok){
-      if(stateExtra) stateUploaded = true;   // 같은 PATCH 로 함께 올라감
-      try {
-        if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
-        s.cloudSlots[today] = merged.slice();
-        s.updatedAt = nowISO();
-        writeState(s);
-      } catch(we){ console.log("[n1] cloud() · 병합 결과 로컬 반영 실패(무시): " + we); }
-    } else if(stateExtra){
-      stateUploadErr = (uploadRes && uploadRes.reason) || "슬롯 PATCH 실패";
-    }
-  }
-
-  // 상태 업로드 결과를 헤더용 한 줄로 확정.
-  var stateLine;
+  var uploaded = false, uploadErr = null;
   if(statePlan.upload){
-    stateLine = stateUploaded ? statePlan.line : ("상태: 업로드 실패 — " + (stateUploadErr || "알 수 없음"));
-  } else {
-    stateLine = statePlan.line;   // 생략 / 최신 / 클라우드가 더 최신 / 직렬화 오류 등
+    try {
+      var res = await pushCloudState(cfg, statePlan.json);
+      if(res && res.ok) uploaded = true; else uploadErr = (res && res.reason) || "알 수 없음";
+    } catch(e){ uploadErr = String(e && e.message ? e.message : e); }
   }
+  var stateLine = statePlan.upload
+    ? (uploaded ? statePlan.line : ("상태: 업로드 실패 — " + (uploadErr || "알 수 없음")))
+    : statePlan.line;
   console.log("[n1] cloud() · " + stateLine);
 
-  // ---- 5) 결과 표시 ----
-  // 로컬이 몇 칸인지(복원/기존 내역 포함) 항상 명확히 보이게 — 진단에 필요(문제 3).
-  var localLine = "로컬 " + localSlots.length + "칸(복원 " + restoredCount + " · 기존 " + existingCount + ")" +
-    " · 클라우드 " + remoteSlots.length + "칸 → 결과 " + merged.length + "칸";
-  var summaryLine;
-  if(identical){
-    summaryLine = localLine + " · 이미 동일(업로드 스킵)";
-  } else if(uploadRes && uploadRes.ok){
-    summaryLine = localLine + " · 최신화 " + changedCount + "칸 업로드";
-  } else {
-    summaryLine = localLine + " · 업로드 실패: " + ((uploadRes && uploadRes.reason) || "알 수 없음");
-  }
-  var modeLine = replaced
-    ? (remote.missing
-        ? ("원격에 데이터 없음 → 로컬 " + merged.length + "칸 전체 업로드")
-        : ("원격 날짜(" + (remote.date || "?") + ")가 오늘과 달라 로컬로 통째 교체 · 결과 " + merged.length + "칸"))
-    : ("병합: (key,title,body) 합집합(로컬 우선) · 결과 " + merged.length + "칸 (신규 " + newCount + " · 갱신 " + updCount + ")");
-  var header = summaryLine + "\n" + modeLine + "\n" + stateLine + "\n조회: " + via;
-  console.log("[n1] cloud()\n" + header);
+  var todayCount = (bundle.date === today) ? bundle.slots.length : 0;
+  var slotLine = (bundle.date === today)
+    ? ("클라우드 오늘(" + today + ") 슬롯: " + todayCount + "칸")
+    : ("클라우드에 오늘(" + today + ") 자 슬롯이 아직 없음(원격 날짜: " + (bundle.date || "없음") + ")");
 
-  if(!inApp){
-    try { await notify("n1-cloud-" + Date.now(), "클라우드 동기화 · " + merged.length + "칸", header); } catch(e){}
-    return;
-  }
-
-  var table = new UITable();
-  table.showSeparators = true;
-  var hr = new UITableRow();
-  hr.isHeader = true;
-  hr.addText("클라우드 동기화 · " + merged.length + "칸", header.replace(/\n/g, "   ·   "));
-  table.addRow(hr);
-  for(var i = 0; i < merged.length; i++){
-    (function(sl){
-      var st = slotState(sl);
-      var mark = st === "new" ? "+ " : st === "upd" ? "~ " : "";
-      var row = new UITableRow();
-      row.height = 52;
-      var bodyFirst = String(sl.body || "").split("\n")[0];
-      var main = row.addText(mark + (sl.key || "??:??") + "   " + (sl.title || ""), bodyFirst);
-      main.titleFont = Font.mediumSystemFont(14);
-      main.subtitleFont = Font.systemFont(12);
-      main.subtitleColor = Color.gray();
-      row.dismissOnSelect = false;
-      row.onSelect = function(){
-        var a = new Alert();
-        a.title = (sl.key || "") + "   " + (sl.title || "");
-        a.message = String(sl.body || "(본문 없음)");
-        a.addAction("확인");
-        a.present();
-      };
-      table.addRow(row);
-    })(merged[i]);
-  }
-  await table.present(false);
+  var header = stateLine + "\n" + slotLine;
+  await show(statePlan.upload ? "클라우드 동기화" : "클라우드 상태 확인", header);
 }
 
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01c",
+  VERSION: "2026-09-01d",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
