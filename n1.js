@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01c
+// VERSION 2026-09-01d
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -441,6 +441,81 @@ async function pushCloudState(cfg, stateJSON){
   }
 }
 
+// ---------- day(): 클라우드 전용 읽기 경로 ----------
+// day() 는 더 이상 폰에서 직접 예문을 만들지 않는다(OpenRouter 호출 금지). 새벽에 클라우드
+// (scripts/generate-day.mjs)가 미리 만들어 올려둔 n1-today.json / n1-state.json 을 그대로
+// 읽어와 알림만 예약한다. GET 한 번으로 두 파일을 같이 가져온다(cloud() 의 조회 로직과 동일 패턴).
+// 반환: { date, slots:[{key,title,body}], stateRaw } 또는 { err: "설명" }.
+async function fetchCloudBundle(cfg){
+  if(!cfg || !cfg.GIST_ID) return { err: "GIST_ID 미설정" };
+  try {
+    var req = new Request("https://api.github.com/gists/" + cfg.GIST_ID);
+    req.method = "GET";
+    var headers = { "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Cache-Control": "no-cache" };
+    if(cfg.GIST_TOKEN) headers["Authorization"] = "Bearer " + cfg.GIST_TOKEN;
+    req.headers = headers;
+    var meta = await req.loadJSON();
+    var status = (req.response && req.response.statusCode) || 0;
+    if(status === 401) return { err: "인증 실패(401) — GIST_TOKEN 만료/오류" };
+    if(status === 403) return { err: "요청 거부(403) — 레이트리밋/권한 부족" };
+    if(status === 404) return { err: "Gist 를 찾을 수 없음(404) — GIST_ID 확인" };
+    if(meta && meta.message && !meta.files) return { err: "GitHub 오류: " + meta.message };
+
+    var file = meta && meta.files && meta.files["n1-today.json"];
+    if(!file) return { err: "n1-today.json 없음 — 클라우드가 아직 안 돌았을 수 있음" };
+    var raw = (file.truncated && file.raw_url) ? await new Request(file.raw_url).loadString() : file.content;
+    if(raw == null || String(raw).trim() === "") return { err: "n1-today.json 비어 있음" };
+    var data;
+    try { data = JSON.parse(raw); }
+    catch(pe){ return { err: "n1-today.json 파싱 실패: " + String(pe && pe.message ? pe.message : pe) }; }
+
+    var stateRaw = null;
+    var sfile = meta && meta.files && meta.files["n1-state.json"];
+    if(sfile){
+      stateRaw = (sfile.truncated && sfile.raw_url) ? await new Request(sfile.raw_url).loadString() : sfile.content;
+    }
+    return { date: data.date || null, slots: Array.isArray(data.slots) ? data.slots : [], stateRaw: stateRaw };
+  } catch(e){
+    return { err: "네트워크/조회 실패: " + String(e && e.message ? e.message : e) };
+  }
+}
+
+// 원격 n1-state.json(클라우드가 만든 진도·이력)을 로컬 상태 s 에 그대로 반영한다.
+// 클라우드가 이제 진도의 유일한 생성 주체이므로 kanjiList/progressIndex/cycle/history/
+// pending 은 원격이 정답 — 통째로 갈아끼운다. 단, "외웠음"(reviewed)은 로컬(기기)에서만
+// 매길 수 있는 값이라 원격에는 없다 — id 기준으로 로컬에 표시돼 있던 reviewed 를 새
+// history 로 이식해서 유실을 막는다. 성공하면 true, 원격 상태가 없거나 손상됐으면
+// 아무것도 바꾸지 않고 false.
+function adoptRemoteState(s, remoteStateRaw){
+  if(remoteStateRaw == null || String(remoteStateRaw).trim() === "") return false;
+  var rs;
+  try { rs = JSON.parse(remoteStateRaw); }
+  catch(e){ return false; }
+  if(!rs || !Array.isArray(rs.kanjiList) || !rs.kanjiList.length) return false;
+  if(!Array.isArray(rs.history)) rs.history = [];
+
+  var localReviewed = {};
+  if(Array.isArray(s.history)){
+    for(var i = 0; i < s.history.length; i++){
+      var e = s.history[i];
+      if(e && e.id && e.reviewed) localReviewed[e.id] = true;
+    }
+  }
+  for(var j = 0; j < rs.history.length; j++){
+    var re = rs.history[j];
+    if(re && re.id && localReviewed[re.id]) re.reviewed = true;
+  }
+
+  s.kanjiList = rs.kanjiList;
+  if(typeof rs.progressIndex === "number") s.progressIndex = rs.progressIndex;
+  if(typeof rs.cycle === "number") s.cycle = rs.cycle;
+  if(typeof rs.runCounter === "number") s.runCounter = rs.runCounter;
+  s.history = rs.history;
+  s.pending = Array.isArray(rs.pending) ? rs.pending : [];
+  s.lastCurrentId = rs.history[0] ? rs.history[0].id : s.lastCurrentId;
+  return true;
+}
+
 // UTF-8 바이트 길이 (Scriptable·Node 양쪽). Gist 파일 크기 한도 경고·표시에 씀.
 function byteLen(str){
   var s = String(str == null ? "" : str);
@@ -861,13 +936,26 @@ async function generate(cfg){
     if(!Array.isArray(s.history)) s.history = [];
     reconcile(s);   // 예약해뒀던 복습 중 시각이 지난 게 있으면 먼저 반영
     var iso = nowISO();
-    var r;
-    if(isDueForNew(cfg, s) || s.history.length === 0){
-      r = await advanceOne(cfg, s, iso, "new");   // 신규 낼 때: API 호출로 새 문장 생성
-    } else {
-      var picked = pickTapReview(s, current(s));   // 아직 신규 아닐 때: API 호출 없이 복습만 반영
-      r = picked ? { cur: picked, mode: "review" } : await advanceOne(cfg, s, iso, "new");
+    // generate() 는 폰에서 더 이상 OpenRouter 를 호출하지 않는다 — 신규 예문은 새벽에
+    // 클라우드(scripts/generate-day.mjs)만 만든다. 여기서는 기존 이력 중에서 가중 랜덤
+    // 복습 1건을 보여주는 것만 한다(advanceOne/composeNewEntry 는 클라우드 전용으로 남김).
+    if(!s.history.length){
+      await reportRun("N1 생성 실패", [
+        "로컬에 학습 이력이 없습니다.",
+        "n1-cloud 를 먼저 실행해 클라우드 데이터를 받아오세요.",
+        "(이 스크립트는 더 이상 직접 예문을 생성하지 않습니다)"
+      ], true);
+      return;
     }
+    var picked = pickTapReview(s, current(s));
+    if(!picked){
+      await reportRun("N1 생성 — 표시할 것 없음", [
+        "복습으로 보여줄 이력이 없습니다.",
+        "n1-day 를 실행해 오늘치를 먼저 예약하세요."
+      ], false);
+      return;
+    }
+    var r = { cur: picked, mode: "review" };
     s.lastCurrentId = r.cur.id;
     s.updatedAt = iso;
     // 핵심 상태부터 확정 저장 — 아래 클라우드 작업이 실패해도 진도/이력은 이미 안전.
@@ -987,21 +1075,32 @@ async function planDay(cfg, s, opts){
   return { todo: todo, plan: plan, pending: pending, newCount: newCount, reviewCount: plan.length - newCount };
 }
 
-// ---------- day: 하루치 슬롯을 일괄 예약 ----------
-// 기본: 09:00~23:00, 15분 간격(57칸), 정시(매시 :00)만 신규 생성 · 나머지는 가중 랜덤 복습.
-// cfg 로 조절: INTERVAL_MIN(간격,분) · NEW_EVERY_MIN(신규 주기,분) · START_HOUR · END_HOUR
+// ---------- day: 하루치 슬롯을 일괄 예약 (클라우드 전용, OpenRouter 호출 없음) ----------
+// 기본: 09:00~23:00, 15분 간격(57칸). 이 함수는 더 이상 스스로 예문을 만들지 않는다 —
+// 새벽에 GitHub Actions(scripts/generate-day.mjs)가 미리 만들어 올린 n1-today.json /
+// n1-state.json 을 Gist 에서 읽어와 그대로 iOS 로컬 알림으로 예약만 한다.
+// GIST_ID/GIST_TOKEN 이 없거나, 오늘치 클라우드 데이터가 아직 없으면(새벽 배치가 아직
+// 안 돌았거나 네트워크 문제) 조용히 넘어가지 않고 명확히 실패를 알린다 — 절대로 로컬에서
+// 대신 생성하지 않는다(그게 이 함수의 존재 이유).
 // ※ iOS는 앱당 예약 가능한 로컬 알림이 최대 64개라 기본값이 57개(여유 7개)로 잡혀 있음.
-//   범위를 늘릴 땐 (END_HOUR-START_HOUR)*60/INTERVAL_MIN + 1 이 64를 넘지 않게.
 async function day(cfg){
-  // 클라우드 동기화는 GIST_ID·GIST_TOKEN 둘 다 있을 때만. 없으면 관련 코드(복원·업로드,
-  // Notification.allPending 조회 포함)를 통째로 건너뜀 — day() 본연의 알림 예약과 완전히 분리.
   var cloudOn = !!(cfg && cfg.GIST_ID && cfg.GIST_TOKEN);
   console.log("[n1] day() 시작 · cloud=" + (cloudOn ? "on" : "off"));
+  if(!cloudOn){
+    await reportRun("N1 갱신 실패", [
+      "클라우드(GIST_ID/GIST_TOKEN)가 설정돼 있지 않습니다.",
+      "n1-day 는 클라우드 데이터만 읽습니다 — n1-config 에서 먼저 설정하세요."
+    ], true);
+    return;
+  }
   try {
     var s = await readState();
     if(!s || !Array.isArray(s.kanjiList) || !s.kanjiList.length){
-      console.log("[n1] day() 중단 · 상태 파일 없음/손상 — n1-generate 먼저 실행 필요");
-      await reportRun("N1 갱신 실패", ["상태 파일이 없습니다.", "먼저 n1-generate 를 한 번 실행하세요."], true);
+      console.log("[n1] day() 중단 · 상태 파일 없음/손상");
+      await reportRun("N1 갱신 실패", [
+        "로컬 상태 파일이 없습니다.",
+        "n1-cloud 를 한 번 실행해 클라우드 데이터를 먼저 받으세요."
+      ], true);
       return;
     }
     if(!Array.isArray(s.history)) s.history = [];
@@ -1018,120 +1117,107 @@ async function day(cfg){
 
     var today = dateJST();
     if(!s.builtSlots || typeof s.builtSlots !== "object") s.builtSlots = {};
-    // 오늘 것만 남기고 지난 날짜 기록은 정리
     var dk = Object.keys(s.builtSlots);
     for(var di = 0; di < dk.length; di++){ if(dk[di] !== today) delete s.builtSlots[dk[di]]; }
     if(!Array.isArray(s.builtSlots[today])) s.builtSlots[today] = [];
     var already = s.builtSlots[today];
 
-    // 슬롯 계획(그리드·신규/복습 규칙·가중 랜덤 복습·배치 내 연속중복 방지)은 planDay()
-    // 한 곳에만 있다 — 클라우드 생성기(scripts/generate-day.mjs)도 같은 함수를 부른다.
-    // 신규 슬롯은 planDay() 안에서 composeNewEntry() 로 실제 API 호출까지 끝냄. 도중
-    // 실패하면 여기 도달 전에 예외로 빠져 저장이 안 되므로 안전 재시도 성질은 그대로.
-    var planned = await planDay(cfg, s, { now: new Date(), alreadyKeys: already });
-    var todo = planned.todo;
+    // 오늘 그리드(09:00~23:00, 15분 간격) 중 아직 처리 안 한 시각만 — planDay() 와 동일한
+    // 규칙이지만 신규/복습 판정은 필요 없다(클라우드가 이미 정해서 title/body 로 보냄).
+    var STEP = cfg.INTERVAL_MIN || 15;
+    var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
+    var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
+    var todo = [];
+    for(var mnt = startH * 60; mnt <= endH * 60; mnt += STEP){
+      var hh = Math.floor(mnt / 60), mm = mnt % 60;
+      var key = pad2(hh) + ":" + pad2(mm);
+      if(already.indexOf(key) === -1) todo.push({ h: hh, min: mm, key: key });
+    }
     console.log("[n1] day() · 이번 구간 처리 대상 " + todo.length + "칸");
     if(!todo.length){
-      // 이 구간은 이미 예약이 끝났음 — 예약할 게 없어도, 클라우드가 켜져 있으면 오늘치를
-      // 한 번 더 올려둔다(새 코드로 처음 실행되는 경우 대비). 클라우드 관련 작업은
-      // 전부 아래 한 블록 안에서 자체 try/catch — 실패해도 day() 는 정상 종료.
-      console.log("이 구간은 이미 처리됨(" + today + ")");
-      var erCloud = { skipped: true, reason: "GIST 미설정" };
-      if(cloudOn){
-        try {
-          if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
-          var edk = Object.keys(s.cloudSlots);
-          for(var edi = 0; edi < edk.length; edi++){ if(edk[edi] !== today) delete s.cloudSlots[edk[edi]]; }
-          var todaySlots = (Array.isArray(s.cloudSlots[today]) && s.cloudSlots[today].length) ? s.cloudSlots[today] : null;
-          if(!todaySlots){
-            // pushCloud 생기기 전 오늘 day()가 이미 돈 경우 — 기존 상태에서 복원
-            var restored = await restoreTodaySlots(s, today);
-            if(restored.length){
-              s.cloudSlots[today] = restored;
-              todaySlots = restored;
-              s.updatedAt = nowISO();
-              writeState(s);
-              console.log("[n1] 오늘치 슬롯 " + restored.length + "칸 복원");
-            }
-          }
-          if(todaySlots && todaySlots.length){
-            erCloud = await pushCloud(cfg, today, todaySlots);
-          } else {
-            erCloud = { ok: false, reason: "복원할 오늘치 슬롯 없음" };
-            console.log("[n1] 복원할 오늘치 슬롯이 없어 클라우드 업데이트 스킵");
-          }
-        } catch(ce){
-          erCloud = { ok: false, reason: String(ce && ce.message ? ce.message : ce) };
-          console.log("[n1] 클라우드 동기화(복원 경로) 실패(무시): " + (ce && ce.stack ? ce.stack : ce));
-        }
-      } else {
-        console.log("[n1] cloud off · 복원/업로드 스킵");
-      }
-      console.log("[n1] day() 종료 · 예약할 슬롯 없음");
+      console.log("[n1] day() 종료 · 예약할 슬롯 없음(이미 오늘치 완료)");
       await reportRun("N1 갱신 — 예약할 것 없음", [
         "이미 오늘 예약 완료 — 신규 0칸",
-        "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")",
-        cloudResultLine(erCloud)
+        "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")"
       ], false);
       return;
     }
 
-    // 1단계 완료: planDay() 가 메모리에서 plan/pending 을 만들었고(신규는 API 호출까지),
-    // s.history/progressIndex/lastNewAt 도 그 안에서 전진됨. 아직 writeState() 전.
-    var plan = planned.plan;             // [{key,slotDate,slotISO,title,body,mode}]
-    var pending = planned.pending;       // [{id,slotISO}] — 아래 2단계에서 s.pending에 합침
-    var newCount = planned.newCount;     // 이번 실행에서 새로 만든 신규 예문 수(요약용)
-    console.log("[n1] day() · plan " + plan.length + "칸 생성 완료(신규 API 호출 포함) · 예약 시작");
+    var bundle = await fetchCloudBundle(cfg);
+    if(bundle.err){
+      console.log("[n1] day() 중단 · 클라우드 조회 실패: " + bundle.err);
+      await reportRun("N1 갱신 실패 — 클라우드 조회 실패", [
+        bundle.err,
+        "잠시 후 다시 시도하세요. (로컬 생성으로 대체하지 않습니다)"
+      ], true);
+      return;
+    }
+    if(bundle.date !== today || !bundle.slots.length){
+      console.log("[n1] day() 중단 · 클라우드에 오늘(" + today + ") 데이터 없음(원격 date=" + bundle.date + ")");
+      await reportRun("N1 갱신 실패 — 오늘치 클라우드 데이터 없음", [
+        "Gist 의 n1-today.json 이 아직 오늘(" + today + ") 자로 갱신되지 않았습니다.",
+        "GitHub Actions(generate-day)가 새벽에 실행됐는지 확인 후 다시 시도하세요."
+      ], true);
+      return;
+    }
 
-    // 2단계: 알림 예약 + 저장 (전부 성공했을 때만)
-    // SKIP_PUSH: true 면 신규 생성·진도(progressIndex)·복습 예약(pending)은 평소처럼 다
-    // 하되, 실제 알림(Notification)만 안 쏨 — watchDay 가 64개 알림 한도를 다 쓰도록
-    // 문장 쪽 알림만 끄고 싶을 때 씀(커리큘럼 진행 자체는 안 끊김).
+    var slotMap = {};
+    for(var bi = 0; bi < bundle.slots.length; bi++){
+      var bs = bundle.slots[bi];
+      if(bs && bs.key) slotMap[bs.key] = bs;
+    }
+    var missing = [];
+    for(var ti = 0; ti < todo.length; ti++){ if(!slotMap[todo[ti].key]) missing.push(todo[ti].key); }
+    if(missing.length){
+      console.log("[n1] day() 중단 · 클라우드 데이터가 일부 시각을 안 채움: " + missing.join(","));
+      await reportRun("N1 갱신 실패 — 클라우드 데이터 불완전", [
+        "다음 시각이 클라우드에 없습니다: " + missing.join(", "),
+        "클라우드 생성이 덜 끝났을 수 있습니다 — 잠시 후 다시 시도하세요."
+      ], true);
+      return;
+    }
+
+    // 진도(kanjiList/progressIndex/history/pending)를 원격으로 통째로 갈아끼움 — 클라우드가
+    // 유일한 생성 주체이므로 여기가 정답. 로컬 "외웠음" 표시는 id 기준으로 이식되어 보존됨.
+    var adopted = adoptRemoteState(s, bundle.stateRaw);
+    if(!adopted){
+      console.log("[n1] day() 중단 · 원격 n1-state.json 없음/손상");
+      await reportRun("N1 갱신 실패 — 클라우드 진도 정보 없음", [
+        "n1-state.json 을 읽지 못했습니다.",
+        "GitHub Actions 실행 로그를 확인하세요."
+      ], true);
+      return;
+    }
+
+    var plan = [];
+    for(var pi = 0; pi < todo.length; pi++){
+      var t = todo[pi];
+      var found = slotMap[t.key];
+      var slotDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), t.h, t.min, 0, 0);
+      plan.push({ key: t.key, slotDate: slotDate, title: found.title || "", body: found.body || "" });
+    }
+
+    // 알림 예약 + 저장. SKIP_PUSH: true 면 진도/이력 갱신은 평소처럼 하되 실제 알림만 안 쏨.
+    var newCount = 0, reviewCount = 0;
     for(var j = 0; j < plan.length; j++){
       var p = plan[j];
+      if(p.title.indexOf("[신규]") === 0) newCount++; else reviewCount++;
       if(!cfg.SKIP_PUSH && p.slotDate.getTime() > Date.now() + 5000){
         await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate, reviewURL(cfg));
       }
       already.push(p.key);
     }
-    if(!Array.isArray(s.pending)) s.pending = [];
-    s.pending = s.pending.concat(pending);
-    reconcile(s);   // 이 중 이미 지난 시각이 있으면(과거로 예약된 경우 등) 바로 반영
-    s.lastCurrentId = s.history[0] ? s.history[0].id : s.lastCurrentId;
+    reconcile(s);   // pending 중 이미 지난 시각이 있으면(과거로 예약된 경우 등) 바로 반영
+    if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
+    s.cloudSlots[today] = bundle.slots.slice();
     s.updatedAt = nowISO();
-    // 핵심(알림 예약·진도·pending)은 먼저 확정 저장 — 이 뒤의 클라우드 작업이 무슨 일이
-    // 있어도 예약 결과를 되돌리거나 막지 못하게.
     writeState(s);
-    console.log("[n1] day() · 상태 저장 완료 · " + plan.length + "칸 예약(" + todo[0].key + "~" + todo[todo.length - 1].key + ")");
+    console.log("[n1] day() · 클라우드 데이터로 " + plan.length + "칸 예약 완료(" + todo[0].key + "~" + todo[todo.length - 1].key + ") · OpenRouter 호출 0회");
 
-    // 오늘치 슬롯(시각·제목·본문)을 누적 저장 후 클라우드에 통째로 올림 — day()가 하루에
-    // 여러 번(구간별로) 불려도 이전에 이미 올린 슬롯이 안 지워지도록 병합. 클라우드는
-    // 완전히 선택적: 아래 전체를 자체 try/catch 로 감싸 실패해도 로그만 남기고 계속.
-    var dayCloud = { skipped: true, reason: "GIST 미설정" };
-    if(cloudOn){
-      try {
-        if(!s.cloudSlots || typeof s.cloudSlots !== "object") s.cloudSlots = {};
-        var cdk = Object.keys(s.cloudSlots);
-        for(var cdi = 0; cdi < cdk.length; cdi++){ if(cdk[cdi] !== today) delete s.cloudSlots[cdk[cdi]]; }
-        if(!Array.isArray(s.cloudSlots[today])) s.cloudSlots[today] = [];
-        for(var pk = 0; pk < plan.length; pk++){
-          upsertSlot(s.cloudSlots[today], { key: plan[pk].key, title: plan[pk].title, body: plan[pk].body });
-        }
-        writeState(s);
-        dayCloud = await pushCloud(cfg, today, s.cloudSlots[today]);
-      } catch(ce){
-        dayCloud = { ok: false, reason: String(ce && ce.message ? ce.message : ce) };
-        console.log("[n1] 클라우드 동기화 실패(무시): " + (ce && ce.stack ? ce.stack : ce));
-      }
-    } else {
-      console.log("[n1] cloud off · 클라우드 업로드 스킵");
-    }
-    console.log("OK day " + plan.length + "칸(" + today + " " + todo[0].key + "~" + todo[todo.length - 1].key + ") 처리");
-    await reportRun("N1 갱신 완료", [
-      "이번 실행: " + plan.length + "칸 예약(신규 " + newCount + " · 복습 " + (plan.length - newCount) + ")",
+    await reportRun("N1 갱신 완료(클라우드)", [
+      "이번 실행: " + plan.length + "칸 예약(신규 " + newCount + " · 복습 " + reviewCount + ")",
       "구간 " + todo[0].key + "~" + todo[todo.length - 1].key + " · 진도 " + s.progressIndex + " / " + s.kanjiList.length,
-      "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")",
-      cloudResultLine(dayCloud)
+      "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")"
     ], false);
   } catch(e){
     console.log("[n1] day() 실패: " + (e && e.stack ? e.stack : (e && e.message ? e.message : e)));
@@ -1383,7 +1469,7 @@ async function review(cfg){
   var s = await readState();
   if(!s || !Array.isArray(s.history) || s.history.length === 0){
     var a0 = new Alert();
-    a0.title = "이력 없음"; a0.message = "먼저 n1-generate 를 한 번 실행하세요."; a0.addAction("확인");
+    a0.title = "이력 없음"; a0.message = "먼저 n1-cloud 를 한 번 실행해 클라우드 데이터를 받으세요."; a0.addAction("확인");
     await a0.present();
     return;
   }
@@ -1395,7 +1481,15 @@ async function review(cfg){
   // row 탭 시 상세 팝업(공용 presentDetail 사용) 후 토글 반영.
   async function showDetail(e){
     var toggled = await presentDetail(e);
-    if(toggled){ writeState(s); draw(); table.reload(); }
+    if(toggled){
+      // "외웠음" 토글은 로컬에서만 일어나는 변경이라, updatedAt 을 여기서 직접 갱신해야
+      // n1-cloud(저녁 동기화)가 "로컬이 더 최신"으로 판단해 클라우드로 올려준다 — 이걸
+      // 안 하면 토글 자체는 저장되지만 클라우드에 영영 반영이 안 된다.
+      s.updatedAt = nowISO();
+      writeState(s);
+      draw();
+      table.reload();
+    }
   }
 
   function draw(){
@@ -1466,7 +1560,7 @@ async function watchDay(cfg){
   try {
     var s = await readState();
     if(!s || !Array.isArray(s.history) || !s.history.length){
-      await notify("n1-watch-err", "워치 단어 알림 예약 실패", "먼저 n1-generate 를 한 번 실행해 이력을 만드세요.");
+      await notify("n1-watch-err", "워치 단어 알림 예약 실패", "먼저 n1-cloud 를 한 번 실행해 클라우드 데이터를 받으세요.");
       return;
     }
     var STEP = cfg.WATCH_INTERVAL_MIN || 10;
