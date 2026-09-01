@@ -7,7 +7,7 @@ JLPT N2·N1 한자 학습 — 예문 생성은 클라우드(GitHub Actions), 알
 - **`.github/workflows/generate-day.yml`** — 위 스크립트를 매일 한국시간 새벽 5시에 실행. 수동 실행(`workflow_dispatch`, `dry_run`/`force` 옵션)도 가능.
 - **`n1-config.js`** — Scriptable에서 **한 번만** 실행. `OPENROUTER_KEY`/`MODEL`/`GIST_ID`/`GIST_TOKEN`을 Keychain(기기 안 보관함)에 저장.
 - **`stub.js`** — Scriptable에 넣을 껍데기 템플릿. 각 스크립트(`n1-generate` / `n1-day` / `n1-widget` / `n1-review` / `n1-watchday` / `n1-cloud`)에 **똑같은 코드**를 붙여넣고 **스크립트 이름만** 다르게 지으면 됨 — 동작(`ACTION`)은 `Script.name()`(스크립트 파일명)에서 자동 판별. `n1-` 접두사·대소문자·구분자는 무시하고, 못 알아보면 `generate`로 폴백. 키는 Keychain에서 자동으로 읽어오므로 스크립트마다 따로 넣지 않음.
-- **`n1-cloud`** — 지금 Gist에 올라가 있는 오늘치 데이터를 폰에서 탭 한 번으로 확인. `UITable`로 슬롯 목록(시각·제목·단어)을 보여주고, 행을 탭하면 본문 전문을 표시. 읽기 전용이라 진도·알림엔 영향 없음. `GIST_ID`(+secret gist면 `GIST_TOKEN`)가 있어야 동작.
+- **`n1-cloud`** — 폰 로컬과 Gist 를 탭 한 번에 맞춘다. ① 오늘치 슬롯(`n1-today.json`)을 양방향 동기화하고 `UITable`로 목록(시각·제목·단어)을 보여줌(행 탭 → 본문 전문). ② **폰 전체 상태를 Gist 의 `n1-state.json` 으로 올린다** — 원격에 없으면 시드, 있으면 로컬 `updatedAt` 이 더 최신일 때만(원격이 더 최신이면 덮어쓰지 않고 알림). 즉 **n1-cloud 를 한 번 실행하면 폰 진도가 Gist 에 올라가므로, 클라우드 첫 실행 전에 수동으로 상태를 붙여넣을 필요가 없다.** `GIST_ID` + `GIST_TOKEN`(상태 업로드는 쓰기 권한 필요)이 있어야 동작.
 
 ## 클라우드 생성 (GitHub Actions)
 
@@ -16,7 +16,7 @@ JLPT N2·N1 한자 학습 — 예문 생성은 클라우드(GitHub Actions), 알
 **흐름**
 
 1. 매일 20:00 UTC(= 05:00 KST)에 `generate-day` 워크플로가 돈다.
-2. `scripts/generate-day.mjs` 가 Gist(`n1-state.json`)에서 클라우드 상태를 읽는다. 없으면 레포 커리큘럼(`n1.SEED`)으로 초기화 (`INIT_PROGRESS_INDEX` 로 시작 진도 지정 가능).
+2. `scripts/generate-day.mjs` 가 Gist(`n1-state.json`)에서 클라우드 상태를 읽는다. 없으면 레포 커리큘럼(`n1.SEED`)으로 초기화 (`INIT_PROGRESS_INDEX` 로 시작 진도 지정 가능). — 이 `n1-state.json` 은 폰에서 **n1-cloud 를 한 번 실행하면** 폰 상태가 그대로 올라가므로, 손으로 만들 필요 없다.
 3. `n1.planDay()` — **폰의 `n1-day` 와 완전히 같은 함수·규칙** — 으로 그날 슬롯을 계획한다. 정시·30분마다 신규 한자 1개, 나머지는 가중 랜덤 복습.
 4. 신규 한자는 OpenRouter(`n1.compose`)로 예문 생성. 실패 시 지수 백오프 3회 재시도, 그래도 안 되면 그 칸은 복습으로 대체.
 5. `{date, slots:[{key,title,body}], updatedAt}` 을 Gist 의 `n1-today.json` 에, 전진된 상태를 `n1-state.json` 에 PATCH.
@@ -40,7 +40,7 @@ JLPT N2·N1 한자 학습 — 예문 생성은 클라우드(GitHub Actions), 알
 
 - `n1-review` "외웠음" 체크 등 **상태 쓰기**. 폰은 여전히 로컬 `n1_state.json` 을 쓴다.
 - 로컬 알림 예약(`n1-day`), 위젯(`n1-widget`), 애플워치 알림(`n1-watchday`).
-- 즉, 지금은 **클라우드가 자기 상태(Gist `n1-state.json`)를 따로 들고** 하루치를 만들고, 폰은 기존대로 동작한다. 두 상태의 통합은 다음 단계.
+- 즉, 지금은 **클라우드가 자기 상태(Gist `n1-state.json`)를 따로 들고** 하루치를 만들고, 폰은 기존대로 동작한다. 두 상태의 통합은 다음 단계 — 다만 폰에서 **n1-cloud** 를 돌리면 폰 진도가 `n1-state.json` 으로 단방향 업로드되므로(로컬이 더 최신일 때만), 클라우드가 폰 진도를 이어받는 흐름은 이미 가능하다.
 
 ## 최신 코드 URL
 
@@ -53,7 +53,7 @@ https://raw.githubusercontent.com/DeanYoon/n1-kanji/main/n1.js
 ## 상태 파일
 
 - **폰**: 진도·이력은 기기 안 `Scriptable/n1-kanji/n1_state.json`.
-- **클라우드**: Gist 의 `n1-state.json` (당분간 폰 상태와 별개). 하루치 산출물은 Gist 의 `n1-today.json`.
+- **클라우드**: Gist 의 `n1-state.json`. 폰 상태와 동일한 스키마이며, **n1-cloud** 실행 시 폰 상태가 이 파일로 업로드된다(원격이 더 최신이면 보존). 하루치 산출물은 Gist 의 `n1-today.json`.
 
 레포엔 코드만.
 
