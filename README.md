@@ -2,6 +2,19 @@
 
 JLPT N2·N1 한자 학습 시스템. 예문 생성(OpenRouter 호출)은 **GitHub Actions 새벽 배치 한 곳에서만** 일어나고, 아이폰과 윈도우는 그 결과를 **읽기만** 한다.
 
+## 목차
+
+- [하드 룰](#하드-룰)
+- [데이터 흐름](#데이터-흐름)
+- [파일](#파일)
+- [Gist 두 파일](#gist-두-파일)
+- [클라우드 생성 (GitHub Actions)](#클라우드-생성-github-actions)
+- [슬롯 계획 규칙](#슬롯-계획-규칙-planday--코드-기본값)
+- [아이폰 (Scriptable)](#아이폰-scriptable)
+- [윈도우](#윈도우)
+- [설정 요약](#설정-요약)
+- [주의](#주의)
+
 ## 하드 룰
 
 - OpenRouter 호출은 **GitHub Actions(`scripts/generate-day.mjs`) 한 곳에서만** 한다.
