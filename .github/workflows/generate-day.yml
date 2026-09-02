@@ -13,6 +13,9 @@ on:
     #    수 분~수십 분(때로는 1시간 가까이) 늦게 뜨거나 아예 건너뛸 수 있다.
     #    따라서 "05:00 정각에 끝난다"고 가정하는 다운스트림(폰 알림 예약 등)은
     #    충분한 여유를 두고 실행할 것.
+    # 크론은 "매일" 그대로 둔다 — 주말(KST 토·일)에는 scripts/generate-day.mjs 가
+    # 스스로 신규 생성을 건너뛰고(진도 0 전진, API 0회) 전량 복습으로 그날치를 채운다.
+    # 평일로 줄이면 주말에 폰이 "오늘치 없음"으로 실패해 알림이 아예 안 오므로 안 줄인다.
     - cron: "0 20 * * *"
   workflow_dispatch:
     inputs:
@@ -22,6 +25,10 @@ on:
         default: false
       force:
         description: "오늘 이미 만들었어도 다시 생성"
+        type: boolean
+        default: false
+      new_anyway:
+        description: "주말이라도 신규 생성 강행 (주말 스킵 무시)"
         type: boolean
         default: false
 
@@ -52,4 +59,4 @@ jobs:
 
       - name: generate-day
         # 스크립트가 0 이 아닌 코드로 끝나면(die()) 이 스텝이 실패 → 워크플로가 빨갛게 뜬다.
-        run: node scripts/generate-day.mjs ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.force && '--force' || '' }}
+        run: node scripts/generate-day.mjs ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.force && '--force' || '' }} ${{ inputs.new_anyway && '--new-anyway' || '' }}

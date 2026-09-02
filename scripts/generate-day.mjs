@@ -14,9 +14,16 @@
 // 아직 폰이 담당하는 것: review "외웠음" 체크 등 상태 쓰기, 로컬 알림 예약, 위젯.
 // (상태 이전은 다음 단계 — 지금은 클라우드가 자기 상태를 Gist 에 따로 들고 간다.)
 //
+// 주말(KST 토·일)에는 신규 생성을 하지 않는다 — AI 호출 0회, 진도 0 전진, 전량 복습.
+// 배치 자체는 매일 돌린다(크론은 그대로 매일). 주말에도 알림은 평소대로 와야 하므로,
+// n1.planDay() 에 cfg.PAUSE_NEW 를 세워 그날 57칸을 전부 복습으로 채운다.
+// 요일은 process.env.TZ=Asia/Seoul 이 보장되므로 new Date().getDay() 를 그대로 쓴다
+// (0=일 … 6=토). 테스트용으로 FORCE_DOW 환경변수(0~6)로 요일을 주입할 수 있다.
+//
 // 플래그:
-//   --dry-run   API 호출·PATCH 없이 계획만 출력 (슬롯 그리드·신규/복습 배치 확인용).
-//   --force     오늘 이미 계획했더라도 다시 만든다 (기본은 중복 실행 시 건너뜀).
+//   --dry-run       API 호출·PATCH 없이 계획만 출력 (슬롯 그리드·신규/복습 배치 확인용).
+//   --force         오늘 이미 계획했더라도 다시 만든다 (기본은 중복 실행 시 건너뜀).
+//   --new-anyway    주말이라도 신규 생성을 강행한다 (주말 스킵 무시). IGNORE_WEEKEND=1 도 동일.
 //
 // 환경변수:
 //   OPENROUTER_KEY        (필수, --dry-run 이면 불필요)
@@ -25,6 +32,8 @@
 //   MODEL                기본 openai/gpt-5.6-sol
 //   TZ                   기본 Asia/Seoul
 //   INIT_PROGRESS_INDEX  상태가 아예 없을 때의 시작 진도 (기본 0)
+//   IGNORE_WEEKEND       "1" 이면 주말 신규 스킵을 무시 (--new-anyway 와 동일)
+//   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (미지정 시 실제 KST 요일)
 
 process.env.TZ = process.env.TZ || "Asia/Seoul";
 
@@ -35,7 +44,16 @@ const n1 = require("../n1.js");   // 폰과 같은 로직 모듈 (CJS). 순수 �
 // ---------- 설정 ----------
 const DRY_RUN = process.argv.includes("--dry-run");
 const FORCE = process.argv.includes("--force");
+const NEW_ANYWAY = process.argv.includes("--new-anyway") || process.env.IGNORE_WEEKEND === "1";
 const DEFAULT_GIST_ID = "3c7a0d99f309aa0dfea3861a7df296d4";
+
+// KST 요일 (0=일 … 6=토). TZ=Asia/Seoul 이 위에서 보장됨. 테스트는 FORCE_DOW 로 주입.
+const DOW = (process.env.FORCE_DOW != null && process.env.FORCE_DOW !== "")
+  ? parseInt(process.env.FORCE_DOW, 10)
+  : new Date().getDay();
+const IS_WEEKEND = DOW === 0 || DOW === 6;
+const PAUSE_NEW = IS_WEEKEND && !NEW_ANYWAY;
+const DOW_KR = ["일", "월", "화", "수", "목", "금", "토"][DOW] || "?";
 
 const cfg = {
   OPENROUTER_KEY: process.env.OPENROUTER_KEY || "",
@@ -43,7 +61,9 @@ const cfg = {
   GIST_ID: process.env.GIST_ID || DEFAULT_GIST_ID,
   MODEL: process.env.MODEL || "openai/gpt-5.6-sol",
   // 폰의 day() 기본값과 동일 (planDay 가 읽는 키): START_HOUR 9 · END_HOUR 23 ·
-  // INTERVAL_MIN 15 · NEW_EVERY_MIN 30 · REPS_PER_KANJI 3. 필요하면 여기서 덮어쓰기.
+  // INTERVAL_MIN 15 · NEW_EVERY_MIN 30 · REPS_PER_KANJI 2. 필요하면 여기서 덮어쓰기.
+  // PAUSE_NEW: 주말이면 planDay() 가 신규 0 · 전량 복습으로 계획하게 한다.
+  PAUSE_NEW: PAUSE_NEW,
 };
 
 const STATE_FILE = "n1-state.json";
@@ -167,7 +187,12 @@ async function realComposer(c, s, slotISO, idSuffix) {
 // ---------- 메인 ----------
 async function main() {
   const today = n1.dateJST();
-  console.log(`N1 클라우드 생성기 · ${today} · TZ=${process.env.TZ}${DRY_RUN ? " · DRY-RUN" : ""}`);
+  console.log(`N1 클라우드 생성기 · ${today}(${DOW_KR}) · TZ=${process.env.TZ}${DRY_RUN ? " · DRY-RUN" : ""}`);
+  if (PAUSE_NEW) {
+    console.log(`주말(${DOW_KR}) — 신규 생성 건너뜀(전량 복습). API 0회 · 진도 0 전진.`);
+  } else if (IS_WEEKEND && NEW_ANYWAY) {
+    console.log(`주말(${DOW_KR})이지만 --new-anyway/IGNORE_WEEKEND=1 → 신규 생성 강행.`);
+  }
 
   if (!DRY_RUN) {
     if (!cfg.OPENROUTER_KEY) die("OPENROUTER_KEY 환경변수가 없습니다.");
@@ -224,6 +249,7 @@ async function main() {
   const uniqNew = [...new Set(newKanji)];
   console.log("");
   console.log("── 실행 요약 ──────────────────────────────");
+  if (PAUSE_NEW) console.log(`주말(${DOW_KR})  — 신규 생성 건너뜀(전량 복습)`);
   console.log(`총 슬롯       ${slots.length}칸  (${cfg.START_HOUR ?? 9}:00~${cfg.END_HOUR ?? 23}:00, ${cfg.INTERVAL_MIN ?? 15}분 간격)`);
   console.log(`신규          ${planned.newCount}칸  · 한자 ${uniqNew.length}자: ${uniqNew.join(" ") || "(없음)"}`);
   console.log(`복습          ${planned.reviewCount}칸`);

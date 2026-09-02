@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01h
+// VERSION 2026-09-01i
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -842,8 +842,8 @@ async function notify(id, title, body, triggerDate, openURL){
 // forceMode 를 주면 그 모드로 강제(생략 시 옛 runCounter 홀짝 교대 — 지금은 generate() 가
 // isDueForNew() 로 항상 forceMode 를 넘기므로 실질적으로 안 쓰임, 다른 호출부 대비 유지).
 // 한 한자에 대해 새 예문 1개를 만들어 history에 추가 — 진짜로 "다음 한자로 넘어갈지"는
-// cfg.REPS_PER_KANJI(기본 1)에 달림: 이 값만큼 같은 한자로 반복 생성한 뒤에야
-// progressIndex가 전진함(REPS_PER_KANJI=3이면 한 한자당 예문 3개 만들고서야 다음 한자로).
+// cfg.REPS_PER_KANJI(기본 2)에 달림: 이 값만큼 같은 한자로 반복 생성한 뒤에야
+// progressIndex가 전진함(REPS_PER_KANJI=2이면 한 한자당 예문 2개 만들고서야 다음 한자로).
 // 반복 생성할 때 매번 똑같은 단어만 나오지 않도록, 이 한자로 이미 나온 단어들을
 // compose()에 힌트로 넘김. advanceOne()과 day()의 신규 분기가 이 함수로 통일돼있어서
 // REPS_PER_KANJI가 둘 다에 똑같이 적용됨.
@@ -877,7 +877,7 @@ function commitNewEntry(cfg, s, slotISO, idSuffix, kanji, c){
   };
   s.history.unshift(cur);
 
-  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 3;   // 기본값: 한자당 예문 3개
+  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 2;   // 기본값: 한자당 예문 2개
   s.kanjiRepCount = (s.kanjiRepCount || 0) + 1;
   if(s.kanjiRepCount >= reps){
     s.progressIndex += 1;
@@ -954,11 +954,16 @@ function reviewURL(cfg){
   return "scriptable:///run/" + encodeURIComponent((cfg && cfg.REVIEW_SCRIPT_NAME) || "n1-review");
 }
 
-// 신규 도입을 끊을 날짜 — 706자 × REPS_PER_KANJI(기본 3) 한 바퀴가 지금 페이스(하루 약
-// 29개 신규)로 대략 끝나는 시점(2026-11-12)을 기본값으로 잡아둠. 그 날짜부터는 신규
-// 생성 없이 순수 복습만(시험 전 마지막 몇 주는 새 걸 우겨넣기보다 복습이 기억에 더
-// 유리하다는 스페이싱 효과 근거). cfg.NEW_CUTOFF_DATE로 덮어쓸 수 있고, 아예 신규를
-// 안 끊고 싶으면 cfg.NEW_CUTOFF_DATE: null 로 넣으면 됨(그럼 무기한 계속 신규 생성).
+// 신규 도입을 끊을 날짜 — 지금 페이스로 커리큘럼(706자) 한 바퀴가 대략 끝나는 시점을
+// 기본값(2026-11-12)으로 잡아둠. 페이스 산출:
+//   · 평일만 신규(주말은 generate-day.mjs 가 cfg.PAUSE_NEW 로 전량 복습),
+//   · 하루 신규 29칸, 한자당 REPS_PER_KANJI(기본 2)회독
+//   → 평일 하루 29/2 ≈ 14~15자 전진. 706 ÷ 14.5 ≈ 49 평일 ≈ 10주 ≈ 68 달력일.
+// 2026-09-02(진도 0 가정) 기준 대략 2026-11-09 께 한 바퀴 완료 → 기본값을 며칠 뒤인
+// 2026-11-12 로 잡아 약간의 여유를 둠(이미 진도가 나가 있으면 그만큼 더 빨리 끝남).
+// 그 날짜부터는 신규 생성 없이 순수 복습만(시험 전 마지막 몇 주는 새 걸 우겨넣기보다
+// 복습이 기억에 더 유리하다는 스페이싱 효과 근거). cfg.NEW_CUTOFF_DATE로 덮어쓸 수 있고,
+// 아예 신규를 안 끊고 싶으면 cfg.NEW_CUTOFF_DATE: null 로 넣으면 됨(무기한 계속 신규 생성).
 // generate()(isDueForNew)와 day() 둘 다 여기(isPastNewCutoff)로 통일해서 씀.
 function isPastNewCutoff(cfg){
   var cutoffStr = (cfg && cfg.NEW_CUTOFF_DATE !== undefined) ? cfg.NEW_CUTOFF_DATE : "2026-11-12";
@@ -976,7 +981,7 @@ function isDueForNew(cfg, s){
   if(isPastNewCutoff(cfg)) return false;
   // NEW_EVERY_MIN: 0 을 CFG에 넣으면 "항상 신규" 테스트 모드가 되도록 명시적 null 체크
   // (예전엔 `|| 60`이라 0을 넣어도 falsy라서 60으로 되돌아가는 버그가 있었음).
-  var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 30;   // REPS_PER_KANJI=3 기본값과 맞춰 하루 생성량 보정
+  var every = (cfg.NEW_EVERY_MIN != null) ? cfg.NEW_EVERY_MIN : 30;   // 30분마다 = 하루 신규 29칸(REPS_PER_KANJI=2와 맞춰 평일 하루 약 14~15자 전진)
   if(!s.lastNewAt) return true;
   return (Date.now() - Date.parse(s.lastNewAt)) / 60000 >= every;
 }
@@ -1063,7 +1068,9 @@ async function generate(cfg){
 // 여기 한 곳에만 있는 규칙:
 //   · 그리드     — START_HOUR~END_HOUR 를 INTERVAL_MIN 간격(기본 09:00~23:00 / 15분).
 //   · 신규 주기  — 슬롯 분(分)이 NEW_EVERY_MIN 의 배수면 신규(기본 30분마다), 나머지는 복습.
-//   · 컷오프     — isPastNewCutoff(cfg) 면 전량 복습(신규 0).
+//   · 컷오프     — isPastNewCutoff(cfg) 또는 cfg.PAUSE_NEW 면 전량 복습(신규 0).
+//                 PAUSE_NEW 는 "이번 실행에서는 신규 만들지 마라"는 범용 스위치 —
+//                 요일 판정 같은 달력 정책은 호출부(generate-day.mjs)가 세팅한다.
 //   · 복습 선택  — pickWeightedReview(가중 랜덤) + sessionBumps(이 배치 내 연속중복 방지).
 // s 를 그 자리에서 수정: 신규 슬롯마다 composeNewEntry() 가 history 에 unshift 하고
 // progressIndex/kanjiRepCount/cycle/lastNewAt 를 전진. 복습 슬롯은 pending 에 쌓임.
@@ -1090,7 +1097,7 @@ async function planDay(cfg, s, opts){
   var startH = (cfg.START_HOUR != null) ? cfg.START_HOUR : 9;
   var endH = (cfg.END_HOUR != null) ? cfg.END_HOUR : 23;
   var startMin = startH * 60, endMin = endH * 60;
-  var pastCutoff = isPastNewCutoff(cfg);
+  var pastCutoff = isPastNewCutoff(cfg) || !!cfg.PAUSE_NEW;
 
   var todo = [];
   for(var mnt = startMin; mnt <= endMin; mnt += STEP){
@@ -1776,7 +1783,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01h",
+  VERSION: "2026-09-01i",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
