@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01e
+// VERSION 2026-09-01f
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -74,12 +74,19 @@ var SEED = {
 // priorWords: 이 한자로 이미 예문에 썼던 단어들(REPS_PER_KANJI>1일 때, 같은 한자를
 // 여러 번 생성하면서 매번 똑같은 단어만 나오는 걸 막기 위한 힌트) — 없으면 그냥 생략.
 async function compose(cfg, kanji, priorWords){
+  return await requestSentence(cfg, buildComposePrompt(kanji, priorWords));
+}
+
+// compose() 가 OpenRouter 로 보내는 프롬프트 문자열을 조립한다. compose() 본체에서 떼어낸
+// 이유: 클라우드 dry-run(API 미호출)이나 테스트에서 "프롬프트가 스펙대로 조립되는지"를
+// 육안으로 검증할 수 있도록 — n1.buildComposePrompt(kanji) 를 그냥 console.log 하면 됨.
+function buildComposePrompt(kanji, priorWords){
   var avoidLine = "";
   if(Array.isArray(priorWords) && priorWords.length){
     avoidLine = "이 한자로 이미 다음 단어를 예문에 썼습니다 — 이번엔 가능하면 다른 단어·다른 문형으로 만드세요: " +
       priorWords.join(", ") + "\n\n";
   }
-  var prompt =
+  return (
 "당신은 JLPT 일본어 예문 작성기입니다. 목표 한자: 「" + kanji + "」\n\n" + avoidLine +
 "「" + kanji + "」를 사용한 자연스럽고 짧은(약 10~25자) 일본어 문장 1개를 만드세요. " +
 "목표 한자는 실제로 자주 쓰이는 용법으로, 문장의 나머지 어휘는 JLPT N2 중심(필요하면 N1)으로 구성하세요. " +
@@ -89,18 +96,31 @@ async function compose(cfg, kanji, priorWords){
 "furigana: sentenceJP를 처음부터 끝까지 빠짐없이 순서대로 잘라 배열로 나열하세요 — 모든 원소의 t를 순서대로 이어붙이면 sentenceJP와 완전히 동일해야 합니다(한 글자도 빠지거나 겹치면 안 됨, 공백도 그대로 포함). " +
 "한자가 하나라도 포함된 연속 구간은 하나의 세그먼트로 묶고 그 부분 전체의 읽기를 r에 히라가나로 넣으세요. " +
 "가나·구두점·숫자·알파벳만 있는 구간은 한자와 같은 세그먼트로 섞지 말고 별도 세그먼트로 분리하고, 그 경우 r은 빈 문자열로 두세요.\n\n" +
-"kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n" +
-"grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주.\n" +
-"point 표기 규칙(반드시 지키세요) — 이 노트를 보는 사람은 '수동형/사역형/사전형/て형' 같은 일본어 문법 용어를 전혀 모릅니다. " +
-"그러니 用語(용어) 이름은 절대 쓰지 말고, 그 대신 문장 속에서 실제로 쓰인 것과 똑같은 글자로 두 단계를 화살표로 보여주세요: " +
-"'사전에 나오는 원래 단어 → 이 문장에서 실제로 쓰인 모양' 그리고 뒤에 붙는 조사/표현이 있으면 그것도 이어붙이세요. " +
-"형식: '원래단어 → 문장 속 모양 (+ 뒤에 붙은 표현)'.\n" +
-"예시: '怖れる → 怖れられて' (受身形＋て 대신), '寒い → 寒くて' (イ形容詞くて 대신), " +
-"'（辞書形のまま）+ のが怖い' (동사 원형 그대로 뒤에 のが怖い가 붙는 경우), '（辞書形のまま）+ たび（に）'. " +
-"meaningKR=용어 없이 아주 쉬운 말로: 왜 저렇게 모양이 바뀌었는지(예: '누군가에게 어떤 일을 당했다는 뜻이 됨'), " +
-"그리고 문장에서 무슨 뜻·뉘앙스가 되는지를 한 줄로. 별도 표시(*, ** 등)는 붙이지 마세요.";
+"kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n\n" +
 
-  return await requestSentence(cfg, prompt);
+"grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. " +
+"이 노트를 보는 사람은 '수동형·사역형·사전형·て형' 같은 일본어 문법 용어를 전혀 모릅니다 — 用語(용어) 이름은 어떤 필드에서도 절대 쓰지 마세요.\n\n" +
+
+"[point 필드 규칙]\n" +
+"1) 한자가 하나라도 들어간 문형이면, 그 한자 바로 뒤 괄호에 히라가나 읽기를 반드시 붙입니다. 한 point 안의 모든 한자에 빠짐없이. 예: 〜に値(あたい)する, 〜を踏(ふ)まえて.\n" +
+"2) 문장에서 단어의 활용형이 바뀐 경우에는 '원형 → 문장 속 모양' 화살표로 보여주고, 뒤에 붙은 조사·표현이 있으면 이어붙입니다. 읽기 괄호는 화살표 양쪽 모두에 붙입니다. 예: 怖(おそ)れる → 怖(おそ)れられて.\n" +
+"3) 활용 변화가 아니라 고정된 문형·관용 표현이면 화살표 없이 그 표현만 적되, 읽기 괄호는 똑같이 붙입니다. 예: 〜に値(あたい)する.\n\n" +
+
+"[meaningKR 필드 규칙]\n" +
+"반드시 '짧은 뜻 — 자세한 설명' 두 부분을 ' — '(스페이스 엠대시 스페이스)로 이어서 씁니다.\n" +
+"· 앞부분: 한국어로 옮긴 짧고 직관적인 뜻 한 구절. 예: ~할 만한 가치가 있다\n" +
+"· 뒷부분: 언제·어떤 뉘앙스로 쓰는지 용어 없이 쉬운 말로 한 줄. 활용형이 바뀐 경우면 왜 그 모양이 됐는지도 여기에 넣습니다(예: 누군가에게 그런 취급을 당했다는 뜻이 됨).\n\n" +
+
+"[좋은 예]\n" +
+'{"point":"〜に値(あたい)する","meaningKR":"~할 만한 가치가 있다 — 어떤 행동이나 평가를 받을 자격이 충분함을 나타낸다."}\n' +
+'{"point":"怖(おそ)れる → 怖(おそ)れられて","meaningKR":"~당할까 봐 두렵다 — 남이 나에게 그런 행동을 하는 것을 걱정한다는 뜻이 됨."}\n' +
+'{"point":"〜を踏(ふ)まえて","meaningKR":"~을 바탕으로 하여 — 앞의 사실이나 상황을 근거로 삼아 다음 판단·행동을 한다."}\n\n' +
+
+"[나쁜 예 — 읽기도 없고 짧은 뜻도 없어서 안 됨]\n" +
+'{"point":"〜に値する","meaningKR":"어떤 행동이나 평가를 할 만한 가치가 있음을 나타낸다."}\n\n' +
+
+"별도 표시(*, ** 등)는 붙이지 마세요."
+  );
 }
 
 // OpenRouter 호출을 감싸며 "모델 계열별 파라미터 차이"를 방어한다. 폰·클라우드 공용(n1.js) —
@@ -1706,7 +1726,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01e",
+  VERSION: "2026-09-01f",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
@@ -1714,6 +1734,7 @@ module.exports = {
   composeNewEntry: composeNewEntry,
   commitNewEntry: commitNewEntry,
   compose: compose,
+  buildComposePrompt: buildComposePrompt,
   reconcile: reconcile,
   pickWeightedReview: pickWeightedReview,
   pushTitle: pushTitle,
