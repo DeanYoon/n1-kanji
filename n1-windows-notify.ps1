@@ -1,4 +1,4 @@
-# ===== N1 한자 학습 · 윈도우 알림 (5분 간격, 단어 5번 + 문장 1번 순환) =====
+# ===== N1 한자 학습 · 윈도우 알림 (5분 간격, 단어·문법·단어·문법·단어·문장 6칸 순환) =====
 # 완전 읽기 전용 — Gist(n1-today.json)를 GET만 하고 POST/PATCH는 절대 안 합니다.
 # 폰이나 클라우드 어느 쪽 데이터도 건드리지 않습니다.
 #
@@ -13,14 +13,19 @@
 #   - 각 항목이 몇 번 노출됐는지(showCount)를 로컬 파일에 같이 기록해두고, 매번
 #     "가장 적게 본 항목들" 중에서 무작위로 하나 골라 보여줍니다(동률이면 랜덤) —
 #     폰의 복습 선택 로직(가중 랜덤, 적게 본 것 우선)과 같은 원리.
-#   - 단어 알림 문구는 클라우드가 만들어둔 title/body(폰 알림과 완전히 동일한 문구)를
-#     그대로 씁니다. 5번은 "단어"(헤드워드·읽기·뜻), 6번째는 방금 고른 단어의 "문장"
-#     전체(sentenceJP/translationKR)를 보여주고 사이클이 다시 처음부터 반복됩니다.
+#   - 6칸 사이클(5분 간격이므로 30분에 한 바퀴):
+#       0·2·4번 = 단어 알림  — 클라우드가 만든 title/body 그대로(폰 알림과 동일 문구)
+#       1·3번   = 문법 알림  — 클라우드가 만든 grammarTitle/grammarBody 그대로.
+#                              그 항목에 문법 노트가 없으면(grammarBody 빈 값) 단어 알림으로 대체.
+#       5번     = 문장 알림  — 방금 고른 항목의 예문 전체(sentenceJP/translationKR)
+#     문구는 절대 여기서 직접 조립하지 않습니다 — 폰과 갈리면 안 되므로 클라우드가 만든
+#     필드를 그대로 씁니다.
 #
 # 로컬 캐시 파일(직접 열어서 확인 가능):
 #   %LOCALAPPDATA%\n1-kanji\windows_today.json
-#     { date, cyclePos, lastShownId, items: [{ id, targetKanji, title, body,
-#       sentenceJP, translationKR, showCount }] }
+#     { date, schema, cyclePos, lastShownId, items: [{ id, targetKanji, title, body,
+#       grammarTitle, grammarBody, sentenceJP, translationKR, showCount }] }
+#   schema 값이 스크립트의 $CacheSchema 와 다르면(구조가 바뀜) 옛 캐시를 무시하고 새로 받습니다.
 #
 # 작업 스케줄러에 5분 간격으로 등록해서 쓰세요(등록 명령은 파일 맨 아래 주석 참고).
 
@@ -32,7 +37,10 @@ $GistRawUrl = "https://gist.githubusercontent.com/DeanYoon/$GistId/raw/n1-today.
 # $GistToken = "ghp_..."
 
 $WordDurationMs = 10000        # 단어 알림 지속시간(밀리초)
+$GrammarDurationMs = 15000     # 문법 알림 지속시간(밀리초) — 단어보다 읽을 게 많아 길게
 $SentenceDurationMs = 20000    # 문장 알림 지속시간(밀리초)
+
+$CacheSchema = 2               # 로컬 캐시 스키마 버전 — items 구조가 바뀌면 올릴 것
 
 $StateDir = "$env:LOCALAPPDATA\n1-kanji"
 $CacheFile = Join-Path $StateDir "windows_today.json"
@@ -46,7 +54,9 @@ $cache = $null
 if (Test-Path $CacheFile) {
     try {
         $loaded = Get-Content $CacheFile -Raw | ConvertFrom-Json
-        if ($loaded.date -eq $todayKey -and $loaded.items -and $loaded.items.Count -gt 0) {
+        # 날짜가 같고, 스키마가 현재 버전이고, 항목이 있어야만 재사용. 스키마가 다르면(옛 캐시)
+        # 무시하고 아래에서 새로 받는다 — 구조가 바뀌었는데 옛 필드를 읽다 깨지는 것 방지.
+        if ($loaded.date -eq $todayKey -and $loaded.schema -eq $CacheSchema -and $loaded.items -and $loaded.items.Count -gt 0) {
             $cache = $loaded
         }
     } catch {}
@@ -79,6 +89,8 @@ if (-not $cache) {
             targetKanji   = $sl.targetKanji
             title         = $sl.title
             body          = $sl.body
+            grammarTitle  = $sl.grammarTitle    # 문법 노트 없는 슬롯이면 null
+            grammarBody   = $sl.grammarBody     # 〃
             sentenceJP    = $sl.sentenceJP
             translationKR = $sl.translationKR
             showCount     = 0
@@ -88,6 +100,7 @@ if (-not $cache) {
 
     $cache = [PSCustomObject]@{
         date        = $todayKey
+        schema      = $CacheSchema
         fetchedAt   = (Get-Date).ToString("o")
         cyclePos    = 0
         lastShownId = $null
@@ -97,22 +110,11 @@ if (-not $cache) {
 }
 
 # ---- 다음에 보여줄 항목 고르기 ----
+# 6칸 사이클: 0·2·4 = 단어, 1·3 = 문법(없으면 단어로 대체), 5 = 문장.
 $title = ""; $body = ""; $durationMs = $WordDurationMs
+$pos = [int]$cache.cyclePos
 
-if ($cache.cyclePos -lt 5) {
-    # ---- 단어 알림: 노출 횟수가 가장 적은 항목들 중에서 무작위로 하나 ----
-    $minCount = ($cache.items | Measure-Object -Property showCount -Minimum).Minimum
-    $candidates = @($cache.items | Where-Object { $_.showCount -eq $minCount })
-    $entry = $candidates[(Get-Random -Maximum $candidates.Count)]
-    $entry.showCount = $entry.showCount + 1
-
-    $title = $entry.title
-    $body = $entry.body
-
-    $cache.lastShownId = $entry.id
-    $cache.cyclePos = $cache.cyclePos + 1
-    $durationMs = $WordDurationMs
-} else {
+if ($pos -ge 5) {
     # ---- 문장 알림: 방금 보여준 단어와 같은 항목의 전체 예문 ----
     $sentEntry = $cache.items | Where-Object { $_.id -eq $cache.lastShownId } | Select-Object -First 1
     if (-not $sentEntry) { $sentEntry = $cache.items[0] }   # 방어적 폴백(이론상 안 옴)
@@ -122,6 +124,30 @@ if ($cache.cyclePos -lt 5) {
 
     $cache.cyclePos = 0
     $durationMs = $SentenceDurationMs
+} else {
+    # ---- 단어/문법 알림: 노출 횟수가 가장 적은 항목들 중에서 무작위로 하나 ----
+    $minCount = ($cache.items | Measure-Object -Property showCount -Minimum).Minimum
+    $candidates = @($cache.items | Where-Object { $_.showCount -eq $minCount })
+    $entry = $candidates[(Get-Random -Maximum $candidates.Count)]
+
+    $wantGrammar = ($pos -eq 1 -or $pos -eq 3)
+    $hasGrammar = $entry.grammarBody -and ([string]$entry.grammarBody).Trim().Length -gt 0
+
+    if ($wantGrammar -and $hasGrammar) {
+        # 문구는 클라우드가 만든 grammarTitle/grammarBody 그대로(직접 조립 금지 — 폰과 통일).
+        $title = $entry.grammarTitle
+        $body = $entry.grammarBody
+        $durationMs = $GrammarDurationMs
+    } else {
+        # 단어 차례거나, 문법 차례인데 그 항목에 문법 노트가 없어 단어로 대체.
+        $title = $entry.title
+        $body = $entry.body
+        $durationMs = $WordDurationMs
+    }
+
+    $entry.showCount = $entry.showCount + 1
+    $cache.lastShownId = $entry.id
+    $cache.cyclePos = $pos + 1
 }
 
 # 캐시는 알림을 띄우기 "전에" 먼저 저장 — 대기(Start-Sleep) 중에 스크립트를 또 실행하거나

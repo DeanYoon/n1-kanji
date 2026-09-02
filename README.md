@@ -65,12 +65,13 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 
 ```
 { date, updatedAt, slots: [
-    { key, title, body, mode, id, targetKanji,
+    { key, title, body, mode, grammarTitle, grammarBody, id, targetKanji,
       sentenceJP, readingHiragana, translationKR, kanjiNotes[], grammarNotes[] }
 ] }
 ```
 
-- `key` = 예약 시각 `"HH:MM"`(JST). `title` / `body` 는 알림 배너용 요약(단어·읽기·뜻 + 문법 노트 1줄).
+- `key` = 예약 시각 `"HH:MM"`(JST). `title` / `body` 는 **단어 알림** 배너용 3줄 요약(단어·읽기·뜻).
+- `grammarTitle` / `grammarBody` 는 **문법 알림** 배너용 3줄 요약(문형·짧은 뜻·설명). 그 슬롯에 쓸 만한 문법 노트가 없으면 둘 다 `null` — 이 경우 폰·윈도우 모두 그 자리를 **단어 알림으로 대체**한다. 문구는 클라우드가 여기서 완성해 실어두므로 폰·윈도우가 각자 조립하지 않는다(문구가 갈리지 않게).
 - 각 슬롯이 알림용 요약뿐 아니라 **문장 원본(`sentenceJP` / `readingHiragana` / `translationKR` / `kanjiNotes` / `grammarNotes`)까지** 담는다 — 윈도우가 이 파일 하나만으로 문장 알림까지 띄울 수 있게 하기 위함.
 
 ## 클라우드 생성 (GitHub Actions)
@@ -120,7 +121,7 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 
 | 스크립트 | 하는 일 | OpenRouter | state 쓰기 |
 | --- | --- | --- | --- |
-| `n1-day` | Gist(`n1-today.json` + `n1-state.json`)를 읽어 오늘치를 iOS 로컬 알림으로 예약. 원격 진도를 로컬에 통째로 반영. 클라우드 데이터가 없으면 **명확히 실패**하고 로컬 생성 폴백은 **안 한다.** `N1_GIST_ID` + `N1_GIST_TOKEN` 필수. | 안 함 | 함 |
+| `n1-day` | Gist(`n1-today.json` + `n1-state.json`)를 읽어 오늘치를 iOS 로컬 알림으로 예약. 슬롯 종류는 그날 그리드 기준 인덱스로 **단어/문법 교대**(짝수 칸 단어, 홀수 칸 문법; 문법 노트 없으면 단어로 폴백). 시각당 알림 1개라 총 57개 유지. 원격 진도를 로컬에 통째로 반영. 클라우드 데이터가 없으면 **명확히 실패**하고 로컬 생성 폴백은 **안 한다.** `N1_GIST_ID` + `N1_GIST_TOKEN` 필수. | 안 함 | 함 |
 | `n1-generate` | 이력에서 가중 랜덤 복습 1건을 알림으로 표시. **AI 생성 없음.** 이력이 없으면 "n1-cloud 를 먼저 실행" 안내. (Gist 설정 시 그 1칸을 `n1-today.json` 에 미러링) | 안 함 | 함 |
 | `n1-widget` | 잠금/홈 위젯. 현재 항목을 문장·후리가나·번역·단어/문법으로 렌더. 탭하면 상세 팝업(닫기/다음). | 안 함 | 탭 시 showCount만 |
 | `n1-review` | 이력 전체 목록(UITable) + "외웠음" 토글 + 단어/문법. 열면 현재 항목을 먼저 모달로. 토글 시 `updatedAt` 을 갱신해 `n1-cloud` 가 업로드하도록 한다. | 안 함 | 함 |
@@ -140,9 +141,12 @@ iOS 는 앱당 로컬 알림을 최대 64개까지만 예약한다. `n1-day`(최
 `n1-windows-notify.ps1` — **완전 읽기 전용.** Gist 의 `n1-today.json` 만 GET 하고 POST/PATCH 는 절대 안 한다. 폰·클라우드 어느 쪽 데이터도 건드리지 않는다.
 
 - **로컬 캐시:** `%LOCALAPPDATA%\n1-kanji\windows_today.json`
-  `{ date, cyclePos, lastShownId, items: [{ id, targetKanji, title, body, sentenceJP, translationKR, showCount }] }`
-  날짜(JST 기준)가 바뀌었거나 캐시가 비었을 때만 Gist 를 새로 받아오고, 그날 안에는 이 캐시만 쓴다. 아직 오늘치 클라우드 생성 전이면 목록이 비어 있고, 비어 있는 동안은 5분마다 계속 재시도한다.
-- **단어/문장 순환:** `n1-today.json` 의 슬롯을 id 기준으로 중복 제거해 후보 목록을 만들고, 노출 횟수(`showCount`)가 가장 적은 후보들 중 무작위로 하나 고른다. **단어 알림 5번(클라우드가 만든 `title`/`body` 그대로) → 방금 고른 항목의 문장 알림 1번(`sentenceJP` + `translationKR`)**, 그리고 사이클 반복. 단어 10초, 문장 20초.
+  `{ date, schema, cyclePos, lastShownId, items: [{ id, targetKanji, title, body, grammarTitle, grammarBody, sentenceJP, translationKR, showCount }] }`
+  날짜(JST 기준)가 바뀌었거나 캐시가 비었을 때만 Gist 를 새로 받아오고, 그날 안에는 이 캐시만 쓴다. 아직 오늘치 클라우드 생성 전이면 목록이 비어 있고, 비어 있는 동안은 5분마다 계속 재시도한다. `schema` 가 스크립트 버전과 다르면(캐시 구조가 바뀜) 옛 캐시를 무시하고 새로 받는다.
+- **6칸 순환(5분 간격 → 30분에 한 바퀴):** `n1-today.json` 의 슬롯을 id 기준으로 중복 제거해 후보 목록을 만들고, 노출 횟수(`showCount`)가 가장 적은 후보들 중 무작위로 하나 고른다. 사이클은 **단어 → 문법 → 단어 → 문법 → 단어 → 문장**:
+  - 단어(1·3·5번째): 클라우드가 만든 `title`/`body` 그대로. 10초.
+  - 문법(2·4번째): 클라우드가 만든 `grammarTitle`/`grammarBody` 그대로. 15초. 그 항목에 문법 노트가 없으면(`grammarBody` 빈 값) 그 회차는 **단어 알림으로 대체**.
+  - 문장(6번째): 방금 고른 항목의 예문 전체(`sentenceJP` + `translationKR`). 20초.
 - **작업 스케줄러 등록**(스크립트 하단 주석) — 5분 간격:
   ```powershell
   $Action  = New-ScheduledTaskAction -Execute "powershell.exe" -Argument '-ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Users\<사용자>\n1-kanji\n1-windows-notify.ps1"'

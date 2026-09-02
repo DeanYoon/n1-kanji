@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01g
+// VERSION 2026-09-01h
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -1263,19 +1263,43 @@ async function day(cfg){
       return;
     }
 
+    // 그날 전체 그리드(startH~endH, STEP 간격) 기준의 "고정" 인덱스로 종류를 교대한다 —
+    // 짝수 인덱스 칸은 단어 알림, 홀수 인덱스 칸은 문법 알림. todo 배열 순서가 아니라 슬롯
+    // 시각으로부터 결정적으로 계산하므로, day() 가 하루에 여러 구간으로 나눠 실행돼도 같은
+    // 시각은 항상 같은 종류가 된다.
+    // 폴백: 문법 차례인데 그 슬롯에 문법 노트가 없으면(grammarTitle/grammarBody 가 null)
+    // 단어 알림으로 대체한다 — 칸을 비우지 않는다. 시각당 알림은 여전히 1개(총 57개).
     var plan = [];
     for(var pi = 0; pi < todo.length; pi++){
       var t = todo[pi];
       var found = slotMap[t.key];
       var slotDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), t.h, t.min, 0, 0);
-      plan.push({ key: t.key, slotDate: slotDate, title: found.title || "", body: found.body || "" });
+      var gridIdx = Math.round((t.h * 60 + t.min - startH * 60) / STEP);
+      var wantGrammar = (gridIdx % 2) === 1;
+      var hasGrammar = !!(found.grammarTitle && found.grammarBody);
+      var kind, nTitle, nBody, fallback = false;
+      if(wantGrammar && hasGrammar){
+        kind = "grammar"; nTitle = found.grammarTitle; nBody = found.grammarBody;
+      } else {
+        kind = "word"; nTitle = found.title || ""; nBody = found.body || "";
+        if(wantGrammar) fallback = true;   // 문법 차례였지만 노트가 없어 단어로 대체
+      }
+      plan.push({ key: t.key, slotDate: slotDate, title: nTitle, body: nBody, kind: kind, fallback: fallback });
     }
 
     // 알림 예약 + 저장. SKIP_PUSH: true 면 진도/이력 갱신은 평소처럼 하되 실제 알림만 안 쏨.
-    var newCount = 0, reviewCount = 0;
+    // identifier 는 시각당 1개뿐이라(종류가 달라도 중복 예약 없음) 기존 형식 그대로 유지.
+    var newCount = 0, reviewCount = 0, wordCount = 0, grammarCount = 0, fallbackCount = 0;
     for(var j = 0; j < plan.length; j++){
       var p = plan[j];
-      if(p.title.indexOf("[신규]") === 0) newCount++; else reviewCount++;
+      if(p.kind === "grammar"){
+        grammarCount++;
+      } else {
+        wordCount++;
+        if(p.fallback) fallbackCount++;
+        if(p.title.indexOf("[신규]") === 0) newCount++;
+        else if(p.title.indexOf("[복습]") === 0) reviewCount++;
+      }
       if(!cfg.SKIP_PUSH && p.slotDate.getTime() > Date.now() + 5000){
         await notify("n1-slot-" + today + "-" + p.key.replace(":", ""), p.title, p.body, p.slotDate, reviewURL(cfg));
       }
@@ -1289,7 +1313,8 @@ async function day(cfg){
     console.log("[n1] day() · 클라우드 데이터로 " + plan.length + "칸 예약 완료(" + todo[0].key + "~" + todo[todo.length - 1].key + ") · OpenRouter 호출 0회");
 
     await reportRun("N1 갱신 완료(클라우드)", [
-      "이번 실행: " + plan.length + "칸 예약(신규 " + newCount + " · 복습 " + reviewCount + ")",
+      "이번 실행: " + plan.length + "칸 예약 — 단어 " + wordCount + " · 문법 " + grammarCount + " · 문법→단어 폴백 " + fallbackCount,
+      "단어 중 신규 " + newCount + " · 복습 " + reviewCount,
       "구간 " + todo[0].key + "~" + todo[todo.length - 1].key + " · 진도 " + s.progressIndex + " / " + s.kanjiList.length,
       "오늘 전체 슬롯 " + already.length + "칸 (" + today + ")"
     ], false);
@@ -1751,7 +1776,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01g",
+  VERSION: "2026-09-01h",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
