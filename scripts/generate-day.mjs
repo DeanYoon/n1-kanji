@@ -14,16 +14,23 @@
 // 아직 폰이 담당하는 것: review "외웠음" 체크 등 상태 쓰기, 로컬 알림 예약, 위젯.
 // (상태 이전은 다음 단계 — 지금은 클라우드가 자기 상태를 Gist 에 따로 들고 간다.)
 //
-// 주말(KST 토·일)에는 신규 생성을 하지 않는다 — AI 호출 0회, 진도 0 전진, 전량 복습.
-// 배치 자체는 매일 돌린다(크론은 그대로 매일). 주말에도 알림은 평소대로 와야 하므로,
+// 주말(KST 토·일) 그리고 일본 공휴일에는 신규 생성을 하지 않는다 — AI 호출 0회,
+// 진도 0 전진, 전량 복습. 주말과 공휴일은 완전히 같은 취급이다.
+// 배치 자체는 매일 돌린다(크론은 그대로 매일). 그런 날에도 알림은 평소대로 와야 하므로,
 // n1.planDay() 에 cfg.PAUSE_NEW 를 세워 그날 57칸을 전부 복습으로 채운다.
 // 요일은 process.env.TZ=Asia/Seoul 이 보장되므로 new Date().getDay() 를 그대로 쓴다
-// (0=일 … 6=토). 테스트용으로 FORCE_DOW 환경변수(0~6)로 요일을 주입할 수 있다.
+// (0=일 … 6=토). 공휴일은 holidays-jp.github.io API(연도별 엔드포인트)를 GET 해서
+// 오늘 날짜(KST) 키가 있으면 공휴일로 본다. 振替休日·国民の休日도 포함된다.
+//   · API 실패/비정상 응답 → 레포에 커밋해 둔 scripts/jp-holidays.json 하드코딩 목록 사용.
+//   · 하드코딩에도 없고 API 도 실패 → 평일로 간주하고 정상 생성 (잘못 쉬어서 진도가 밀리는
+//     것보다, 공휴일에 한 번 더 생성되는 쪽이 피해가 적다).
+// 테스트용으로 FORCE_DATE(임의 날짜) / FORCE_DOW(요일) 를 주입할 수 있다.
 //
 // 플래그:
 //   --dry-run       API 호출·PATCH 없이 계획만 출력 (슬롯 그리드·신규/복습 배치 확인용).
 //   --force         오늘 이미 계획했더라도 다시 만든다 (기본은 중복 실행 시 건너뜀).
-//   --new-anyway    주말이라도 신규 생성을 강행한다 (주말 스킵 무시). IGNORE_WEEKEND=1 도 동일.
+//   --new-anyway    주말·공휴일이라도 신규 생성을 강행한다 (달력 스킵 무시).
+//                   IGNORE_CALENDAR=1 (또는 하위 호환용 IGNORE_WEEKEND=1) 도 동일.
 //
 // 환경변수:
 //   OPENROUTER_KEY        (필수, --dry-run 이면 불필요)
@@ -32,8 +39,11 @@
 //   MODEL                기본 openai/gpt-5.6-sol
 //   TZ                   기본 Asia/Seoul
 //   INIT_PROGRESS_INDEX  상태가 아예 없을 때의 시작 진도 (기본 0)
-//   IGNORE_WEEKEND       "1" 이면 주말 신규 스킵을 무시 (--new-anyway 와 동일)
-//   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (미지정 시 실제 KST 요일)
+//   IGNORE_CALENDAR      "1" 이면 주말·공휴일 신규 스킵을 무시 (--new-anyway 와 동일)
+//   IGNORE_WEEKEND       하위 호환 별칭 — IGNORE_CALENDAR 와 동일
+//   FORCE_DATE           테스트 전용 — YYYY-MM-DD 로 기준 날짜를 주입 (주말·공휴일 판정용)
+//   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (FORCE_DATE 미지정 시)
+//   HOLIDAY_API_BASE     테스트 전용 — 공휴일 API 베이스 URL 오버라이드 (실패 시뮬레이션용)
 
 process.env.TZ = process.env.TZ || "Asia/Seoul";
 
@@ -44,15 +54,26 @@ const n1 = require("../n1.js");   // 폰과 같은 로직 모듈 (CJS). 순수 �
 // ---------- 설정 ----------
 const DRY_RUN = process.argv.includes("--dry-run");
 const FORCE = process.argv.includes("--force");
-const NEW_ANYWAY = process.argv.includes("--new-anyway") || process.env.IGNORE_WEEKEND === "1";
+const NEW_ANYWAY = process.argv.includes("--new-anyway")
+  || process.env.IGNORE_CALENDAR === "1"
+  || process.env.IGNORE_WEEKEND === "1";   // 하위 호환 별칭
 const DEFAULT_GIST_ID = "3c7a0d99f309aa0dfea3861a7df296d4";
+const HOLIDAY_API_BASE = process.env.HOLIDAY_API_BASE || "https://holidays-jp.github.io/api/v1";
 
-// KST 요일 (0=일 … 6=토). TZ=Asia/Seoul 이 위에서 보장됨. 테스트는 FORCE_DOW 로 주입.
-const DOW = (process.env.FORCE_DOW != null && process.env.FORCE_DOW !== "")
-  ? parseInt(process.env.FORCE_DOW, 10)
-  : new Date().getDay();
+// 기준 날짜(KST). 테스트로 FORCE_DATE=YYYY-MM-DD 를 주면 그 날짜로 주말·공휴일을 판정.
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const FORCE_DATE = (process.env.FORCE_DATE || "").trim();
+const HAS_FORCE_DATE = DATE_RE.test(FORCE_DATE);
+const BASE_DATE = HAS_FORCE_DATE ? FORCE_DATE : n1.dateJST();
+
+// KST 요일 (0=일 … 6=토). 우선순위: FORCE_DATE > FORCE_DOW > 실제(TZ=Asia/Seoul 보장).
+// 날짜만 있는 ISO 를 UTC 자정으로 파싱해도 getUTCDay() 요일값은 정확하다.
+const DOW = HAS_FORCE_DATE
+  ? new Date(BASE_DATE + "T00:00:00Z").getUTCDay()
+  : (process.env.FORCE_DOW != null && process.env.FORCE_DOW !== "")
+    ? parseInt(process.env.FORCE_DOW, 10)
+    : new Date().getDay();
 const IS_WEEKEND = DOW === 0 || DOW === 6;
-const PAUSE_NEW = IS_WEEKEND && !NEW_ANYWAY;
 const DOW_KR = ["일", "월", "화", "수", "목", "금", "토"][DOW] || "?";
 
 const cfg = {
@@ -62,9 +83,46 @@ const cfg = {
   MODEL: process.env.MODEL || "openai/gpt-5.6-sol",
   // 폰의 day() 기본값과 동일 (planDay 가 읽는 키): START_HOUR 9 · END_HOUR 23 ·
   // INTERVAL_MIN 15 · NEW_EVERY_MIN 30 · REPS_PER_KANJI 2. 필요하면 여기서 덮어쓰기.
-  // PAUSE_NEW: 주말이면 planDay() 가 신규 0 · 전량 복습으로 계획하게 한다.
-  PAUSE_NEW: PAUSE_NEW,
+  // PAUSE_NEW 는 main() 에서 주말·공휴일 판정 뒤에 세운다 (planDay() 가 신규 0 · 전량
+  // 복습으로 계획하게 한다). 공휴일 판정은 네트워크 조회라 async 라서 여기서 못 한다.
+  PAUSE_NEW: false,
 };
+
+// ---------- 일본 공휴일 판정 ----------
+// 1) holidays-jp.github.io API(연도별 엔드포인트) GET, 10초 타임아웃.
+// 2) 실패/비정상 → 레포 커밋된 scripts/jp-holidays.json 하드코딩 목록.
+// 3) 둘 다 실패/미수록 → { name:null } (평일로 간주). 잘못 쉬어 진도가 밀리는 것보다
+//    공휴일에 한 번 더 생성되는 쪽이 피해가 적다는 판단.
+async function resolveHoliday(dateStr) {
+  const year = dateStr.slice(0, 4);
+  const url = `${HOLIDAY_API_BASE}/${year}/date.json`;
+  try {
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), 10000);
+    let map;
+    try {
+      const res = await fetch(url, { signal: ac.signal, headers: { "User-Agent": "n1-kanji-generate-day" } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      map = await res.json();
+    } finally { clearTimeout(timer); }
+    if (!map || typeof map !== "object" || Array.isArray(map)) throw new Error("비정상 응답(객체 아님)");
+    return { name: map[dateStr] || null, source: "api" };
+  } catch (e) {
+    console.warn(`  · 공휴일 API 조회 실패 (${e.message}) → 하드코딩 목록으로 폴백`);
+  }
+  try {
+    const fs = require("node:fs");
+    const map = JSON.parse(fs.readFileSync(new URL("./jp-holidays.json", import.meta.url), "utf8"));
+    if (Object.prototype.hasOwnProperty.call(map, dateStr)) return { name: map[dateStr], source: "fallback" };
+    if (!Object.keys(map).some((k) => DATE_RE.test(k) && k.startsWith(year))) {
+      console.warn(`  · 하드코딩 목록에 ${year}년 데이터 없음 → 평일로 간주`);
+    }
+    return { name: null, source: "fallback" };
+  } catch (e) {
+    console.warn(`  · 하드코딩 목록 로드 실패 (${e.message}) → 평일로 간주`);
+    return { name: null, source: "none" };
+  }
+}
 
 const STATE_FILE = "n1-state.json";
 const TODAY_FILE = "n1-today.json";
@@ -186,12 +244,24 @@ async function realComposer(c, s, slotISO, idSuffix) {
 
 // ---------- 메인 ----------
 async function main() {
-  const today = n1.dateJST();
-  console.log(`N1 클라우드 생성기 · ${today}(${DOW_KR}) · TZ=${process.env.TZ}${DRY_RUN ? " · DRY-RUN" : ""}`);
+  const today = BASE_DATE;   // 평소엔 n1.dateJST(). FORCE_DATE 로 임의 날짜 주입 가능.
+  console.log(`N1 클라우드 생성기 · ${today}(${DOW_KR}) · TZ=${process.env.TZ}${DRY_RUN ? " · DRY-RUN" : ""}${HAS_FORCE_DATE ? " · FORCE_DATE" : ""}`);
+
+  // 주말·공휴일 판정 (완전히 같은 취급). NEW_ANYWAY 면 공휴일 조회 자체를 건너뛴다.
+  const holiday = NEW_ANYWAY ? { name: null, source: "skip" } : await resolveHoliday(BASE_DATE);
+  const IS_HOLIDAY = !!holiday.name;
+  const PAUSE_NEW = (IS_WEEKEND || IS_HOLIDAY) && !NEW_ANYWAY;
+  cfg.PAUSE_NEW = PAUSE_NEW;
+  // 주말/공휴일/둘 다를 구분해 표기: "주말(일)" / "공휴일(敬老の日)" / "주말(일) + 공휴일(…)"
+  const calReason = [
+    IS_WEEKEND ? `주말(${DOW_KR})` : null,
+    IS_HOLIDAY ? `공휴일(${holiday.name})` : null,
+  ].filter(Boolean).join(" + ");
+
   if (PAUSE_NEW) {
-    console.log(`주말(${DOW_KR}) — 신규 생성 건너뜀(전량 복습). API 0회 · 진도 0 전진.`);
-  } else if (IS_WEEKEND && NEW_ANYWAY) {
-    console.log(`주말(${DOW_KR})이지만 --new-anyway/IGNORE_WEEKEND=1 → 신규 생성 강행.`);
+    console.log(`${calReason} — 신규 생성 건너뜀(전량 복습). API 0회 · 진도 0 전진.`);
+  } else if ((IS_WEEKEND || IS_HOLIDAY) && NEW_ANYWAY) {
+    console.log(`주말/공휴일이지만 --new-anyway/IGNORE_CALENDAR=1 → 신규 생성 강행.`);
   }
 
   if (!DRY_RUN) {
@@ -249,7 +319,7 @@ async function main() {
   const uniqNew = [...new Set(newKanji)];
   console.log("");
   console.log("── 실행 요약 ──────────────────────────────");
-  if (PAUSE_NEW) console.log(`주말(${DOW_KR})  — 신규 생성 건너뜀(전량 복습)`);
+  if (PAUSE_NEW) console.log(`${calReason}  — 신규 생성 건너뜀(전량 복습)`);
   console.log(`총 슬롯       ${slots.length}칸  (${cfg.START_HOUR ?? 9}:00~${cfg.END_HOUR ?? 23}:00, ${cfg.INTERVAL_MIN ?? 15}분 간격)`);
   console.log(`신규          ${planned.newCount}칸  · 한자 ${uniqNew.length}자: ${uniqNew.join(" ") || "(없음)"}`);
   console.log(`복습          ${planned.reviewCount}칸`);

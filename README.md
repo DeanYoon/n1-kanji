@@ -78,20 +78,20 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 
 **스케줄:** `cron: "0 20 * * *"` — 20:00 UTC = **05:00 KST/JST**(KST·JST 둘 다 UTC+9, 서머타임 없음). 그날 첫 슬롯(09:00)보다 충분히 앞서 하루치를 만들어 둔다. ⚠️ GitHub Actions 의 schedule 은 정시를 보장하지 않는다 — 러너가 붐비면 수 분~1시간 늦거나 아예 건너뛸 수 있다. 다운스트림(폰 알림 예약 등)은 여유를 두고 실행할 것.
 
-**크론은 매일이지만 주말은 신규를 안 만든다** — KST 토·일에는 `generate-day.mjs` 가 `new Date().getDay()` 로 요일을 보고 `cfg.PAUSE_NEW = true` 를 세워 그날 57칸을 **전량 복습**으로 채운다(OpenRouter 0회, `progressIndex` 0 전진). 배치를 평일로 줄이지 않는 이유: 그러면 주말에 폰 `n1-day` 가 "오늘치 클라우드 데이터 없음"으로 실패해 알림이 아예 안 오고 실패 알림만 반복된다. 주말에 강제로 신규를 만들려면 수동 실행 시 `new_anyway` 체크(또는 `IGNORE_WEEKEND=1` / `--new-anyway`).
+**크론은 매일이지만 주말·일본 공휴일은 신규를 안 만든다** — KST 토·일, 그리고 일본 공휴일(振替休日·国民の休日 포함)에는 `generate-day.mjs` 가 `cfg.PAUSE_NEW = true` 를 세워 그날 57칸을 **전량 복습**으로 채운다(OpenRouter 0회, `progressIndex` 0 전진). 주말과 공휴일은 완전히 같은 취급. 요일은 `new Date().getDay()`, 공휴일은 `holidays-jp.github.io/api/v1/<YYYY>/date.json` 를 GET 해서 오늘(KST) 키가 있으면 공휴일. API 실패 시 레포에 커밋된 `scripts/jp-holidays.json` 하드코딩 목록(최소 2026~2027)을 쓰고, 그것도 없으면 **평일로 간주하고 정상 생성**한다(잘못 쉬어 진도가 밀리는 것보다 공휴일에 한 번 더 생성되는 쪽이 피해가 적다). 배치를 평일로 줄이지 않는 이유: 그러면 주말/공휴일에 폰 `n1-day` 가 "오늘치 클라우드 데이터 없음"으로 실패해 알림이 아예 안 오고 실패 알림만 반복된다. 강제로 신규를 만들려면 수동 실행 시 `new_anyway` 체크(또는 `IGNORE_CALENDAR=1` / 하위 호환 `IGNORE_WEEKEND=1` / `--new-anyway`).
 
 **하는 일** (`scripts/generate-day.mjs`)
 
 1. Gist `n1-state.json` 을 읽는다. 없으면 레포 커리큘럼(`n1.SEED`)으로 초기화(`INIT_PROGRESS_INDEX` 로 시작 진도 지정 가능).
-2. `n1.planDay()` — 아이폰과 공유하는 순수 함수 — 로 그날 슬롯을 계획한다. 주말이면 `cfg.PAUSE_NEW` 로 신규 0 · 전량 복습.
-3. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말엔 신규 슬롯이 없어 호출 0회)
+2. `n1.planDay()` — 아이폰과 공유하는 순수 함수 — 로 그날 슬롯을 계획한다. 주말·공휴일이면 `cfg.PAUSE_NEW` 로 신규 0 · 전량 복습.
+3. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말·공휴일엔 신규 슬롯이 없어 호출 0회)
 4. `n1-today.json`(사용자에게 보이는 산출물) → `n1-state.json`(전진된 상태) 순으로 Gist 에 PATCH.
 5. 같은 날 두 번 돌면 진도가 두 번 전진하지 않도록 건너뛴다(`s.lastPlannedDate` 가드, `--force` 로 무시).
 
 **수동 실행 / 로컬 확인**
 
 - GitHub: Actions 탭 → `generate-day` → Run workflow (`dry_run` 체크 시 API·PATCH 없이 계획만).
-- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작을 확인하려면 `FORCE_DOW=6 node scripts/generate-day.mjs --dry-run` (0~6, 테스트 전용 요일 주입 — 시스템 날짜를 안 건드림).
+- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작은 `FORCE_DOW=6 …` (0~6), 공휴일 동작은 `FORCE_DATE=2026-09-21 …` (임의 날짜 주입 — 주말·공휴일 판정용, 시스템 날짜를 안 건드림). 공휴일 API 실패→하드코딩 폴백은 `HOLIDAY_API_BASE=http://127.0.0.1:9/nope …` 로 시뮬레이션.
 
 ## 슬롯 계획 규칙 (planDay · 코드 기본값)
 
@@ -101,13 +101,20 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 | 슬롯 그리드 | 09:00 ~ 23:00, 15분 간격 → **57칸** | `START_HOUR` / `END_HOUR` / `INTERVAL_MIN` |
 | 신규/복습 | 슬롯 분(分)이 30의 배수면 신규 → **평일 신규 29칸 / 복습 28칸** | `NEW_EVERY_MIN` |
 | 한자당 예문 수 | 예문 **2개**를 만든 뒤에야 다음 한자로 전진 | `REPS_PER_KANJI` |
-| 주말 | KST 토·일은 **신규 0 · 전량 복습 57칸**(AI 0회, 진도 0 전진). 배치는 매일 돎 | `PAUSE_NEW` (generate-day.mjs 가 요일 보고 세팅) |
-| 신규 중단일 | `2026-11-12` 이후로는 신규 0, 순수 복습만 (스페이싱 효과) | `NEW_CUTOFF_DATE` (`null` 이면 무기한 신규) |
+| 주말·공휴일 | KST 토·일 + 일본 공휴일은 **신규 0 · 전량 복습 57칸**(AI 0회, 진도 0 전진). 배치는 매일 돎 | `PAUSE_NEW` (generate-day.mjs 가 요일·공휴일 보고 세팅) |
+| 신규 중단일 | `2026-11-12` 이후로는 신규 0, 순수 복습만 (스페이싱 효과). ⚠️ 공휴일 제외 반영 후 재계산 결과 이 값으로는 컷오프 전 한 바퀴가 안 끝난다 — 아래 페이스 참고 | `NEW_CUTOFF_DATE` (`null` 이면 무기한 신규) |
 | 복습 선택 | 가중 랜덤 — 적게 노출됐거나 "외웠음" 안 된 문장일수록 뽑힐 확률↑ | — |
 
 이 키들은 `scripts/generate-day.mjs` 의 `cfg` 나 아이폰 `stub.js` 의 `CFG` 에서 덮어쓸 수 있다(현재는 양쪽 다 전부 기본값).
 
-**페이스** — 평일 하루 신규 29칸 ÷ 한자당 2회독 = **평일 하루 약 14~15자 전진**(`kanjiRepCount` 가 날짜를 넘어 이어지므로 평균 정확히 29/2 = 14.5자). 주말은 0자. 커리큘럼 706자 한 바퀴 ≈ `706 ÷ 14.5` ≈ **49 평일 ≈ 10주 ≈ 68 달력일**. 2026-09-02(진도 0 가정) 기준 대략 2026-11-09 께 완료 — `NEW_CUTOFF_DATE` 기본값 `2026-11-12` 는 여기에 며칠 여유를 둔 값이다(이미 진도가 나가 있으면 더 빨리 끝난다). 남은 진도 기준 일반식: `남은_평일 = ceil((706×2 − kanjiRepCount − progressIndex×2) ÷ 29)`.
+**페이스** — 신규 생성일(평일이면서 공휴일 아닌 날) 하루 신규 29칸 ÷ 한자당 2회독 = **하루 약 14~15자 전진**(`kanjiRepCount` 가 날짜를 넘어 이어지므로 평균 정확히 29/2 = 14.5자). 주말·공휴일은 0자. 남은 진도 기준 일반식: `남은_생성일 = ceil((706×2 − kanjiRepCount − progressIndex×2) ÷ 29)`.
+
+**공휴일 제외 반영 후 재계산 (2026-09-02 기준, Gist `n1-state.json`: `progressIndex` 47 · `kanjiRepCount` 1):**
+
+- 남은 reps = `(706 − 47) × 2 − 1` = **1317** → 필요 생성일 = `ceil(1317 ÷ 29)` = **46일**.
+- 2026-09-03 ~ `NEW_CUTOFF_DATE`(`2026-11-12`, 컷오프 당일은 신규 OFF) 사이의 평일−공휴일 = **45일** (평일에 걸린 일본 공휴일 5일: 09-21·09-22·09-23·10-12·11-03 제외).
+- **45 < 46 → 하루(약 12 reps) 부족.** 현재 컷오프로는 커리큘럼 한 바퀴가 컷오프 직전에 안 끝나고 마지막 한자 ~6자가 잘린다. API 실패로 복습 대체되는 날이 하루라도 생기면 더 밀린다.
+- **권장: `NEW_CUTOFF_DATE` 를 `2026-11-17` 로 이동** (생성일 47일 확보 = 여유 1일 + API 실패 대비). 최소치는 `2026-11-13`(여유 0). 시험이 2026년 12월이라 `2026-11-19`(여유 4일)까지도 순수 복습 기간이 3주 넘게 남는다. → **컷오프 값 변경은 확인 후 반영 예정 (현재는 `2026-11-12` 유지).**
 
 ## 아이폰 (Scriptable)
 
