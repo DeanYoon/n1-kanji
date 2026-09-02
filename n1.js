@@ -643,11 +643,20 @@ function upsertSlot(arr, slot){
 }
 
 // 슬롯 배열을 정렬한 "새" 배열로(원본 불변). key 오름차순이 1차, 같으면 title → body 순.
-// key/title/body 만 남겨 정규화 — gist 에서 온 슬롯에 잡다한 필드가 붙어 있어도 비교/
-// 업로드가 안정적이게. (중복 제거는 하지 않음 — mergeSlots/upsertSlot 이 담당)
+// key/title/body/mode/id/원본 상세 필드까지 남겨 정규화 — n1-today.json 이 그날의 완결된
+// 스냅샷이 되도록(윈도우 알림 등 title/body 요약만으로는 부족한 소비자를 위해).
+// (중복 제거는 하지 않음 — mergeSlots/upsertSlot 이 담당)
 function sortSlots(arr){
   var a = (Array.isArray(arr) ? arr : []).filter(function(x){ return x && x.key; })
-    .map(function(x){ return { key: x.key, title: x.title || "", body: x.body || "" }; });
+    .map(function(x){
+      return {
+        key: x.key, title: x.title || "", body: x.body || "", mode: x.mode || "",
+        id: x.id || null, targetKanji: x.targetKanji || "",
+        sentenceJP: x.sentenceJP || "", readingHiragana: x.readingHiragana || "", translationKR: x.translationKR || "",
+        kanjiNotes: Array.isArray(x.kanjiNotes) ? x.kanjiNotes : [],
+        grammarNotes: Array.isArray(x.grammarNotes) ? x.grammarNotes : []
+      };
+    });
   a.sort(function(p, q){
     if(p.key !== q.key) return p.key < q.key ? -1 : 1;
     if(p.title !== q.title) return p.title < q.title ? -1 : 1;
@@ -1069,7 +1078,14 @@ async function planDay(cfg, s, opts){
     }
     plan.push({
       key: slot.key, slotDate: slotDate, slotISO: slotISO,
-      title: pushTitle(mode, cur, s), body: pushBody(cur), mode: mode
+      title: pushTitle(mode, cur, s), body: pushBody(cur), mode: mode,
+      // 알림용 title/body 는 요약(단어 1개)이라 윈도우 알림처럼 문장/문법까지 다 보여줘야
+      // 하는 소비자를 위해 원본 필드도 그대로 실어둔다 — n1-today.json 이 그날의 완결된
+      // 스냅샷이 되도록. id 는 history 매칭(리뷰 상세, pending 등)에 계속 쓰인다.
+      id: cur.id, targetKanji: cur.targetKanji,
+      sentenceJP: cur.sentenceJP, readingHiragana: cur.readingHiragana, translationKR: cur.translationKR,
+      kanjiNotes: Array.isArray(cur.kanjiNotes) ? cur.kanjiNotes : [],
+      grammarNotes: Array.isArray(cur.grammarNotes) ? cur.grammarNotes : []
     });
   }
   return { todo: todo, plan: plan, pending: pending, newCount: newCount, reviewCount: plan.length - newCount };
