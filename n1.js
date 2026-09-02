@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01d
+// VERSION 2026-09-01e
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -90,7 +90,15 @@ async function compose(cfg, kanji, priorWords){
 "한자가 하나라도 포함된 연속 구간은 하나의 세그먼트로 묶고 그 부분 전체의 읽기를 r에 히라가나로 넣으세요. " +
 "가나·구두점·숫자·알파벳만 있는 구간은 한자와 같은 세그먼트로 섞지 말고 별도 세그먼트로 분리하고, 그 경우 r은 빈 문자열로 두세요.\n\n" +
 "kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n" +
-"grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. point=문형, meaningKR=쓰임과 뜻을 한 줄로. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. 별도 표시는 붙이지 마세요.";
+"grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주.\n" +
+"point 표기 규칙(반드시 지키세요) — 이 노트를 보는 사람은 '수동형/사역형/사전형/て형' 같은 일본어 문법 용어를 전혀 모릅니다. " +
+"그러니 用語(용어) 이름은 절대 쓰지 말고, 그 대신 문장 속에서 실제로 쓰인 것과 똑같은 글자로 두 단계를 화살표로 보여주세요: " +
+"'사전에 나오는 원래 단어 → 이 문장에서 실제로 쓰인 모양' 그리고 뒤에 붙는 조사/표현이 있으면 그것도 이어붙이세요. " +
+"형식: '원래단어 → 문장 속 모양 (+ 뒤에 붙은 표현)'.\n" +
+"예시: '怖れる → 怖れられて' (受身形＋て 대신), '寒い → 寒くて' (イ形容詞くて 대신), " +
+"'（辞書形のまま）+ のが怖い' (동사 원형 그대로 뒤에 のが怖い가 붙는 경우), '（辞書形のまま）+ たび（に）'. " +
+"meaningKR=용어 없이 아주 쉬운 말로: 왜 저렇게 모양이 바뀌었는지(예: '누군가에게 어떤 일을 당했다는 뜻이 됨'), " +
+"그리고 문장에서 무슨 뜻·뉘앙스가 되는지를 한 줄로. 별도 표시(*, ** 등)는 붙이지 마세요.";
 
   return await requestSentence(cfg, prompt);
 }
@@ -887,13 +895,21 @@ function pickHeadword(cur){
 }
 // 알림 본문 — 문장 통째로 넣으면 알림 배너에서 길이 제한으로 잘려서 그걸로는 학습이
 // 안 된다는 피드백으로, 워치 알림과 동일하게 "단어 / 후리가나 / 한글번역" 3줄로 줄임.
+// 여기에 문법노트 1개를 "[문법] " 줄로 덧붙인다 — 문장 전체와 달리 이 노트는 짧고
+// (원래단어 → 문장 속 모양 + 한 줄 설명) 길이가 예측 가능해서 배너에 넣어도 잘릴 걱정이
+// 적고, 오히려 배너만 보고도 "이 문장에서 무슨 문법이 쓰였는지"를 바로 익힐 수 있다.
 // 대신 알림을 탭하면(openURL, notify() 호출부에서 reviewURL(cfg) 넘김) n1-review 가
 // 열리는데, review()는 시작하자마자 current() 항목(=지금 이 알림이 보여준 것과 동일한
-// 항목) 전체 내용을 모달로 먼저 띄우므로 탭 한 번으로 문장·문법 노트까지 다 볼 수 있음.
+// 항목) 전체 내용을 모달로 먼저 띄우므로 탭 한 번으로 문장·나머지 문법 노트까지 다 볼 수 있음.
 function pushBody(cur){
   var hw = pickHeadword(cur);
-  if(hw) return hw.word + "\n" + hw.reading + "\n" + hw.meaningKR;
-  return cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR;   // 옛 항목 폴백
+  var base = hw ? (hw.word + "\n" + hw.reading + "\n" + hw.meaningKR)
+                : (cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR);   // 옛 항목 폴백
+  var gn = Array.isArray(cur.grammarNotes) ? cur.grammarNotes : [];
+  if(gn.length && gn[0] && gn[0].point){
+    base += "\n\n[문법] " + gn[0].point + (gn[0].meaningKR ? " — " + gn[0].meaningKR : "");
+  }
+  return base;
 }
 // 알림을 탭했을 때 n1-review를 열게 하는 URL. 스크립트 이름이 기본값("n1-review")과
 // 다르면 cfg.REVIEW_SCRIPT_NAME으로 맞춰 쓸 수 있음.
@@ -1690,7 +1706,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01d",
+  VERSION: "2026-09-01e",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
