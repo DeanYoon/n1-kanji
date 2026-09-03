@@ -107,6 +107,19 @@
   td.kw .p{color:var(--dim); font-size:.78rem}
   .tablewrap{overflow-x:auto}
   .footnote{color:var(--dim); font-size:.78rem; line-height:1.5}
+
+  .resume{background:#16202b; border:1px solid var(--accent); border-radius:10px; padding:14px}
+  .resume .btns{display:flex; gap:10px; margin-top:10px}
+  .resume .btns button{flex:1}
+  details.codepaste{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+  details.codepaste summary{cursor:pointer; font-size:.9rem; color:var(--dim)}
+  details.codepaste textarea{width:100%; margin-top:8px; background:var(--bg); color:var(--fg);
+    border:1px solid var(--line); border-radius:8px; padding:8px; font:inherit; font-size:16px;
+    min-height:70px; resize:vertical; word-break:break-all;
+    -webkit-user-select:text; user-select:text; -webkit-touch-callout:default}
+  #codeBox{font-size:.9rem; word-break:break-all; -webkit-user-select:text; user-select:text; -webkit-touch-callout:default}
+  #codeBox .cc{display:block; margin-bottom:8px; color:var(--dim); font-size:.8rem}
+  .controls .sub{flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -115,7 +128,17 @@
   <div id="start">
     <div>
       <h1>N3 한자 자가 진단</h1>
-      <p class="note">실제로 모르는 한자만 골라냅니다. 각 한자마다 대표 단어 2개를 함께 보여줍니다. <b>그 단어를 읽고 뜻을 말할 수 있으면</b> &lsquo;안다&rsquo;로 판단하세요. 새로고침하면 처음부터 다시 시작합니다(저장 안 됨).</p>
+      <p class="note">실제로 모르는 한자만 골라냅니다. 각 한자마다 대표 단어 2개를 함께 보여줍니다. <b>그 단어를 읽고 뜻을 말할 수 있으면</b> &lsquo;안다&rsquo;로 판단하세요.</p>
+      <p class="note" style="margin-top:6px">이 기기에 자동 저장됩니다 · 다른 기기에서 이어하려면 진행 코드를 복사하세요.</p>
+      <p class="note hidden" id="storageWarn" style="margin-top:6px; color:var(--dunno)">이 브라우저에서는 저장할 수 없습니다(프라이빗 모드 등). 이번 세션에서만 진행이 유지되니, 자리를 옮기기 전에 <b>진행 코드</b>를 복사해 두세요.</p>
+    </div>
+
+    <div class="resume hidden" id="resumePanel">
+      <p class="note" id="resumeInfo"></p>
+      <div class="btns">
+        <button class="primary" id="btnResume">이어서 하기</button>
+        <button id="btnFresh">처음부터</button>
+      </div>
     </div>
     <div class="rangerow">
       <label class="rangeopt sel" data-range="n3">
@@ -129,6 +152,13 @@
     </div>
     <button class="primary" id="btnStart">시작</button>
     <p class="note">진행 중 <b>← 모른다 · → 안다 · Space 뜻 보기 · Backspace 이전</b> 키를 쓸 수 있습니다.</p>
+
+    <details class="codepaste">
+      <summary>다른 기기에서 하던 진행 코드 붙여넣기</summary>
+      <textarea id="codeIn" placeholder="진행 코드를 여기에 붙여넣으세요" spellcheck="false" autocapitalize="off" autocorrect="off"></textarea>
+      <div class="copyrow"><button id="btnLoadCode">불러오기</button><span class="copied hidden" id="codeMsg"></span></div>
+      <p class="note">위에서 <b>같은 범위</b>를 선택한 뒤 불러와야 합니다. 다른 범위 코드는 거부됩니다.</p>
+    </details>
   </div>
 
   <div id="quiz" class="hidden">
@@ -139,12 +169,15 @@
         <span><span class="k" id="cKnow">안다 0</span> · <span class="d" id="cDunno">모른다 0</span></span>
       </div>
       <div class="hint">아래 단어를 <b>읽고 뜻까지</b> 말할 수 있으면 &ldquo;안다&rdquo;</div>
+      <div class="hint" style="margin-top:3px">이 기기에 자동 저장됨 · 기기를 옮기려면 &ldquo;진행 코드 복사&rdquo;</div>
+      <div class="hint hidden" id="quizStoreWarn" style="margin-top:3px; color:var(--dunno)">저장 불가 — 진행 코드를 복사해 두세요</div>
     </header>
     <div id="card">
       <div class="kanji" id="kanji">—</div>
       <div class="words" id="words"></div>
       <div class="curbadge hidden" id="curBadge">이미 커리큘럼에 있음</div>
       <div class="reveal hidden" id="reveal"></div>
+      <div class="reveal hidden" id="codeBox"></div>
       <div class="controls">
         <div class="main">
           <button id="btnDunno">모른다</button>
@@ -154,6 +187,7 @@
           <button id="btnReveal">뜻 보기</button>
           <button id="btnBack">← 이전</button>
           <button id="btnMid">지금까지 결과 보기</button>
+          <button id="btnCode">진행 코드 복사</button>
         </div>
       </div>
     </div>
@@ -188,9 +222,16 @@
         </table>
       </div>
     </div>
+    <div class="block">
+      <h3>진행 코드 (다른 기기에서 이어하기)</h3>
+      <div class="strstr" id="rCode" style="font-size:.9rem; word-break:break-all"></div>
+      <div class="copyrow"><button id="cpCode">진행 코드 복사</button><span class="copied hidden" id="okCode"></span></div>
+      <p class="footnote">다른 기기에서 이 페이지를 열고 시작 화면의 &ldquo;진행 코드 붙여넣기&rdquo;에 넣으면 이 지점부터 이어집니다.</p>
+    </div>
     <button class="primary hidden" id="btnContinue">계속하기</button>
     <button class="primary" id="btnRestart">다시 하기</button>
-    <p class="footnote">이 결과는 저장되지 않습니다. 문자열이나 JSON을 복사해 두세요. 단어 뜻은 영어이며, 한국어화는 다음 단계입니다.</p>
+    <div class="copyrow"><button id="btnClear">이 기기의 저장 기록 지우기</button><span class="copied hidden" id="okClear"></span></div>
+    <p class="footnote">진행은 이 기기에 자동 저장됩니다. 다른 기기에서 이어하려면 위의 진행 코드를 복사하세요. 단어 뜻은 영어이며, 한국어화는 다음 단계입니다.</p>
   </div>
 
 </div>
@@ -203,7 +244,106 @@ const W={"同":[{"w":"協同組合","p":"きょうどうくみあい","g":"coope
 
 var deck=[], idx=0, answers=[], range='n3';
 
+var VER=1, LS_KEY='n3check.v1';
+var storageOK=true;
+var FORCE_NO_LS=/[?&]nostorage\b/.test(location.search);
+
 var el=function(id){return document.getElementById(id)};
+
+/* ---------- storage (guarded) ---------- */
+function lsGet(k){ if(FORCE_NO_LS) throw new Error('forced'); return window.localStorage.getItem(k); }
+function lsSet(k,v){ if(FORCE_NO_LS) throw new Error('forced'); window.localStorage.setItem(k,v); }
+function lsDel(k){ try{ if(!FORCE_NO_LS) window.localStorage.removeItem(k); }catch(e){} }
+function markStorageBroken(){
+  if(!storageOK) return;
+  storageOK=false;
+  var a=el('storageWarn'); if(a) a.classList.remove('hidden');
+  var b=el('quizStoreWarn'); if(b) b.classList.remove('hidden');
+}
+
+/* ---------- range helpers ---------- */
+function rangeLen(r){ return r==='n4n3' ? N4.length+N3.length : N3.length; }
+function rangeLabel(r){ return r==='n4n3' ? 'N4+N3' : 'N3'; }
+function countAnswered(a){ var n=0; for(var i=0;i<a.length;i++) if(a[i]!=null) n++; return n; }
+
+/* ---------- 2-bit pack: null=0 / know=1 / dunno=2 ---------- */
+function packAnswers(a){
+  var bytes=new Uint8Array(Math.ceil(a.length/4));
+  for(var i=0;i<a.length;i++){
+    var v = a[i]==='know'?1 : a[i]==='dunno'?2 : 0;
+    bytes[i>>2] |= v << ((i&3)*2);
+  }
+  return bytes;
+}
+function unpackAnswers(bytes,len){
+  var a=new Array(len);
+  for(var i=0;i<len;i++){
+    var v=(bytes[i>>2] >> ((i&3)*2)) & 3;
+    a[i]= v===1?'know' : v===2?'dunno' : null;
+  }
+  return a;
+}
+function b64urlFromBytes(bytes){
+  var bin=''; for(var i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+function bytesFromB64url(str){
+  str=String(str).replace(/-/g,'+').replace(/_/g,'/').replace(/\s+/g,'');
+  while(str.length%4) str+='=';
+  var bin=atob(str), bytes=new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  return bytes;
+}
+
+/* transfer code = header byte (VER<<1 | rangeBit) + packed answers, base64url */
+function encodeCode(r,a){
+  var body=packAnswers(a), all=new Uint8Array(1+body.length);
+  all[0]=(VER<<1) | (r==='n4n3'?1:0);
+  all.set(body,1);
+  return b64urlFromBytes(all);
+}
+function decodeCode(str){
+  var bytes;
+  try{ bytes=bytesFromB64url(str.trim()); }
+  catch(e){ throw new Error('코드 형식이 올바르지 않습니다.'); }
+  if(bytes.length<2) throw new Error('코드가 너무 짧습니다.');
+  var ver=bytes[0]>>1, r=(bytes[0]&1)?'n4n3':'n3';
+  if(ver!==VER) throw new Error('코드 버전이 맞지 않습니다 (v'+ver+').');
+  var len=rangeLen(r);
+  if(bytes.length-1 < Math.ceil(len/4)) throw new Error('코드 길이가 맞지 않습니다.');
+  return { range:r, answers:unpackAnswers(bytes.subarray(1), len) };
+}
+
+/* ---------- progress persistence ---------- */
+function saveProgress(){
+  if(!storageOK) return;
+  try{
+    lsSet(LS_KEY, JSON.stringify({
+      v:VER, range:range, idx:idx,
+      a:b64urlFromBytes(packAnswers(answers)), t:Date.now()
+    }));
+  }catch(e){ markStorageBroken(); }
+}
+function loadSaved(){
+  var raw;
+  try{ raw=lsGet(LS_KEY); }catch(e){ markStorageBroken(); return null; }
+  if(!raw) return null;
+  try{
+    var o=JSON.parse(raw);
+    if(!o || o.v!==VER || (o.range!=='n3' && o.range!=='n4n3')) return null;
+    var len=rangeLen(o.range);
+    var a=unpackAnswers(bytesFromB64url(o.a), len);
+    var answered=countAnswered(a);
+    if(answered===0) return null;
+    var i=(typeof o.idx==='number' && o.idx>=0 && o.idx<=len) ? o.idx : answered;
+    return { range:o.range, answers:a, idx:i, t:o.t||0, answered:answered, len:len };
+  }catch(e){ return null; }
+}
+function fmtTime(t){
+  if(!t) return '';
+  var d=new Date(t), p=function(n){return (n<10?'0':'')+n;};
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+}
 
 function hlWord(str, k){
   var out='';
@@ -219,15 +359,27 @@ document.querySelectorAll('input[name=range]').forEach(function(r){
   });
 });
 
-el('btnStart').addEventListener('click',function(){
-  deck = (range==='n4n3' ? N4.concat(N3) : N3.slice()).map(function(x){
+function buildDeck(r){
+  return (r==='n4n3' ? N4.concat(N3) : N3.slice()).map(function(x){
     return Object.assign({}, x, {w: W[x.c] || []});
   });
-  idx=0; answers=new Array(deck.length).fill(null);
+}
+function beginQuiz(r, a, i){
+  range=r;
+  document.querySelectorAll('input[name=range]').forEach(function(x){ x.checked = x.value===r; });
+  document.querySelectorAll('.rangeopt').forEach(function(o){o.classList.toggle('sel', o.dataset.range===r)});
+  deck=buildDeck(r);
+  answers = (a && a.length===deck.length) ? a.slice() : new Array(deck.length).fill(null);
+  idx = (typeof i==='number' && i>=0 && i<=deck.length) ? i : countAnswered(answers);
   el('start').classList.add('hidden');
   el('result').classList.add('hidden');
   el('quiz').classList.remove('hidden');
   render();
+  saveProgress();
+}
+
+el('btnStart').addEventListener('click',function(){
+  beginQuiz(range, null, 0);
 });
 
 function render(){
@@ -240,6 +392,8 @@ function render(){
   el('curBadge').classList.toggle('hidden', !it.cur);
   el('reveal').classList.add('hidden');
   el('reveal').innerHTML='';
+  el('codeBox').classList.add('hidden');
+  el('codeBox').innerHTML='';
   var known=answers.filter(function(a){return a==='know'}).length;
   var dunno=answers.filter(function(a){return a==='dunno'}).length;
   el('pos').textContent=(idx+1)+' / '+deck.length;
@@ -268,13 +422,29 @@ function answer(v){
   if(idx>=deck.length) return;
   answers[idx]=v; idx++;
   render();
+  saveProgress();
+}
+function goBack(){
+  if(idx>0){ idx--; answers[idx]=null; render(); saveProgress(); }
 }
 
 el('btnKnow').addEventListener('click',function(){answer('know')});
 el('btnDunno').addEventListener('click',function(){answer('dunno')});
 el('btnReveal').addEventListener('click',revealCard);
-el('btnBack').addEventListener('click',function(){ if(idx>0){idx--; answers[idx]=null; render();} });
+el('btnBack').addEventListener('click',goBack);
 el('btnMid').addEventListener('click',function(){ showResult(true); });
+el('btnCode').addEventListener('click',function(){
+  var code=encodeCode(range, answers);
+  var box=el('codeBox');
+  box.innerHTML='<span class="cc">진행 코드 · 길게 눌러 복사하거나 아래 버튼을 누르세요 ('+code.length+'자)</span>'
+    +'<div style="word-break:break-all; margin-bottom:8px">'+code+'</div>'
+    +'<div class="copyrow"><button type="button" id="qCodeCopy">복사</button>'
+    +'<span class="copied hidden" id="qCodeMsg"></span></div>';
+  el('reveal').classList.add('hidden');
+  box.classList.remove('hidden');
+  el('qCodeCopy').addEventListener('click',function(){ copy(code, el('qCodeMsg')); });
+  copy(code, el('qCodeMsg'));
+});
 el('btnRestart').addEventListener('click',function(){
   el('result').classList.add('hidden');
   el('start').classList.remove('hidden');
@@ -285,7 +455,7 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowLeft'){ e.preventDefault(); answer('dunno'); }
   else if(e.key==='ArrowRight'){ e.preventDefault(); answer('know'); }
   else if(e.key===' '){ e.preventDefault(); revealCard(); }
-  else if(e.key==='Backspace'){ e.preventDefault(); if(idx>0){idx--; answers[idx]=null; render();} }
+  else if(e.key==='Backspace'){ e.preventDefault(); goBack(); }
 });
 
 function showResult(mid){
@@ -299,6 +469,7 @@ function showResult(mid){
     : (deck.length+'자 전체를 확인했습니다.');
   el('rStr').textContent=str||'(없음)';
   el('rJson').value=JSON.stringify(unknown.map(function(x){return x.c}));
+  el('rCode').textContent=encodeCode(range, answers);
 
   var cur=unknown.filter(function(x){return x.cur});
   if(cur.length){
@@ -333,6 +504,7 @@ el('btnContinue').addEventListener('click',function(){
 });
 
 function flashOk(okEl,msg){
+  if(!okEl) return;
   okEl.textContent=msg||'복사됨';
   okEl.classList.remove('hidden');
   if(!msg) setTimeout(function(){okEl.classList.add('hidden')},1500);
@@ -365,9 +537,42 @@ function copy(text, okEl){
 }
 el('cpStr').addEventListener('click',function(){ copy(el('rStr').textContent, el('okStr')); });
 el('cpJson').addEventListener('click',function(){ copy(el('rJson').value, el('okJson')); });
+el('cpCode').addEventListener('click',function(){ copy(el('rCode').textContent, el('okCode')); });
+el('btnClear').addEventListener('click',function(){
+  lsDel(LS_KEY);
+  flashOk(el('okClear'), '저장 기록을 지웠습니다');
+});
 
-// mid-result: allow closing by going back to quiz
-el('result').addEventListener('click',function(e){}, false);
+// load a transfer code from the start screen
+el('btnLoadCode').addEventListener('click',function(){
+  var raw=el('codeIn').value.trim(), msg=el('codeMsg');
+  if(!raw){ flashOk(msg, '코드를 붙여넣으세요'); return; }
+  var dec;
+  try{ dec=decodeCode(raw); }
+  catch(e){ flashOk(msg, e.message || '코드를 읽을 수 없습니다'); return; }
+  if(dec.range!==range){
+    flashOk(msg, '이 코드는 '+rangeLabel(dec.range)+' 범위입니다. 위에서 '+rangeLabel(dec.range)+' 범위를 선택한 뒤 다시 불러오세요.');
+    return;
+  }
+  beginQuiz(dec.range, dec.answers, countAnswered(dec.answers));
+});
+
+// start screen: offer resume if saved progress exists
+(function initStart(){
+  var s=loadSaved();
+  if(s){
+    el('resumePanel').classList.remove('hidden');
+    el('resumeInfo').innerHTML='저장된 진행이 있습니다 — <b>'+rangeLabel(s.range)+'</b> · '
+      + s.answered+' / '+s.len+' 응답'
+      + (s.t ? ' · 마지막 저장 '+fmtTime(s.t) : '');
+    el('btnResume').textContent='이어서 하기 ('+s.answered+'/'+s.len+')';
+    el('btnResume').addEventListener('click',function(){ beginQuiz(s.range, s.answers, s.idx); });
+    el('btnFresh').addEventListener('click',function(){
+      lsDel(LS_KEY);
+      el('resumePanel').classList.add('hidden');
+    });
+  }
+})();
 </script>
 </body>
 </html>
