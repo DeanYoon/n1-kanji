@@ -10,6 +10,7 @@ JLPT N2·N1 한자 학습 시스템. 예문 생성(OpenRouter 호출)은 **GitHu
 - [Gist 두 파일](#gist-두-파일)
 - [클라우드 생성 (GitHub Actions)](#클라우드-생성-github-actions)
 - [슬롯 계획 규칙](#슬롯-계획-규칙-planday--코드-기본값)
+- [약점 보강 (진단 → 예문)](#약점-보강-진단--예문)
 - [아이폰 (Scriptable)](#아이폰-scriptable)
 - [윈도우](#윈도우)
 - [설정 요약](#설정-요약)
@@ -27,6 +28,7 @@ JLPT N2·N1 한자 학습 시스템. 예문 생성(OpenRouter 호출)은 **GitHu
 GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
   └─ scripts/generate-day.mjs
        ├─ Gist:n1-state.json  읽기 → n1.planDay() → 신규 한자는 OpenRouter 로 예문 생성
+       ├─ Gist:n1-weak.json   읽기(있으면) → 신규 슬롯 절반을 "그 한자·그 읽기" 예문에 배정
        ├─ Gist:n1-today.json  ← 그날치 슬롯(09:00~23:00)
        └─ Gist:n1-state.json  ← 전진된 진도/이력
                     │
@@ -57,7 +59,7 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 
 ### `n1-state.json` — 누적 이력·진도
 
-`kanjiList`(706자) · `progressIndex` · `cycle` · `kanjiRepCount` · `history[]` · `pending[]` · `updatedAt`.
+`kanjiList`(706자) · `progressIndex` · `cycle` · `kanjiRepCount` · `history[]` · `pending[]` · `updatedAt`. 진단 데이터가 있으면 약점 트랙용 `weakQueue[]` · `weakIndex` · `weakRepCount` 도 함께 들고 간다([약점 보강](#약점-보강-진단--예문) 참고).
 
 클라우드가 만들어 올리고, 아이폰 `n1-day` 가 읽어 로컬 진도를 통째로 갈아끼운다. 아이폰에서 `n1-cloud` 를 실행하면 로컬 `n1_state.json`(주로 "외웠음" 표시)이 **로컬이 더 최신일 때만** 이 파일로 단방향 업로드된다.
 
@@ -83,15 +85,16 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 **하는 일** (`scripts/generate-day.mjs`)
 
 1. Gist `n1-state.json` 을 읽는다. 없으면 레포 커리큘럼(`n1.SEED`)으로 초기화(`INIT_PROGRESS_INDEX` 로 시작 진도 지정 가능).
-2. `n1.planDay()` — 아이폰과 공유하는 순수 함수 — 로 그날 슬롯을 계획한다. 주말·공휴일이면 `cfg.PAUSE_NEW` 로 신규 0 · 전량 복습.
-3. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말·공휴일엔 신규 슬롯이 없어 호출 0회)
-4. `n1-today.json`(사용자에게 보이는 산출물) → `n1-state.json`(전진된 상태) 순으로 Gist 에 PATCH.
-5. 같은 날 두 번 돌면 진도가 두 번 전진하지 않도록 건너뛴다(`s.lastPlannedDate` 가드, `--force` 로 무시).
+2. 진단 데이터(`n1-weak.json` gist, 없으면 `scripts/weak-readings.json`)가 있으면 `weakQueue` 에 병합한다. 없으면 약점 기능은 꺼진 채로 넘어간다([약점 보강](#약점-보강-진단--예문)).
+3. `n1.planDay()` — 아이폰과 공유하는 순수 함수 — 로 그날 슬롯을 계획한다. 주말·공휴일이면 `cfg.PAUSE_NEW` 로 신규 0 · 전량 복습.
+4. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말·공휴일엔 신규 슬롯이 없어 호출 0회) 약점 슬롯이면 목표 읽기를 강제하는 프롬프트를 쓰고, 커리큘럼 진도는 전진시키지 않는다.
+5. `n1-today.json`(사용자에게 보이는 산출물) → `n1-state.json`(전진된 상태) 순으로 Gist 에 PATCH.
+6. 같은 날 두 번 돌면 진도가 두 번 전진하지 않도록 건너뛴다(`s.lastPlannedDate` 가드, `--force` 로 무시).
 
 **수동 실행 / 로컬 확인**
 
 - GitHub: Actions 탭 → `generate-day` → Run workflow (`dry_run` 체크 시 API·PATCH 없이 계획만).
-- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작은 `FORCE_DOW=6 …` (0~6), 공휴일 동작은 `FORCE_DATE=2026-09-21 …` (임의 날짜 주입 — 주말·공휴일 판정용, 시스템 날짜를 안 건드림). 공휴일 API 실패→하드코딩 폴백은 `HOLIDAY_API_BASE=http://127.0.0.1:9/nope …` 로 시뮬레이션.
+- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작은 `FORCE_DOW=6 …` (0~6), 공휴일 동작은 `FORCE_DATE=2026-09-21 …` (임의 날짜 주입 — 주말·공휴일 판정용, 시스템 날짜를 안 건드림). 공휴일 API 실패→하드코딩 폴백은 `HOLIDAY_API_BASE=http://127.0.0.1:9/nope …` 로 시뮬레이션. 약점 보강은 `WEAK_FIXTURE=path/to/weak.json …` (테스트 전용 — gist/repo 대신 임의 파일 주입), 비율은 `WEAK_RATIO=0.3 …`.
 
 ## 슬롯 계획 규칙 (planDay · 코드 기본값)
 
@@ -104,6 +107,7 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 | 주말·공휴일 | KST 토·일 + 일본 공휴일은 **신규 0 · 전량 복습 57칸**(AI 0회, 진도 0 전진). 배치는 매일 돎 | `PAUSE_NEW` (generate-day.mjs 가 요일·공휴일 보고 세팅) |
 | 신규 중단일 | `2026-11-12` 이후로는 신규 0, 순수 복습만 (스페이싱 효과). ⚠️ 공휴일 제외 반영 후 재계산 결과 이 값으로는 컷오프 전 한 바퀴가 안 끝난다 — 아래 페이스 참고 | `NEW_CUTOFF_DATE` (`null` 이면 무기한 신규) |
 | 복습 선택 | 가중 랜덤 — 적게 노출됐거나 "외웠음" 안 된 문장일수록 뽑힐 확률↑ | — |
+| 약점 보강 | 진단 데이터가 있으면 하루 신규 슬롯의 **절반**을 "그 한자·그 읽기" 강제 예문에 배정 (아래 절) | `WEAK_RATIO` (기본 0.5) |
 
 이 키들은 `scripts/generate-day.mjs` 의 `cfg` 나 아이폰 `stub.js` 의 `CFG` 에서 덮어쓸 수 있다(현재는 양쪽 다 전부 기본값).
 
@@ -115,6 +119,33 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 - 2026-09-03 ~ `NEW_CUTOFF_DATE`(`2026-11-12`, 컷오프 당일은 신규 OFF) 사이의 평일−공휴일 = **45일** (평일에 걸린 일본 공휴일 5일: 09-21·09-22·09-23·10-12·11-03 제외).
 - **45 < 46 → 하루(약 12 reps) 부족.** 현재 컷오프로는 커리큘럼 한 바퀴가 컷오프 직전에 안 끝나고 마지막 한자 ~6자가 잘린다. API 실패로 복습 대체되는 날이 하루라도 생기면 더 밀린다.
 - **권장: `NEW_CUTOFF_DATE` 를 `2026-11-17` 로 이동** (생성일 47일 확보 = 여유 1일 + API 실패 대비). 최소치는 `2026-11-13`(여유 0). 시험이 2026년 12월이라 `2026-11-19`(여유 4일)까지도 순수 복습 기간이 3주 넘게 남는다. → **컷오프 값 변경은 확인 후 반영 예정 (현재는 `2026-11-12` 유지).**
+
+## 약점 보강 (진단 → 예문)
+
+자기진단(`n3-check.html`)에서 "이 한자의 이 읽기를 모른다"고 표시한 항목을, 매일 생성되는 신규 슬롯의 일부에 자동으로 끼워 넣어 **그 읽기가 반드시 나오는 예문**으로 반복 학습시킨다.
+
+**흐름**
+
+1. `n3-check.html` 로 진단 → 결과 JSON 을 내보낸다:
+   ```json
+   { "version": 1, "scope": "n3", "generatedAt": "…", "total": 912, "knownCount": 812,
+     "unknown": [ { "k": "生", "r": "しょう", "type": "on",
+                    "words": [ { "w": "一生", "wr": "いっしょう" } ] } ] }
+   ```
+2. 이 JSON 을 Gist 에 **`n1-weak.json`** 으로 올린다(권장 — `generate-day.mjs` 가 이미 하는 Gist GET 응답에서 같이 꺼내므로 API 호출이 늘지 않는다). 또는 레포에 **`scripts/weak-readings.json`** 으로 커밋한다. gist 쪽이 우선.
+3. 새벽 배치가 파일을 찾으면 `unknown` 배열을 상태(`n1-state.json`)의 `weakQueue` 로 저장한다(순서 유지). 재진단해서 다시 올리면 `k`+`r` 조합으로 **새 항목만** 큐 뒤에 붙는다.
+4. 그날 신규 슬롯(평일 29칸) 중 `WEAK_RATIO`(기본 **0.5**)만큼이 약점 항목에 배정된다. 약점 항목도 커리큘럼과 같이 `REPS_PER_KANJI`(2)번 반복한 뒤 다음 항목으로 넘어간다.
+5. **약점 슬롯은 커리큘럼 진도(`progressIndex`)를 전진시키지 않는다** — 별도 트랙(`weakIndex` / `weakRepCount`). 그래서 약점을 섞은 날은 커리큘럼 전진이 그만큼 느려진다(예: 신규 29칸 = 약점 15 + 커리큘럼 14 → 그날 커리큘럼은 ~7자만 전진).
+6. **약점 큐가 소진되면** 그날부터는 자동으로 다시 신규 29칸 전부 커리큘럼으로 돌아간다. 새 진단 결과를 올리면 다시 채워진다.
+7. 파일이 **아예 없으면** 약점 기능은 완전히 꺼진 채로 동작한다 — 기존과 100% 동일(신규 29 / 복습 28, 진도 전진량 그대로).
+
+**프롬프트** — 약점 슬롯은 `n1.buildComposePrompt(kanji, priorWords, target)` 의 `target` 인자를 받아, "이 문장에서 「한자」는 반드시 「읽기」로 읽혀야 한다 / `kanjiNotes`·`furigana` 에도 그 읽기가 드러나야 한다"를 강제한다. `target` 이 없으면 프롬프트는 예전과 **바이트 단위로 동일**하다(커리큘럼 생성 회귀 없음).
+
+**검증** — 생성된 예문의 `furigana` 세그먼트/`kanjiNotes` 에 목표 읽기(連濁·促音便 변형 포함)가 실제로 들어갔는지 가볍게 확인한다. 실패해도 재생성하지 않고(API 비용) 경고 로그만 남긴 뒤 그 예문을 그대로 채택하며, 실패 건수를 실행 요약에 표시한다. 약점 유래 `history` 항목에는 `weak: { r, type }` 가 남는다.
+
+**`WEAK_RATIO` 조절** — `generate-day.mjs` 의 `cfg.WEAK_RATIO` 를 바꾸거나 워크플로/로컬에서 환경변수 `WEAK_RATIO=0.3` 처럼 준다. `0` 이면 데이터가 있어도 약점 배정을 안 한다(수집만). `1` 이면 신규를 전부 약점에 쓴다(큐가 없으면 커리큘럼).
+
+**로컬 확인** — `WEAK_FIXTURE=path/to/weak.json FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run` (테스트 전용 `WEAK_FIXTURE` 로 gist/repo 대신 임의 파일 주입).
 
 ## 아이폰 (Scriptable)
 

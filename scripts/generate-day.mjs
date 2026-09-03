@@ -41,9 +41,13 @@
 //   INIT_PROGRESS_INDEX  상태가 아예 없을 때의 시작 진도 (기본 0)
 //   IGNORE_CALENDAR      "1" 이면 주말·공휴일 신규 스킵을 무시 (--new-anyway 와 동일)
 //   IGNORE_WEEKEND       하위 호환 별칭 — IGNORE_CALENDAR 와 동일
+//   WEAK_RATIO           하루 신규 슬롯 중 약점 보강에 배정할 비율 (0~1, 기본 0.5).
+//                        약점 데이터(gist n1-weak.json 또는 repo scripts/weak-readings.json)가
+//                        없으면 이 값과 무관하게 전량 커리큘럼 — 기존 동작과 100% 동일.
 //   FORCE_DATE           테스트 전용 — YYYY-MM-DD 로 기준 날짜를 주입 (주말·공휴일 판정용)
 //   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (FORCE_DATE 미지정 시)
 //   HOLIDAY_API_BASE     테스트 전용 — 공휴일 API 베이스 URL 오버라이드 (실패 시뮬레이션용)
+//   WEAK_FIXTURE         테스트 전용 — 약점 데이터 JSON 파일 경로를 직접 주입 (gist/repo 대신)
 
 process.env.TZ = process.env.TZ || "Asia/Seoul";
 
@@ -86,6 +90,12 @@ const cfg = {
   // PAUSE_NEW 는 main() 에서 주말·공휴일 판정 뒤에 세운다 (planDay() 가 신규 0 · 전량
   // 복습으로 계획하게 한다). 공휴일 판정은 네트워크 조회라 async 라서 여기서 못 한다.
   PAUSE_NEW: false,
+  // 하루 신규 슬롯 중 약점 보강에 배정할 비율. 약점 큐가 비었거나 약점 데이터 파일이
+  // 없으면 자동으로 0 처럼 동작(전량 커리큘럼). WEAK_RATIO 환경변수로 덮어쓸 수 있다.
+  WEAK_RATIO: (() => {
+    const v = parseFloat(process.env.WEAK_RATIO ?? "");
+    return Number.isFinite(v) && v >= 0 && v <= 1 ? v : 0.5;
+  })(),
 };
 
 // ---------- 일본 공휴일 판정 ----------
@@ -126,6 +136,7 @@ async function resolveHoliday(dateStr) {
 
 const STATE_FILE = "n1-state.json";
 const TODAY_FILE = "n1-today.json";
+const WEAK_FILE = "n1-weak.json";   // 진단(self-check) 결과 — 있으면 gist GET 응답에서 같이 꺼낸다.
 const GH = "https://api.github.com/gists/" + cfg.GIST_ID;
 
 function die(msg) {
@@ -149,7 +160,7 @@ async function gistGet() {
   }
   const meta = await res.json();
   const out = {};
-  for (const name of [STATE_FILE, TODAY_FILE]) {
+  for (const name of [STATE_FILE, TODAY_FILE, WEAK_FILE]) {
     const f = meta.files && meta.files[name];
     if (!f) { out[name] = null; continue; }
     out[name] = f.truncated && f.raw_url
@@ -242,6 +253,180 @@ async function realComposer(c, s, slotISO, idSuffix) {
   throw lastErr;
 }
 
+// ================= 약점(진단) 보강 배관 =================
+// 진단 페이지(n3-check.html)가 뱉는 JSON:
+//   { version, scope, generatedAt, total, knownCount,
+//     unknown: [ { k:"生", r:"しょう", type:"on", words:[ { w:"一生", wr:"いっしょう" } ] } ] }
+//
+// 데이터 위치(이 순서로 탐색):
+//   1) gist 의 n1-weak.json  (이미 GET 한 응답에서 꺼냄 — 추가 호출 0)
+//   2) repo 의 scripts/weak-readings.json
+//   3) 둘 다 없음 → 약점 기능 완전 비활성, 아래 라우터가 전량 커리큘럼으로 흐름(기존 동작).
+//
+// 소비 방식:
+//   · 상태(n1-state.json)에 weakQueue / weakIndex / weakRepCount 를 둔다.
+//     최초 로드 시 unknown 배열을 그대로 큐로 저장(순서 유지). 이미 큐가 있으면
+//     k+r 조합으로 중복 판정해 "새로 추가된 항목만" 뒤에 append(재진단 갱신 대응).
+//   · 하루 신규 슬롯 중 cfg.WEAK_RATIO(기본 0.5) 비율을 약점 항목에 배정. 약점 큐가
+//     비면 전부 커리큘럼. 약점 항목도 REPS_PER_KANJI(현재 2)만큼 반복 후 다음 항목으로.
+//   · ⚠️ 약점 항목은 커리큘럼 진도(progressIndex)를 전진시키지 않는다 — 별도 트랙.
+//     (n1.commitWeakEntry 가 weakIndex/weakRepCount 만 전진시킨다.)
+
+const weakStats = {
+  enabled: false, source: null,
+  weakSlots: 0, curriculumSlots: 0, verifyFails: 0, samples: [],
+};
+
+// k+r 중복 판정 키.
+const weakKey = (it) => `${it.k} ${it.r}`;
+
+// 1)gist → 2)repo → 3)null. 반환: { items:[{k,r,type,words:[{w,wr}]}], source:"gist"|"repo" } | null
+function loadWeakReadings(remoteFiles) {
+  let raw = null, source = null;
+  if (process.env.WEAK_FIXTURE) {
+    // 테스트 전용 — FIXTURE_STATE 와 같은 패턴. 실제 gist/repo 를 안 건드림.
+    try { raw = require("node:fs").readFileSync(process.env.WEAK_FIXTURE, "utf8"); source = "fixture"; }
+    catch (e) { console.warn(`  · WEAK_FIXTURE 읽기 실패 (${e.message}) → 약점 기능 비활성`); return null; }
+  }
+  if (raw == null && remoteFiles && remoteFiles[WEAK_FILE] && String(remoteFiles[WEAK_FILE]).trim()) {
+    raw = remoteFiles[WEAK_FILE]; source = "gist";
+  }
+  if (raw == null) {
+    try {
+      raw = require("node:fs").readFileSync(new URL("./weak-readings.json", import.meta.url), "utf8");
+      source = "repo";
+    } catch { /* 파일 없음 — 정상. 약점 기능 비활성 */ }
+  }
+  if (raw == null || !String(raw).trim()) return null;
+
+  let data;
+  try { data = JSON.parse(raw); }
+  catch (e) { console.warn(`  · 약점 파일 파싱 실패 (${e.message}) → 약점 기능 비활성`); return null; }
+  const unknown = data && Array.isArray(data.unknown) ? data.unknown : null;
+  if (!unknown) { console.warn("  · 약점 파일에 unknown 배열이 없음 → 약점 기능 비활성"); return null; }
+
+  const items = [];
+  for (const u of unknown) {
+    if (!u || typeof u.k !== "string" || !u.k || typeof u.r !== "string" || !u.r) continue;
+    const words = Array.isArray(u.words)
+      ? u.words.filter((w) => w && typeof w.w === "string" && w.w)
+          .map((w) => ({ w: w.w, wr: typeof w.wr === "string" ? w.wr : "" }))
+      : [];
+    items.push({ k: u.k, r: u.r, type: (u.type === "on" || u.type === "kun") ? u.type : "", words });
+  }
+  if (!items.length) { console.warn("  · 약점 파일 unknown 이 비어 있음 → 약점 기능 비활성"); return null; }
+  return { items, source };
+}
+
+// unknown 항목을 상태의 weakQueue 에 병합. 최초면 통째로, 있으면 새 항목만 append.
+// 반환: 이번에 새로 추가된 개수.
+function mergeWeakQueue(s, items) {
+  if (!Array.isArray(s.weakQueue)) s.weakQueue = [];
+  if (typeof s.weakIndex !== "number" || s.weakIndex < 0) s.weakIndex = 0;
+  if (typeof s.weakRepCount !== "number" || s.weakRepCount < 0) s.weakRepCount = 0;
+  const seen = new Set(s.weakQueue.map(weakKey));
+  let added = 0;
+  for (const it of items) {
+    const key = weakKey(it);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    s.weakQueue.push(it);
+    added++;
+  }
+  return added;
+}
+
+// 이 약점 항목(k+r)으로 이미 만든 예문에서 쓴 표제어 — 반복 생성 시 같은 단어 재탕 방지.
+function weakPriorWords(s, k, r) {
+  const out = [];
+  for (const e of (Array.isArray(s.history) ? s.history : [])) {
+    if (e && e.targetKanji === k && e.weak && e.weak.r === r) {
+      const hw = n1.pickHeadword(e);
+      if (hw && hw.word && out.indexOf(hw.word) < 0) out.push(hw.word);
+    }
+  }
+  return out;
+}
+
+// 다음 신규 슬롯을 약점에 줄지 판단 — 현재까지의 실제 배정 비율이 목표(WEAK_RATIO)에
+// 못 미치면 약점. 약점 큐가 소진됐으면(또는 애초에 없으면) 항상 false → 커리큘럼.
+function wantWeakSlot(s) {
+  if (!weakStats.enabled) return false;
+  if (!Array.isArray(s.weakQueue) || s.weakIndex >= s.weakQueue.length) return false;
+  const ratio = cfg.WEAK_RATIO;
+  if (!(ratio > 0)) return false;
+  const done = weakStats.weakSlots + weakStats.curriculumSlots;
+  return weakStats.weakSlots < ratio * (done + 1);
+}
+
+// planDay 에 넘길 신규 예문 생성기. 매 신규 슬롯마다 약점/커리큘럼을 갈라서,
+// 커리큘럼은 leaf(dry/real Composer) 로 그대로, 약점은 목표 읽기를 강제해 생성.
+function makeComposeRouter(leaf) {
+  return async function composeRouter(c, s, slotISO, idSuffix) {
+    if (wantWeakSlot(s)) return await composeWeakSlot(c, s, slotISO, idSuffix, leaf);
+    weakStats.curriculumSlots++;
+    return await leaf(c, s, slotISO, idSuffix);
+  };
+}
+
+async function composeWeakSlot(c, s, slotISO, idSuffix, leaf) {
+  const item = s.weakQueue[s.weakIndex];
+  if (!item || typeof item.k !== "string" || typeof item.r !== "string") {
+    // 손상 항목 — 커서만 넘기고 이 칸은 커리큘럼으로.
+    s.weakIndex += 1; s.weakRepCount = 0;
+    weakStats.curriculumSlots++;
+    return await leaf(c, s, slotISO, idSuffix);
+  }
+  const target = { r: item.r, type: item.type || "", words: item.words || [] };
+  let entry;
+
+  if (DRY_RUN) {
+    const w0 = item.words[0];
+    entry = n1.commitWeakEntry(c, s, slotISO, idSuffix, item.k, {
+      sentenceJP: `「${item.k}」を「${item.r}」と読む例文（dry-run）`,
+      readingHiragana: "",
+      translationKR: "(dry-run · 약점 예문 미생성)",
+      furigana: null,
+      kanjiNotes: [{ word: w0 ? w0.w : item.k, reading: w0 ? w0.wr : item.r, meaningKR: "(dry-run)" }],
+      grammarNotes: [],
+    }, { r: item.r, type: item.type || "" });
+  } else {
+    let lastErr;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      stats.apiCalls++;
+      try {
+        const composed = await n1.compose(c, item.k, weakPriorWords(s, item.k, item.r), target);
+        entry = n1.commitWeakEntry(c, s, slotISO, idSuffix, item.k, composed, { r: item.r, type: item.type || "" });
+        lastErr = null;
+        break;
+      } catch (e) {
+        lastErr = e;
+        stats.apiFails++;
+        console.warn(`  · 약점 예문 생성 실패 (시도 ${attempt}/3): ${e.message}`);
+        if (attempt < 3) await sleep(1000 * 2 ** (attempt - 1));
+      }
+    }
+    if (lastErr) throw lastErr;   // planDay 의 newErrorFallback 가 이 칸을 복습으로 대체
+  }
+
+  // 검증: 실제로 목표 읽기를 썼는지. 실패해도 재생성 안 함(비용) — 경고만, 예문은 채택.
+  const ok = n1.verifyReading(entry, item.k, item.r);
+  if (!ok) {
+    weakStats.verifyFails++;
+    console.log(`  · ⚠️ 약점 검증 실패: 「${item.k}」예문에서 목표 읽기 「${item.r}」를 확인 못 함 (그대로 채택)`);
+  }
+
+  weakStats.weakSlots += 1;
+  newKanji.push(entry.targetKanji);
+  if (weakStats.samples.length < 12) {
+    weakStats.samples.push({
+      k: item.k, r: item.r, type: item.type || "", ok,
+      sentence: String(entry.sentenceJP || "").split("\n")[0],
+    });
+  }
+  return entry;
+}
+
 // ---------- 메인 ----------
 async function main() {
   const today = BASE_DATE;   // 평소엔 n1.dateJST(). FORCE_DATE 로 임의 날짜 주입 가능.
@@ -270,7 +455,7 @@ async function main() {
   }
 
   // ---- 1) 상태 로드 ----
-  let remoteFiles = { [STATE_FILE]: null, [TODAY_FILE]: null };
+  let remoteFiles = { [STATE_FILE]: null, [TODAY_FILE]: null, [WEAK_FILE]: null };
   if (DRY_RUN && !cfg.GIST_TOKEN && !process.env.FIXTURE_STATE) {
     console.log("dry-run · Gist 토큰 없음 → 새 상태(SEED)로 계획만 확인합니다.");
   } else if (process.env.FIXTURE_STATE) {
@@ -300,12 +485,25 @@ async function main() {
     process.exit(0);
   }
 
+  // ---- 1b) 약점(진단) 데이터 로드 — 없으면 약점 기능 완전 비활성(기존 동작 그대로) ----
+  const weakLoad = loadWeakReadings(remoteFiles);
+  if (weakLoad) {
+    const added = mergeWeakQueue(s, weakLoad.items);
+    weakStats.enabled = true;
+    weakStats.source = weakLoad.source;
+    const remain = Math.max(0, s.weakQueue.length - s.weakIndex);
+    console.log(
+      `약점 읽기 ${s.weakQueue.length}개 로드 (출처: ${weakLoad.source})` +
+      ` · 이번 추가 ${added}개 · 큐 잔여 ${remain}개 · WEAK_RATIO ${cfg.WEAK_RATIO}`
+    );
+  }
+
   // ---- 2) 지난 예약 반영 + 슬롯 계획 ----
   n1.reconcile(s);
   const planned = await n1.planDay(cfg, s, {
     now: new Date(),
     alreadyKeys: [],
-    compose: DRY_RUN ? dryComposer : realComposer,
+    compose: makeComposeRouter(DRY_RUN ? dryComposer : realComposer),
     newErrorFallback: true,
     onNewError: (err, slot) => {
       stats.fallbackSlots++;
@@ -325,6 +523,15 @@ async function main() {
   console.log(`복습          ${planned.reviewCount}칸`);
   console.log(`API 호출      ${stats.apiCalls}회  · 실패(시도) ${stats.apiFails}회  · 복습으로 대체된 칸 ${stats.fallbackSlots}`);
   console.log(`전진 후 진도  progressIndex ${s.progressIndex} / ${s.kanjiList.length} · cycle ${s.cycle}`);
+  if (weakStats.enabled) {
+    const remain = Math.max(0, s.weakQueue.length - s.weakIndex);
+    const sampleStr = weakStats.samples.map((x) => `${x.k}${x.r}`).join(" ");
+    console.log(
+      `약점 보강      ${weakStats.weakSlots}칸(${sampleStr || "없음"})` +
+      ` · 커리큘럼 ${weakStats.curriculumSlots}칸 · 약점 큐 잔여 ${remain}개` +
+      (weakStats.verifyFails ? ` · 검증 실패 ${weakStats.verifyFails}건(경고만·채택됨)` : "")
+    );
+  }
   console.log("──────────────────────────────────────────");
 
   if (DRY_RUN) {
@@ -333,6 +540,13 @@ async function main() {
     for (const sl of sample) {
       if (!sl) { console.log("   …"); continue; }
       console.log(`   ${sl.key}  ${sl.title.split("\n")[0]}  | ${String(sl.body).split("\n")[0]}`);
+    }
+    if (weakStats.enabled && weakStats.samples.length) {
+      console.log("\n[dry-run] 약점 슬롯 샘플:");
+      for (const x of weakStats.samples) {
+        console.log(`   ${x.k}「${x.r}」${x.type ? ` (${x.type})` : ""}  ${x.ok ? "✓읽기확인" : "⚠검증실패"}  | ${x.sentence}`);
+      }
+      console.log(`\n[dry-run] 약점 상태 커서: weakIndex ${s.weakIndex} / ${s.weakQueue.length} · weakRepCount ${s.weakRepCount}`);
     }
     console.log("\n[dry-run] PATCH 하지 않고 종료.");
     return;

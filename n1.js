@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-01j
+// VERSION 2026-09-02a
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -73,21 +73,27 @@ var SEED = {
 // ---------- 예문 생성 (OpenRouter) ----------
 // priorWords: 이 한자로 이미 예문에 썼던 단어들(REPS_PER_KANJI>1일 때, 같은 한자를
 // 여러 번 생성하면서 매번 똑같은 단어만 나오는 걸 막기 위한 힌트) — 없으면 그냥 생략.
-async function compose(cfg, kanji, priorWords){
-  return await requestSentence(cfg, buildComposePrompt(kanji, priorWords));
+// target: 진단(self-check) 유래 약점 보강일 때만 넘어온다 — { r:"목표 읽기", type:"on|kun",
+//   words:[{w,wr}...] }. 넘어오면 "이 한자를 반드시 이 읽기로 읽는" 문장을 강제한다.
+//   ⚠️ target 이 없으면(undefined/null) 프롬프트는 예전과 바이트 단위로 완전히 동일해야 한다
+//   — 기존 커리큘럼 생성에는 회귀가 없어야 하므로 아래 조립에서 target 분기만 "" 를 더한다.
+async function compose(cfg, kanji, priorWords, target){
+  return await requestSentence(cfg, buildComposePrompt(kanji, priorWords, target));
 }
 
 // compose() 가 OpenRouter 로 보내는 프롬프트 문자열을 조립한다. compose() 본체에서 떼어낸
 // 이유: 클라우드 dry-run(API 미호출)이나 테스트에서 "프롬프트가 스펙대로 조립되는지"를
 // 육안으로 검증할 수 있도록 — n1.buildComposePrompt(kanji) 를 그냥 console.log 하면 됨.
-function buildComposePrompt(kanji, priorWords){
+function buildComposePrompt(kanji, priorWords, target){
   var avoidLine = "";
   if(Array.isArray(priorWords) && priorWords.length){
     avoidLine = "이 한자로 이미 다음 단어를 예문에 썼습니다 — 이번엔 가능하면 다른 단어·다른 문형으로 만드세요: " +
       priorWords.join(", ") + "\n\n";
   }
+  // target 이 없으면 "" — 이 경우 아래 문자열은 예전 버전과 바이트 단위로 동일하다.
+  var targetBlock = buildTargetBlock(kanji, target);
   return (
-"당신은 JLPT 일본어 예문 작성기입니다. 목표 한자: 「" + kanji + "」\n\n" + avoidLine +
+"당신은 JLPT 일본어 예문 작성기입니다. 목표 한자: 「" + kanji + "」\n\n" + avoidLine + targetBlock +
 "「" + kanji + "」를 사용한 자연스럽고 짧은(약 10~25자) 일본어 문장 1개를 만드세요. " +
 "목표 한자는 실제로 자주 쓰이는 용법으로, 문장의 나머지 어휘는 JLPT N2 중심(필요하면 N1)으로 구성하세요. " +
 "너무 쉬운 N4/N5 남발도, 너무 마이너한 어휘도 피하세요.\n\n" +
@@ -124,6 +130,71 @@ function buildComposePrompt(kanji, priorWords){
 
 "별도 표시(*, ** 등)는 붙이지 마세요."
   );
+}
+
+// 약점 보강용 "목표 읽기" 블록. target 이 falsy 하거나 target.r 이 비면 "" 를 돌려주고,
+// 그 경우 buildComposePrompt 결과는 예전과 바이트 단위로 동일하다(기존 동작 회귀 없음).
+// target: { r:"목표 읽기(히라가나)", type:"on|kun"(선택), words:[{w:"표기", wr:"읽기"}...] }
+function buildTargetBlock(kanji, target){
+  if(!target || typeof target !== "object") return "";
+  var r = (typeof target.r === "string") ? target.r.trim() : "";
+  if(!r) return "";
+  var words = Array.isArray(target.words) ? target.words : [];
+  var refParts = [];
+  for(var i = 0; i < words.length; i++){
+    var w = words[i];
+    if(w && typeof w.w === "string" && w.w){
+      refParts.push(w.w + (w.wr ? "(" + w.wr + ")" : ""));
+    }
+  }
+  var refLine = refParts.length
+    ? ("참고 단어: " + refParts.join(", ") +
+       " — 이 단어를 그대로 써도 되고, 「" + kanji + "」가 똑같이 「" + r + "」로 읽히는 다른 단어를 써도 됩니다.\n")
+    : "";
+  return (
+"[목표 읽기 — 반드시 지킬 것]\n" +
+"이 문장에서 「" + kanji + "」는 반드시 「" + r + "」로 읽혀야 합니다. 다른 읽기로 쓰면 안 됩니다.\n" +
+refLine +
+"kanjiNotes 에는 「" + kanji + "」가 실제로 「" + r + "」로 발음되는 단어를 반드시 하나 포함하세요.\n" +
+"furigana 세그먼트에서도 「" + kanji + "」가 들어간 구간의 읽기가 「" + r + "」(連濁·促音便으로 살짝 변형된 형태는 허용)와 일치해야 합니다.\n\n"
+  );
+}
+
+// 생성된 예문이 실제로 "그 한자를 그 읽기로" 썼는지 가벼운 검증(재생성 루프는 비용이 커서
+// 안 돎 — 호출부는 boolean 만 보고 경고 로그만 남긴다).
+//   통과 조건(둘 중 하나): (1) furigana 세그먼트 중 kanji 를 포함하는 것의 r 에 목표 읽기
+//   (또는 連濁/促音便 변형)가 부분문자열로 있음, (2) kanjiNotes 중 word 에 kanji 가 든
+//   항목의 reading 에 목표 읽기 변형이 있음. 판정 불가(인자 부족)면 true(통과 취급).
+function verifyReading(entry, kanji, target){
+  if(!entry || !kanji || !target) return true;
+  var variants = readingVariants(String(target));
+  function hit(str){
+    if(typeof str !== "string" || !str) return false;
+    for(var i = 0; i < variants.length; i++){ if(str.indexOf(variants[i]) >= 0) return true; }
+    return false;
+  }
+  var furi = Array.isArray(entry.furigana) ? entry.furigana : [];
+  for(var i = 0; i < furi.length; i++){
+    if(furi[i] && typeof furi[i].t === "string" && furi[i].t.indexOf(kanji) >= 0 && hit(furi[i].r)) return true;
+  }
+  var notes = Array.isArray(entry.kanjiNotes) ? entry.kanjiNotes : [];
+  for(var j = 0; j < notes.length; j++){
+    if(notes[j] && typeof notes[j].word === "string" && notes[j].word.indexOf(kanji) >= 0 && hit(notes[j].reading)) return true;
+  }
+  return false;
+}
+
+// 複合語에서 흔한 連濁(첫 가나 탁음·반탁음화)·促音便(끝 가나 촉음화) 변형 후보를 만든다.
+// 정밀한 음운 규칙이 아니라 "가벼운 검증"용 근사치.
+function readingVariants(r){
+  var out = [r];
+  var rendaku = {"か":"が","き":"ぎ","く":"ぐ","け":"げ","こ":"ご","さ":"ざ","し":"じ","す":"ず","せ":"ぜ","そ":"ぞ","た":"だ","ち":"ぢ","つ":"づ","て":"で","と":"ど","は":"ば","ひ":"び","ふ":"ぶ","へ":"べ","ほ":"ぼ"};
+  var handaku = {"は":"ぱ","ひ":"ぴ","ふ":"ぷ","へ":"ぺ","ほ":"ぽ"};
+  var first = r.charAt(0);
+  if(rendaku[first]) out.push(rendaku[first] + r.slice(1));
+  if(handaku[first]) out.push(handaku[first] + r.slice(1));
+  if(/[つちくき]$/.test(r)) out.push(r.slice(0, -1) + "っ");
+  return out;
 }
 
 // OpenRouter 호출을 감싸며 "모델 계열별 파라미터 차이"를 방어한다. 폰·클라우드 공용(n1.js) —
@@ -885,6 +956,37 @@ function commitNewEntry(cfg, s, slotISO, idSuffix, kanji, c){
     s.kanjiRepCount = 0;
   }
   s.lastNewAt = slotISO;   // isDueForNew() 판단용 — 마지막 신규 생성 시각
+  return cur;
+}
+
+// 약점(진단) 보강 예문을 history 에 넣는다. commitNewEntry 와 형태는 같지만 —
+// ⚠️ 커리큘럼 진도(progressIndex / kanjiRepCount / cycle / lastNewAt)는 절대 건드리지
+//    않는다. 약점 트랙은 커리큘럼과 완전히 별개다: 진단에서 "이 한자의 이 읽기를 모른다"고
+//    나온 항목만 따로 REPS_PER_KANJI 번 반복 학습한다. 그래서 여기서 전진시키는 커서는
+//    커리큘럼이 아니라 약점 큐 자체(weakIndex / weakRepCount)뿐이다.
+// weak: { r:"목표 읽기", type:"on|kun" } — history 항목에 남겨 나중에 "약점 보강분"임을
+//    식별할 수 있게 한다(commitNewEntry 로 만든 항목엔 이 필드가 없다).
+function commitWeakEntry(cfg, s, slotISO, idSuffix, kanji, c, weak){
+  if(!Array.isArray(s.history)) s.history = [];
+  var cur = {
+    id: slotISO + "#" + idSuffix, date: dateJST(), targetKanji: kanji,
+    sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
+    furigana: validateFurigana(c.sentenceJP, c.furigana),
+    kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
+    grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
+    reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new",
+    weak: { r: (weak && weak.r) || "", type: (weak && weak.type) || "" }
+  };
+  s.history.unshift(cur);
+
+  // 약점 큐 커서만 전진 — 커리큘럼 규칙과 동일한 REPS_PER_KANJI 로 다음 약점 항목으로.
+  var reps = (cfg.REPS_PER_KANJI != null) ? cfg.REPS_PER_KANJI : 2;
+  s.weakRepCount = (s.weakRepCount || 0) + 1;
+  if(s.weakRepCount >= reps){
+    s.weakIndex = (s.weakIndex || 0) + 1;
+    s.weakRepCount = 0;
+  }
+  // s.lastNewAt 은 일부러 안 건드린다 — 신규 주기(isDueForNew)는 커리큘럼 페이스만 따른다.
   return cur;
 }
 
@@ -1787,15 +1889,18 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-01j",
+  VERSION: "2026-09-02a",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
   planDay: planDay,
   composeNewEntry: composeNewEntry,
   commitNewEntry: commitNewEntry,
+  commitWeakEntry: commitWeakEntry,
   compose: compose,
   buildComposePrompt: buildComposePrompt,
+  buildTargetBlock: buildTargetBlock,
+  verifyReading: verifyReading,
   reconcile: reconcile,
   pickWeightedReview: pickWeightedReview,
   pushTitle: pushTitle,
