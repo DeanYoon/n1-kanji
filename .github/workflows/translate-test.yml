@@ -1,0 +1,36 @@
+name: translate-test
+
+# 번역 모델 bake-off — 수동 실행 전용. 일본어 단어의 영어 뜻을 한국어 짧은 뜻으로
+# 옮기는 작업에서 어느 모델이 쓸 만한지 Actions 로그로 눈으로 확인한다.
+# OPENROUTER_KEY 는 이 레포의 Actions secret 에만 있다 (로컬 없음).
+# 결과는 아래 job 로그의 "번역 비교표" / "모델별 요약" 섹션을 보면 된다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "쉼표 구분 모델 ID 목록"
+        type: string
+        default: "openai/gpt-5.6-luna,google/gemini-3.7-flash,deepseek/deepseek-v4-flash-0731"
+      count:
+        description: "번역할 단어 수"
+        type: string
+        default: "10"
+
+jobs:
+  translate-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      MODELS: ${{ inputs.models }}
+      COUNT: ${{ inputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: translate-test
+        run: node scripts/translate-test.mjs
