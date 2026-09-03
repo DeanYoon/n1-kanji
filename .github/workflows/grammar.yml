@@ -1,0 +1,63 @@
+name: grammar
+
+# JLPT(N1·N2·N3) 문법 데이터셋 구축 + 한국어 번역 — 수동 실행 전용.
+#
+#   build      tristcoil/hanabira.org(MIT) 의 레벨별 문법 JSON 을 받아 카드용으로 정리해
+#              Gist 의 n1-grammar.json 으로 저장. AI 안 씀 (OPENROUTER_KEY 불필요).
+#   translate  n1-grammar.json 을 읽어 항목마다 한국어(formation_ko·short_ko·ex_ko)를
+#              붙여 Gist 의 n1-grammar-ko.json 으로 저장. openai/gpt-5.6-luna.
+#              5배치마다 중간 저장 → 중간에 죽어도 재실행하면 이어서 진행.
+#
+# 결과 요약은 이 run 의 Summary 페이지에서 바로 볼 수 있다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "실행 단계"
+        type: choice
+        options: [build, translate, both]
+        default: both
+      model:
+        description: "OpenRouter 모델 ID (translate)"
+        type: string
+        default: "openai/gpt-5.6-luna"
+      batch:
+        description: "한 번에 번역할 항목 수 (translate)"
+        type: string
+        default: "20"
+      dry_run:
+        description: "쓰기/호출 없이 계획만 (build=Gist 쓰기 생략, translate=대상·비용만)"
+        type: boolean
+        default: false
+
+# Gist 를 동시에 쓰지 않도록 직렬화.
+concurrency:
+  group: grammar
+  cancel-in-progress: false
+
+jobs:
+  grammar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+      MODEL: ${{ inputs.model }}
+      BATCH: ${{ inputs.batch }}
+      DRY_RUN: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: build-grammar
+        if: ${{ inputs.step == 'build' || inputs.step == 'both' }}
+        run: node scripts/build-grammar.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: translate-grammar
+        if: ${{ inputs.step == 'translate' || inputs.step == 'both' }}
+        # DRY_RUN 환경변수로 dry-run 분기 (스크립트가 "true"/"1" 을 인식).
+        run: node scripts/translate-grammar.mjs
