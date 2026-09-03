@@ -5,7 +5,10 @@
 //       어느 OpenRouter 모델이 쓸 만한지 로그만 보고 눈으로 판단할 수 있게 한다.
 //
 // 이 스크립트는 GitHub Actions 의 workflow_dispatch 로만 돈다 (translate-test.yml).
-// OPENROUTER_KEY 는 Actions secret 에만 있고 로컬엔 없다 → 결과는 Actions 로그로 확인.
+// OPENROUTER_KEY 는 Actions secret 에만 있고 로컬엔 없다 → 결과는 Actions 로그 +
+// run 요약($GITHUB_STEP_SUMMARY) 으로 확인.
+//
+// 공용 로직(gist 로드 · kanjiapi gloss · 프롬프트 · 호출 · 검증)은 translate-lib.mjs.
 //
 // 하는 일:
 //   1) Gist 의 n1-weak.json 을 공개 raw URL 로 읽어 unknown 앞에서 COUNT 개를 뽑는다.
@@ -25,10 +28,17 @@
 //   MODELS           쉼표 구분 모델 ID 목록. 미지정 시 DEFAULT_MODELS.
 //   COUNT            번역할 단어 수 (기본 10)
 //   WEAK_RAW_URL     n1-weak.json 공개 raw URL 오버라이드 (기본: DeanYoon gist)
+//   GITHUB_STEP_SUMMARY  (Actions 가 세팅) 있으면 요약표를 여기에도 쓴다.
 //
 // 로컬 검증(키 없이 도달 가능한 데까지):
 //   node scripts/translate-test.mjs            → gist 로드 · gloss 수집 · 프롬프트 출력
 //   node --check scripts/translate-test.mjs    → 문법 체크
+
+import { appendFileSync } from "node:fs";
+import {
+  sleep, pad, weakRawUrl, loadWeak, fetchKanjiWords, glossFor, buildPrompt,
+  callModel, checkKoValue,
+} from "./translate-lib.mjs";
 
 const DEFAULT_MODELS = [
   "openai/gpt-5.6-luna",
@@ -36,8 +46,7 @@ const DEFAULT_MODELS = [
   "deepseek/deepseek-v4-flash-0731",
 ];
 
-const WEAK_RAW_URL = process.env.WEAK_RAW_URL
-  || "https://gist.githubusercontent.com/DeanYoon/3c7a0d99f309aa0dfea3861a7df296d4/raw/n1-weak.json";
+const WEAK_RAW_URL = process.env.WEAK_RAW_URL || weakRawUrl();
 
 const OPENROUTER_KEY = process.env.OPENROUTER_KEY || "";
 const COUNT = (() => {
@@ -47,68 +56,19 @@ const COUNT = (() => {
 const MODELS = (process.env.MODELS || DEFAULT_MODELS.join(","))
   .split(",").map((s) => s.trim()).filter(Boolean);
 
-const MAX_KR_LEN = 30;   // 이보다 길면 "설명문" 으로 보고 검증 실패 처리
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 function die(msg) { console.error("✗ " + msg); process.exit(1); }
 
-// ---------- 1) 약점 데이터 로드 ----------
-async function loadWeak() {
-  const res = await fetch(WEAK_RAW_URL, { headers: { "User-Agent": "n1-translate-test" } });
-  if (!res.ok) throw new Error(`n1-weak.json GET HTTP ${res.status}`);
-  const data = await res.json();
-  const unknown = Array.isArray(data.unknown) ? data.unknown : [];
-  if (!unknown.length) throw new Error("n1-weak.json 에 unknown 배열이 비어 있음");
-  return { data, unknown };
-}
-
-// ---------- 2) kanjiapi.dev 로 영어 gloss 수집 ----------
-const kanjiWordsCache = new Map();
-
-async function fetchKanjiWords(k) {
-  if (kanjiWordsCache.has(k)) return kanjiWordsCache.get(k);
-  let out = [];
-  try {
-    const res = await fetch(`https://kanjiapi.dev/v1/words/${encodeURIComponent(k)}`, {
-      headers: { "User-Agent": "n1-translate-test" },
-    });
-    if (res.ok) {
-      const j = await res.json();
-      if (Array.isArray(j)) out = j;
-    } else if (res.status !== 404) {
-      console.warn(`  · kanjiapi words/${k} HTTP ${res.status}`);
-    }
-  } catch (e) {
-    console.warn(`  · kanjiapi words/${k} 실패: ${e.message}`);
-  }
-  kanjiWordsCache.set(k, out);
-  return out;
-}
-
-// 표기(written)로 우선 매칭, 없으면 읽기(pronounced)로. 모든 meaning 의 gloss 를 평탄화.
-function glossFor(words, written, pronounced) {
-  const hasVar = (w, pred) => Array.isArray(w.variants) && w.variants.some(pred);
-  // 표기+읽기 둘 다 일치 > 표기만 > 읽기만  (같은 표기에 읽기가 여럿인 항목 구분)
-  const exact = pronounced
-    ? words.find((w) => hasVar(w, (v) => v.written === written && v.pronounced === pronounced))
-    : null;
-  const byWritten = exact || words.find((w) => hasVar(w, (v) => v.written === written));
-  const byPron = !byWritten && pronounced
-    ? words.find((w) => hasVar(w, (v) => v.pronounced === pronounced))
-    : null;
-  const hit = byWritten || byPron;
-  if (!hit || !Array.isArray(hit.meanings)) return { en: "", matched: null };
-  const glosses = [];
-  for (const m of hit.meanings) {
-    for (const g of (Array.isArray(m.glosses) ? m.glosses : [])) {
-      if (typeof g === "string" && g.trim()) glosses.push(g.trim());
-    }
-  }
-  return { en: glosses.join(", "), matched: byWritten ? "written" : "pronounced" };
+// ---------- run 요약 ($GITHUB_STEP_SUMMARY) ----------
+const summaryLines = [];
+function sum(line = "") { summaryLines.push(line); }
+function flushSummary() {
+  const path = process.env.GITHUB_STEP_SUMMARY;
+  if (!path || !summaryLines.length) return;
+  try { appendFileSync(path, summaryLines.join("\n") + "\n"); }
+  catch (e) { console.warn(`  · STEP_SUMMARY 쓰기 실패: ${e.message}`); }
 }
 
 // unknown 앞에서부터 스캔하며 "gloss 가 있는" 항목을 COUNT 개 모은다.
-// gloss 를 못 구한 항목은 건너뛰되 로그에 남긴다 (모델 입력에 영어가 꼭 있어야 하므로).
 async function collectTargets(unknown, count) {
   const targets = [];
   const skipped = [];
@@ -133,32 +93,6 @@ async function collectTargets(unknown, count) {
   return { targets, skipped };
 }
 
-// ---------- 프롬프트 조립 ----------
-function buildPrompt(targets) {
-  const input = {};
-  for (const t of targets) input[t.word] = { reading: t.reading, en: t.en };
-  const inputJSON = JSON.stringify(input, null, 2);
-  return [
-    "당신은 일본어-한국어 사전 편집자입니다.",
-    "아래는 일본어 단어들입니다. 각 단어에 대해 reading(읽기)과 en(영어 뜻)이 주어집니다.",
-    "각 단어의 한국어 뜻을 붙이세요.",
-    "",
-    "규칙:",
-    "- 사전 표제어 스타일로 짧게. 설명문·완결된 문장 금지.",
-    "- 영어를 그대로 음차하지 말 것 (예: \"nod\" → \"노드\" 금지).",
-    "- 뜻이 여러 개면 \", \" 로 구분해 최대 2개까지만.",
-    "- 각 값은 30자 이내.",
-    "",
-    "출력 형식:",
-    "- 반드시 JSON 객체 하나. 키는 입력의 일본어 단어, 값은 한국어 뜻 문자열.",
-    "- 배열 금지. 입력에 있는 모든 단어를 키로 포함할 것.",
-    '- 예: {"会釈":"목례, 가볍게 인사함"}',
-    "",
-    "입력:",
-    inputJSON,
-  ].join("\n");
-}
-
 // ---------- 3) OpenRouter 모델 목록 검증 ----------
 async function fetchModelIds() {
   const res = await fetch("https://openrouter.ai/api/v1/models", {
@@ -178,59 +112,13 @@ function similarIds(want, allIds) {
     .slice(0, 12);
 }
 
-// ---------- 4) 모델 1회 호출 ----------
-async function callModel(model, prompt) {
-  const started = Date.now();
-  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer " + OPENROUTER_KEY,
-      "Content-Type": "application/json",
-      "X-Title": "N1 Translate Test",
-    },
-    body: JSON.stringify({
-      model,
-      messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" },
-      max_tokens: 4000,
-      temperature: 0,
-    }),
-  });
-  const text = await res.text();
-  const ms = Date.now() - started;
-  let body;
-  try { body = JSON.parse(text); }
-  catch { throw new Error(`응답이 JSON 이 아님 (HTTP ${res.status}): ${text.slice(0, 200)}`); }
-  if (!res.ok || body.error) {
-    throw new Error(`HTTP ${res.status}: ${(body.error && body.error.message) || text.slice(0, 200)}`);
-  }
-  const content = body.choices && body.choices[0] && body.choices[0].message
-    && body.choices[0].message.content;
-  if (!content) throw new Error("응답 content 가 비어 있음");
-  let parsed;
-  try { parsed = JSON.parse(content); }
-  catch { throw new Error(`content 가 JSON 객체가 아님: ${String(content).slice(0, 200)}`); }
-  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-    throw new Error("출력이 객체가 아님 (배열/스칼라)");
-  }
-  return { parsed, ms, usage: body.usage || null };
-}
-
 // ---------- 5) 자동 검증 ----------
-const hasLatin = (s) => /[A-Za-z]/.test(s);
-
 function validate(parsed, targets) {
   const rows = [];
   let pass = 0;
   for (const t of targets) {
     const v = parsed[t.word];
-    const issues = [];
-    if (v === undefined) issues.push("키 없음");
-    else if (typeof v !== "string" || !v.trim()) issues.push("빈 값");
-    else {
-      if (hasLatin(v)) issues.push("영문 잔존");
-      if ([...v].length > MAX_KR_LEN) issues.push(`${[...v].length}자(>${MAX_KR_LEN})`);
-    }
+    const issues = checkKoValue(v);
     const ok = issues.length === 0;
     if (ok) pass++;
     rows.push({ word: t.word, value: typeof v === "string" ? v : "", ok, issues });
@@ -239,16 +127,10 @@ function validate(parsed, targets) {
   return { rows, pass, total: targets.length, extra };
 }
 
-// ---------- 출력 ----------
-function pad(s, n) {
-  s = String(s == null ? "" : s);
-  let w = 0;
-  for (const ch of s) w += ch.codePointAt(0) > 0x1100 ? 2 : 1;   // CJK 대략 2폭
-  return s + " ".repeat(Math.max(0, n - w));
-}
+const shortModel = (m) => m.length > 20 ? "…" + m.slice(-19) : m;
 
 function printComparison(targets, results) {
-  const live = MODELS.map((m) => m).filter((m) => results[m] && results[m].parsed);
+  const live = MODELS.filter((m) => results[m] && results[m].parsed);
   console.log("\n══════ 번역 비교표 ══════════════════════════════════════════════");
   for (const t of targets) {
     console.log(`\n【${t.word}】 ${t.reading}${t.type ? ` (${t.type})` : ""}`);
@@ -261,8 +143,6 @@ function printComparison(targets, results) {
   }
   console.log("\n══════════════════════════════════════════════════════════════");
 }
-
-const shortModel = (m) => m.length > 20 ? "…" + m.slice(-19) : m;
 
 function printScoreboard(results) {
   console.log("\n══════ 모델별 요약 ══════════════════════════════════════════════");
@@ -285,6 +165,49 @@ function printScoreboard(results) {
   console.log("══════════════════════════════════════════════════════════════");
 }
 
+// run 요약 페이지용 마크다운.
+function writeSummary(targets, results) {
+  sum(`## 번역 모델 bake-off`);
+  sum(`- 대상 단어: **${targets.length}개** · 모델 ${MODELS.length}개`);
+  sum(`- 소스: \`${WEAK_RAW_URL}\``);
+  sum("");
+  sum(`### 모델별 결과`);
+  sum(`| 모델 | 결과 | 검증 통과 | 시간 | 토큰 (in/out) |`);
+  sum(`| --- | --- | --- | --- | --- |`);
+  for (const m of MODELS) {
+    const r = results[m];
+    if (!r) { sum(`| \`${m}\` | 건너뜀 (ID 확인 실패) | – | – | – |`); continue; }
+    if (r.error) { sum(`| \`${m}\` | ❌ 실패 | – | – | ${String(r.error).slice(0, 60).replace(/\|/g, "/")} |`); continue; }
+    const u = r.usage || {};
+    const tok = u.prompt_tokens != null ? `${u.prompt_tokens} / ${u.completion_tokens ?? "?"}` : "?";
+    sum(`| \`${m}\` | ✅ 성공 | ${r.pass}/${r.total} (${Math.round((r.pass / r.total) * 100)}%) | ${(r.ms / 1000).toFixed(1)}s | ${tok} |`);
+  }
+  sum("");
+  const live = MODELS.filter((m) => results[m] && results[m].parsed);
+  sum(`### 번역 비교 (${targets.length}개)`);
+  sum(`| 단어 | 읽기 | EN | ${live.map((m) => `\`${shortModel(m)}\``).join(" | ")} |`);
+  sum(`| --- | --- | --- | ${live.map(() => "---").join(" | ")} |`);
+  for (const t of targets) {
+    const cells = live.map((m) => {
+      const v = results[m].parsed[t.word];
+      return (typeof v === "string" ? v : v === undefined ? "‹키 없음›" : JSON.stringify(v)).replace(/\|/g, "/");
+    });
+    sum(`| ${t.word} | ${t.reading} | ${String(t.en).replace(/\|/g, "/")} | ${cells.join(" | ")} |`);
+  }
+  sum("");
+  // 검증 실패 상세
+  const anyBad = MODELS.some((m) => results[m] && results[m].rows && results[m].rows.some((x) => !x.ok));
+  if (anyBad) {
+    sum(`### 검증 실패 상세`);
+    for (const m of MODELS) {
+      const r = results[m];
+      if (!r || !r.rows) continue;
+      const bad = r.rows.filter((x) => !x.ok);
+      for (const b of bad) sum(`- \`${m}\` · **${b.word}**: "${b.value}" — ${b.issues.join(", ")}`);
+    }
+  }
+}
+
 // ---------- 메인 ----------
 async function main() {
   console.log(`번역 모델 bake-off · COUNT=${COUNT} · 모델 ${MODELS.length}개`);
@@ -292,7 +215,7 @@ async function main() {
 
   // 1) 약점 데이터
   console.log(`\n── 1) n1-weak.json 로드 ── ${WEAK_RAW_URL}`);
-  const { data, unknown } = await loadWeak();
+  const { data, unknown } = await loadWeak(WEAK_RAW_URL);
   console.log(`  scope=${data.scope} · generatedAt=${data.generatedAt} · unknown ${unknown.length}개`);
 
   // 2) gloss 수집
@@ -330,7 +253,7 @@ async function main() {
     if (allIds.length && !allIds.includes(m)) {
       const cands = similarIds(m, allIds);
       console.log(`  ✗ "${m}" 없음. 비슷한 후보: ${cands.length ? cands.join(", ") : "(없음)"}`);
-      results[m] = null;   // 건너뜀 표시
+      results[m] = null;
       continue;
     }
     console.log(`  ✓ ${m}`);
@@ -349,7 +272,7 @@ async function main() {
   for (const m of runnable) {
     process.stdout.write(`  ${m} … `);
     try {
-      const { parsed, ms, usage } = await callModel(m, prompt);
+      const { parsed, ms, usage } = await callModel(m, prompt, { key: OPENROUTER_KEY, title: "N1 Translate Test" });
       const v = validate(parsed, targets);
       results[m] = { parsed, ms, usage, ...v, error: null };
       console.log(`성공 (${(ms / 1000).toFixed(1)}s · 검증 ${v.pass}/${v.total})`);
@@ -363,6 +286,9 @@ async function main() {
   // 6) 출력
   printComparison(targets, results);
   printScoreboard(results);
+  writeSummary(targets, results);
 }
 
-main().catch((e) => die(e && e.stack ? e.stack : String(e)));
+main()
+  .then(flushSummary)
+  .catch((e) => { flushSummary(); die(e && e.stack ? e.stack : String(e)); });

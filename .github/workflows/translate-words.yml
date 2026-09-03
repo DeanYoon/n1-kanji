@@ -1,0 +1,48 @@
+name: translate-words
+
+# 진단(self-check) 약점 단어 전량 한국어 뜻 생성 — 수동 실행 전용.
+# Gist 의 n1-weak.json unknown 단어들을 중복 제거해 openai/gpt-5.6-luna 로 번역하고
+# Gist 의 n1-weak-ko.json 에 저장한다. 5배치마다 중간 저장 → 중간에 죽어도 재실행하면
+# 이어서 진행. 결과 요약은 이 run 의 Summary 페이지에서 바로 볼 수 있다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "OpenRouter 모델 ID"
+        type: string
+        default: "openai/gpt-5.6-luna"
+      batch:
+        description: "한 번에 번역할 단어 수"
+        type: string
+        default: "40"
+      limit:
+        description: "대상 단어 상한 (0 = 전부)"
+        type: string
+        default: "0"
+      dry_run:
+        description: "API 호출 없이 대상 수·배치 수·예상 비용만"
+        type: boolean
+        default: false
+
+jobs:
+  translate-words:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+      MODEL: ${{ inputs.model }}
+      BATCH: ${{ inputs.batch }}
+      LIMIT: ${{ inputs.limit }}
+      DRY_RUN: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: translate-words
+        # DRY_RUN 환경변수로 dry-run 분기 (스크립트가 "true"/"1" 을 인식).
+        run: node scripts/translate-words.mjs

@@ -3,7 +3,9 @@ name: translate-test
 # 번역 모델 bake-off — 수동 실행 전용. 일본어 단어의 영어 뜻을 한국어 짧은 뜻으로
 # 옮기는 작업에서 어느 모델이 쓸 만한지 Actions 로그로 눈으로 확인한다.
 # OPENROUTER_KEY 는 이 레포의 Actions secret 에만 있다 (로컬 없음).
-# 결과는 아래 job 로그의 "번역 비교표" / "모델별 요약" 섹션을 보면 된다.
+# 결과는 이 run 의 Summary 페이지(비교표·모델별 요약)에서 바로 볼 수 있다.
+# ($GITHUB_STEP_SUMMARY 는 Actions 가 자동 주입 — 스크립트가 거기에 요약을 쓴다.)
+# 전체 로그의 "번역 비교표" / "모델별 요약" 섹션도 동일 내용.
 
 on:
   workflow_dispatch:
