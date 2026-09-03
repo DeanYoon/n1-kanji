@@ -47,31 +47,54 @@
   .stats .k{color:var(--know)} .stats .d{color:var(--dunno)}
 
   /* card */
-  #card{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center; padding-bottom:calc(150px + env(safe-area-inset-bottom))}
-  .kanji{font-size:clamp(96px, 26vw, 150px); line-height:1; font-weight:400}
-  .words{display:flex; flex-direction:column; gap:6px; font-size:clamp(26px, 7.5vw, 34px); line-height:1.15; font-weight:500; word-break:break-all}
-  .words .none{font-size:1rem; color:var(--dim); font-weight:400}
+  #card{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding-bottom:calc(150px + env(safe-area-inset-bottom))}
+  .cardinner{display:flex; flex-direction:column; align-items:center; gap:12px; width:100%; max-width:420px}
+  .kanji{font-size:clamp(72px, 19vw, 116px); line-height:1; font-weight:400; flex-shrink:0}
+  .info{display:flex; flex-direction:column; gap:9px; width:100%}
+
+  .meaning{font-size:clamp(15px, 4.3vw, 19px); font-weight:600; line-height:1.35; color:var(--fg);
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:2.7em}
+
+  .readings{display:flex; flex-direction:column; justify-content:center; gap:3px; font-size:clamp(14px, 4vw, 18px); line-height:1.3; min-height:2.8em; max-width:100%}
+  .readings .row{word-break:break-all}
+  .readings .lab{display:inline-block; min-width:1.4em; margin-right:.3em; font-size:.66em; font-weight:700; color:var(--dim); vertical-align:2px}
+  .readings .on{color:#8fbff0; letter-spacing:.02em}
+  .readings .kun{color:#f0cf8f}
+  .readings .none{color:var(--dim); font-size:.82em}
+
+  .words{display:flex; flex-direction:column; gap:7px; width:100%}
+  .wd{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:7px 10px; text-align:left}
+  .wd .wtop{line-height:1.25; word-break:break-all}
+  .wd .ww{font-size:clamp(17px, 4.8vw, 21px); font-weight:600}
+  .wd .wr{font-size:clamp(12px, 3.3vw, 14px); color:var(--dim); margin-left:7px}
+  .wd .wg{font-size:clamp(11.5px, 3.2vw, 13px); color:var(--dim); line-height:1.35; margin-top:2px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:2.6em}
+  .words .none{font-size:1rem; color:var(--dim); font-weight:400; padding:6px 0}
+  .meta{font-size:11px; color:var(--dim); letter-spacing:.03em}
+
   .hl{color:var(--accent)}
   .hint{font-size:.75rem; color:var(--dim); text-align:center; margin-top:6px}
   @media (max-height:560px){
-    .kanji{font-size:clamp(56px, 15vh, 96px)}
-    .words{font-size:clamp(19px, 4.5vh, 24px); gap:3px}
-    #card{justify-content:flex-start; overflow-y:auto; gap:10px; padding-top:6px; padding-bottom:calc(160px + env(safe-area-inset-bottom))}
-    header{margin-bottom:8px}
-    .controls{gap:6px; padding:6px 16px calc(6px + env(safe-area-inset-bottom))}
-    .controls .main button{min-height:44px; padding:10px 12px; font-size:1rem}
-    .controls .sub button{padding:7px}
+    #card{justify-content:center; overflow-y:auto; padding-top:4px; padding-bottom:calc(140px + env(safe-area-inset-bottom))}
+    .cardinner{flex-direction:row; align-items:center; gap:14px; max-width:none}
+    .kanji{font-size:clamp(48px, 15vh, 78px)}
+    .info{text-align:left; gap:5px; min-width:0}
+    .meaning{min-height:0; font-size:clamp(13px, 2.6vh, 16px)}
+    .readings{min-height:0; justify-content:flex-start; font-size:clamp(12px, 2.4vh, 15px); gap:2px}
+    .words{gap:5px}
+    .wd{padding:5px 8px}
+    .wd .ww{font-size:clamp(15px, 3vh, 18px)}
+    .wd .wg{-webkit-line-clamp:1; min-height:0; margin-top:1px}
+    .meta{display:none}
+    header{margin-bottom:6px}
+    header .hint{margin-top:3px}
+    header .hint.compact-hide{display:none}
+    .controls{gap:5px; padding:5px 16px calc(5px + env(safe-area-inset-bottom))}
+    .controls .main button{min-height:42px; padding:8px 12px; font-size:1rem}
+    .controls .sub button{padding:6px; font-size:.82rem}
   }
   .curbadge{display:inline-block; font-size:.72rem; color:#f0d98a; background:#332a12; border:1px solid var(--badge); padding:3px 8px; border-radius:999px}
-  .reveal{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; width:100%; max-width:420px; text-align:left}
-  .reveal .m{font-size:1.05rem; margin-bottom:8px}
-  .reveal .r{font-size:.9rem; color:var(--dim); line-height:1.7}
-  .reveal .r b{color:var(--fg); font-weight:500}
-  .reveal .wl{margin-bottom:10px; line-height:1.6}
-  .reveal .wl .ww{font-size:1rem; color:var(--fg)}
-  .reveal .wl .wr{color:var(--dim); font-size:.88rem}
-  .reveal .wl .wg{color:var(--dim); font-size:.85rem}
-  .reveal .eng{color:var(--dim); font-size:.74rem; margin-top:10px}
+  .reveal{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; width:100%; max-width:420px; text-align:left; margin:0 auto}
 
   .controls{
     position:fixed; left:0; right:0; bottom:0; z-index:10;
@@ -128,7 +151,7 @@
   <div id="start">
     <div>
       <h1>N3 한자 자가 진단</h1>
-      <p class="note">실제로 모르는 한자만 골라냅니다. 각 한자마다 대표 단어 2개를 함께 보여줍니다. <b>그 단어를 읽고 뜻을 말할 수 있으면</b> &lsquo;안다&rsquo;로 판단하세요.</p>
+      <p class="note">실제로 모르는 한자만 골라냅니다. 카드에 <b>음독·훈독·뜻·대표 단어</b>를 처음부터 모두 보여줍니다. 그걸 보고 <b>이미 알고 있던 한자면 &lsquo;안다&rsquo;</b>, 아니면 &lsquo;모른다&rsquo;로 넘기세요.</p>
       <p class="note" style="margin-top:6px">이 기기에 자동 저장됩니다 · 다른 기기에서 이어하려면 진행 코드를 복사하세요.</p>
       <p class="note hidden" id="storageWarn" style="margin-top:6px; color:var(--dunno)">이 브라우저에서는 저장할 수 없습니다(프라이빗 모드 등). 이번 세션에서만 진행이 유지되니, 자리를 옮기기 전에 <b>진행 코드</b>를 복사해 두세요.</p>
     </div>
@@ -151,7 +174,7 @@
       </label>
     </div>
     <button class="primary" id="btnStart">시작</button>
-    <p class="note">진행 중 <b>← 모른다 · → 안다 · Space 뜻 보기 · Backspace 이전</b> 키를 쓸 수 있습니다.</p>
+    <p class="note">진행 중 <b>← 모른다 · → 안다 · Backspace 이전</b> 키를 쓸 수 있습니다.</p>
 
     <details class="codepaste">
       <summary>다른 기기에서 하던 진행 코드 붙여넣기</summary>
@@ -168,15 +191,21 @@
         <span id="pos">0 / 0</span>
         <span><span class="k" id="cKnow">안다 0</span> · <span class="d" id="cDunno">모른다 0</span></span>
       </div>
-      <div class="hint">아래 단어를 <b>읽고 뜻까지</b> 말할 수 있으면 &ldquo;안다&rdquo;</div>
-      <div class="hint" style="margin-top:3px">이 기기에 자동 저장됨 · 기기를 옮기려면 &ldquo;진행 코드 복사&rdquo;</div>
+      <div class="hint">음·훈·뜻·대표 단어를 보고, 이미 알고 있던 한자면 &ldquo;안다&rdquo;</div>
+      <div class="hint compact-hide" style="margin-top:3px">이 기기에 자동 저장됨 · 기기를 옮기려면 &ldquo;진행 코드 복사&rdquo;</div>
       <div class="hint hidden" id="quizStoreWarn" style="margin-top:3px; color:var(--dunno)">저장 불가 — 진행 코드를 복사해 두세요</div>
     </header>
     <div id="card">
-      <div class="kanji" id="kanji">—</div>
-      <div class="words" id="words"></div>
-      <div class="curbadge hidden" id="curBadge">이미 커리큘럼에 있음</div>
-      <div class="reveal hidden" id="reveal"></div>
+      <div class="cardinner">
+        <div class="kanji" id="kanji">—</div>
+        <div class="info">
+          <div class="meaning" id="meaning"></div>
+          <div class="readings" id="readings"></div>
+          <div class="words" id="words"></div>
+          <div class="meta" id="meta"></div>
+          <div class="curbadge hidden" id="curBadge">이미 커리큘럼에 있음</div>
+        </div>
+      </div>
       <div class="reveal hidden" id="codeBox"></div>
       <div class="controls">
         <div class="main">
@@ -184,10 +213,9 @@
           <button id="btnKnow">안다</button>
         </div>
         <div class="sub">
-          <button id="btnReveal">뜻 보기</button>
           <button id="btnBack">← 이전</button>
-          <button id="btnMid">지금까지 결과 보기</button>
-          <button id="btnCode">진행 코드 복사</button>
+          <button id="btnMid">결과 보기</button>
+          <button id="btnCode">코드 복사</button>
         </div>
       </div>
     </div>
@@ -382,16 +410,32 @@ el('btnStart').addEventListener('click',function(){
   beginQuiz(range, null, 0);
 });
 
+function toKata(s){
+  return String(s).replace(/[ぁ-ゖ]/g,function(c){ return String.fromCharCode(c.charCodeAt(0)+0x60); });
+}
+function readingsHTML(it){
+  var on=(it.on||[]).slice(0,2).map(toKata);
+  var kun=(it.kun||[]).slice(0,2);
+  var rows=[];
+  if(on.length)  rows.push('<div class="row"><span class="lab">음</span><span class="on">'+on.join('  ・  ')+'</span></div>');
+  if(kun.length) rows.push('<div class="row"><span class="lab">훈</span><span class="kun">'+kun.join('  ・  ')+'</span></div>');
+  if(!rows.length) rows.push('<div class="none">등록된 음·훈 없음</div>');
+  return rows.join('');
+}
+
 function render(){
   if(idx>=deck.length){ showResult(false); return; }
   var it=deck[idx];
   el('kanji').textContent=it.c;
+  el('meaning').textContent=it.m.join(', ');
+  el('readings').innerHTML=readingsHTML(it);
   el('words').innerHTML = (it.w && it.w.length)
-    ? it.w.map(function(wd){ return '<span class="w">'+hlWord(wd.w, it.c)+'</span>'; }).join('')
-    : '<span class="none">대표 단어 없음</span>';
+    ? it.w.map(function(wd){
+        return '<div class="wd"><div class="wtop"><span class="ww">'+hlWord(wd.w, it.c)+'</span><span class="wr">'+wd.p+'</span></div><div class="wg">'+wd.g+'</div></div>';
+      }).join('')
+    : '<div class="none">대표 단어 없음</div>';
+  el('meta').textContent='획 '+(it.s||'?')+' · 빈도 '+(it.f||'?');
   el('curBadge').classList.toggle('hidden', !it.cur);
-  el('reveal').classList.add('hidden');
-  el('reveal').innerHTML='';
   el('codeBox').classList.add('hidden');
   el('codeBox').innerHTML='';
   var known=answers.filter(function(a){return a==='know'}).length;
@@ -401,21 +445,6 @@ function render(){
   el('cDunno').textContent='모른다 '+dunno;
   el('prog').style.width=(idx/deck.length*100)+'%';
   el('btnBack').disabled = idx===0;
-}
-
-function revealCard(){
-  var it=deck[idx];
-  var r=el('reveal');
-  if(!r.classList.contains('hidden')) return;
-  var on = it.on.length? '<b>음</b> '+it.on.join(', ') : '';
-  var kun = it.kun.length? '<b>훈</b> '+it.kun.join(', ') : '';
-  var wl = (it.w && it.w.length)
-    ? '<div class="wl">'+it.w.map(function(wd){
-        return '<div><span class="ww">'+hlWord(wd.w,it.c)+'</span> <span class="wr">'+wd.p+'</span><br><span class="wg">'+wd.g+'</span></div>';
-      }).join('')+'</div>'
-    : '';
-  r.innerHTML= wl + '<div class="m">'+it.m.join(', ')+'</div><div class="r">'+[on,kun].filter(Boolean).join('<br>')+'<br><b>획</b> '+(it.s||'?')+' · <b>빈도</b> '+(it.f||'?')+'</div><div class="eng">단어 뜻은 영어입니다 · 한국어화는 다음 단계</div>';
-  r.classList.remove('hidden');
 }
 
 function answer(v){
@@ -430,7 +459,6 @@ function goBack(){
 
 el('btnKnow').addEventListener('click',function(){answer('know')});
 el('btnDunno').addEventListener('click',function(){answer('dunno')});
-el('btnReveal').addEventListener('click',revealCard);
 el('btnBack').addEventListener('click',goBack);
 el('btnMid').addEventListener('click',function(){ showResult(true); });
 el('btnCode').addEventListener('click',function(){
@@ -440,7 +468,6 @@ el('btnCode').addEventListener('click',function(){
     +'<div style="word-break:break-all; margin-bottom:8px">'+code+'</div>'
     +'<div class="copyrow"><button type="button" id="qCodeCopy">복사</button>'
     +'<span class="copied hidden" id="qCodeMsg"></span></div>';
-  el('reveal').classList.add('hidden');
   box.classList.remove('hidden');
   el('qCodeCopy').addEventListener('click',function(){ copy(code, el('qCodeMsg')); });
   copy(code, el('qCodeMsg'));
@@ -454,7 +481,6 @@ document.addEventListener('keydown',function(e){
   if(el('quiz').classList.contains('hidden')) return;
   if(e.key==='ArrowLeft'){ e.preventDefault(); answer('dunno'); }
   else if(e.key==='ArrowRight'){ e.preventDefault(); answer('know'); }
-  else if(e.key===' '){ e.preventDefault(); revealCard(); }
   else if(e.key==='Backspace'){ e.preventDefault(); goBack(); }
 });
 
