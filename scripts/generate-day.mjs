@@ -10,7 +10,7 @@
 //      그래도 안 되면 그 칸은 복습으로 대체하고 계속.
 //   3b) 문법 알림 슬롯은 AI 로 만들지 않는다 — 이미 Gist 에 구축해 둔 큐레이션 목록
 //      (n1-grammar.json + 한국어 n1-grammar-ko.json, 각 568개)에서 그날치 GRAMMAR_PER_DAY
-//      (기본 10)개를 꺼내 슬롯의 grammarTitle/grammarBody 에 라운드로빈으로 채운다.
+//      (기본 20)개를 꺼내 슬롯의 grammarTitle/grammarBody 에 라운드로빈으로 채운다.
 //      상태의 grammarIndex 가 매일 그만큼 전진하고 목록 끝에서 0 으로 순환한다.
 //      ⚠️ 이건 AI 호출이 아니므로 주말·공휴일에도 그대로 나간다. 두 파일 중 하나라도
 //      없으면 문법 없이 진행 → 폰/윈도우가 그 슬롯을 단어 알림으로 폴백(기존 동작).
@@ -52,7 +52,7 @@
 //   WEAK_RATIO           하루 신규 슬롯 중 약점 보강에 배정할 비율 (0~1, 기본 0.5).
 //                        약점 데이터(gist n1-weak.json 또는 repo scripts/weak-readings.json)가
 //                        없으면 이 값과 무관하게 전량 커리큘럼 — 기존 동작과 100% 동일.
-//   GRAMMAR_PER_DAY      하루에 슬롯에 태울 큐레이션 문법 카드 수 (기본 10). 상태의
+//   GRAMMAR_PER_DAY      하루에 슬롯에 태울 큐레이션 문법 카드 수 (기본 20). 상태의
 //                        grammarIndex 가 매일 이만큼 전진하고 목록 끝에서 0 으로 순환.
 //   FORCE_DATE           테스트 전용 — YYYY-MM-DD 로 기준 날짜를 주입 (주말·공휴일 판정용)
 //   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (FORCE_DATE 미지정 시)
@@ -108,10 +108,11 @@ const cfg = {
     const v = parseFloat(process.env.WEAK_RATIO ?? "");
     return Number.isFinite(v) && v >= 0 && v <= 1 ? v : 0.5;
   })(),
-  // 하루에 슬롯에 태울 큐레이션 문법 카드 수. 568개면 한 바퀴 약 57일.
+  // 하루에 슬롯에 태울 큐레이션 문법 카드 수. 568개면 한 바퀴 약 29일(기존 10개일 땐 약 57일).
+  // 슬롯 57칸에 20개를 라운드로빈하면 항목당 하루 2~3회 노출(기존 10개일 땐 5~6회) — 커버리지는 빨라지고 반복은 줄어든다.
   GRAMMAR_PER_DAY: (() => {
     const v = parseInt(process.env.GRAMMAR_PER_DAY ?? "", 10);
-    return Number.isFinite(v) && v > 0 ? v : 10;
+    return Number.isFinite(v) && v > 0 ? v : 20;
   })(),
 };
 
@@ -455,7 +456,7 @@ async function composeWeakSlot(c, s, slotISO, idSuffix, leaf) {
 //   · n1-grammar-ko.json  { version, model, items:{ "N1-001": { formation_ko, short_ko,
 //                           ex_ko:[문자열,문자열] } } }
 // 두 파일을 id 로 조인해 "카드" 목록을 만든다. 한국어(ko)가 없는 항목은 제외.
-// 상태의 grammarIndex 가 매일 GRAMMAR_PER_DAY(기본 10)개씩 전진하고, 끝에서 0 으로 순환.
+// 상태의 grammarIndex 가 매일 GRAMMAR_PER_DAY(기본 20)개씩 전진하고, 끝에서 0 으로 순환.
 // ⚠️ AI 호출이 아니므로 주말·공휴일(PAUSE_NEW)에도 그대로 채운다.
 
 const grammarStats = {
