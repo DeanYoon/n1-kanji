@@ -1,7 +1,7 @@
 // ===== N1 한자 학습 · 통합 모듈 (n1.js) =====
 // Scriptable 껍데기 스크립트가 이 파일을 원격에서 불러 실행합니다.
 // 로직 수정은 전부 여기서만. 껍데기는 다시 안 건드려도 됩니다.
-// VERSION 2026-09-02a
+// VERSION 2026-09-04a
 
 // ---------- 실행 환경 감지 (폰 Scriptable vs 클라우드 Node) ----------
 // 이 파일은 두 곳에서 로드된다:
@@ -98,36 +98,17 @@ function buildComposePrompt(kanji, priorWords, target){
 "목표 한자는 실제로 자주 쓰이는 용법으로, 문장의 나머지 어휘는 JLPT N2 중심(필요하면 N1)으로 구성하세요. " +
 "너무 쉬운 N4/N5 남발도, 너무 마이너한 어휘도 피하세요.\n\n" +
 "다음 JSON 객체 하나만 출력하세요. 코드블록·설명·그 외 텍스트 금지:\n" +
-'{"sentenceJP":"...","readingHiragana":"문장 전체를 히라가나로","translationKR":"자연스러운 한국어 번역","furigana":[{"t":"세그먼트 원문","r":"그 세그먼트 읽기(히라가나)"}],"kanjiNotes":[{"word":"...","reading":"...","meaningKR":"..."}],"grammarNotes":[{"point":"...","meaningShort":"...","meaningKR":"..."}]}\n\n' +
+'{"sentenceJP":"...","readingHiragana":"문장 전체를 히라가나로","translationKR":"자연스러운 한국어 번역","furigana":[{"t":"세그먼트 원문","r":"그 세그먼트 읽기(히라가나)"}],"kanjiNotes":[{"word":"...","reading":"...","meaningKR":"..."}]}\n\n' +
 "furigana: sentenceJP를 처음부터 끝까지 빠짐없이 순서대로 잘라 배열로 나열하세요 — 모든 원소의 t를 순서대로 이어붙이면 sentenceJP와 완전히 동일해야 합니다(한 글자도 빠지거나 겹치면 안 됨, 공백도 그대로 포함). " +
 "한자가 하나라도 포함된 연속 구간은 하나의 세그먼트로 묶고 그 부분 전체의 읽기를 r에 히라가나로 넣으세요. " +
 "가나·구두점·숫자·알파벳만 있는 구간은 한자와 같은 세그먼트로 섞지 말고 별도 세그먼트로 분리하고, 그 경우 r은 빈 문자열로 두세요.\n\n" +
 "kanjiNotes: 문장 속 핵심 단어 2~4개(word·reading·meaningKR). 「" + kanji + "」가 들어간 단어를 반드시 하나 넣으세요.\n\n" +
 
-"grammarNotes: 이 문장에 쓰인 문법·표현 1~3개. 기초 조사나 너무 뻔한 건 빼고, 중급 이상 학습자가 헷갈릴 만한 것 위주. " +
-"이 노트를 보는 사람은 '수동형·사역형·사전형·て형' 같은 일본어 문법 용어를 전혀 모릅니다 — 用語(용어) 이름은 어떤 필드에서도 절대 쓰지 마세요. " +
-"각 노트는 point · meaningShort · meaningKR 세 필드를 모두 채웁니다(빈 문자열 금지).\n\n" +
-
-"[point 필드 규칙]\n" +
-"1) 한자가 하나라도 들어간 문형이면, 그 한자 바로 뒤 괄호에 히라가나 읽기를 반드시 붙입니다. 한 point 안의 모든 한자에 빠짐없이. 예: 〜に値(あたい)する, 〜を踏(ふ)まえて.\n" +
-"2) 문장에서 단어의 활용형이 바뀐 경우에는 '원형 → 문장 속 모양' 화살표로 보여주고, 뒤에 붙은 조사·표현이 있으면 이어붙입니다. 읽기 괄호는 화살표 양쪽 모두에 붙입니다. 예: 怖(おそ)れる → 怖(おそ)れられて.\n" +
-"3) 활용 변화가 아니라 고정된 문형·관용 표현이면 화살표 없이 그 표현만 적되, 읽기 괄호는 똑같이 붙입니다. 예: 〜に値(あたい)する.\n\n" +
-
-"[meaningShort 필드 규칙]\n" +
-"한국어로 옮긴 짧고 직관적인 뜻 한 구절. 마침표로 끝내지 않습니다. 예: ~할 만한 가치가 있다\n\n" +
-
-"[meaningKR 필드 규칙]\n" +
-"언제·어떤 뉘앙스로 쓰는지 용어 없이 쉬운 말로 설명하는 한 줄. meaningShort 를 여기에 다시 적지 마세요(' — ' 로 이어 붙이지도 않음). " +
-"활용형이 바뀐 경우면 왜 그 모양이 됐는지도 여기에 넣습니다(예: 누군가에게 그런 취급을 당했다는 뜻이 됨).\n\n" +
-
-"[좋은 예]\n" +
-'{"point":"〜に値(あたい)する","meaningShort":"~할 만한 가치가 있다","meaningKR":"어떤 행동이나 평가를 받을 자격이 충분함을 나타낸다."}\n' +
-'{"point":"怖(おそ)れる → 怖(おそ)れられて","meaningShort":"~당할까 봐 두렵다","meaningKR":"남이 나에게 그런 행동을 하는 것을 걱정한다는 뜻이 됨."}\n' +
-'{"point":"〜を踏(ふ)まえて","meaningShort":"~을 바탕으로 하여","meaningKR":"앞의 사실이나 상황을 근거로 삼아 다음 판단·행동을 한다."}\n\n' +
-
-"[나쁜 예 — 읽기 괄호도 없고 meaningShort 는 비었고 meaningKR 에 짧은 뜻을 ' — ' 로 이어 붙여서 안 됨]\n" +
-'{"point":"〜に値する","meaningShort":"","meaningKR":"~할 만한 가치가 있다 — 어떤 행동이나 평가를 할 만한 가치가 있음을 나타낸다."}\n\n' +
-
+// 문법 노트는 더 이상 예문에서 생성하지 않는다 — 큐레이션한 JLPT 문법 목록
+// (Gist n1-grammar.json + n1-grammar-ko.json)에서 scripts/generate-day.mjs 가
+// 슬롯에 직접 채운다. 문장을 먼저 만들고 거기서 문법을 줍던 방식은 문장 생성에
+// 문법 조건이 없어 N5~N4 수준 문형(〜ている·〜ておく·단순 て형/과거형)만 나와
+// 폐기함. 아래 한 줄은 translationKR·kanjiNotes 출력에도 해당하므로 남긴다.
 "별도 표시(*, ** 등)는 붙이지 마세요."
   );
 }
@@ -943,7 +924,10 @@ function commitNewEntry(cfg, s, slotISO, idSuffix, kanji, c){
     sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
     furigana: validateFurigana(c.sentenceJP, c.furigana),
     kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
-    grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
+    // 문법은 더 이상 예문 생성 시 만들지 않는다 — 큐레이션 목록(scripts/generate-day.mjs)이
+    // 슬롯에 직접 채운다. 필드 자체는 옛 항목·기존 소비자(detailText/widget) 호환용으로
+    // 남기되 항상 빈 배열.
+    grammarNotes: [],
     reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new"
   };
   s.history.unshift(cur);
@@ -973,7 +957,7 @@ function commitWeakEntry(cfg, s, slotISO, idSuffix, kanji, c, weak){
     sentenceJP: c.sentenceJP, readingHiragana: c.readingHiragana, translationKR: c.translationKR,
     furigana: validateFurigana(c.sentenceJP, c.furigana),
     kanjiNotes: Array.isArray(c.kanjiNotes) ? c.kanjiNotes : [],
-    grammarNotes: Array.isArray(c.grammarNotes) ? c.grammarNotes : [],
+    grammarNotes: [],   // commitNewEntry 와 동일 — 문법은 큐레이션 목록에서 슬롯에 채운다.
     reviewed: false, lastShownAt: slotISO, lastSlotAt: slotISO, showCount: 1, mode: "new",
     weak: { r: (weak && weak.r) || "", type: (weak && weak.type) || "" }
   };
@@ -1022,8 +1006,10 @@ function pickHeadword(cur){
 }
 // 단어 알림 본문 — 문장 통째로 넣으면 알림 배너에서 길이 제한으로 잘려서 그걸로는 학습이
 // 안 된다는 피드백으로, 워치 알림과 동일하게 "단어 / 후리가나 / 한글번역" 3줄로 줄임.
-// 문법은 여기 붙이지 않고 pushGrammarTitle()/pushGrammarBody() 로 별도 알림을 띄운다 —
-// 단어 알림과 문법 알림이 각각 3줄 구조로 통일됨.
+// 문법 알림(별도 3줄 구조)의 제목·본문은 이제 예문 항목이 아니라 큐레이션 문법 목록에서
+// 나온다 — scripts/generate-day.mjs 가 슬롯의 grammarTitle/grammarBody 를 직접 채운다.
+// (옛 pushGrammarTitle()/pushGrammarBody() 는 항목의 grammarNotes 로 만들었는데, 이제
+//  그 필드가 항상 비어 무의미해져 제거함.)
 // 알림을 탭하면(openURL, notify() 호출부에서 reviewURL(cfg) 넘김) n1-review 가 열리고,
 // review() 는 시작하자마자 current() 항목 전체를 모달로 띄우므로 탭 한 번으로 문장·문법
 // 노트까지 다 볼 수 있음.
@@ -1031,24 +1017,6 @@ function pushBody(cur){
   var hw = pickHeadword(cur);
   return hw ? (hw.word + "\n" + hw.reading + "\n" + hw.meaningKR)
             : (cur.sentenceJP + "\n" + cur.readingHiragana + "\n" + cur.translationKR);   // 옛 항목 폴백
-}
-// 문법 알림 제목 — pushTitle() 과 같은 틀이되 접두사만 "[문법]"(단어 알림의 [신규]/[복습]
-// 과 구분). 신규/복습 구분은 문법 알림엔 의미 없어 mode 인자 없음.
-function pushGrammarTitle(cur, s){
-  return "[문법] " + cur.targetKanji + "   " + s.progressIndex + " / " + s.kanjiList.length;
-}
-// 문법 알림 본문 — 첫 번째 grammarNote 만: point / meaningShort / meaningKR 3줄.
-// meaningShort 가 없는 옛 항목이면 point / meaningKR 2줄로 폴백.
-// grammarNotes 가 없거나 첫 항목에 point 가 없으면 null 을 반환 — 호출부가 "이 항목은
-// 문법 알림을 만들 수 없다"를 판단할 수 있게.
-function pushGrammarBody(cur){
-  var gn = (cur && Array.isArray(cur.grammarNotes)) ? cur.grammarNotes : [];
-  var g = gn[0];
-  if(!g || !g.point) return null;
-  var lines = [g.point];
-  if(g.meaningShort) lines.push(g.meaningShort);
-  if(g.meaningKR) lines.push(g.meaningKR);
-  return lines.join("\n");
 }
 // 알림을 탭했을 때 n1-review를 열게 하는 URL. 스크립트 이름이 기본값("n1-review")과
 // 다르면 cfg.REVIEW_SCRIPT_NAME으로 맞춰 쓸 수 있음.
@@ -1242,14 +1210,14 @@ async function planDay(cfg, s, opts){
       sessionBumps[cur.id] = (sessionBumps[cur.id] || 0) + 1;
       pending.push({ id: cur.id, slotISO: slotISO });
     }
-    var gBody = pushGrammarBody(cur);
     plan.push({
       key: slot.key, slotDate: slotDate, slotISO: slotISO,
       title: pushTitle(mode, cur, s), body: pushBody(cur), mode: mode,
-      // 단어 알림과 별개로 띄우는 문법 알림의 제목/본문(3줄). 문법 노트가 없으면 둘 다 null —
-      // 윈도우·폰이 조립 로직을 중복 구현하지 않도록 n1-today.json 슬롯에 그대로 실어둔다.
-      grammarTitle: gBody ? pushGrammarTitle(cur, s) : null,
-      grammarBody: gBody,
+      // 문법 알림의 제목/본문(3줄)은 예문이 아니라 큐레이션 문법 목록에서 온다 —
+      // scripts/generate-day.mjs 가 sortSlots() 뒤에 라운드로빈으로 채운다. 여기서는
+      // 항상 null 로 두고, 목록이 없으면 그대로 null → 폰/윈도우가 단어 알림으로 폴백.
+      grammarTitle: null,
+      grammarBody: null,
       // 알림용 title/body 는 요약(단어 1개)이라 윈도우 알림처럼 문장/문법까지 다 보여줘야
       // 하는 소비자를 위해 원본 필드도 그대로 실어둔다 — n1-today.json 이 그날의 완결된
       // 스냅샷이 되도록. id 는 history 매칭(리뷰 상세, pending 등)에 계속 쓰인다.
@@ -1889,7 +1857,7 @@ async function cloud(cfg){
 module.exports = {
   // 폰(Scriptable 껍데기)이 Script.name() 으로 호출하는 액션들 — 기존 그대로.
   generate: generate, day: day, widget: widget, review: review, watchDay: watchDay, cloud: cloud,
-  VERSION: "2026-09-02a",
+  VERSION: "2026-09-04a",
   // ↓ 클라우드 생성기(scripts/generate-day.mjs)가 재사용하는 순수 로직. 폰에서는 안 쓰이며
   //   추가돼도 껍데기 동작(module.exports[ACTION])에는 영향 없음.
   SEED: SEED,
@@ -1905,8 +1873,6 @@ module.exports = {
   pickWeightedReview: pickWeightedReview,
   pushTitle: pushTitle,
   pushBody: pushBody,
-  pushGrammarTitle: pushGrammarTitle,
-  pushGrammarBody: pushGrammarBody,
   pickHeadword: pickHeadword,
   sortSlots: sortSlots,
   slotSig: slotSig,

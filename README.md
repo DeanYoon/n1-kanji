@@ -59,7 +59,7 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 
 ### `n1-state.json` — 누적 이력·진도
 
-`kanjiList`(706자) · `progressIndex` · `cycle` · `kanjiRepCount` · `history[]` · `pending[]` · `updatedAt`. 진단 데이터가 있으면 약점 트랙용 `weakQueue[]` · `weakIndex` · `weakRepCount` 도 함께 들고 간다([약점 보강](#약점-보강-진단--예문) 참고).
+`kanjiList`(706자) · `progressIndex` · `cycle` · `kanjiRepCount` · `history[]` · `pending[]` · `updatedAt` · `grammarIndex`(큐레이션 문법 목록에서 오늘 어디까지 나갔는지 — 매일 `GRAMMAR_PER_DAY` 만큼 전진, 목록 끝에서 0 순환). 진단 데이터가 있으면 약점 트랙용 `weakQueue[]` · `weakIndex` · `weakRepCount` 도 함께 들고 간다([약점 보강](#약점-보강-진단--예문) 참고).
 
 클라우드가 만들어 올리고, 아이폰 `n1-day` 가 읽어 로컬 진도를 통째로 갈아끼운다. 아이폰에서 `n1-cloud` 를 실행하면 로컬 `n1_state.json`(주로 "외웠음" 표시)이 **로컬이 더 최신일 때만** 이 파일로 단방향 업로드된다.
 
@@ -73,8 +73,8 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 ```
 
 - `key` = 예약 시각 `"HH:MM"`(JST). `title` / `body` 는 **단어 알림** 배너용 3줄 요약(단어·읽기·뜻).
-- `grammarTitle` / `grammarBody` 는 **문법 알림** 배너용 3줄 요약(문형·짧은 뜻·설명). 그 슬롯에 쓸 만한 문법 노트가 없으면 둘 다 `null` — 이 경우 폰·윈도우 모두 그 자리를 **단어 알림으로 대체**한다. 문구는 클라우드가 여기서 완성해 실어두므로 폰·윈도우가 각자 조립하지 않는다(문구가 갈리지 않게).
-- 각 슬롯이 알림용 요약뿐 아니라 **문장 원본(`sentenceJP` / `readingHiragana` / `translationKR` / `kanjiNotes` / `grammarNotes`)까지** 담는다 — 윈도우가 이 파일 하나만으로 문장 알림까지 띄울 수 있게 하기 위함.
+- `grammarTitle` / `grammarBody` 는 **문법 알림** 배너용(문형·뜻·예문 일본어+한국어). 내용은 **AI 가 아니라 큐레이션한 JLPT 문법 목록**(Gist `n1-grammar.json` + 한국어 `n1-grammar-ko.json`)에서 온다 — `generate-day.mjs` 가 그날치 `GRAMMAR_PER_DAY`(기본 10)개를 꺼내 슬롯들에 **라운드로빈**으로 배정한다. 두 파일 중 하나라도 없으면 둘 다 `null` — 이 경우 폰·윈도우 모두 그 자리를 **단어 알림으로 대체**한다. 문구는 클라우드가 여기서 완성해 실어두므로 폰·윈도우가 각자 조립하지 않는다(문구가 갈리지 않게).
+- 각 슬롯이 알림용 요약뿐 아니라 **문장 원본(`sentenceJP` / `readingHiragana` / `translationKR` / `kanjiNotes`)까지** 담는다 — 윈도우가 이 파일 하나만으로 문장 알림까지 띄울 수 있게 하기 위함. (`grammarNotes[]` 필드는 옛 항목 호환용으로 남아 있으나 새 항목은 항상 빈 배열 — 문법은 위 큐레이션 목록에서 온다.)
 
 ## 클라우드 생성 (GitHub Actions)
 
@@ -87,14 +87,15 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 1. Gist `n1-state.json` 을 읽는다. 없으면 레포 커리큘럼(`n1.SEED`)으로 초기화(`INIT_PROGRESS_INDEX` 로 시작 진도 지정 가능).
 2. 진단 데이터(`n1-weak.json` gist, 없으면 `scripts/weak-readings.json`)가 있으면 `weakQueue` 에 병합한다. 없으면 약점 기능은 꺼진 채로 넘어간다([약점 보강](#약점-보강-진단--예문)).
 3. `n1.planDay()` — 아이폰과 공유하는 순수 함수 — 로 그날 슬롯을 계획한다. 주말·공휴일이면 `cfg.PAUSE_NEW` 로 신규 0 · 전량 복습.
-4. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말·공휴일엔 신규 슬롯이 없어 호출 0회) 약점 슬롯이면 목표 읽기를 강제하는 프롬프트를 쓰고, 커리큘럼 진도는 전진시키지 않는다.
-5. `n1-today.json`(사용자에게 보이는 산출물) → `n1-state.json`(전진된 상태) 순으로 Gist 에 PATCH.
+4. 신규 한자는 `n1.compose()` 로 OpenRouter 호출. 실패 시 지수 백오프 3회 재시도(1s→2s→4s), 그래도 안 되면 그 칸은 복습으로 대체하고 계속. (주말·공휴일엔 신규 슬롯이 없어 호출 0회) 약점 슬롯이면 목표 읽기를 강제하는 프롬프트를 쓰고, 커리큘럼 진도는 전진시키지 않는다. **문법은 프롬프트에서 뺐다** — `compose()` 는 더 이상 `grammarNotes` 를 만들지 않는다.
+4b. 문법 슬롯은 큐레이션 목록에서 채운다: `n1-grammar.json` + `n1-grammar-ko.json` 를 (같은 GET 응답에서) 꺼내 `id` 로 조인하고, `grammarIndex` 부터 `GRAMMAR_PER_DAY`(기본 10)개를 슬롯들에 라운드로빈으로 배정한 뒤 `grammarIndex` 를 전진시킨다(목록 끝에서 0 순환). **AI 호출이 아니라 주말·공휴일에도 나간다.** 두 파일 중 하나라도 없으면 문법 없이 진행 → 그 슬롯은 단어로 폴백.
+5. `n1-today.json`(사용자에게 보이는 산출물) → `n1-state.json`(전진된 상태, `grammarIndex` 포함) 순으로 Gist 에 PATCH.
 6. 같은 날 두 번 돌면 진도가 두 번 전진하지 않도록 건너뛴다(`s.lastPlannedDate` 가드, `--force` 로 무시).
 
 **수동 실행 / 로컬 확인**
 
 - GitHub: Actions 탭 → `generate-day` → Run workflow (`dry_run` 체크 시 API·PATCH 없이 계획만).
-- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작은 `FORCE_DOW=6 …` (0~6), 공휴일 동작은 `FORCE_DATE=2026-09-21 …` (임의 날짜 주입 — 주말·공휴일 판정용, 시스템 날짜를 안 건드림). 공휴일 API 실패→하드코딩 폴백은 `HOLIDAY_API_BASE=http://127.0.0.1:9/nope …` 로 시뮬레이션. 약점 보강은 `WEAK_FIXTURE=path/to/weak.json …` (테스트 전용 — gist/repo 대신 임의 파일 주입), 비율은 `WEAK_RATIO=0.3 …`.
+- 로컬: `node scripts/generate-day.mjs --dry-run` (토큰 없이 계획만). 특정 상태로 확인하려면 `FIXTURE_STATE=path/to/state.json node scripts/generate-day.mjs --dry-run`. 주말 동작은 `FORCE_DOW=6 …` (0~6), 공휴일 동작은 `FORCE_DATE=2026-09-21 …` (임의 날짜 주입 — 주말·공휴일 판정용, 시스템 날짜를 안 건드림). 공휴일 API 실패→하드코딩 폴백은 `HOLIDAY_API_BASE=http://127.0.0.1:9/nope …` 로 시뮬레이션. 약점 보강은 `WEAK_FIXTURE=path/to/weak.json …` (테스트 전용 — gist/repo 대신 임의 파일 주입), 비율은 `WEAK_RATIO=0.3 …`. 큐레이션 문법은 `GRAMMAR_FIXTURE=path/to/n1-grammar.json GRAMMAR_KO_FIXTURE=path/to/n1-grammar-ko.json …` (테스트 전용 — gist 대신), 하루치 개수는 `GRAMMAR_PER_DAY=5 …` (기본 10).
 
 ## 슬롯 계획 규칙 (planDay · 코드 기본값)
 
@@ -108,6 +109,7 @@ GitHub Actions  (매일 05:00 KST, cron "0 20 * * *")
 | 신규 중단일 | `2026-11-12` 이후로는 신규 0, 순수 복습만 (스페이싱 효과). ⚠️ 공휴일 제외 반영 후 재계산 결과 이 값으로는 컷오프 전 한 바퀴가 안 끝난다 — 아래 페이스 참고 | `NEW_CUTOFF_DATE` (`null` 이면 무기한 신규) |
 | 복습 선택 | 가중 랜덤 — 적게 노출됐거나 "외웠음" 안 된 문장일수록 뽑힐 확률↑ | — |
 | 약점 보강 | 진단 데이터가 있으면 하루 신규 슬롯의 **절반**을 "그 한자·그 읽기" 강제 예문에 배정 (아래 절) | `WEAK_RATIO` (기본 0.5) |
+| 문법 슬롯 | 큐레이션 목록(`n1-grammar.json` + `n1-grammar-ko.json`)에서 하루 **10개**를 슬롯에 라운드로빈. `grammarIndex` 가 그만큼 전진·순환. 주말·공휴일에도 나감(AI 아님) | `GRAMMAR_PER_DAY` (기본 10) |
 
 이 키들은 `scripts/generate-day.mjs` 의 `cfg` 나 아이폰 `stub.js` 의 `CFG` 에서 덮어쓸 수 있다(현재는 양쪽 다 전부 기본값).
 

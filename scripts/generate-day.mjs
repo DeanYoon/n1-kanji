@@ -8,14 +8,22 @@
 //   2) n1.planDay() 로 오늘치 슬롯 계획을 세운다 — 폰의 day() 와 "완전히 같은" 규칙·함수.
 //   3) 신규 한자는 OpenRouter 로 예문 생성(n1.compose). 실패 시 지수 백오프 3회 재시도,
 //      그래도 안 되면 그 칸은 복습으로 대체하고 계속.
-//   4) 결과를 {date, slots:[{key,title,body}], updatedAt} 로 Gist 의 n1-today.json 에 PATCH.
-//   5) 전진된 상태를 Gist 의 n1-state.json 에 PATCH.
+//   3b) 문법 알림 슬롯은 AI 로 만들지 않는다 — 이미 Gist 에 구축해 둔 큐레이션 목록
+//      (n1-grammar.json + 한국어 n1-grammar-ko.json, 각 568개)에서 그날치 GRAMMAR_PER_DAY
+//      (기본 10)개를 꺼내 슬롯의 grammarTitle/grammarBody 에 라운드로빈으로 채운다.
+//      상태의 grammarIndex 가 매일 그만큼 전진하고 목록 끝에서 0 으로 순환한다.
+//      ⚠️ 이건 AI 호출이 아니므로 주말·공휴일에도 그대로 나간다. 두 파일 중 하나라도
+//      없으면 문법 없이 진행 → 폰/윈도우가 그 슬롯을 단어 알림으로 폴백(기존 동작).
+//   4) 결과를 {date, slots:[{key,title,body,grammarTitle,grammarBody,…}], updatedAt} 로
+//      Gist 의 n1-today.json 에 PATCH.
+//   5) 전진된 상태(grammarIndex 포함)를 Gist 의 n1-state.json 에 PATCH.
 //
 // 아직 폰이 담당하는 것: review "외웠음" 체크 등 상태 쓰기, 로컬 알림 예약, 위젯.
 // (상태 이전은 다음 단계 — 지금은 클라우드가 자기 상태를 Gist 에 따로 들고 간다.)
 //
-// 주말(KST 토·일) 그리고 일본 공휴일에는 신규 생성을 하지 않는다 — AI 호출 0회,
+// 주말(KST 토·일) 그리고 일본 공휴일에는 신규 예문 생성을 하지 않는다 — AI 호출 0회,
 // 진도 0 전진, 전량 복습. 주말과 공휴일은 완전히 같은 취급이다.
+// (단, 위 3b 의 큐레이션 문법 슬롯 채우기는 AI 가 아니므로 이런 날에도 계속 돈다.)
 // 배치 자체는 매일 돌린다(크론은 그대로 매일). 그런 날에도 알림은 평소대로 와야 하므로,
 // n1.planDay() 에 cfg.PAUSE_NEW 를 세워 그날 57칸을 전부 복습으로 채운다.
 // 요일은 process.env.TZ=Asia/Seoul 이 보장되므로 new Date().getDay() 를 그대로 쓴다
@@ -44,10 +52,14 @@
 //   WEAK_RATIO           하루 신규 슬롯 중 약점 보강에 배정할 비율 (0~1, 기본 0.5).
 //                        약점 데이터(gist n1-weak.json 또는 repo scripts/weak-readings.json)가
 //                        없으면 이 값과 무관하게 전량 커리큘럼 — 기존 동작과 100% 동일.
+//   GRAMMAR_PER_DAY      하루에 슬롯에 태울 큐레이션 문법 카드 수 (기본 10). 상태의
+//                        grammarIndex 가 매일 이만큼 전진하고 목록 끝에서 0 으로 순환.
 //   FORCE_DATE           테스트 전용 — YYYY-MM-DD 로 기준 날짜를 주입 (주말·공휴일 판정용)
 //   FORCE_DOW            테스트 전용 — 0~6 으로 요일을 주입 (FORCE_DATE 미지정 시)
 //   HOLIDAY_API_BASE     테스트 전용 — 공휴일 API 베이스 URL 오버라이드 (실패 시뮬레이션용)
 //   WEAK_FIXTURE         테스트 전용 — 약점 데이터 JSON 파일 경로를 직접 주입 (gist/repo 대신)
+//   GRAMMAR_FIXTURE      테스트 전용 — n1-grammar.json 경로를 직접 주입 (gist 대신)
+//   GRAMMAR_KO_FIXTURE   테스트 전용 — n1-grammar-ko.json 경로를 직접 주입 (gist 대신)
 
 process.env.TZ = process.env.TZ || "Asia/Seoul";
 
@@ -96,6 +108,11 @@ const cfg = {
     const v = parseFloat(process.env.WEAK_RATIO ?? "");
     return Number.isFinite(v) && v >= 0 && v <= 1 ? v : 0.5;
   })(),
+  // 하루에 슬롯에 태울 큐레이션 문법 카드 수. 568개면 한 바퀴 약 57일.
+  GRAMMAR_PER_DAY: (() => {
+    const v = parseInt(process.env.GRAMMAR_PER_DAY ?? "", 10);
+    return Number.isFinite(v) && v > 0 ? v : 10;
+  })(),
 };
 
 // ---------- 일본 공휴일 판정 ----------
@@ -137,6 +154,8 @@ async function resolveHoliday(dateStr) {
 const STATE_FILE = "n1-state.json";
 const TODAY_FILE = "n1-today.json";
 const WEAK_FILE = "n1-weak.json";   // 진단(self-check) 결과 — 있으면 gist GET 응답에서 같이 꺼낸다.
+const GRAMMAR_FILE = "n1-grammar.json";       // 큐레이션 문법 목록(일본어) — build-grammar.mjs 산출물.
+const GRAMMAR_KO_FILE = "n1-grammar-ko.json"; // 그 한국어 번역 — translate-grammar.mjs 산출물.
 const GH = "https://api.github.com/gists/" + cfg.GIST_ID;
 
 function die(msg) {
@@ -160,7 +179,7 @@ async function gistGet() {
   }
   const meta = await res.json();
   const out = {};
-  for (const name of [STATE_FILE, TODAY_FILE, WEAK_FILE]) {
+  for (const name of [STATE_FILE, TODAY_FILE, WEAK_FILE, GRAMMAR_FILE, GRAMMAR_KO_FILE]) {
     const f = meta.files && meta.files[name];
     if (!f) { out[name] = null; continue; }
     out[name] = f.truncated && f.raw_url
@@ -197,6 +216,7 @@ function freshState() {
   s.progressIndex = Number.isFinite(p) && p >= 0 ? p : 0;
   s.history = [];
   s.pending = [];
+  s.grammarIndex = 0;
   return s;
 }
 
@@ -212,6 +232,7 @@ function normalizeState(raw) {
   if (typeof s.progressIndex !== "number") s.progressIndex = 0;
   if (typeof s.cycle !== "number") s.cycle = 1;
   if (typeof s.kanjiRepCount !== "number") s.kanjiRepCount = 0;
+  if (!Number.isInteger(s.grammarIndex) || s.grammarIndex < 0) s.grammarIndex = 0;
   return s;
 }
 
@@ -427,6 +448,118 @@ async function composeWeakSlot(c, s, slotISO, idSuffix, leaf) {
   return entry;
 }
 
+// ================= 큐레이션 문법 배관 =================
+// 문법 알림 슬롯의 내용은 AI 가 아니라 이미 Gist 에 구축해 둔 목록에서 온다:
+//   · n1-grammar.json     { version, source, counts, items:[{ id:"N1-001", level, title,
+//                           formation, short, examples:[{jp,en},{jp,en}] }] }
+//   · n1-grammar-ko.json  { version, model, items:{ "N1-001": { formation_ko, short_ko,
+//                           ex_ko:[문자열,문자열] } } }
+// 두 파일을 id 로 조인해 "카드" 목록을 만든다. 한국어(ko)가 없는 항목은 제외.
+// 상태의 grammarIndex 가 매일 GRAMMAR_PER_DAY(기본 10)개씩 전진하고, 끝에서 0 으로 순환.
+// ⚠️ AI 호출이 아니므로 주말·공휴일(PAUSE_NEW)에도 그대로 채운다.
+
+const grammarStats = {
+  enabled: false, total: 0, withKo: 0,
+  startIndex: 0, nextIndex: 0, perDay: 0, cards: [],
+};
+
+// GRAMMAR_FIXTURE / GRAMMAR_KO_FIXTURE(테스트) → gist GET 응답 → null.
+// 반환: { cards:[{ id, level, title, formationKo, shortKo, exJp, exKo }], total, withKo } | null
+function loadGrammarCards(remoteFiles) {
+  const fs = require("node:fs");
+  let jaRaw = null, koRaw = null;
+  if (process.env.GRAMMAR_FIXTURE || process.env.GRAMMAR_KO_FIXTURE) {
+    try {
+      jaRaw = fs.readFileSync(process.env.GRAMMAR_FIXTURE, "utf8");
+      koRaw = fs.readFileSync(process.env.GRAMMAR_KO_FIXTURE, "utf8");
+    } catch (e) {
+      console.warn(`  · GRAMMAR_FIXTURE 읽기 실패 (${e.message}) → 문법 기능 비활성`);
+      return null;
+    }
+  } else {
+    jaRaw = remoteFiles && remoteFiles[GRAMMAR_FILE];
+    koRaw = remoteFiles && remoteFiles[GRAMMAR_KO_FILE];
+  }
+  if (!jaRaw || !String(jaRaw).trim() || !koRaw || !String(koRaw).trim()) {
+    console.warn(`  · ${GRAMMAR_FILE}/${GRAMMAR_KO_FILE} 중 하나 이상 없음 → 문법 슬롯은 단어로 폴백`);
+    return null;
+  }
+
+  let ja, ko;
+  try { ja = JSON.parse(jaRaw); ko = JSON.parse(koRaw); }
+  catch (e) { console.warn(`  · 문법 파일 파싱 실패 (${e.message}) → 문법 기능 비활성`); return null; }
+
+  const items = ja && Array.isArray(ja.items) ? ja.items : null;
+  const koItems = ko && ko.items && typeof ko.items === "object" ? ko.items : null;
+  if (!items || !koItems) { console.warn("  · 문법 파일 구조가 예상과 다름 → 문법 기능 비활성"); return null; }
+
+  const cards = [];
+  for (const it of items) {
+    if (!it || typeof it.id !== "string" || !it.id) continue;
+    const k = koItems[it.id];
+    if (!k) continue;
+    const formationKo = typeof k.formation_ko === "string" ? k.formation_ko.trim() : "";
+    const shortKo = typeof k.short_ko === "string" ? k.short_ko.trim() : "";
+    const exKoArr = Array.isArray(k.ex_ko) ? k.ex_ko : [];
+    if (!formationKo || !shortKo) continue;   // ko 가 반쪽이면 제외
+    const exJp = Array.isArray(it.examples) && it.examples[0] && typeof it.examples[0].jp === "string"
+      ? it.examples[0].jp.trim() : "";
+    const exKo = typeof exKoArr[0] === "string" ? exKoArr[0].trim() : "";
+    cards.push({
+      id: it.id,
+      level: typeof it.level === "string" ? it.level : "",
+      title: (typeof it.title === "string" ? it.title.trim() : "") || it.id,
+      formationKo, shortKo, exJp, exKo,
+    });
+  }
+  if (!cards.length) { console.warn("  · ko 가 붙은 문법 항목이 하나도 없음 → 문법 기능 비활성"); return null; }
+  return { cards, total: items.length, withKo: cards.length };
+}
+
+// 카드 → 슬롯 필드. 폰 day() 와 윈도우 스크립트가 grammarTitle/grammarBody 를 그대로 띄운다.
+function grammarTitleFor(card) {
+  return "[문법] " + card.title;
+}
+// 문형(한국어) · 뜻(한국어) · (빈 줄) · 예문 일본어 · 예문 한국어. 예문이 없으면 그 줄만 생략.
+function grammarBodyFor(card) {
+  const lines = [card.formationKo, card.shortKo];
+  if (card.exJp || card.exKo) {
+    lines.push("");
+    if (card.exJp) lines.push(card.exJp);
+    if (card.exKo) lines.push(card.exKo);
+  }
+  return lines.join("\n");
+}
+
+// 그날치 문법 카드를 슬롯들에 라운드로빈으로 배정하고 grammarIndex 를 전진시킨다.
+// grammarLoad 가 null 이면(파일 없음) 아무것도 안 하고 슬롯 grammar 필드는 planDay 가
+// 넣어둔 null 그대로 → 폰/윈도우가 그 슬롯을 단어 알림으로 폴백.
+function applyGrammarToSlots(slots, s, grammarLoad) {
+  if (!grammarLoad) return { enabled: false };
+  const N = grammarLoad.cards.length;
+  const per = Math.min(cfg.GRAMMAR_PER_DAY, N);
+  const start = Number.isInteger(s.grammarIndex) && s.grammarIndex >= 0 ? s.grammarIndex % N : 0;
+  const todayCards = [];
+  for (let i = 0; i < per; i++) todayCards.push(grammarLoad.cards[(start + i) % N]);
+
+  for (let i = 0; i < slots.length; i++) {
+    const card = todayCards[i % per];
+    slots[i].grammarTitle = grammarTitleFor(card);
+    slots[i].grammarBody = grammarBodyFor(card);
+  }
+
+  s.grammarIndex = (start + per) % N;
+
+  grammarStats.enabled = true;
+  grammarStats.total = grammarLoad.total;
+  grammarStats.withKo = grammarLoad.withKo;
+  grammarStats.startIndex = start;
+  grammarStats.nextIndex = s.grammarIndex;
+  grammarStats.perDay = per;
+  grammarStats.cards = todayCards;
+  return { enabled: true, start, next: s.grammarIndex, per, total: grammarLoad.withKo };
+}
+
 // ---------- 메인 ----------
 async function main() {
   const today = BASE_DATE;   // 평소엔 n1.dateJST(). FORCE_DATE 로 임의 날짜 주입 가능.
@@ -513,6 +646,11 @@ async function main() {
 
   const slots = n1.sortSlots(planned.plan);
 
+  // ---- 2b) 큐레이션 문법을 슬롯에 채움 (AI 아님 — 주말·공휴일에도 실행) ----
+  // sortSlots() 는 grammarTitle/grammarBody 필드를 보존하므로 그 뒤에 덮어써야 한다.
+  const grammarLoad = loadGrammarCards(remoteFiles);
+  applyGrammarToSlots(slots, s, grammarLoad);
+
   // ---- 요약 ----
   const uniqNew = [...new Set(newKanji)];
   console.log("");
@@ -523,6 +661,15 @@ async function main() {
   console.log(`복습          ${planned.reviewCount}칸`);
   console.log(`API 호출      ${stats.apiCalls}회  · 실패(시도) ${stats.apiFails}회  · 복습으로 대체된 칸 ${stats.fallbackSlots}`);
   console.log(`전진 후 진도  progressIndex ${s.progressIndex} / ${s.kanjiList.length} · cycle ${s.cycle}`);
+  if (grammarStats.enabled) {
+    console.log(
+      `문법          ${grammarStats.perDay}개 (인덱스 ${grammarStats.startIndex}→${grammarStats.nextIndex}` +
+      ` / 전체 ${grammarStats.withKo})` +
+      (grammarStats.withKo !== grammarStats.total ? `  · ko 없는 ${grammarStats.total - grammarStats.withKo}개 제외` : "")
+    );
+  } else {
+    console.log(`문법          목록 없음 — grammar 슬롯은 단어 알림으로 폴백`);
+  }
   if (weakStats.enabled) {
     const remain = Math.max(0, s.weakQueue.length - s.weakIndex);
     const sampleStr = weakStats.samples.map((x) => `${x.k}${x.r}`).join(" ");
@@ -548,6 +695,17 @@ async function main() {
       }
       console.log(`\n[dry-run] 약점 상태 커서: weakIndex ${s.weakIndex} / ${s.weakQueue.length} · weakRepCount ${s.weakRepCount}`);
     }
+    if (grammarStats.enabled) {
+      console.log(`\n[dry-run] 문법: 이번 ${grammarStats.perDay}개 · grammarIndex ${grammarStats.startIndex}→${grammarStats.nextIndex} / ${grammarStats.withKo}`);
+      console.log(`[dry-run] 그날 문법 카드: ${grammarStats.cards.map((c) => `${c.id}(${c.title})`).join(", ")}`);
+      const withGrammar = slots.filter((sl) => sl.grammarTitle && sl.grammarBody);
+      console.log(`[dry-run] grammar 채워진 슬롯 ${withGrammar.length}/${slots.length}칸. 실제 슬롯 샘플 2개:`);
+      for (const sl of withGrammar.slice(0, 2)) {
+        console.log(`   ── ${sl.key} ─────────────`);
+        console.log(`   grammarTitle: ${sl.grammarTitle}`);
+        console.log(String(sl.grammarBody).split("\n").map((l) => `   grammarBody | ${l}`).join("\n"));
+      }
+    }
     console.log("\n[dry-run] PATCH 하지 않고 종료.");
     return;
   }
@@ -568,7 +726,10 @@ async function main() {
 
   // ---- 5) 상태 업로드 ----
   await gistPatch({ [STATE_FILE]: JSON.stringify(s) });
-  console.log(`✓ ${STATE_FILE} 업로드 · progressIndex ${s.progressIndex}`);
+  console.log(
+    `✓ ${STATE_FILE} 업로드 · progressIndex ${s.progressIndex}` +
+    (grammarStats.enabled ? ` · grammarIndex ${s.grammarIndex}` : "")
+  );
 
   console.log("\n완료.");
 }
