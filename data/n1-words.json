@@ -1,1 +1,369 @@
-
+{
+  "generatedAt": "2026-09-09T07:49:41.712Z",
+  "count": 45,
+  "totalCount": 2699,
+  "done": false,
+  "failedWords": [],
+  "words": [
+    {
+      "word": "現像",
+      "reading": "げんぞう",
+      "meaningKR": "필름 현상",
+      "sentenceJP": "フィルムを暗室で現像する。",
+      "sentenceReading": "ふぃるむをあんしつでげんぞうする。",
+      "sentenceKR": "필름을 암실에서 현상한다."
+    },
+    {
+      "word": "原則",
+      "reading": "げんそく",
+      "meaningKR": "원칙, 일반 원칙",
+      "sentenceJP": "原則として返金はできません。",
+      "sentenceReading": "げんそくとしてへんきんはできません。",
+      "sentenceKR": "원칙적으로 환불은 불가능합니다."
+    },
+    {
+      "word": "見地",
+      "reading": "けんち",
+      "meaningKR": "관점, 견지",
+      "sentenceJP": "長期的な見地から判断する。",
+      "sentenceReading": "ちょうきてきなけんちからはんだんする。",
+      "sentenceKR": "장기적인 관점에서 판단한다."
+    },
+    {
+      "word": "現地",
+      "reading": "げんち",
+      "meaningKR": "현지, 실제 장소",
+      "sentenceJP": "現地で担当者と合流した。",
+      "sentenceReading": "げんちでたんとうしゃとごうりゅうした。",
+      "sentenceKR": "현지에서 담당자와 합류했다."
+    },
+    {
+      "word": "限定",
+      "reading": "げんてい",
+      "meaningKR": "한정, 제한",
+      "sentenceJP": "会員限定の商品を販売する。",
+      "sentenceReading": "かいいんげんていのしょうひんをはんばいする。",
+      "sentenceKR": "회원 한정 상품을 판매한다."
+    },
+    {
+      "word": "原点",
+      "reading": "げんてん",
+      "meaningKR": "원점, 출발점",
+      "sentenceJP": "初心に戻り、原点を見つめ直す。",
+      "sentenceReading": "しょしんにもどり、げんてんをみつめなおす。",
+      "sentenceKR": "초심으로 돌아가 원점을 되돌아본다."
+    },
+    {
+      "word": "原典",
+      "reading": "げんてん",
+      "meaningKR": "원전, 원자료",
+      "sentenceJP": "原典に当たって意味を確認する。",
+      "sentenceReading": "げんてんにあたっていみをかくにんする。",
+      "sentenceKR": "원전을 찾아 의미를 확인한다."
+    },
+    {
+      "word": "原爆",
+      "reading": "げんばく",
+      "meaningKR": "원자폭탄",
+      "sentenceJP": "原爆の悲惨さを後世に伝える。",
+      "sentenceReading": "げんばくのひさんさをこうせいにつたえる。",
+      "sentenceKR": "원자폭탄의 참상을 후세에 전한다."
+    },
+    {
+      "word": "原文",
+      "reading": "げんぶん",
+      "meaningKR": "원문",
+      "sentenceJP": "原文と翻訳を照らし合わせる。",
+      "sentenceReading": "げんぶんとほんやくをてらしあわせる。",
+      "sentenceKR": "원문과 번역을 대조한다."
+    },
+    {
+      "word": "厳密",
+      "reading": "げんみつ",
+      "meaningKR": "엄밀함, 정확함",
+      "sentenceJP": "厳密な審査が必要だ。",
+      "sentenceReading": "げんみつなしんさがひつようだ。",
+      "sentenceKR": "엄밀한 심사가 필요하다."
+    },
+    {
+      "word": "賢明",
+      "reading": "けんめい",
+      "meaningKR": "현명함, 신중함",
+      "sentenceJP": "今は撤退するのが賢明だ。",
+      "sentenceReading": "いまはてったいするのがけんめいだ。",
+      "sentenceKR": "지금은 철수하는 것이 현명하다."
+    },
+    {
+      "word": "倹約",
+      "reading": "けんやく",
+      "meaningKR": "절약, 검약",
+      "sentenceJP": "倹約して老後に備える。",
+      "sentenceReading": "けんやくしてろうごにそなえる。",
+      "sentenceKR": "절약해서 노후에 대비한다."
+    },
+    {
+      "word": "原油",
+      "reading": "げんゆ",
+      "meaningKR": "원유",
+      "sentenceJP": "原油価格が再び上昇した。",
+      "sentenceReading": "げんゆかかくがふたたびじょうしょうした。",
+      "sentenceKR": "원유 가격이 다시 상승했다."
+    },
+    {
+      "word": "兼用",
+      "reading": "けんよう",
+      "meaningKR": "겸용",
+      "sentenceJP": "この部屋を寝室と書斎に兼用する。",
+      "sentenceReading": "このへやをしんしつとしょさいにけんようする。",
+      "sentenceKR": "이 방을 침실과 서재로 겸용한다."
+    },
+    {
+      "word": "権力",
+      "reading": "けんりょく",
+      "meaningKR": "권력, 권한",
+      "sentenceJP": "権力を乱用してはならない。",
+      "sentenceReading": "けんりょくをらんようしてはならない。",
+      "sentenceKR": "권력을 남용해서는 안 된다."
+    },
+    {
+      "word": "言論",
+      "reading": "げんろん",
+      "meaningKR": "언론, 발언",
+      "sentenceJP": "言論の自由は民主主義の柱だ。",
+      "sentenceReading": "げんろんのじゆうはみんしゅしゅぎのはしらだ。",
+      "sentenceKR": "언론의 자유는 민주주의의 기둥이다."
+    },
+    {
+      "word": "故～",
+      "reading": "こ～",
+      "meaningKR": "고(故), 작고한",
+      "sentenceJP": "故田中氏をしのぶ会が開かれた。",
+      "sentenceReading": "こたなかしをしのぶかいがひらかれた。",
+      "sentenceKR": "고 다나카 씨를 추모하는 모임이 열렸다."
+    },
+    {
+      "word": "語彙",
+      "reading": "ごい",
+      "meaningKR": "어휘",
+      "sentenceJP": "専門用語の語彙を増やしたい。",
+      "sentenceReading": "せんもんようごのごいをふやしたい。",
+      "sentenceKR": "전문 용어 어휘를 늘리고 싶다."
+    },
+    {
+      "word": "恋する",
+      "reading": "こいする",
+      "meaningKR": "사랑하다, 사랑에 빠지다",
+      "sentenceJP": "人は誰かに恋すると強くなる。",
+      "sentenceReading": "ひとはだれかにこいするとつよくなる。",
+      "sentenceKR": "사람은 누군가를 사랑하면 강해진다."
+    },
+    {
+      "word": "甲",
+      "reading": "こう",
+      "meaningKR": "갑, 1등급; 껍질",
+      "sentenceJP": "この答案は甲と評価された。",
+      "sentenceReading": "このとうあんはこうとひょうかされた。",
+      "sentenceKR": "이 답안은 갑으로 평가받았다."
+    },
+    {
+      "word": "～光",
+      "reading": "～こう",
+      "meaningKR": "빛, 광",
+      "sentenceJP": "月光が静かな湖面を照らした。",
+      "sentenceReading": "げっこうがしずかなこめんをてらした。",
+      "sentenceKR": "달빛이 고요한 호수 표면을 비추었다."
+    },
+    {
+      "word": "好意",
+      "reading": "こうい",
+      "meaningKR": "호의, 친절",
+      "sentenceJP": "彼の好意を素直に受け取った。",
+      "sentenceReading": "かれのこういをすなおにうけとった。",
+      "sentenceKR": "그의 호의를 순순히 받아들였다."
+    },
+    {
+      "word": "行為",
+      "reading": "こうい",
+      "meaningKR": "행위, 행동",
+      "sentenceJP": "迷惑行為はおやめください。",
+      "sentenceReading": "めいわくこういはおやめください。",
+      "sentenceKR": "민폐 행위는 삼가 주십시오."
+    },
+    {
+      "word": "合意",
+      "reading": "ごうい",
+      "meaningKR": "합의, 동의",
+      "sentenceJP": "両社は新たな条件で合意した。",
+      "sentenceReading": "りょうしゃはあらたなじょうけんでごういした。",
+      "sentenceKR": "양사는 새로운 조건에 합의했다."
+    },
+    {
+      "word": "工学",
+      "reading": "こうがく",
+      "meaningKR": "공학",
+      "sentenceJP": "大学で機械工学を学んでいる。",
+      "sentenceReading": "だいがくできかいこうがくをまなんでいる。",
+      "sentenceKR": "대학에서 기계공학을 배우고 있다."
+    },
+    {
+      "word": "抗議",
+      "reading": "こうぎ",
+      "meaningKR": "항의, 이의 제기",
+      "sentenceJP": "判定に対して強く抗議した。",
+      "sentenceReading": "はんていにたいしてつよくこうぎした。",
+      "sentenceKR": "판정에 대해 강하게 항의했다."
+    },
+    {
+      "word": "合議",
+      "reading": "ごうぎ",
+      "meaningKR": "협의, 합의",
+      "sentenceJP": "重要事項は合議で決定する。",
+      "sentenceReading": "じゅうようじこうはごうぎでけっていする。",
+      "sentenceKR": "중요 사항은 협의를 통해 결정한다."
+    },
+    {
+      "word": "皇居",
+      "reading": "こうきょ",
+      "meaningKR": "일본 황궁",
+      "sentenceJP": "皇居の周辺を朝に散歩した。",
+      "sentenceReading": "こうきょのしゅうへんをあさにさんぽした。",
+      "sentenceKR": "아침에 황궁 주변을 산책했다."
+    },
+    {
+      "word": "好況",
+      "reading": "こうきょう",
+      "meaningKR": "호황, 경기 호조",
+      "sentenceJP": "好況で求人が大幅に増えた。",
+      "sentenceReading": "こうきょうできゅうじんがおおはばにふえた。",
+      "sentenceKR": "호황으로 구인 건수가 크게 늘었다."
+    },
+    {
+      "word": "鉱業",
+      "reading": "こうぎょう",
+      "meaningKR": "광업",
+      "sentenceJP": "この町は鉱業で発展した。",
+      "sentenceReading": "このまちはこうぎょうではってんした。",
+      "sentenceKR": "이 도시는 광업으로 발전했다."
+    },
+    {
+      "word": "興業",
+      "reading": "こうぎょう",
+      "meaningKR": "사업 창업·산업 진흥",
+      "sentenceJP": "政府は地域の興業を奨励した。",
+      "sentenceReading": "せいふはちいきのこうぎょうをしょうれいした。",
+      "sentenceKR": "정부는 지역의 산업 진흥을 장려했다."
+    },
+    {
+      "word": "高原",
+      "reading": "こうげん",
+      "meaningKR": "고원",
+      "sentenceJP": "夏の高原で涼しい風に吹かれた。",
+      "sentenceReading": "なつのこうげんですずしいかぜにふかれた。",
+      "sentenceKR": "여름 고원에서 시원한 바람을 맞았다."
+    },
+    {
+      "word": "交互",
+      "reading": "こうご",
+      "meaningKR": "교대로, 번갈아",
+      "sentenceJP": "二人は交互に車を運転した。",
+      "sentenceReading": "ふたりはこうごにくるまをうんてんした。",
+      "sentenceKR": "두 사람은 번갈아 차를 운전했다."
+    },
+    {
+      "word": "煌々と",
+      "reading": "こうこうと",
+      "meaningKR": "환하게, 밝게",
+      "sentenceJP": "満月が煌々と夜空を照らす。",
+      "sentenceReading": "まんげつがこうこうとよぞらをてらす。",
+      "sentenceKR": "보름달이 환하게 밤하늘을 비춘다."
+    },
+    {
+      "word": "考古学",
+      "reading": "こうこがく",
+      "meaningKR": "고고학",
+      "sentenceJP": "彼女は大学で考古学を学んでいる。",
+      "sentenceReading": "かのじょはだいがくでこうこがくをまなんでいる。",
+      "sentenceKR": "그녀는 대학에서 고고학을 배우고 있다."
+    },
+    {
+      "word": "工作",
+      "reading": "こうさく",
+      "meaningKR": "수공예·책략",
+      "sentenceJP": "子供たちは木材で工作を楽しんだ。",
+      "sentenceReading": "こどもたちはもくざいでこうさくをたのしんだ。",
+      "sentenceKR": "아이들은 목재로 공작을 즐겼다."
+    },
+    {
+      "word": "耕作",
+      "reading": "こうさく",
+      "meaningKR": "경작, 농사",
+      "sentenceJP": "この地域では稲の耕作が盛んだ。",
+      "sentenceReading": "このちいきではいねのこうさくがさかんだ。",
+      "sentenceKR": "이 지역에서는 벼농사가 활발하다."
+    },
+    {
+      "word": "鉱山",
+      "reading": "こうざん",
+      "meaningKR": "광산",
+      "sentenceJP": "その鉱山では今も金が採れる。",
+      "sentenceReading": "そのこうざんではいまもきんがとれる。",
+      "sentenceKR": "그 광산에서는 지금도 금이 난다."
+    },
+    {
+      "word": "講習",
+      "reading": "こうしゅう",
+      "meaningKR": "강습, 교육",
+      "sentenceJP": "安全講習を全員が受けた。",
+      "sentenceReading": "あんぜんこうしゅうをぜんいんがうけた。",
+      "sentenceKR": "전원이 안전 교육을 받았다."
+    },
+    {
+      "word": "口述",
+      "reading": "こうじゅつ",
+      "meaningKR": "구술",
+      "sentenceJP": "目撃した内容を口述した。",
+      "sentenceReading": "もくげきしたないようをこうじゅつした。",
+      "sentenceKR": "목격한 내용을 구술했다."
+    },
+    {
+      "word": "控除",
+      "reading": "こうじょ",
+      "meaningKR": "공제",
+      "sentenceJP": "医療費を所得から控除する。",
+      "sentenceReading": "いりょうひをしょとくからこうじょする。",
+      "sentenceKR": "의료비를 소득에서 공제한다."
+    },
+    {
+      "word": "交渉",
+      "reading": "こうしょう",
+      "meaningKR": "협상, 교섭",
+      "sentenceJP": "価格交渉は難航している。",
+      "sentenceReading": "かかくこうしょうはなんこうしている。",
+      "sentenceKR": "가격 협상이 난항을 겪고 있다."
+    },
+    {
+      "word": "高尚",
+      "reading": "こうしょう",
+      "meaningKR": "고상함, 품위 있음",
+      "sentenceJP": "彼の趣味は実に高尚だ。",
+      "sentenceReading": "かれのしゅみはじつにこうしょうだ。",
+      "sentenceKR": "그의 취미는 참으로 고상하다."
+    },
+    {
+      "word": "向上",
+      "reading": "こうじょう",
+      "meaningKR": "향상, 발전",
+      "sentenceJP": "練習で技術の向上を目指す。",
+      "sentenceReading": "れんしゅうでぎじゅつのこうじょうをめざす。",
+      "sentenceKR": "연습을 통해 기술 향상을 목표로 한다."
+    },
+    {
+      "word": "行進",
+      "reading": "こうしん",
+      "meaningKR": "행진, 퍼레이드",
+      "sentenceJP": "楽隊が大通りを行進した。",
+      "sentenceReading": "がくたいがおおどおりをこうしんした。",
+      "sentenceKR": "악대가 큰길을 행진했다."
+    }
+  ]
+}
