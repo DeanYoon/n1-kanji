@@ -1,0 +1,54 @@
+name: build-word-list
+
+# 1회성 데이터 생성 워크플로우 — jlpt-word-list N1 단어(2698개) 전체에 대해
+# "단어/읽기/뜻 + 예문/예문읽기/예문번역"을 한 번에 만들어 data/n1-words.json 으로 저장한다.
+# 매일 도는 배치가 아니다 — 수동(workflow_dispatch)으로만 실행.
+#
+# 예전의 translate-word-list.yml(뜻만 번역) + generate-day.yml(매일 조금씩 예문 생성) 구조를
+# 대체한다. iOS/Gist 기반 일일 배치는 더 이상 쓰지 않음 — 결과는 레포 안의 일반 파일로 고정.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "테스트용 — 앞에서부터 N개만 처리(0=전체 2698개)"
+        type: string
+        default: "0"
+      chunk_size:
+        description: "한 번의 OpenRouter 호출에 담을 단어 수"
+        type: string
+        default: "15"
+
+permissions:
+  contents: write   # data/n1-words.json 커밋·푸시에 필요
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      MODEL: openai/gpt-5.6-sol
+      LIMIT: ${{ inputs.limit }}
+      CHUNK_SIZE: ${{ inputs.chunk_size }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: build-word-list
+        run: node scripts/build-word-list.mjs
+
+      - name: commit changes
+        run: |
+          git config user.name "n1-kanji-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/n1-words.json
+          if git diff --cached --quiet; then
+            echo "변경 사항 없음 — 커밋 생략"
+          else
+            git commit -m "chore: N1 단어+예문 데이터 생성/갱신 (jlpt-word-list, 1회성)"
+            git push
+          fi
