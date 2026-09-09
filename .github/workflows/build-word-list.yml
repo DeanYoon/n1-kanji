@@ -1,23 +1,36 @@
 name: build-word-list
 
-# 1회성 데이터 생성 워크플로우 — jlpt-word-list N1 단어(2698개) 전체에 대해
-# "단어/읽기/뜻 + 예문/예문읽기/예문번역"을 한 번에 만들어 data/n1-words.json 으로 저장한다.
-# 매일 도는 배치가 아니다 — 수동(workflow_dispatch)으로만 실행.
+# 매일 오전 6시(KST)에 자동으로 도는 누적 생성 워크플로우 — jlpt-word-list N1 단어(2699개)를
+# 하루에 DAILY_COUNT(기본 45 = 15개씩 3청크)개씩만 처리해서 data/n1-words.json 에 계속
+# 이어붙인다(덮어쓰지 않음). 전체가 다 채워지면 그 이후로는 자동으로 API 호출 없이 종료.
 #
-# 예전의 translate-word-list.yml(뜻만 번역) + generate-day.yml(매일 조금씩 예문 생성) 구조를
-# 대체한다. iOS/Gist 기반 일일 배치는 더 이상 쓰지 않음 — 결과는 레포 안의 일반 파일로 고정.
+# cron 은 항상 UTC 기준. KST(UTC+9) 06:00 = 전날 21:00 UTC.
+#   환산: UTC + 9h = KST  /  KST - 9h = UTC
+# ⚠️ GitHub Actions 의 schedule 은 정확한 시각을 보장하지 않는다(러너 혼잡 시 수십 분 늦게
+#    뜰 수 있음) — 크게 문제 되는 스케줄은 아니라 별도 여유는 안 뒀음.
 
 on:
+  schedule:
+    - cron: "0 21 * * *"
   workflow_dispatch:
     inputs:
-      limit:
-        description: "테스트용 — 앞에서부터 N개만 처리(0=전체 2698개)"
+      daily_count:
+        description: "오늘 처리할 단어 수(기본 45 = 청크 크기의 배수 권장)"
         type: string
-        default: "0"
+        default: "45"
       chunk_size:
         description: "한 번의 OpenRouter 호출에 담을 단어 수"
         type: string
         default: "15"
+      limit:
+        description: "테스트용 — 오늘 배치를 이 개수로 강제 제한(0=daily_count 그대로)"
+        type: string
+        default: "0"
+
+# 스케줄 실행과 수동 실행이 겹쳐 data/n1-words.json 을 동시에 쓰는 일이 없도록 직렬화.
+concurrency:
+  group: build-word-list
+  cancel-in-progress: false
 
 permissions:
   contents: write   # data/n1-words.json 커밋·푸시에 필요
@@ -25,12 +38,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     env:
       OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
       MODEL: openai/gpt-5.6-sol
-      LIMIT: ${{ inputs.limit }}
-      CHUNK_SIZE: ${{ inputs.chunk_size }}
+      DAILY_COUNT: ${{ inputs.daily_count || '45' }}
+      CHUNK_SIZE: ${{ inputs.chunk_size || '15' }}
+      LIMIT: ${{ inputs.limit || '0' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -49,6 +63,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "변경 사항 없음 — 커밋 생략"
           else
-            git commit -m "chore: N1 단어+예문 데이터 생성/갱신 (jlpt-word-list, 1회성)"
+            git commit -m "chore: N1 단어+예문 데이터 누적 생성 (자동, jlpt-word-list)"
             git push
           fi
