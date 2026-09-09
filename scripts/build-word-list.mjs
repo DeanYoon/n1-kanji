@@ -1,8 +1,10 @@
 #!/usr/bin/env node
-// ===== N1 단어 학습 데이터 · 1회성 생성기 =====
-// 기존의 "706자 한자 커리큘럼 + 매일 클라우드가 조금씩 새 예문 생성" 구조를 버리고,
-// jlpt-word-list 의 N1 단어(2698개) 전체에 대해 예문까지 한 번에 다 만들어서 고정 파일로
-// 저장한다. 이후로는 매일 도는 배치가 필요 없다 — 이 스크립트를 한 번만 실행하면 끝.
+// ===== N1 단어 학습 데이터 · 매일 조금씩 누적 생성기 =====
+// jlpt-word-list 의 N1 단어(2699개)를 한 번에 다 만들지 않고, 매일 정해진 개수(DAILY_COUNT,
+// 기본 45개 = 15개씩 3청크)만큼만 이어서 생성해 data/n1-words.json 에 계속 누적한다.
+// 이미 처리된 단어 수(=기존 파일의 words.length)만큼 CSV 순서에서 건너뛰고, 그다음부터
+// DAILY_COUNT개를 처리 — 그래서 매일 실행해도 중복 생성/재청구가 없다. 전체를 다 처리하고
+// 나면(진행분 >= 전체 단어 수) API 호출 없이 조용히 종료한다.
 //
 // 결과 필드(요청받은 것만 — 그 외 필드 없음):
 //   word          단어 원문(일본어)
@@ -12,23 +14,27 @@
 //   sentenceReading  예문 전체 읽기(히라가나)
 //   sentenceKR    예문 한국어 번역
 //
-// 하는 일:
+// 하는 일 (매 실행마다):
 //   1) https://raw.githubusercontent.com/elzup/jlpt-word-list/master/src/n1.csv 다운로드
-//   2) 단어를 CHUNK_SIZE(기본 15)개씩 묶어 OpenRouter에 "뜻 번역 + 예문 생성"을 한 번에 요청
-//   3) 실패한 청크는 최대 3회 재시도, 그래도 실패하면 그 단어들은 sentence 관련 필드를
-//      null로 남기고 failedWords 목록에 기록 — 스크립트 전체를 죽이지 않고 계속 진행
-//   4) data/n1-words.json 에 최종 결과 저장 (배열 + 메타데이터)
+//   2) 기존 data/n1-words.json 을 읽어 이미 처리된 개수(processedCount)를 파악
+//   3) CSV에서 그다음 DAILY_COUNT개만 잘라내 CHUNK_SIZE(기본 15)개씩 묶어 OpenRouter에
+//      "뜻 번역 + 예문 생성" 요청
+//   4) 실패한 청크는 최대 3회 재시도, 그래도 실패하면 sentence 관련 필드를 null로 남기고
+//      failedWords 목록에 기록 — 스크립트 전체를 죽이지 않고 계속 진행
+//   5) 기존 결과 뒤에 이어붙여서 data/n1-words.json 저장 (덮어쓰기 아니라 append)
 //
 // 환경변수:
-//   OPENROUTER_KEY   (필수)
+//   OPENROUTER_KEY   (필수 — 오늘 처리할 게 없으면 안 쓰여도 무방)
 //   MODEL            기본 openai/gpt-5.6-sol
 //   CHUNK_SIZE       기본 15 (한 번의 OpenRouter 호출에 담을 단어 수)
-//   LIMIT            테스트용 — 앞에서부터 N개만 처리(전체 2698개 다 안 돌리고 싶을 때)
+//   DAILY_COUNT      기본 45 (오늘 하루에 새로 처리할 단어 수 = CHUNK_SIZE의 배수 권장)
+//   LIMIT            테스트용 — 오늘 배치를 N개로 강제 제한(0=DAILY_COUNT 그대로 사용)
 
 const SOURCE_CSV_URL = "https://raw.githubusercontent.com/elzup/jlpt-word-list/master/src/n1.csv";
 const MODEL = process.env.MODEL || "openai/gpt-5.6-sol";
 const OPENROUTER_KEY = process.env.OPENROUTER_KEY || "";
 const CHUNK_SIZE = parseInt(process.env.CHUNK_SIZE || "15", 10);
+const DAILY_COUNT = parseInt(process.env.DAILY_COUNT || "45", 10);
 const LIMIT = process.env.LIMIT ? parseInt(process.env.LIMIT, 10) : 0;
 
 const fs = await import("node:fs/promises");
@@ -95,7 +101,17 @@ async function fetchWordList() {
       meaningEN: (r[idx.meaning] || "").trim(),
     });
   }
-  return LIMIT > 0 ? words.slice(0, LIMIT) : words;
+  return words;   // 전체 목록 그대로 반환 — 오늘 처리분 자르기는 main()에서 진행 상황 보고 결정
+}
+
+// ---------- 기존 진행 상황 읽기 ----------
+async function loadExisting() {
+  try {
+    const raw = await fs.readFile(OUT_JSON_PATH, "utf8");
+    const parsed = JSON.parse(raw);
+    if (parsed && Array.isArray(parsed.words)) return parsed;
+  } catch (e) { /* 파일 없음/손상 — 처음부터 시작 */ }
+  return { words: [], failedWords: [] };
 }
 
 // ---------- 2) 청크 단위로 "뜻 번역 + 예문 생성" 동시 요청 ----------
@@ -191,27 +207,50 @@ async function buildAll(words) {
 
 // ---------- 메인 ----------
 async function main() {
+  console.log("1) CSV 다운로드: " + SOURCE_CSV_URL);
+  const allWords = await fetchWordList();
+  console.log(`   전체 ${allWords.length}개 단어`);
+
+  const existing = await loadExisting();
+  const processedCount = existing.words.length;
+  console.log(`2) 기존 진행 상황: ${processedCount}/${allWords.length}개 이미 처리됨`);
+
+  if (processedCount >= allWords.length) {
+    console.log("   → 이미 전부 완료됨. 오늘은 API 호출 없이 종료합니다.");
+    return;
+  }
+
+  const todayCount = LIMIT > 0 ? LIMIT : DAILY_COUNT;
+  const todayWords = allWords.slice(processedCount, processedCount + todayCount);
+  console.log(`3) 오늘 처리분: ${todayWords.length}개 (${processedCount}~${processedCount + todayWords.length - 1}번째)`);
+
   if (!OPENROUTER_KEY) die("OPENROUTER_KEY 환경변수가 없습니다.");
 
-  console.log("1) CSV 다운로드: " + SOURCE_CSV_URL);
-  const words = await fetchWordList();
-  console.log(`   ${words.length}개 단어 파싱됨` + (LIMIT > 0 ? ` (LIMIT=${LIMIT} 적용)` : ""));
+  console.log(`4) 단어+예문 생성 시작 (청크 크기 ${CHUNK_SIZE}, 총 ${Math.ceil(todayWords.length / CHUNK_SIZE)}청크)`);
+  const { result, failedWords } = await buildAll(todayWords);
 
-  console.log(`2) 단어+예문 생성 시작 (청크 크기 ${CHUNK_SIZE}, 총 ${Math.ceil(words.length / CHUNK_SIZE)}청크)`);
-  const { result, failedWords } = await buildAll(words);
+  const mergedWords = existing.words.concat(result);
+  const mergedFailed = (existing.failedWords || []).concat(failedWords);
 
-  console.log("3) data/n1-words.json 저장");
+  console.log("5) data/n1-words.json 저장 (기존 뒤에 이어붙임)");
   await fs.mkdir(path.dirname(OUT_JSON_PATH), { recursive: true });
   await fs.writeFile(
     OUT_JSON_PATH,
-    JSON.stringify({ generatedAt: new Date().toISOString(), count: result.length, failedWords, words: result }, null, 2),
+    JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      count: mergedWords.length,
+      totalCount: allWords.length,
+      done: mergedWords.length >= allWords.length,
+      failedWords: mergedFailed,
+      words: mergedWords,
+    }, null, 2),
     "utf8"
   );
 
   console.log("");
   console.log("── 완료 ──────────────────────────────");
-  console.log(`총 단어      ${result.length}개`);
-  console.log(`생성 실패    ${failedWords.length}개` + (failedWords.length ? `: ${failedWords.slice(0, 20).join(", ")}${failedWords.length > 20 ? " ..." : ""}` : ""));
+  console.log(`오늘 처리    ${result.length}개 (실패 ${failedWords.length}개)`);
+  console.log(`누적 진행    ${mergedWords.length}/${allWords.length}개`);
   console.log("data/n1-words.json 갱신됨 — 워크플로우가 커밋합니다.");
   console.log("──────────────────────────────────────");
 }
