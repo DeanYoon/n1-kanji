@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T07:49:41.712Z",
-  "count": 45,
+  "generatedAt": "2026-09-09T22:50:42.662Z",
+  "count": 90,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -364,6 +364,366 @@
       "sentenceJP": "楽隊が大通りを行進した。",
       "sentenceReading": "がくたいがおおどおりをこうしんした。",
       "sentenceKR": "악대가 큰길을 행진했다."
+    },
+    {
+      "word": "香辛料",
+      "reading": "こうしんりょう",
+      "meaningKR": "향신료",
+      "sentenceJP": "香辛料を加えて香りを出す。",
+      "sentenceReading": "こうしんりょうをくわえてかおりをだす。",
+      "sentenceKR": "향신료를 넣어 향을 낸다."
+    },
+    {
+      "word": "降水",
+      "reading": "こうすい",
+      "meaningKR": "강수, 강우",
+      "sentenceJP": "午後は降水が予想される。",
+      "sentenceReading": "ごごはこうすいがよそうされる。",
+      "sentenceKR": "오후에는 강수가 예상된다."
+    },
+    {
+      "word": "洪水",
+      "reading": "こうずい",
+      "meaningKR": "홍수",
+      "sentenceJP": "豪雨で洪水が発生した。",
+      "sentenceReading": "ごううでこうずいがはっせいした。",
+      "sentenceKR": "폭우로 홍수가 발생했다."
+    },
+    {
+      "word": "合成",
+      "reading": "ごうせい",
+      "meaningKR": "합성, 혼합",
+      "sentenceJP": "この容器は合成樹脂製だ。",
+      "sentenceReading": "このようきはごうせいじゅしせいだ。",
+      "sentenceKR": "이 용기는 합성수지로 만들어졌다."
+    },
+    {
+      "word": "公然",
+      "reading": "こうぜん",
+      "meaningKR": "공공연히, 드러내 놓고",
+      "sentenceJP": "彼は公然と規則を批判した。",
+      "sentenceReading": "かれはこうぜんときそくをひはんした。",
+      "sentenceKR": "그는 공공연히 규칙을 비판했다."
+    },
+    {
+      "word": "抗争",
+      "reading": "こうそう",
+      "meaningKR": "항쟁, 대립",
+      "sentenceJP": "両派の抗争が激化した。",
+      "sentenceReading": "りょうはのこうそうがげきかした。",
+      "sentenceKR": "양측의 항쟁이 격화되었다."
+    },
+    {
+      "word": "構想",
+      "reading": "こうそう",
+      "meaningKR": "구상, 계획",
+      "sentenceJP": "新事業の構想を練っている。",
+      "sentenceReading": "しんじぎょうのこうそうをねっている。",
+      "sentenceKR": "새 사업의 구상을 다듬고 있다."
+    },
+    {
+      "word": "後退",
+      "reading": "こうたい",
+      "meaningKR": "후퇴, 퇴보",
+      "sentenceJP": "景気が再び後退し始めた。",
+      "sentenceReading": "けいきがふたたびこうたいしはじめた。",
+      "sentenceKR": "경기가 다시 후퇴하기 시작했다."
+    },
+    {
+      "word": "光沢",
+      "reading": "こうたく",
+      "meaningKR": "광택, 윤기",
+      "sentenceJP": "真珠の美しい光沢が目を引く。",
+      "sentenceReading": "しんじゅのうつくしいこうたくがめをひく。",
+      "sentenceKR": "진주의 아름다운 광택이 눈길을 끈다."
+    },
+    {
+      "word": "公団",
+      "reading": "こうだん",
+      "meaningKR": "공단, 공공기관",
+      "sentenceJP": "住宅公団が団地を建設した。",
+      "sentenceReading": "じゅうたくこうだんがだんちをけんせつした。",
+      "sentenceKR": "주택 공단이 단지를 건설했다."
+    },
+    {
+      "word": "好調",
+      "reading": "こうちょう",
+      "meaningKR": "호조, 좋은 상태",
+      "sentenceJP": "新商品の売れ行きは好調だ。",
+      "sentenceReading": "しんしょうひんのうれゆきはこうちょうだ。",
+      "sentenceKR": "신상품의 판매 실적은 호조다."
+    },
+    {
+      "word": "口頭",
+      "reading": "こうとう",
+      "meaningKR": "구두, 말로 함",
+      "sentenceJP": "詳細は口頭で説明します。",
+      "sentenceReading": "しょうさいはこうとうでせつめいします。",
+      "sentenceKR": "자세한 내용은 구두로 설명하겠습니다."
+    },
+    {
+      "word": "講読",
+      "reading": "こうどく",
+      "meaningKR": "강독",
+      "sentenceJP": "古典文学を講読する授業だ。",
+      "sentenceReading": "こてんぶんがくをこうどくするじゅぎょうだ。",
+      "sentenceKR": "고전 문학을 강독하는 수업이다."
+    },
+    {
+      "word": "購読",
+      "reading": "こうどく",
+      "meaningKR": "구독",
+      "sentenceJP": "新聞の定期購読を申し込んだ。",
+      "sentenceReading": "しんぶんのていきこうどくをもうしこんだ。",
+      "sentenceKR": "신문 정기 구독을 신청했다."
+    },
+    {
+      "word": "購入",
+      "reading": "こうにゅう",
+      "meaningKR": "구입, 구매",
+      "sentenceJP": "新しいパソコンを購入した。",
+      "sentenceReading": "あたらしいぱそこんをこうにゅうした。",
+      "sentenceKR": "새 컴퓨터를 구입했다."
+    },
+    {
+      "word": "公認",
+      "reading": "こうにん",
+      "meaningKR": "공인, 공식 인정",
+      "sentenceJP": "国の公認を受けた団体だ。",
+      "sentenceReading": "くにのこうにんをうけただんたいだ。",
+      "sentenceKR": "국가의 공인을 받은 단체다."
+    },
+    {
+      "word": "光熱費",
+      "reading": "こうねつひ",
+      "meaningKR": "광열비",
+      "sentenceJP": "冬は光熱費が高くなる。",
+      "sentenceReading": "ふゆはこうねつひがたかくなる。",
+      "sentenceKR": "겨울에는 광열비가 비싸진다."
+    },
+    {
+      "word": "購買",
+      "reading": "こうばい",
+      "meaningKR": "구매",
+      "sentenceJP": "ネットでの購買が増えた。",
+      "sentenceReading": "ねっとでのこうばいがふえた。",
+      "sentenceKR": "인터넷 구매가 늘었다."
+    },
+    {
+      "word": "好評",
+      "reading": "こうひょう",
+      "meaningKR": "호평",
+      "sentenceJP": "新作は若者に好評だ。",
+      "sentenceReading": "しんさくはわかものにこうひょうだ。",
+      "sentenceKR": "신작은 젊은이들에게 호평이다."
+    },
+    {
+      "word": "交付",
+      "reading": "こうふ",
+      "meaningKR": "교부, 발급",
+      "sentenceJP": "市役所で証明書を交付する。",
+      "sentenceReading": "しやくしょでしょうめいしょをこうふする。",
+      "sentenceKR": "시청에서 증명서를 발급한다."
+    },
+    {
+      "word": "公募",
+      "reading": "こうぼ",
+      "meaningKR": "공모",
+      "sentenceJP": "新しいデザイン案を公募する。",
+      "sentenceReading": "あたらしいでざいんあんをこうぼする。",
+      "sentenceKR": "새로운 디자인안을 공모한다."
+    },
+    {
+      "word": "巧妙",
+      "reading": "こうみょう",
+      "meaningKR": "교묘함, 영리함",
+      "sentenceJP": "巧妙な手口にだまされた。",
+      "sentenceReading": "こうみょうなてぐちにだまされた。",
+      "sentenceKR": "교묘한 수법에 속았다."
+    },
+    {
+      "word": "公用",
+      "reading": "こうよう",
+      "meaningKR": "공무, 공용",
+      "sentenceJP": "公用で大阪へ出張する。",
+      "sentenceReading": "こうようでおおさかへしゅっちょうする。",
+      "sentenceKR": "공무로 오사카에 출장 간다."
+    },
+    {
+      "word": "小売",
+      "reading": "こうり",
+      "meaningKR": "소매",
+      "sentenceJP": "この店は家具を小売している。",
+      "sentenceReading": "このみせはかぐをこうりしている。",
+      "sentenceKR": "이 가게는 가구를 소매로 판매한다."
+    },
+    {
+      "word": "効率",
+      "reading": "こうりつ",
+      "meaningKR": "효율",
+      "sentenceJP": "作業の効率を上げよう。",
+      "sentenceReading": "さぎょうのこうりつをあげよう。",
+      "sentenceKR": "작업 효율을 높이자."
+    },
+    {
+      "word": "公立",
+      "reading": "こうりつ",
+      "meaningKR": "공립",
+      "sentenceJP": "公立の高校に通っている。",
+      "sentenceReading": "こうりつのこうこうにかよっている。",
+      "sentenceKR": "공립 고등학교에 다니고 있다."
+    },
+    {
+      "word": "護衛",
+      "reading": "ごえい",
+      "meaningKR": "호위, 경호",
+      "sentenceJP": "要人を護衛する任務だ。",
+      "sentenceReading": "ようじんをごえいするにんむだ。",
+      "sentenceKR": "요인을 경호하는 임무다."
+    },
+    {
+      "word": "コーナー",
+      "reading": "コーナー",
+      "meaningKR": "코너, 구역",
+      "sentenceJP": "店の奥に相談コーナーがある。",
+      "sentenceReading": "みせのおくにそうだんこーなーがある。",
+      "sentenceKR": "가게 안쪽에 상담 코너가 있다."
+    },
+    {
+      "word": "小柄",
+      "reading": "こがら",
+      "meaningKR": "작은 체구",
+      "sentenceJP": "彼女は小柄で動きが速い。",
+      "sentenceReading": "かのじょはこがらでうごきがはやい。",
+      "sentenceKR": "그녀는 체구가 작고 움직임이 빠르다."
+    },
+    {
+      "word": "小切手",
+      "reading": "こぎって",
+      "meaningKR": "수표",
+      "sentenceJP": "小切手で代金を支払った。",
+      "sentenceReading": "こぎってでだいきんをしはらった。",
+      "sentenceKR": "수표로 대금을 지불했다."
+    },
+    {
+      "word": "国産",
+      "reading": "こくさん",
+      "meaningKR": "국산품",
+      "sentenceJP": "国産の車を選びました。",
+      "sentenceReading": "こくさんのくるまをえらびました。",
+      "sentenceKR": "국산 자동차를 선택했습니다."
+    },
+    {
+      "word": "国定",
+      "reading": "こくてい",
+      "meaningKR": "국가 지정",
+      "sentenceJP": "ここは国定公園です。",
+      "sentenceReading": "ここはこくていこうえんです。",
+      "sentenceKR": "이곳은 국립공원입니다."
+    },
+    {
+      "word": "告白",
+      "reading": "こくはく",
+      "meaningKR": "고백, 자백",
+      "sentenceJP": "彼は自分の罪を告白した。",
+      "sentenceReading": "かれはじぶんのつみをこくはくした。",
+      "sentenceKR": "그는 자신의 죄를 자백했다."
+    },
+    {
+      "word": "国防",
+      "reading": "こくぼう",
+      "meaningKR": "국방",
+      "sentenceJP": "国防政策を見直した。",
+      "sentenceReading": "こくぼうせいさくをみなおした。",
+      "sentenceKR": "국방 정책을 재검토했다."
+    },
+    {
+      "word": "国有",
+      "reading": "こくゆう",
+      "meaningKR": "국유",
+      "sentenceJP": "その鉄道は国有だった。",
+      "sentenceReading": "そのてつどうはこくゆうだった。",
+      "sentenceKR": "그 철도는 국유였다."
+    },
+    {
+      "word": "極楽",
+      "reading": "ごくらく",
+      "meaningKR": "극락, 천국",
+      "sentenceJP": "温泉はまるで極楽だ。",
+      "sentenceReading": "おんせんはまるでごくらくだ。",
+      "sentenceKR": "온천은 그야말로 극락이다."
+    },
+    {
+      "word": "国連",
+      "reading": "こくれん",
+      "meaningKR": "유엔, 국제연합",
+      "sentenceJP": "国連が声明を発表した。",
+      "sentenceReading": "こくれんがせいめいをはっぴょうした。",
+      "sentenceKR": "유엔이 성명을 발표했다."
+    },
+    {
+      "word": "焦げ茶",
+      "reading": "こげちゃ",
+      "meaningKR": "짙은 갈색",
+      "sentenceJP": "焦げ茶の靴を買った。",
+      "sentenceReading": "こげちゃのくつをかった。",
+      "sentenceKR": "짙은 갈색 신발을 샀다."
+    },
+    {
+      "word": "語源",
+      "reading": "ごげん",
+      "meaningKR": "어원",
+      "sentenceJP": "この言葉の語源を調べた。",
+      "sentenceReading": "このことばのごげんをしらべた。",
+      "sentenceKR": "이 말의 어원을 찾아보았다."
+    },
+    {
+      "word": "心地",
+      "reading": "ここち",
+      "meaningKR": "기분, 느낌",
+      "sentenceJP": "生きた心地がしなかった。",
+      "sentenceReading": "いきたここちがしなかった。",
+      "sentenceKR": "살아 있는 기분이 들지 않았다."
+    },
+    {
+      "word": "心得",
+      "reading": "こころえ",
+      "meaningKR": "마음가짐, 기본 지식",
+      "sentenceJP": "社会人の心得を学んだ。",
+      "sentenceReading": "しゃかいじんのこころえをまなんだ。",
+      "sentenceKR": "사회인의 기본 소양을 배웠다."
+    },
+    {
+      "word": "心掛け",
+      "reading": "こころがけ",
+      "meaningKR": "마음가짐",
+      "sentenceJP": "日頃の心掛けが大切だ。",
+      "sentenceReading": "ひごろのこころがけがたいせつだ。",
+      "sentenceKR": "평소의 마음가짐이 중요하다."
+    },
+    {
+      "word": "心掛ける",
+      "reading": "こころがける",
+      "meaningKR": "유념하다, 힘쓰다",
+      "sentenceJP": "毎日歩くように心掛ける。",
+      "sentenceReading": "まいにちあるくようにこころがける。",
+      "sentenceKR": "매일 걸으려고 노력한다."
+    },
+    {
+      "word": "志",
+      "reading": "こころざし",
+      "meaningKR": "뜻, 포부",
+      "sentenceJP": "医師になる志を抱く。",
+      "sentenceReading": "いしになるこころざしをいだく。",
+      "sentenceKR": "의사가 되겠다는 뜻을 품다."
+    },
+    {
+      "word": "志す",
+      "reading": "こころざす",
+      "meaningKR": "뜻을 두다, 지망하다",
+      "sentenceJP": "彼女は医師を志している。",
+      "sentenceReading": "かのじょはいしをこころざしている。",
+      "sentenceKR": "그녀는 의사를 지망하고 있다."
     }
   ]
 }
