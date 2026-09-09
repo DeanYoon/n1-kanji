@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-09-09T07:30:06.231Z",
+  "count": 15,
+  "failedWords": [],
+  "words": [
+    {
+      "word": "現像",
+      "reading": "げんぞう",
+      "meaningKR": "필름 현상",
+      "sentenceJP": "フィルムを現像に出した。",
+      "sentenceReading": "ふぃるむをげんぞうにだした。",
+      "sentenceKR": "필름을 현상하러 맡겼다."
+    },
+    {
+      "word": "原則",
+      "reading": "げんそく",
+      "meaningKR": "원칙, 일반 원칙",
+      "sentenceJP": "原則として返金できません。",
+      "sentenceReading": "げんそくとしてへんきんできません。",
+      "sentenceKR": "원칙적으로 환불은 불가능합니다."
+    },
+    {
+      "word": "見地",
+      "reading": "けんち",
+      "meaningKR": "관점, 견지",
+      "sentenceJP": "安全の見地から再検討する。",
+      "sentenceReading": "あんぜんのけんちからさいけんとうする。",
+      "sentenceKR": "안전의 관점에서 재검토한다."
+    },
+    {
+      "word": "現地",
+      "reading": "げんち",
+      "meaningKR": "현지, 현장",
+      "sentenceJP": "現地で担当者と合流する。",
+      "sentenceReading": "げんちでたんとうしゃとごうりゅうする。",
+      "sentenceKR": "현지에서 담당자와 합류한다."
+    },
+    {
+      "word": "限定",
+      "reading": "げんてい",
+      "meaningKR": "한정, 제한",
+      "sentenceJP": "数量限定の商品です。",
+      "sentenceReading": "すうりょうげんていのしょうひんです。",
+      "sentenceKR": "수량 한정 상품입니다."
+    },
+    {
+      "word": "原点",
+      "reading": "げんてん",
+      "meaningKR": "원점, 출발점",
+      "sentenceJP": "原点に立ち返って考える。",
+      "sentenceReading": "げんてんにたちかえってかんがえる。",
+      "sentenceKR": "원점으로 돌아가 생각한다."
+    },
+    {
+      "word": "原典",
+      "reading": "げんてん",
+      "meaningKR": "원전, 원자료",
+      "sentenceJP": "原典に当たって意味を確かめる。",
+      "sentenceReading": "げんてんにあたっていみをたしかめる。",
+      "sentenceKR": "원전을 확인해 의미를 알아본다."
+    },
+    {
+      "word": "原爆",
+      "reading": "げんばく",
+      "meaningKR": "원자폭탄",
+      "sentenceJP": "原爆の惨禍を語り継ぐ。",
+      "sentenceReading": "げんばくのさんかをかたりつぐ。",
+      "sentenceKR": "원자폭탄의 참화를 후세에 전한다."
+    },
+    {
+      "word": "原文",
+      "reading": "げんぶん",
+      "meaningKR": "원문",
+      "sentenceJP": "原文と訳文を照らし合わせる。",
+      "sentenceReading": "げんぶんとやくぶんをてらしあわせる。",
+      "sentenceKR": "원문과 번역문을 대조한다."
+    },
+    {
+      "word": "厳密",
+      "reading": "げんみつ",
+      "meaningKR": "엄밀함, 정확함",
+      "sentenceJP": "厳密な審査が必要だ。",
+      "sentenceReading": "げんみつなしんさがひつようだ。",
+      "sentenceKR": "엄밀한 심사가 필요하다."
+    },
+    {
+      "word": "賢明",
+      "reading": "けんめい",
+      "meaningKR": "현명함, 신중함",
+      "sentenceJP": "今は待つのが賢明だ。",
+      "sentenceReading": "いまはまつのがけんめいだ。",
+      "sentenceKR": "지금은 기다리는 것이 현명하다."
+    },
+    {
+      "word": "倹約",
+      "reading": "けんやく",
+      "meaningKR": "절약, 검약",
+      "sentenceJP": "倹約して旅費を貯める。",
+      "sentenceReading": "けんやくしてりょひをためる。",
+      "sentenceKR": "절약해서 여행 경비를 모은다."
+    },
+    {
+      "word": "原油",
+      "reading": "げんゆ",
+      "meaningKR": "원유",
+      "sentenceJP": "原油価格が再び上昇した。",
+      "sentenceReading": "げんゆかかくがふたたびじょうしょうした。",
+      "sentenceKR": "원유 가격이 다시 상승했다."
+    },
+    {
+      "word": "兼用",
+      "reading": "けんよう",
+      "meaningKR": "겸용",
+      "sentenceJP": "仕事部屋と寝室を兼用している。",
+      "sentenceReading": "しごとべやとしんしつをけんようしている。",
+      "sentenceKR": "업무실과 침실을 겸용하고 있다."
+    },
+    {
+      "word": "権力",
+      "reading": "けんりょく",
+      "meaningKR": "권력, 권한",
+      "sentenceJP": "権力を乱用してはならない。",
+      "sentenceReading": "けんりょくをらんようしてはならない。",
+      "sentenceKR": "권력을 남용해서는 안 된다."
+    }
+  ]
+}
