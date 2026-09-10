@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T22:50:42.662Z",
-  "count": 90,
+  "generatedAt": "2026-09-10T22:51:26.026Z",
+  "count": 135,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -724,6 +724,366 @@
       "sentenceJP": "彼女は医師を志している。",
       "sentenceReading": "かのじょはいしをこころざしている。",
       "sentenceKR": "그녀는 의사를 지망하고 있다."
+    },
+    {
+      "word": "心強い",
+      "reading": "こころづよい",
+      "meaningKR": "마음 든든한",
+      "sentenceJP": "仲間がいると心強い。",
+      "sentenceReading": "なかまがいるとこころづよい。",
+      "sentenceKR": "동료가 있으면 마음이 든든하다."
+    },
+    {
+      "word": "心細い",
+      "reading": "こころぼそい",
+      "meaningKR": "마음 불안한",
+      "sentenceJP": "一人の夜は心細い。",
+      "sentenceReading": "ひとりのよるはこころぼそい。",
+      "sentenceKR": "혼자 보내는 밤은 마음이 불안하다."
+    },
+    {
+      "word": "試み",
+      "reading": "こころみ",
+      "meaningKR": "시도, 실험",
+      "sentenceJP": "新たな試みが注目を集めた。",
+      "sentenceReading": "あらたなこころみがちゅうもくをあつめた。",
+      "sentenceKR": "새로운 시도가 주목을 받았다."
+    },
+    {
+      "word": "試みる",
+      "reading": "こころみる",
+      "meaningKR": "시도하다, 시험하다",
+      "sentenceJP": "新しい方法を試みる。",
+      "sentenceReading": "あたらしいほうほうをこころみる。",
+      "sentenceKR": "새로운 방법을 시도하다."
+    },
+    {
+      "word": "快い",
+      "reading": "こころよい",
+      "meaningKR": "상쾌한, 기분 좋은",
+      "sentenceJP": "快い風が頬をなでる。",
+      "sentenceReading": "こころよいかぜがほおをなでる。",
+      "sentenceKR": "기분 좋은 바람이 뺨을 스친다."
+    },
+    {
+      "word": "誤差",
+      "reading": "ごさ",
+      "meaningKR": "오차",
+      "sentenceJP": "測定値には誤差がある。",
+      "sentenceReading": "そくていちにはごさがある。",
+      "sentenceKR": "측정값에는 오차가 있다."
+    },
+    {
+      "word": "ございます (かん)",
+      "reading": "ございます (かん)",
+      "meaningKR": "있습니다",
+      "sentenceJP": "お席は二階にございます。",
+      "sentenceReading": "おせきはにかいにございます。",
+      "sentenceKR": "좌석은 2층에 있습니다."
+    },
+    {
+      "word": "孤児",
+      "reading": "こじ",
+      "meaningKR": "고아",
+      "sentenceJP": "彼は戦争で孤児になった。",
+      "sentenceReading": "かれはせんそうでこじになった。",
+      "sentenceKR": "그는 전쟁으로 고아가 되었다."
+    },
+    {
+      "word": "こじれる",
+      "reading": "こじれる",
+      "meaningKR": "복잡해지다, 악화되다",
+      "sentenceJP": "話がさらにこじれてきた。",
+      "sentenceReading": "はなしがさらにこじれてきた。",
+      "sentenceKR": "이야기가 더욱 복잡해졌다."
+    },
+    {
+      "word": "こす (みずを～)",
+      "reading": "こす (みずを～)",
+      "meaningKR": "거르다, 여과하다",
+      "sentenceJP": "布で水をこして不純物を除く。",
+      "sentenceReading": "ぬのでみずをこしてふじゅんぶつをのぞく。",
+      "sentenceKR": "천으로 물을 걸러 불순물을 제거한다."
+    },
+    {
+      "word": "梢",
+      "reading": "こずえ",
+      "meaningKR": "나무 꼭대기, 우듬지",
+      "sentenceJP": "梢で小鳥が鳴いている。",
+      "sentenceReading": "こずえでことりがないている。",
+      "sentenceKR": "나무 꼭대기에서 작은 새가 울고 있다."
+    },
+    {
+      "word": "個性",
+      "reading": "こせい",
+      "meaningKR": "개성",
+      "sentenceJP": "彼女の個性が光る作品だ。",
+      "sentenceReading": "かのじょのこせいがひかるさくひんだ。",
+      "sentenceKR": "그녀의 개성이 돋보이는 작품이다."
+    },
+    {
+      "word": "戸籍",
+      "reading": "こせき",
+      "meaningKR": "호적",
+      "sentenceJP": "戸籍の写しを提出した。",
+      "sentenceReading": "こせきのうつしをていしゅつした。",
+      "sentenceKR": "호적 사본을 제출했다."
+    },
+    {
+      "word": "古代",
+      "reading": "こだい",
+      "meaningKR": "고대",
+      "sentenceJP": "古代の遺跡を調査する。",
+      "sentenceReading": "こだいのいせきをちょうさする。",
+      "sentenceKR": "고대 유적을 조사한다."
+    },
+    {
+      "word": "こたつ",
+      "reading": "こたつ",
+      "meaningKR": "고타쓰",
+      "sentenceJP": "冬は家族でこたつを囲む。",
+      "sentenceReading": "ふゆはかぞくでこたつをかこむ。",
+      "sentenceKR": "겨울에는 가족이 고타쓰에 둘러앉는다."
+    },
+    {
+      "word": "こだわる",
+      "reading": "こだわる",
+      "meaningKR": "고집하다, 까다롭게 따지다",
+      "sentenceJP": "彼は素材にこだわっている。",
+      "sentenceReading": "かれはそざいにこだわっている。",
+      "sentenceKR": "그는 재료를 까다롭게 고른다."
+    },
+    {
+      "word": "誇張",
+      "reading": "こちょう",
+      "meaningKR": "과장",
+      "sentenceJP": "彼の話には誇張が多い。",
+      "sentenceReading": "かれのはなしにはこちょうがおおい。",
+      "sentenceKR": "그의 이야기에는 과장이 많다."
+    },
+    {
+      "word": "こつ (をつかむ)",
+      "reading": "こつ (をつかむ)",
+      "meaningKR": "요령, 비결",
+      "sentenceJP": "練習して料理のこつをつかんだ。",
+      "sentenceReading": "れんしゅうしてりょうりのこつをつかんだ。",
+      "sentenceKR": "연습해서 요리의 요령을 터득했다."
+    },
+    {
+      "word": "滑稽",
+      "reading": "こっけい",
+      "meaningKR": "우스꽝스러움, 익살스러움",
+      "sentenceJP": "彼の動きはどこか滑稽だ。",
+      "sentenceReading": "かれのうごきはどこかこっけいだ。",
+      "sentenceKR": "그의 움직임은 어딘가 우스꽝스럽다."
+    },
+    {
+      "word": "国交",
+      "reading": "こっこう",
+      "meaningKR": "국교, 외교 관계",
+      "sentenceJP": "両国は国交を回復した。",
+      "sentenceReading": "りょうこくはこっこうをかいふくした。",
+      "sentenceKR": "양국은 국교를 회복했다."
+    },
+    {
+      "word": "骨董品",
+      "reading": "こっとうひん",
+      "meaningKR": "골동품",
+      "sentenceJP": "祖父は骨董品を集めている。",
+      "sentenceReading": "そふはこっとうひんをあつめている。",
+      "sentenceKR": "할아버지는 골동품을 모으고 있다."
+    },
+    {
+      "word": "固定",
+      "reading": "こてい",
+      "meaningKR": "고정",
+      "sentenceJP": "棚を壁にしっかり固定した。",
+      "sentenceReading": "たなをかべにしっかりこていした。",
+      "sentenceKR": "선반을 벽에 단단히 고정했다."
+    },
+    {
+      "word": "事柄",
+      "reading": "ことがら",
+      "meaningKR": "사항, 일",
+      "sentenceJP": "重要な事柄から話します。",
+      "sentenceReading": "じゅうようなことがらからはなします。",
+      "sentenceKR": "중요한 사항부터 말씀드리겠습니다."
+    },
+    {
+      "word": "孤独",
+      "reading": "こどく",
+      "meaningKR": "고독, 외로움",
+      "sentenceJP": "都会で深い孤独を感じた。",
+      "sentenceReading": "とかいでふかいこどくをかんじた。",
+      "sentenceKR": "도시에서 깊은 고독을 느꼈다."
+    },
+    {
+      "word": "ことごとく",
+      "reading": "ことごとく",
+      "meaningKR": "모조리, 전부",
+      "sentenceJP": "予想はことごとく外れた。",
+      "sentenceReading": "よそうはことごとくはずれた。",
+      "sentenceKR": "예상은 모조리 빗나갔다."
+    },
+    {
+      "word": "言付け",
+      "reading": "ことづけ",
+      "meaningKR": "전언, 메시지",
+      "sentenceJP": "母に言付けを頼みました。",
+      "sentenceReading": "ははにことづけをたのみました。",
+      "sentenceKR": "어머니에게 전언을 부탁했습니다."
+    },
+    {
+      "word": "殊に",
+      "reading": "ことに",
+      "meaningKR": "특히",
+      "sentenceJP": "今年の冬は殊に寒い。",
+      "sentenceReading": "ことしのふゆはことにさむい。",
+      "sentenceKR": "올겨울은 특히 춥다."
+    },
+    {
+      "word": "粉々",
+      "reading": "こなごな",
+      "meaningKR": "산산조각",
+      "sentenceJP": "花瓶が落ちて粉々になった。",
+      "sentenceReading": "かびんがおちてこなごなになった。",
+      "sentenceKR": "꽃병이 떨어져 산산조각이 났다."
+    },
+    {
+      "word": "好ましい",
+      "reading": "このましい",
+      "meaningKR": "바람직하다, 호감이 가다",
+      "sentenceJP": "好ましい結果が得られた。",
+      "sentenceReading": "このましいけっかがえられた。",
+      "sentenceKR": "바람직한 결과를 얻었다."
+    },
+    {
+      "word": "碁盤",
+      "reading": "ごばん",
+      "meaningKR": "바둑판",
+      "sentenceJP": "碁盤の上に石を並べる。",
+      "sentenceReading": "ごばんのうえにいしをならべる。",
+      "sentenceKR": "바둑판 위에 돌을 늘어놓는다."
+    },
+    {
+      "word": "個別",
+      "reading": "こべつ",
+      "meaningKR": "개별 사례",
+      "sentenceJP": "問題には個別に対応する。",
+      "sentenceReading": "もんだいにはこべつにたいおうする。",
+      "sentenceKR": "문제에는 개별적으로 대응한다."
+    },
+    {
+      "word": "ごまかす",
+      "reading": "ごまかす",
+      "meaningKR": "속이다, 얼버무리다",
+      "sentenceJP": "数字をごまかしてはいけない。",
+      "sentenceReading": "すうじをごまかしてはいけない。",
+      "sentenceKR": "숫자를 속여서는 안 된다."
+    },
+    {
+      "word": "細やか",
+      "reading": "こまやか",
+      "meaningKR": "소박한, 검소한",
+      "sentenceJP": "細やかな気配りに感謝する。",
+      "sentenceReading": "こまやかなきくばりにかんしゃする。",
+      "sentenceKR": "세심한 배려에 감사한다."
+    },
+    {
+      "word": "コマーシャル",
+      "reading": "コマーシャル",
+      "meaningKR": "광고",
+      "sentenceJP": "このコマーシャルは印象に残る。",
+      "sentenceReading": "このこまあしゃるはいんしょうにのこる。",
+      "sentenceKR": "이 광고는 인상에 남는다."
+    },
+    {
+      "word": "込める",
+      "reading": "こめる",
+      "meaningKR": "담다, 포함하다",
+      "sentenceJP": "手紙に感謝の思いを込めた。",
+      "sentenceReading": "てがみにかんしゃのおもいをこめた。",
+      "sentenceKR": "편지에 감사의 마음을 담았다."
+    },
+    {
+      "word": "コメント",
+      "reading": "コメント",
+      "meaningKR": "논평, 의견",
+      "sentenceJP": "専門家がコメントを発表した。",
+      "sentenceReading": "せんもんかがこめんとをはっぴょうした。",
+      "sentenceKR": "전문가가 논평을 발표했다."
+    },
+    {
+      "word": "籠もる",
+      "reading": "こもる",
+      "meaningKR": "틀어박히다",
+      "sentenceJP": "休日は部屋に籠もって過ごす。",
+      "sentenceReading": "きゅうじつはへやにこもってすごす。",
+      "sentenceKR": "휴일에는 방에 틀어박혀 지낸다."
+    },
+    {
+      "word": "固有",
+      "reading": "こゆう",
+      "meaningKR": "고유한, 특유의",
+      "sentenceJP": "この地域固有の文化を守る。",
+      "sentenceReading": "このちいきこゆうのぶんかをまもる。",
+      "sentenceKR": "이 지역 고유의 문화를 지킨다."
+    },
+    {
+      "word": "暦",
+      "reading": "こよみ",
+      "meaningKR": "달력, 역법",
+      "sentenceJP": "暦の上ではもう春だ。",
+      "sentenceReading": "こよみのうえではもうはるだ。",
+      "sentenceKR": "달력상으로는 벌써 봄이다."
+    },
+    {
+      "word": "凝らす",
+      "reading": "こらす",
+      "meaningKR": "집중하다, 골몰하다",
+      "sentenceJP": "目を凝らして星を探した。",
+      "sentenceReading": "めをこらしてほしをさがした。",
+      "sentenceKR": "눈을 집중해 별을 찾았다."
+    },
+    {
+      "word": "ごらんなさい (かん)",
+      "reading": "ごらんなさい (かん)",
+      "meaningKR": "보세요, 한번 해 보세요",
+      "sentenceJP": "これを読んでごらんなさい。",
+      "sentenceReading": "これをよんでごらんなさい。",
+      "sentenceKR": "이것을 한번 읽어 보세요."
+    },
+    {
+      "word": "孤立",
+      "reading": "こりつ",
+      "meaningKR": "고립",
+      "sentenceJP": "国際社会で孤立を深めた。",
+      "sentenceReading": "こくさいしゃかいでこりつをふかめた。",
+      "sentenceKR": "국제사회에서 고립이 심해졌다."
+    },
+    {
+      "word": "懲りる",
+      "reading": "こりる",
+      "meaningKR": "경험으로 깨닫다, 질리다",
+      "sentenceJP": "一度の失敗では懲りない。",
+      "sentenceReading": "いちどのしっぱいではこりない。",
+      "sentenceKR": "한 번의 실패로는 정신을 차리지 않는다."
+    },
+    {
+      "word": "凝る",
+      "reading": "こる",
+      "meaningKR": "뻐근해지다, 굳다",
+      "sentenceJP": "長時間の作業で肩が凝る。",
+      "sentenceReading": "ちょうじかんのさぎょうでかたがこる。",
+      "sentenceKR": "장시간 작업으로 어깨가 뻐근하다."
+    },
+    {
+      "word": "根気",
+      "reading": "こんき",
+      "meaningKR": "끈기, 인내력",
+      "sentenceJP": "根気よく練習を続けよう。",
+      "sentenceReading": "こんきよくれんしゅうをつづけよう。",
+      "sentenceKR": "끈기 있게 연습을 계속하자."
     }
   ]
 }
