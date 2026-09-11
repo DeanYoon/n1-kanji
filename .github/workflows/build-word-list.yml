@@ -8,10 +8,12 @@ name: build-word-list
 #   환산: UTC + 9h = KST  /  KST - 9h = UTC
 # ⚠️ GitHub Actions 의 schedule 은 정확한 시각을 보장하지 않는다(러너 혼잡 시 수십 분 늦게
 #    뜰 수 있음) — 크게 문제 되는 스케줄은 아니라 별도 여유는 안 뒀음.
+# 주말(KST 토·일)에는 실행하지 않음 — dow 필드는 UTC 기준 요일이라 KST 대비 하루 당겨서
+# 지정: UTC 일~목(0-4) 21:00 = KST 월~금(1-5) 06:00.
 
 on:
   schedule:
-    - cron: "0 21 * * *"
+    - cron: "0 21 * * 0-4"
   workflow_dispatch:
     inputs:
       daily_count:
