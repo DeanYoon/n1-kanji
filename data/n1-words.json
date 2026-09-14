@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-13T22:47:31.751Z",
-  "count": 180,
+  "generatedAt": "2026-09-14T23:40:36.260Z",
+  "count": 225,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -1444,6 +1444,366 @@
       "sentenceJP": "慎重に作戦を練り直した。",
       "sentenceReading": "しんちょうにさくせんをねりなおした。",
       "sentenceKR": "신중하게 작전을 다시 짰다."
+    },
+    {
+      "word": "叫び",
+      "reading": "さけび",
+      "meaningKR": "외침, 절규",
+      "sentenceJP": "群衆の叫びが街に響いた。",
+      "sentenceReading": "ぐんしゅうのさけびがまちにひびいた。",
+      "sentenceKR": "군중의 외침이 거리에 울려 퍼졌다."
+    },
+    {
+      "word": "捧げる",
+      "reading": "ささげる",
+      "meaningKR": "바치다, 헌신하다",
+      "sentenceJP": "彼は人生を研究に捧げた。",
+      "sentenceReading": "かれはじんせいをけんきゅうにささげた。",
+      "sentenceKR": "그는 인생을 연구에 바쳤다."
+    },
+    {
+      "word": "差し掛かる",
+      "reading": "さしかかる",
+      "meaningKR": "다가가다, 접어들다",
+      "sentenceJP": "列車は峠に差し掛かった。",
+      "sentenceReading": "れっしゃはとうげにさしかかった。",
+      "sentenceKR": "열차는 고갯길에 접어들었다."
+    },
+    {
+      "word": "指図",
+      "reading": "さしず",
+      "meaningKR": "지시, 명령",
+      "sentenceJP": "上司の指図には従わない。",
+      "sentenceReading": "じょうしのさしずにはしたがわない。",
+      "sentenceKR": "상사의 지시에는 따르지 않는다."
+    },
+    {
+      "word": "差し出す",
+      "reading": "さしだす",
+      "meaningKR": "내밀다, 제출하다",
+      "sentenceJP": "受付に申請書を差し出した。",
+      "sentenceReading": "うけつけにしんせいしょをさしだした。",
+      "sentenceKR": "접수처에 신청서를 제출했다."
+    },
+    {
+      "word": "差し支える",
+      "reading": "さしつかえる",
+      "meaningKR": "지장을 주다, 방해하다",
+      "sentenceJP": "睡眠不足は仕事に差し支える。",
+      "sentenceReading": "すいみんぶそくはしごとにさしつかえる。",
+      "sentenceKR": "수면 부족은 업무에 지장을 준다."
+    },
+    {
+      "word": "授ける",
+      "reading": "さずける",
+      "meaningKR": "수여하다, 전수하다",
+      "sentenceJP": "師は弟子に秘伝を授けた。",
+      "sentenceReading": "しはでしにひでんをさずけた。",
+      "sentenceKR": "스승은 제자에게 비법을 전수했다."
+    },
+    {
+      "word": "摩する",
+      "reading": "さする",
+      "meaningKR": "문지르다, 쓰다듬다",
+      "sentenceJP": "冷えた両手を優しくさする。",
+      "sentenceReading": "ひえたりょうてをやさしくさする。",
+      "sentenceKR": "차가워진 두 손을 부드럽게 문지른다."
+    },
+    {
+      "word": "さぞ (さぞや。さぞかし)",
+      "reading": "さぞ (さぞや。さぞかし)",
+      "meaningKR": "틀림없이, 필시",
+      "sentenceJP": "さぞ驚いたことだろう。",
+      "sentenceReading": "さぞおどろいたことだろう。",
+      "sentenceKR": "틀림없이 무척 놀랐을 것이다."
+    },
+    {
+      "word": "定まる",
+      "reading": "さだまる",
+      "meaningKR": "정해지다, 확정되다",
+      "sentenceJP": "会議の日程がようやく定まった。",
+      "sentenceReading": "かいぎのにっていがようやくさだまった。",
+      "sentenceKR": "회의 일정이 마침내 확정되었다."
+    },
+    {
+      "word": "定める",
+      "reading": "さだめる",
+      "meaningKR": "정하다, 결정하다",
+      "sentenceJP": "委員会が新たな基準を定めた。",
+      "sentenceReading": "いいんかいがあらたなきじゅんをさだめた。",
+      "sentenceKR": "위원회가 새로운 기준을 정했다."
+    },
+    {
+      "word": "座談会",
+      "reading": "ざだんかい",
+      "meaningKR": "좌담회, 원탁 토론",
+      "sentenceJP": "専門家を招いて座談会を開く。",
+      "sentenceReading": "せんもんかをまねいてざだんかいをひらく。",
+      "sentenceKR": "전문가를 초청해 좌담회를 연다."
+    },
+    {
+      "word": "雑",
+      "reading": "ざつ",
+      "meaningKR": "조잡함, 엉성함",
+      "sentenceJP": "説明が雑で分かりにくい。",
+      "sentenceReading": "せつめいがざつでわかりにくい。",
+      "sentenceKR": "설명이 엉성해서 이해하기 어렵다."
+    },
+    {
+      "word": "雑貨",
+      "reading": "ざっか",
+      "meaningKR": "잡화, 생활용품",
+      "sentenceJP": "駅前の店で雑貨を買った。",
+      "sentenceReading": "えきまえのみせでざっかをかった。",
+      "sentenceKR": "역 앞 가게에서 잡화를 샀다."
+    },
+    {
+      "word": "殺人",
+      "reading": "さつじん",
+      "meaningKR": "살인",
+      "sentenceJP": "警察は殺人事件を捜査中だ。",
+      "sentenceReading": "けいさつはさつじんじけんをそうさちゅうだ。",
+      "sentenceKR": "경찰은 살인 사건을 수사 중이다."
+    },
+    {
+      "word": "察する",
+      "reading": "さっする",
+      "meaningKR": "짐작하다, 헤아리다",
+      "sentenceJP": "彼の表情から事情を察した。",
+      "sentenceReading": "かれのひょうじょうからじじょうをさっした。",
+      "sentenceKR": "그의 표정에서 사정을 짐작했다."
+    },
+    {
+      "word": "雑談",
+      "reading": "ざつだん",
+      "meaningKR": "잡담, 한담",
+      "sentenceJP": "休憩中に同僚と雑談した。",
+      "sentenceReading": "きゅうけいちゅうにどうりょうとざつだんした。",
+      "sentenceKR": "휴식 중에 동료와 잡담을 나눴다."
+    },
+    {
+      "word": "さっと",
+      "reading": "さっと",
+      "meaningKR": "재빨리, 훌쩍",
+      "sentenceJP": "彼はさっと席を立った。",
+      "sentenceReading": "かれはさっとせきをたった。",
+      "sentenceKR": "그는 재빨리 자리에서 일어났다."
+    },
+    {
+      "word": "さっぱりする",
+      "reading": "さっぱりする",
+      "meaningKR": "개운해지다, 상쾌해지다",
+      "sentenceJP": "シャワーを浴びてさっぱりした。",
+      "sentenceReading": "しゃわーをあびてさっぱりした。",
+      "sentenceKR": "샤워를 하고 개운해졌다."
+    },
+    {
+      "word": "悟る",
+      "reading": "さとる",
+      "meaningKR": "깨닫다, 통달하다",
+      "sentenceJP": "彼は失敗の原因を悟った。",
+      "sentenceReading": "かれはしっぱいのげんいんをさとった。",
+      "sentenceKR": "그는 실패의 원인을 깨달았다."
+    },
+    {
+      "word": "最中",
+      "reading": "さなか",
+      "meaningKR": "한창때, 와중",
+      "sentenceJP": "嵐の最中に外へ出た。",
+      "sentenceReading": "あらしのさなかにそとへでた。",
+      "sentenceKR": "폭풍이 한창인 와중에 밖으로 나갔다."
+    },
+    {
+      "word": "座標",
+      "reading": "ざひょう",
+      "meaningKR": "좌표",
+      "sentenceJP": "地図上の座標を確認した。",
+      "sentenceReading": "ちずじょうのざひょうをかくにんした。",
+      "sentenceKR": "지도상의 좌표를 확인했다."
+    },
+    {
+      "word": "さほど",
+      "reading": "さほど",
+      "meaningKR": "그다지, 그리",
+      "sentenceJP": "この問題はさほど難しくない。",
+      "sentenceReading": "このもんだいはさほどむずかしくない。",
+      "sentenceKR": "이 문제는 그다지 어렵지 않다."
+    },
+    {
+      "word": "サボる",
+      "reading": "サボる",
+      "meaningKR": "꾀부리다, 빼먹다",
+      "sentenceJP": "授業をサボって映画を見た。",
+      "sentenceReading": "じゅぎょうをさぼってえいがをみた。",
+      "sentenceKR": "수업을 빼먹고 영화를 봤다."
+    },
+    {
+      "word": "様",
+      "reading": "さま",
+      "meaningKR": "모습, 상태",
+      "sentenceJP": "彼が働く様を黙って見ていた。",
+      "sentenceReading": "かれがはたらくさまをだまってみていた。",
+      "sentenceKR": "그가 일하는 모습을 말없이 지켜봤다."
+    },
+    {
+      "word": "寒気",
+      "reading": "さむけ",
+      "meaningKR": "오한, 한기",
+      "sentenceJP": "急に寒気がして震え始めた。",
+      "sentenceReading": "きゅうにさむけがしてふるえはじめた。",
+      "sentenceKR": "갑자기 오한이 나서 떨기 시작했다."
+    },
+    {
+      "word": "侍",
+      "reading": "さむらい",
+      "meaningKR": "사무라이, 무사",
+      "sentenceJP": "侍が静かに刀を抜いた。",
+      "sentenceReading": "さむらいがしずかにかたなをぬいた。",
+      "sentenceKR": "사무라이가 조용히 칼을 뽑았다."
+    },
+    {
+      "word": "さも",
+      "reading": "さも",
+      "meaningKR": "아주, 몹시 그런 듯이",
+      "sentenceJP": "彼はさも満足げにうなずいた。",
+      "sentenceReading": "かれはさもまんぞくげにうなずいた。",
+      "sentenceKR": "그는 아주 만족스럽다는 듯 고개를 끄덕였다."
+    },
+    {
+      "word": "作用",
+      "reading": "さよう",
+      "meaningKR": "작용, 효과, 기능",
+      "sentenceJP": "薬の作用が徐々に現れた。",
+      "sentenceReading": "くすりのさようがじょじょにあらわれた。",
+      "sentenceKR": "약의 작용이 서서히 나타났다."
+    },
+    {
+      "word": "さらう (こどもを～)",
+      "reading": "さらう (こどもを～)",
+      "meaningKR": "납치하다, 유괴하다",
+      "sentenceJP": "男が子供をさらおうとした。",
+      "sentenceReading": "おとこがこどもをさらおうとした。",
+      "sentenceKR": "남자가 아이를 납치하려 했다."
+    },
+    {
+      "word": "障る",
+      "reading": "さわる",
+      "meaningKR": "방해하다, 지장을 주다",
+      "sentenceJP": "夜更かしは健康に障る。",
+      "sentenceReading": "よふかしはけんこうにさわる。",
+      "sentenceKR": "밤샘은 건강에 해롭다."
+    },
+    {
+      "word": "酸",
+      "reading": "さん",
+      "meaningKR": "산, 산성 물질",
+      "sentenceJP": "この薬品は強い酸を含む。",
+      "sentenceReading": "このやくひんはつよいさんをふくむ。",
+      "sentenceKR": "이 약품은 강한 산을 함유한다."
+    },
+    {
+      "word": "山岳",
+      "reading": "さんがく",
+      "meaningKR": "산악",
+      "sentenceJP": "山岳地帯では雪が続く。",
+      "sentenceReading": "さんがくちたいではゆきがつづく。",
+      "sentenceKR": "산악 지대에는 눈이 계속 내린다."
+    },
+    {
+      "word": "参議院",
+      "reading": "さんぎいん",
+      "meaningKR": "참의원",
+      "sentenceJP": "法案は参議院で可決された。",
+      "sentenceReading": "ほうあんはさんぎいんでかけつされた。",
+      "sentenceKR": "법안은 참의원에서 가결되었다."
+    },
+    {
+      "word": "産休",
+      "reading": "さんきゅう",
+      "meaningKR": "출산 휴가",
+      "sentenceJP": "来月から産休に入ります。",
+      "sentenceReading": "らいげつからさんきゅうにはいります。",
+      "sentenceKR": "다음 달부터 출산 휴가에 들어갑니다."
+    },
+    {
+      "word": "サンキュー",
+      "reading": "サンキュー",
+      "meaningKR": "고마워",
+      "sentenceJP": "手伝ってくれて、サンキュー！",
+      "sentenceReading": "てつだってくれて、さんきゅー！",
+      "sentenceKR": "도와줘서 고마워!"
+    },
+    {
+      "word": "残金",
+      "reading": "ざんきん",
+      "meaningKR": "남은 돈, 잔금",
+      "sentenceJP": "残金は来月お支払いします。",
+      "sentenceReading": "ざんきんはらいげつおしはらいします。",
+      "sentenceKR": "잔금은 다음 달에 지불하겠습니다."
+    },
+    {
+      "word": "産後",
+      "reading": "さんご",
+      "meaningKR": "산후, 출산 후",
+      "sentenceJP": "産後は十分な休養が必要だ。",
+      "sentenceReading": "さんごはじゅうぶんなきゅうようがひつようだ。",
+      "sentenceKR": "산후에는 충분한 휴식이 필요하다."
+    },
+    {
+      "word": "残酷",
+      "reading": "ざんこく",
+      "meaningKR": "잔혹함, 가혹함",
+      "sentenceJP": "残酷な現実を突きつけられた。",
+      "sentenceReading": "ざんこくなげんじつをつきつけられた。",
+      "sentenceKR": "잔혹한 현실을 마주하게 되었다."
+    },
+    {
+      "word": "産出",
+      "reading": "さんしゅつ",
+      "meaningKR": "산출, 생산",
+      "sentenceJP": "この地域は石油を産出する。",
+      "sentenceReading": "このちいきはせきゆをさんしゅつする。",
+      "sentenceKR": "이 지역은 석유를 생산한다."
+    },
+    {
+      "word": "参照",
+      "reading": "さんしょう",
+      "meaningKR": "참조",
+      "sentenceJP": "詳細は別紙を参照してください。",
+      "sentenceReading": "しょうさいはべっしをさんしょうしてください。",
+      "sentenceKR": "자세한 내용은 별지를 참조해 주세요."
+    },
+    {
+      "word": "参上",
+      "reading": "さんじょう",
+      "meaningKR": "찾아뵘, 방문함",
+      "sentenceJP": "明日の午後、そちらへ参上します。",
+      "sentenceReading": "あしたのごご、そちらへさんじょうします。",
+      "sentenceKR": "내일 오후에 그쪽으로 찾아뵙겠습니다."
+    },
+    {
+      "word": "残高",
+      "reading": "ざんだか",
+      "meaningKR": "잔액",
+      "sentenceJP": "口座の残高を確認した。",
+      "sentenceReading": "こうざのざんだかをかくにんした。",
+      "sentenceKR": "계좌 잔액을 확인했다."
+    },
+    {
+      "word": "サンタクロース",
+      "reading": "サンタクロース",
+      "meaningKR": "산타클로스",
+      "sentenceJP": "子供たちはサンタクロースを待つ。",
+      "sentenceReading": "こどもたちはさんたくろーすをまつ。",
+      "sentenceKR": "아이들은 산타클로스를 기다린다."
+    },
+    {
+      "word": "桟橋",
+      "reading": "さんばし",
+      "meaningKR": "부두, 잔교",
+      "sentenceJP": "船が桟橋にゆっくり着いた。",
+      "sentenceReading": "ふねがさんばしにゆっくりついた。",
+      "sentenceKR": "배가 부두에 천천히 닿았다."
     }
   ]
 }
