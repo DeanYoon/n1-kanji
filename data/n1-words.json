@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-14T23:40:36.260Z",
-  "count": 225,
+  "generatedAt": "2026-09-15T23:22:53.586Z",
+  "count": 270,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -1804,6 +1804,366 @@
       "sentenceJP": "船が桟橋にゆっくり着いた。",
       "sentenceReading": "ふねがさんばしにゆっくりついた。",
       "sentenceKR": "배가 부두에 천천히 닿았다."
+    },
+    {
+      "word": "賛美",
+      "reading": "さんび",
+      "meaningKR": "찬미, 찬양",
+      "sentenceJP": "彼の功績は広く賛美された。",
+      "sentenceReading": "かれのこうせきはひろくさんびされた。",
+      "sentenceKR": "그의 공적은 널리 찬양받았다."
+    },
+    {
+      "word": "山腹",
+      "reading": "さんぷく",
+      "meaningKR": "산허리",
+      "sentenceJP": "山腹に小さな村が見える。",
+      "sentenceReading": "さんぷくにちいさなむらがみえる。",
+      "sentenceKR": "산허리에 작은 마을이 보인다."
+    },
+    {
+      "word": "産婦人科",
+      "reading": "さんふじんか",
+      "meaningKR": "산부인과",
+      "sentenceJP": "産婦人科で定期検診を受けた。",
+      "sentenceReading": "さんふじんかでていきけんしんをうけた。",
+      "sentenceKR": "산부인과에서 정기 검진을 받았다."
+    },
+    {
+      "word": "産物",
+      "reading": "さんぶつ",
+      "meaningKR": "산물, 결과물",
+      "sentenceJP": "この発明は努力の産物だ。",
+      "sentenceReading": "このはつめいはどりょくのさんぶつだ。",
+      "sentenceKR": "이 발명은 노력의 산물이다."
+    },
+    {
+      "word": "山脈",
+      "reading": "さんみゃく",
+      "meaningKR": "산맥",
+      "sentenceJP": "遠くに雄大な山脈が連なる。",
+      "sentenceReading": "とおくにゆうだいなさんみゃくがつらなる。",
+      "sentenceKR": "멀리 웅대한 산맥이 이어져 있다."
+    },
+    {
+      "word": "仕上がり",
+      "reading": "しあがり",
+      "meaningKR": "완성 상태, 마무리 상태",
+      "sentenceJP": "予想以上の仕上がりに満足した。",
+      "sentenceReading": "よそういじょうのしあがりにまんぞくした。",
+      "sentenceKR": "예상 이상의 완성도에 만족했다."
+    },
+    {
+      "word": "仕上",
+      "reading": "しあげ",
+      "meaningKR": "마무리, 마감",
+      "sentenceJP": "表面の仕上は職人に任せた。",
+      "sentenceReading": "ひょうめんのしあげはしょくにんにまかせた。",
+      "sentenceKR": "표면 마감은 장인에게 맡겼다."
+    },
+    {
+      "word": "仕上げる",
+      "reading": "しあげる",
+      "meaningKR": "완성하다, 마무리하다",
+      "sentenceJP": "今日中に報告書を仕上げる。",
+      "sentenceReading": "きょうじゅうにほうこくしょをしあげる。",
+      "sentenceKR": "오늘 안에 보고서를 완성한다."
+    },
+    {
+      "word": "飼育",
+      "reading": "しいく",
+      "meaningKR": "사육",
+      "sentenceJP": "動物の飼育には責任が伴う。",
+      "sentenceReading": "どうぶつのしいくにはせきにんがともなう。",
+      "sentenceKR": "동물 사육에는 책임이 따른다."
+    },
+    {
+      "word": "強いて",
+      "reading": "しいて",
+      "meaningKR": "굳이, 억지로",
+      "sentenceJP": "強いて言えば、値段が高い。",
+      "sentenceReading": "しいていえば、ねだんがたかい。",
+      "sentenceKR": "굳이 말하자면 가격이 비싸다."
+    },
+    {
+      "word": "シート",
+      "reading": "シート",
+      "meaningKR": "좌석; 시트, 용지",
+      "sentenceJP": "シートに名前を記入した。",
+      "sentenceReading": "しいとになまえをきにゅうした。",
+      "sentenceKR": "용지에 이름을 기입했다."
+    },
+    {
+      "word": "ジーパン",
+      "reading": "ジーパン",
+      "meaningKR": "청바지",
+      "sentenceJP": "新しいジーパンを買った。",
+      "sentenceReading": "あたらしいじいぱんをかった。",
+      "sentenceKR": "새 청바지를 샀다."
+    },
+    {
+      "word": "仕入れる",
+      "reading": "しいれる",
+      "meaningKR": "매입하다, 들여오다",
+      "sentenceJP": "海外から新鮮な果物を仕入れる。",
+      "sentenceReading": "かいがいからしんせんなくだものをしいれる。",
+      "sentenceKR": "해외에서 신선한 과일을 들여온다."
+    },
+    {
+      "word": "強いる",
+      "reading": "しいる",
+      "meaningKR": "강요하다, 억지로 시키다",
+      "sentenceJP": "無理な残業を強いるべきではない。",
+      "sentenceReading": "むりなざんぎょうをしいるべきではない。",
+      "sentenceKR": "무리한 야근을 강요해서는 안 된다."
+    },
+    {
+      "word": "潮",
+      "reading": "しお",
+      "meaningKR": "조수, 밀물과 썰물",
+      "sentenceJP": "潮が満ちる前に岸へ戻ろう。",
+      "sentenceReading": "しおがみちるまえにきしへもどろう。",
+      "sentenceKR": "물이 차오르기 전에 물가로 돌아가자."
+    },
+    {
+      "word": "歯科",
+      "reading": "しか",
+      "meaningKR": "치과 의학",
+      "sentenceJP": "歯科の予約を来週に変更した。",
+      "sentenceReading": "しかのよやくをらいしゅうにへんこうした。",
+      "sentenceKR": "치과 예약을 다음 주로 변경했다."
+    },
+    {
+      "word": "自我",
+      "reading": "じが",
+      "meaningKR": "자아",
+      "sentenceJP": "子供に自我が芽生え始めた。",
+      "sentenceReading": "こどもにじががめばえはじめた。",
+      "sentenceKR": "아이에게 자아가 싹트기 시작했다."
+    },
+    {
+      "word": "自覚",
+      "reading": "じかく",
+      "meaningKR": "자각",
+      "sentenceJP": "責任者としての自覚を持て。",
+      "sentenceReading": "せきにんしゃとしてのじかくをもて。",
+      "sentenceKR": "책임자로서의 자각을 가져라."
+    },
+    {
+      "word": "仕掛",
+      "reading": "しかけ",
+      "meaningKR": "장치, 속임수",
+      "sentenceJP": "この時計の仕掛けは複雑だ。",
+      "sentenceReading": "このとけいのしかけはふくざつだ。",
+      "sentenceKR": "이 시계의 장치는 복잡하다."
+    },
+    {
+      "word": "仕掛ける",
+      "reading": "しかける",
+      "meaningKR": "걸다, 설치하다",
+      "sentenceJP": "敵に戦いを仕掛ける。",
+      "sentenceReading": "てきにたたかいをしかける。",
+      "sentenceKR": "적에게 싸움을 걸다."
+    },
+    {
+      "word": "しかしながら",
+      "reading": "しかしながら",
+      "meaningKR": "그러나, 그럼에도 불구하고",
+      "sentenceJP": "計画は難しい。しかしながら、挑戦する。",
+      "sentenceReading": "けいかくはむずかしい。しかしながら、ちょうせんする。",
+      "sentenceKR": "계획은 어렵다. 그러나 도전하겠다."
+    },
+    {
+      "word": "色彩",
+      "reading": "しきさい",
+      "meaningKR": "색채",
+      "sentenceJP": "鮮やかな色彩が目を引く。",
+      "sentenceReading": "あざやかなしきさいがめをひく。",
+      "sentenceKR": "선명한 색채가 눈길을 끈다."
+    },
+    {
+      "word": "式場",
+      "reading": "しきじょう",
+      "meaningKR": "예식장",
+      "sentenceJP": "式場には多くの花が飾られた。",
+      "sentenceReading": "しきじょうにはおおくのはながかざられた。",
+      "sentenceKR": "예식장에는 많은 꽃이 장식되었다."
+    },
+    {
+      "word": "しきたり",
+      "reading": "しきたり",
+      "meaningKR": "관습, 전통",
+      "sentenceJP": "村の古いしきたりを守る。",
+      "sentenceReading": "むらのふるいしきたりをまもる。",
+      "sentenceKR": "마을의 오랜 관습을 지킨다."
+    },
+    {
+      "word": "事業",
+      "reading": "じぎょう",
+      "meaningKR": "사업",
+      "sentenceJP": "海外で新しい事業を始めた。",
+      "sentenceReading": "かいがいであたらしいじぎょうをはじめた。",
+      "sentenceKR": "해외에서 새로운 사업을 시작했다."
+    },
+    {
+      "word": "軽蔑",
+      "reading": "けいべつ",
+      "meaningKR": "경멸",
+      "sentenceJP": "他人への軽蔑を隠さなかった。",
+      "sentenceReading": "たにんへのけいべつをかくさなかった。",
+      "sentenceKR": "타인에 대한 경멸을 숨기지 않았다."
+    },
+    {
+      "word": "経歴",
+      "reading": "けいれき",
+      "meaningKR": "경력, 이력",
+      "sentenceJP": "彼の経歴は実に興味深い。",
+      "sentenceReading": "かれのけいれきはじつにきょうみぶかい。",
+      "sentenceKR": "그의 경력은 참으로 흥미롭다."
+    },
+    {
+      "word": "経路",
+      "reading": "けいろ",
+      "meaningKR": "경로",
+      "sentenceJP": "別の経路で荷物を送った。",
+      "sentenceReading": "べつのけいろでにもつをおくった。",
+      "sentenceKR": "다른 경로로 짐을 보냈다."
+    },
+    {
+      "word": "けがらわしい",
+      "reading": "けがらわしい",
+      "meaningKR": "추악하다, 불결하다",
+      "sentenceJP": "そんな卑劣な行為はけがらわしい。",
+      "sentenceReading": "そんなひれつなこういはけがらわしい。",
+      "sentenceKR": "그런 비열한 행위는 추악하다."
+    },
+    {
+      "word": "劇団",
+      "reading": "げきだん",
+      "meaningKR": "극단, 연극단",
+      "sentenceJP": "有名な劇団の公演を見た。",
+      "sentenceReading": "ゆうめいなげきだんのこうえんをみた。",
+      "sentenceKR": "유명한 극단의 공연을 봤다."
+    },
+    {
+      "word": "激励",
+      "reading": "げきれい",
+      "meaningKR": "격려",
+      "sentenceJP": "監督の激励に選手は奮い立った。",
+      "sentenceReading": "かんとくのげきれいにせんしゅはふるいたった。",
+      "sentenceKR": "감독의 격려에 선수는 힘을 얻었다."
+    },
+    {
+      "word": "ゲスト",
+      "reading": "ゲスト",
+      "meaningKR": "초대 손님",
+      "sentenceJP": "今夜のゲストは人気俳優です。",
+      "sentenceReading": "こんやのげすとはにんきはいゆうです。",
+      "sentenceKR": "오늘 밤의 게스트는 인기 배우입니다."
+    },
+    {
+      "word": "獣",
+      "reading": "けだもの",
+      "meaningKR": "짐승, 야수",
+      "sentenceJP": "あんな獣に情けは通じない。",
+      "sentenceReading": "あんなけだものになさけはつうじない。",
+      "sentenceKR": "저런 짐승에게는 인정이 통하지 않는다."
+    },
+    {
+      "word": "決",
+      "reading": "けつ",
+      "meaningKR": "표결, 결정",
+      "sentenceJP": "会議の最後に決を採った。",
+      "sentenceReading": "かいぎのさいごにけつをとった。",
+      "sentenceKR": "회의 마지막에 표결했다."
+    },
+    {
+      "word": "決意",
+      "reading": "けつい",
+      "meaningKR": "결의, 결심",
+      "sentenceJP": "留学する決意は揺るがない。",
+      "sentenceReading": "りゅうがくするけついはゆるがない。",
+      "sentenceKR": "유학하겠다는 결심은 흔들리지 않는다."
+    },
+    {
+      "word": "結核",
+      "reading": "けっかく",
+      "meaningKR": "결핵",
+      "sentenceJP": "結核の検査を定期的に受ける。",
+      "sentenceReading": "けっかくのけんさをていきてきにうける。",
+      "sentenceKR": "정기적으로 결핵 검사를 받는다."
+    },
+    {
+      "word": "決議",
+      "reading": "けつぎ",
+      "meaningKR": "결의, 의결",
+      "sentenceJP": "委員会は新たな決議を採択した。",
+      "sentenceReading": "いいんかいはあらたなけつぎをさいたくした。",
+      "sentenceKR": "위원회는 새로운 결의안을 채택했다."
+    },
+    {
+      "word": "結合",
+      "reading": "けつごう",
+      "meaningKR": "결합",
+      "sentenceJP": "水素と酸素が結合して水になる。",
+      "sentenceReading": "すいそとさんそがけつごうしてみずになる。",
+      "sentenceKR": "수소와 산소가 결합하여 물이 된다."
+    },
+    {
+      "word": "決算",
+      "reading": "けっさん",
+      "meaningKR": "결산",
+      "sentenceJP": "今期の決算は黒字となった。",
+      "sentenceReading": "こんきのけっさんはくろじとなった。",
+      "sentenceKR": "이번 기의 결산은 흑자를 기록했다."
+    },
+    {
+      "word": "月謝",
+      "reading": "げっしゃ",
+      "meaningKR": "월 수강료",
+      "sentenceJP": "月謝を月末までに納めてください。",
+      "sentenceReading": "げっしゃをげつまつまでにおさめてください。",
+      "sentenceKR": "월 수강료를 월말까지 납부해 주세요."
+    },
+    {
+      "word": "決勝",
+      "reading": "けっしょう",
+      "meaningKR": "결승",
+      "sentenceJP": "彼女は決勝で逆転勝ちした。",
+      "sentenceReading": "かのじょはけっしょうでぎゃくてんがちした。",
+      "sentenceKR": "그녀는 결승에서 역전승했다."
+    },
+    {
+      "word": "結晶",
+      "reading": "けっしょう",
+      "meaningKR": "결정체, 결정",
+      "sentenceJP": "雪の結晶を顕微鏡で観察した。",
+      "sentenceReading": "ゆきのけっしょうをけんびきょうでかんさつした。",
+      "sentenceKR": "눈의 결정을 현미경으로 관찰했다."
+    },
+    {
+      "word": "結成",
+      "reading": "けっせい",
+      "meaningKR": "결성",
+      "sentenceJP": "若者たちが劇団を結成した。",
+      "sentenceReading": "わかものたちがげきだんをけっせいした。",
+      "sentenceKR": "젊은이들이 극단을 결성했다."
+    },
+    {
+      "word": "結束",
+      "reading": "けっそく",
+      "meaningKR": "결속, 단결",
+      "sentenceJP": "チームの結束がさらに強まった。",
+      "sentenceReading": "ちーむのけっそくがさらに​​つよまった。",
+      "sentenceKR": "팀의 결속력이 더욱 강해졌다."
+    },
+    {
+      "word": "げっそり",
+      "reading": "げっそり",
+      "meaningKR": "핼쑥해짐, 맥 빠짐",
+      "sentenceJP": "激務で彼はげっそり痩せた。",
+      "sentenceReading": "げきむでかれはげっそりやせた。",
+      "sentenceKR": "격무로 그는 눈에 띄게 핼쑥해졌다."
     }
   ]
 }
