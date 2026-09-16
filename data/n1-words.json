@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-15T23:22:53.586Z",
-  "count": 270,
+  "generatedAt": "2026-09-16T23:29:20.323Z",
+  "count": 315,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -2164,6 +2164,366 @@
       "sentenceJP": "激務で彼はげっそり痩せた。",
       "sentenceReading": "げきむでかれはげっそりやせた。",
       "sentenceKR": "격무로 그는 눈에 띄게 핼쑥해졌다."
+    },
+    {
+      "word": "決断",
+      "reading": "けつだん",
+      "meaningKR": "결단, 결정",
+      "sentenceJP": "重大な決断を下した。",
+      "sentenceReading": "じゅうだいなけつだんをくだした。",
+      "sentenceKR": "중대한 결단을 내렸다."
+    },
+    {
+      "word": "月賦",
+      "reading": "げっぷ",
+      "meaningKR": "월부, 매월 할부",
+      "sentenceJP": "車を月賦で購入した。",
+      "sentenceReading": "くるまをげっぷでこうにゅうした。",
+      "sentenceKR": "자동차를 월부로 구매했다."
+    },
+    {
+      "word": "欠乏",
+      "reading": "けつぼう",
+      "meaningKR": "결핍, 부족",
+      "sentenceJP": "睡眠の欠乏で集中できない。",
+      "sentenceReading": "すいみんのけつぼうでしゅうちゅうできない。",
+      "sentenceKR": "수면 부족으로 집중할 수 없다."
+    },
+    {
+      "word": "蹴飛ばす",
+      "reading": "けとばす",
+      "meaningKR": "걷어차다",
+      "sentenceJP": "石を道端へ蹴飛ばした。",
+      "sentenceReading": "いしをみちばたへけとばした。",
+      "sentenceKR": "돌을 길가로 걷어찼다."
+    },
+    {
+      "word": "けなす",
+      "reading": "けなす",
+      "meaningKR": "헐뜯다, 깎아내리다",
+      "sentenceJP": "人の努力をけなすな。",
+      "sentenceReading": "ひとのどりょくをけなすな。",
+      "sentenceKR": "남의 노력을 깎아내리지 마라."
+    },
+    {
+      "word": "煙たい",
+      "reading": "けむたい",
+      "meaningKR": "연기가 자욱한, 거북한",
+      "sentenceJP": "この部屋は煙たい。",
+      "sentenceReading": "このへやはけむたい。",
+      "sentenceKR": "이 방은 연기가 자욱하다."
+    },
+    {
+      "word": "煙る",
+      "reading": "けむる",
+      "meaningKR": "연기가 나다, 자욱하다",
+      "sentenceJP": "焚き火が風で白く煙る。",
+      "sentenceReading": "たきびがかぜでしろくけむる。",
+      "sentenceKR": "모닥불이 바람에 하얗게 연기를 낸다."
+    },
+    {
+      "word": "獣",
+      "reading": "けもの",
+      "meaningKR": "짐승, 야수",
+      "sentenceJP": "森で獣の足跡を見つけた。",
+      "sentenceReading": "もりでけもののあしあとをみつけた。",
+      "sentenceKR": "숲에서 짐승의 발자국을 발견했다."
+    },
+    {
+      "word": "家来",
+      "reading": "けらい",
+      "meaningKR": "가신, 시종",
+      "sentenceJP": "家来が殿を守った。",
+      "sentenceReading": "けらいがとのをまもった。",
+      "sentenceKR": "가신이 주군을 지켰다."
+    },
+    {
+      "word": "下痢",
+      "reading": "げり",
+      "meaningKR": "설사",
+      "sentenceJP": "生水を飲んで下痢をした。",
+      "sentenceReading": "なまみずをのんでげりをした。",
+      "sentenceKR": "생수를 마시고 설사를 했다."
+    },
+    {
+      "word": "権威",
+      "reading": "けんい",
+      "meaningKR": "권위, 영향력",
+      "sentenceJP": "彼は学界で権威がある。",
+      "sentenceReading": "かれはがっかいでけんいがある。",
+      "sentenceKR": "그는 학계에서 권위가 있다."
+    },
+    {
+      "word": "兼業",
+      "reading": "けんぎょう",
+      "meaningKR": "겸업",
+      "sentenceJP": "農業と民宿を兼業している。",
+      "sentenceReading": "のうぎょうとみんしゅくをけんぎょうしている。",
+      "sentenceKR": "농업과 민박업을 겸업하고 있다."
+    },
+    {
+      "word": "原形",
+      "reading": "げんけい",
+      "meaningKR": "원형, 기본형",
+      "sentenceJP": "動詞を原形に戻してください。",
+      "sentenceReading": "どうしをげんけいにもどしてください。",
+      "sentenceKR": "동사를 기본형으로 되돌려 주세요."
+    },
+    {
+      "word": "原型",
+      "reading": "げんけい",
+      "meaningKR": "원형, 시제품",
+      "sentenceJP": "新製品の原型が完成した。",
+      "sentenceReading": "しんせいひんのげんけいがかんせいした。",
+      "sentenceKR": "신제품의 원형이 완성되었다."
+    },
+    {
+      "word": "権限",
+      "reading": "けんげん",
+      "meaningKR": "권한, 관할권",
+      "sentenceJP": "その決定は私の権限を超える。",
+      "sentenceReading": "そのけっていはわたしのけんげんをこえる。",
+      "sentenceKR": "그 결정은 내 권한을 넘어선다."
+    },
+    {
+      "word": "現行",
+      "reading": "げんこう",
+      "meaningKR": "현행, 현재 시행 중",
+      "sentenceJP": "現行制度は来年改正される。",
+      "sentenceReading": "げんこうせいどはらいねんかいせいされる。",
+      "sentenceKR": "현행 제도는 내년에 개정된다."
+    },
+    {
+      "word": "健在",
+      "reading": "けんざい",
+      "meaningKR": "건재함, 건강함",
+      "sentenceJP": "祖父は今も健在です。",
+      "sentenceReading": "そふはいまもけんざいです。",
+      "sentenceKR": "할아버지는 지금도 건강하시다."
+    },
+    {
+      "word": "原作",
+      "reading": "げんさく",
+      "meaningKR": "원작",
+      "sentenceJP": "この映画は人気漫画が原作だ。",
+      "sentenceReading": "このえいがはにんきまんががげんさくだ。",
+      "sentenceKR": "이 영화는 인기 만화가 원작이다."
+    },
+    {
+      "word": "検事",
+      "reading": "けんじ",
+      "meaningKR": "검사",
+      "sentenceJP": "検事は証人に質問した。",
+      "sentenceReading": "けんじはしょうにんにしつもんした。",
+      "sentenceKR": "검사는 증인에게 질문했다."
+    },
+    {
+      "word": "原子",
+      "reading": "げんし",
+      "meaningKR": "원자",
+      "sentenceJP": "原子の構造を詳しく調べる。",
+      "sentenceReading": "げんしのこうぞうをくわしくしらべる。",
+      "sentenceKR": "원자의 구조를 자세히 조사한다."
+    },
+    {
+      "word": "元首",
+      "reading": "げんしゅ",
+      "meaningKR": "국가 원수",
+      "sentenceJP": "大統領は国家元首である。",
+      "sentenceReading": "だいとうりょうはこっかげんしゅである。",
+      "sentenceKR": "대통령은 국가 원수이다."
+    },
+    {
+      "word": "原書",
+      "reading": "げんしょ",
+      "meaningKR": "원서, 원문서",
+      "sentenceJP": "翻訳と原書を読み比べた。",
+      "sentenceReading": "ほんやくとげんしょをよみくらべた。",
+      "sentenceKR": "번역본과 원서를 비교해 읽었다."
+    },
+    {
+      "word": "懸賞",
+      "reading": "けんしょう",
+      "meaningKR": "현상 공모, 경품",
+      "sentenceJP": "懸賞に応募して賞品を当てた。",
+      "sentenceReading": "けんしょうにおうぼしてしょうひんをあてた。",
+      "sentenceKR": "경품 행사에 응모해 상품을 탔다."
+    },
+    {
+      "word": "健全",
+      "reading": "けんぜん",
+      "meaningKR": "건전함",
+      "sentenceJP": "子供の健全な成長を願う。",
+      "sentenceReading": "こどものけんぜんなせいちょうをねがう。",
+      "sentenceKR": "아이의 건전한 성장을 바란다."
+    },
+    {
+      "word": "元素",
+      "reading": "げんそ",
+      "meaningKR": "원소",
+      "sentenceJP": "酸素は生命に欠かせない元素だ。",
+      "sentenceReading": "さんそはせいめいにかかせないげんそだ。",
+      "sentenceKR": "산소는 생명에 없어서는 안 될 원소다."
+    },
+    {
+      "word": "同調",
+      "reading": "どうちょう",
+      "meaningKR": "동조, 의견을 같이함",
+      "sentenceJP": "私は彼の意見には同調しない。",
+      "sentenceReading": "わたしはかれのいけんにはどうちょうしない。",
+      "sentenceKR": "나는 그의 의견에는 동조하지 않는다."
+    },
+    {
+      "word": "到底",
+      "reading": "とうてい",
+      "meaningKR": "도저히, 아무리 해도",
+      "sentenceJP": "この仕事は一日では到底終わらない。",
+      "sentenceReading": "このしごとはいちにちではとうていおわらない。",
+      "sentenceKR": "이 일은 하루 만에는 도저히 끝나지 않는다."
+    },
+    {
+      "word": "動的",
+      "reading": "どうてき",
+      "meaningKR": "동적",
+      "sentenceJP": "動的な変化をグラフで示す。",
+      "sentenceReading": "どうてきなへんかをぐらふでしめす。",
+      "sentenceKR": "동적인 변화를 그래프로 나타낸다."
+    },
+    {
+      "word": "尊い",
+      "reading": "とうとい",
+      "meaningKR": "존귀하다, 숭고하다",
+      "sentenceJP": "先人の尊い教えを受け継ぐ。",
+      "sentenceReading": "せんじんのとうといおしえをうけつぐ。",
+      "sentenceKR": "선인들의 숭고한 가르침을 이어받는다."
+    },
+    {
+      "word": "貴い",
+      "reading": "とうとい",
+      "meaningKR": "귀중하다, 소중하다",
+      "sentenceJP": "貴い命を守る責任がある。",
+      "sentenceReading": "とうといいのちをまもるせきにんがある。",
+      "sentenceKR": "소중한 생명을 지킬 책임이 있다."
+    },
+    {
+      "word": "同等",
+      "reading": "どうとう",
+      "meaningKR": "동등함, 같은 지위",
+      "sentenceJP": "彼は私と同等の権利を持つ。",
+      "sentenceReading": "かれはわたしとどうとうのけんりをもつ。",
+      "sentenceKR": "그는 나와 동등한 권리를 가진다."
+    },
+    {
+      "word": "堂々",
+      "reading": "どうどう",
+      "meaningKR": "당당함, 웅장함",
+      "sentenceJP": "彼女は堂々と意見を述べた。",
+      "sentenceReading": "かのじょはどうどうといけんをのべた。",
+      "sentenceKR": "그녀는 당당하게 의견을 밝혔다."
+    },
+    {
+      "word": "尊ぶ",
+      "reading": "とうとぶ",
+      "meaningKR": "존중하다, 소중히 여기다",
+      "sentenceJP": "命を尊ぶ心を忘れない。",
+      "sentenceReading": "いのちをとうとぶこころをわすれない。",
+      "sentenceKR": "생명을 소중히 여기는 마음을 잊지 않는다."
+    },
+    {
+      "word": "どうにか",
+      "reading": "どうにか",
+      "meaningKR": "어떻게든",
+      "sentenceJP": "どうにか締め切りに間に合った。",
+      "sentenceReading": "どうにかしめきりにまにあった。",
+      "sentenceKR": "어떻게든 마감에 맞췄다."
+    },
+    {
+      "word": "投入",
+      "reading": "とうにゅう",
+      "meaningKR": "투입, 투자",
+      "sentenceJP": "新事業に多額の資金を投入した。",
+      "sentenceReading": "しんじぎょうにたがくのしきんをとうにゅうした。",
+      "sentenceKR": "새 사업에 거액의 자금을 투입했다."
+    },
+    {
+      "word": "導入",
+      "reading": "どうにゅう",
+      "meaningKR": "도입",
+      "sentenceJP": "新しい制度を来月導入する。",
+      "sentenceReading": "あたらしいせいどをらいげつどうにゅうする。",
+      "sentenceKR": "새로운 제도를 다음 달에 도입한다."
+    },
+    {
+      "word": "当人",
+      "reading": "とうにん",
+      "meaningKR": "당사자, 본인",
+      "sentenceJP": "当人に直接確かめてください。",
+      "sentenceReading": "とうにんにちょくせつたしかめてください。",
+      "sentenceKR": "당사자에게 직접 확인해 주세요."
+    },
+    {
+      "word": "同封",
+      "reading": "どうふう",
+      "meaningKR": "동봉",
+      "sentenceJP": "必要書類を封筒に同封した。",
+      "sentenceReading": "ひつようしょるいをふうとうにどうふうした。",
+      "sentenceKR": "필요한 서류를 봉투에 동봉했다."
+    },
+    {
+      "word": "逃亡",
+      "reading": "とうぼう",
+      "meaningKR": "도망, 도주",
+      "sentenceJP": "容疑者は海外へ逃亡した。",
+      "sentenceReading": "ようぎしゃはかいがいへとうぼうした。",
+      "sentenceKR": "용의자는 해외로 도주했다."
+    },
+    {
+      "word": "冬眠",
+      "reading": "とうみん",
+      "meaningKR": "동면",
+      "sentenceJP": "熊は冬になると冬眠する。",
+      "sentenceReading": "くまはふゆになるととうみんする。",
+      "sentenceKR": "곰은 겨울이 되면 동면한다."
+    },
+    {
+      "word": "同盟",
+      "reading": "どうめい",
+      "meaningKR": "동맹, 연합",
+      "sentenceJP": "両国は防衛同盟を結んだ。",
+      "sentenceReading": "りょうこくはぼうえいどうめいをむすんだ。",
+      "sentenceKR": "양국은 방위 동맹을 맺었다."
+    },
+    {
+      "word": "どうやら",
+      "reading": "どうやら",
+      "meaningKR": "아무래도, 보아하니",
+      "sentenceJP": "どうやら雨が降りそうだ。",
+      "sentenceReading": "どうやらあめがふりそうだ。",
+      "sentenceKR": "아무래도 비가 올 것 같다."
+    },
+    {
+      "word": "動力",
+      "reading": "どうりょく",
+      "meaningKR": "동력",
+      "sentenceJP": "この機械は電気を動力とする。",
+      "sentenceReading": "このきかいはでんきをどうりょくとする。",
+      "sentenceKR": "이 기계는 전기를 동력으로 삼는다."
+    },
+    {
+      "word": "登録",
+      "reading": "とうろく",
+      "meaningKR": "등록",
+      "sentenceJP": "会員登録を済ませました。",
+      "sentenceReading": "かいいんとうろくをすませました。",
+      "sentenceKR": "회원 등록을 마쳤습니다."
+    },
+    {
+      "word": "討論",
+      "reading": "とうろん",
+      "meaningKR": "토론, 논의",
+      "sentenceJP": "その問題について討論した。",
+      "sentenceReading": "そのもんだいについてとうろんした。",
+      "sentenceKR": "그 문제에 관해 토론했다."
     }
   ]
 }
