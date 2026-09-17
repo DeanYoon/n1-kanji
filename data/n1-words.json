@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-16T23:29:20.323Z",
-  "count": 315,
+  "generatedAt": "2026-09-17T23:20:06.113Z",
+  "count": 360,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -2524,6 +2524,366 @@
       "sentenceJP": "その問題について討論した。",
       "sentenceReading": "そのもんだいについてとうろんした。",
       "sentenceKR": "그 문제에 관해 토론했다."
+    },
+    {
+      "word": "遠ざかる",
+      "reading": "とおざかる",
+      "meaningKR": "멀어지다",
+      "sentenceJP": "船は静かに岸から遠ざかる。",
+      "sentenceReading": "ふねはしずかにきしからとおざかる。",
+      "sentenceKR": "배는 조용히 해안에서 멀어진다."
+    },
+    {
+      "word": "遠回り",
+      "reading": "とおまわり",
+      "meaningKR": "우회, 에둘러 가는 길",
+      "sentenceJP": "渋滞を避けて遠回りした。",
+      "sentenceReading": "じゅうたいをさけてとおまわりした。",
+      "sentenceKR": "교통 체증을 피해 우회했다."
+    },
+    {
+      "word": "トーン",
+      "reading": "トーン",
+      "meaningKR": "어조, 음조",
+      "sentenceJP": "彼の声のトーンが急に下がった。",
+      "sentenceReading": "かれのこえのとーんがきゅうにさがった。",
+      "sentenceKR": "그의 목소리 톤이 갑자기 낮아졌다."
+    },
+    {
+      "word": "とかく",
+      "reading": "とかく",
+      "meaningKR": "아무튼, 이래저래",
+      "sentenceJP": "とかく人は見た目で判断しがちだ。",
+      "sentenceReading": "とかくひとはみためではんだんしがちだ。",
+      "sentenceKR": "사람은 아무래도 겉모습으로 판단하기 쉽다."
+    },
+    {
+      "word": "とがめる",
+      "reading": "とがめる",
+      "meaningKR": "나무라다, 질책하다",
+      "sentenceJP": "彼の過ちを厳しくとがめた。",
+      "sentenceReading": "かれのあやまちをきびしくとがめた。",
+      "sentenceKR": "그의 잘못을 엄하게 질책했다."
+    },
+    {
+      "word": "時折",
+      "reading": "ときおり",
+      "meaningKR": "때때로, 이따금",
+      "sentenceJP": "時折、昔の友を思い出す。",
+      "sentenceReading": "ときおり、むかしのともをおもいだす。",
+      "sentenceKR": "이따금 옛 친구가 생각난다."
+    },
+    {
+      "word": "とぎれる",
+      "reading": "とぎれる",
+      "meaningKR": "끊기다, 중단되다",
+      "sentenceJP": "電波が弱く、通話がとぎれた。",
+      "sentenceReading": "でんぱがよわく、つうわがとぎれた。",
+      "sentenceKR": "전파가 약해 통화가 끊겼다."
+    },
+    {
+      "word": "研ぐ",
+      "reading": "とぐ",
+      "meaningKR": "갈다, 닦다",
+      "sentenceJP": "毎朝、包丁を丁寧に研ぐ。",
+      "sentenceReading": "まいあさ、ほうちょうをていねいにとぐ。",
+      "sentenceKR": "매일 아침 식칼을 정성껏 간다."
+    },
+    {
+      "word": "特技",
+      "reading": "とくぎ",
+      "meaningKR": "특기, 특별한 재능",
+      "sentenceJP": "私の特技は暗算です。",
+      "sentenceReading": "わたしのとくぎはあんざんです。",
+      "sentenceKR": "제 특기는 암산입니다."
+    },
+    {
+      "word": "独裁",
+      "reading": "どくさい",
+      "meaningKR": "독재",
+      "sentenceJP": "独裁に抗議する声が広がった。",
+      "sentenceReading": "どくさいにこうぎするこえがひろがった。",
+      "sentenceKR": "독재에 항의하는 목소리가 확산됐다."
+    },
+    {
+      "word": "特産",
+      "reading": "とくさん",
+      "meaningKR": "특산품",
+      "sentenceJP": "この地方の特産は桃です。",
+      "sentenceReading": "このちほうのとくさんはももです。",
+      "sentenceKR": "이 지방의 특산품은 복숭아입니다."
+    },
+    {
+      "word": "独自",
+      "reading": "どくじ",
+      "meaningKR": "독자적임, 고유함",
+      "sentenceJP": "独自の方法で問題を解いた。",
+      "sentenceReading": "どくじのほうほうでもんだいをといた。",
+      "sentenceKR": "독자적인 방법으로 문제를 풀었다."
+    },
+    {
+      "word": "特集",
+      "reading": "とくしゅう",
+      "meaningKR": "특집",
+      "sentenceJP": "雑誌で環境問題を特集する。",
+      "sentenceReading": "ざっしでかんきょうもんだいをとくしゅうする。",
+      "sentenceKR": "잡지에서 환경 문제를 특집으로 다룬다."
+    },
+    {
+      "word": "独占",
+      "reading": "どくせん",
+      "meaningKR": "독점",
+      "sentenceJP": "一社が市場を独占している。",
+      "sentenceReading": "いっしゃがしじょうをどくせんしている。",
+      "sentenceKR": "한 회사가 시장을 독점하고 있다."
+    },
+    {
+      "word": "独創",
+      "reading": "どくそう",
+      "meaningKR": "독창성",
+      "sentenceJP": "独創に富んだ作品が評価された。",
+      "sentenceReading": "どくそうにとんださくひんがひょうかされた。",
+      "sentenceKR": "독창성이 풍부한 작품이 좋은 평가를 받았다."
+    },
+    {
+      "word": "得点",
+      "reading": "とくてん",
+      "meaningKR": "득점, 점수",
+      "sentenceJP": "後半で二得点を挙げた。",
+      "sentenceReading": "こうはんでにとくてんをあげた。",
+      "sentenceKR": "후반에 두 골을 넣었다."
+    },
+    {
+      "word": "特派",
+      "reading": "とくは",
+      "meaningKR": "특파, 특별 파견",
+      "sentenceJP": "特派記者が現地から報じた。",
+      "sentenceReading": "とくはきしゃがげんちからほうじた。",
+      "sentenceKR": "특파 기자가 현지에서 보도했다."
+    },
+    {
+      "word": "特有",
+      "reading": "とくゆう",
+      "meaningKR": "특유, 고유",
+      "sentenceJP": "この地域特有の風習だ。",
+      "sentenceReading": "このちいきとくゆうのふうしゅうだ。",
+      "sentenceKR": "이 지역 특유의 풍습이다."
+    },
+    {
+      "word": "とげ (をさす)",
+      "reading": "とげ (をさす)",
+      "meaningKR": "가시",
+      "sentenceJP": "バラのとげが指に刺さった。",
+      "sentenceReading": "ばらのとげがゆびにささった。",
+      "sentenceKR": "장미 가시가 손가락에 박혔다."
+    },
+    {
+      "word": "遂げる",
+      "reading": "とげる",
+      "meaningKR": "이루다, 달성하다",
+      "sentenceJP": "彼はついに目的を遂げた。",
+      "sentenceReading": "かれはついにもくてきをとげた。",
+      "sentenceKR": "그는 마침내 목적을 달성했다."
+    },
+    {
+      "word": "～どころか",
+      "reading": "～どころか",
+      "meaningKR": "~는커녕, 오히려",
+      "sentenceJP": "彼は謝るどころか、逆に怒った。",
+      "sentenceReading": "かれはあやまるどころか、ぎゃくにおこった。",
+      "sentenceKR": "그는 사과하기는커녕 오히려 화를 냈다."
+    },
+    {
+      "word": "年頃",
+      "reading": "としごろ",
+      "meaningKR": "한창 나이, 사춘기",
+      "sentenceJP": "娘は悩みの多い年頃だ。",
+      "sentenceReading": "むすめはなやみのおおいとしごろだ。",
+      "sentenceKR": "딸은 고민이 많은 나이이다."
+    },
+    {
+      "word": "戸締り",
+      "reading": "とじまり",
+      "meaningKR": "문단속",
+      "sentenceJP": "出かける前に戸締りを確認した。",
+      "sentenceReading": "でかけるまえにとじまりをかくにんした。",
+      "sentenceKR": "외출하기 전에 문단속을 확인했다."
+    },
+    {
+      "word": "途上",
+      "reading": "とじょう",
+      "meaningKR": "도중, 진행 중",
+      "sentenceJP": "帰宅途上で雨に降られた。",
+      "sentenceReading": "きたくとじょうであめにふられた。",
+      "sentenceKR": "귀가 도중에 비를 맞았다."
+    },
+    {
+      "word": "土台",
+      "reading": "どだい",
+      "meaningKR": "토대, 기초",
+      "sentenceJP": "家の土台をしっかり補強した。",
+      "sentenceReading": "いえのどだいをしっかりほきょうした。",
+      "sentenceKR": "집의 토대를 단단히 보강했다."
+    },
+    {
+      "word": "途絶える",
+      "reading": "とだえる",
+      "meaningKR": "끊기다, 중단되다",
+      "sentenceJP": "雪で村との連絡が途絶えた。",
+      "sentenceReading": "ゆきでむらとのれんらくがとだえた。",
+      "sentenceKR": "눈 때문에 마을과의 연락이 끊겼다."
+    },
+    {
+      "word": "特許",
+      "reading": "とっきょ",
+      "meaningKR": "특허",
+      "sentenceJP": "新技術の特許を取得した。",
+      "sentenceReading": "しんぎじゅつのとっきょをしゅとくした。",
+      "sentenceKR": "신기술 특허를 취득했다."
+    },
+    {
+      "word": "特権",
+      "reading": "とっけん",
+      "meaningKR": "특권",
+      "sentenceJP": "会員だけの特権を享受する。",
+      "sentenceReading": "かいいんだけのとっけんをきょうじゅする。",
+      "sentenceKR": "회원만의 특권을 누린다."
+    },
+    {
+      "word": "とっさに",
+      "reading": "とっさに",
+      "meaningKR": "순간적으로, 즉시",
+      "sentenceJP": "とっさに子供の手を引いた。",
+      "sentenceReading": "とっさにこどものてをひいた。",
+      "sentenceKR": "순간적으로 아이의 손을 잡아당겼다."
+    },
+    {
+      "word": "突如",
+      "reading": "とつじょ",
+      "meaningKR": "갑자기, 돌연",
+      "sentenceJP": "突如、空が暗くなった。",
+      "sentenceReading": "とつじょ、そらがくらくなった。",
+      "sentenceKR": "갑자기 하늘이 어두워졌다."
+    },
+    {
+      "word": "とって",
+      "reading": "とって",
+      "meaningKR": "손잡이",
+      "sentenceJP": "鍋のとってが外れた。",
+      "sentenceReading": "なべのとってがはずれた。",
+      "sentenceKR": "냄비 손잡이가 떨어졌다."
+    },
+    {
+      "word": "突破",
+      "reading": "とっぱ",
+      "meaningKR": "돌파",
+      "sentenceJP": "難関を突破して決勝へ進んだ。",
+      "sentenceReading": "なんかんをとっぱしてけっしょうへすすんだ。",
+      "sentenceKR": "난관을 돌파해 결승에 진출했다."
+    },
+    {
+      "word": "土手",
+      "reading": "どて",
+      "meaningKR": "둑, 제방",
+      "sentenceJP": "土手に桜の木が並んでいる。",
+      "sentenceReading": "どてにさくらのきがならんでいる。",
+      "sentenceKR": "둑에 벚나무가 늘어서 있다."
+    },
+    {
+      "word": "届",
+      "reading": "とどけ",
+      "meaningKR": "신고서, 신고",
+      "sentenceJP": "住所変更届を窓口に出した。",
+      "sentenceReading": "じゅうしょへんこうとどけをまどぐちにだした。",
+      "sentenceKR": "주소 변경 신고서를 창구에 제출했다."
+    },
+    {
+      "word": "滞る",
+      "reading": "とどこおる",
+      "meaningKR": "밀리다, 지연되다",
+      "sentenceJP": "雨で工事が滞っている。",
+      "sentenceReading": "あめでこうじがとどこおっている。",
+      "sentenceKR": "비 때문에 공사가 지연되고 있다."
+    },
+    {
+      "word": "整える",
+      "reading": "ととのえる",
+      "meaningKR": "정돈하다, 준비하다",
+      "sentenceJP": "会議の資料を整えた。",
+      "sentenceReading": "かいぎのしりょうをととのえた。",
+      "sentenceKR": "회의 자료를 정리해 두었다."
+    },
+    {
+      "word": "止める",
+      "reading": "とどめる",
+      "meaningKR": "끝내다, 멈추다",
+      "sentenceJP": "被害を最小限に止めた。",
+      "sentenceReading": "ひがいをさいしょうげんにとどめた。",
+      "sentenceKR": "피해를 최소한으로 억제했다."
+    },
+    {
+      "word": "唱える",
+      "reading": "となえる",
+      "meaningKR": "외우다, 읊다",
+      "sentenceJP": "僧侶が静かにお経を唱える。",
+      "sentenceReading": "そうりょがしずかにおきょうをとなえる。",
+      "sentenceKR": "승려가 조용히 불경을 외운다."
+    },
+    {
+      "word": "殿様",
+      "reading": "とのさま",
+      "meaningKR": "영주",
+      "sentenceJP": "殿様が城下町を見渡した。",
+      "sentenceReading": "とのさまがじょうかまちをみわたした。",
+      "sentenceKR": "영주가 성 아래 마을을 내려다보았다."
+    },
+    {
+      "word": "土俵",
+      "reading": "どひょう",
+      "meaningKR": "씨름판, 경기장",
+      "sentenceJP": "力士が土俵に上がった。",
+      "sentenceReading": "りきしがどひょうにあがった。",
+      "sentenceKR": "스모 선수가 씨름판에 올랐다."
+    },
+    {
+      "word": "扉",
+      "reading": "とびら",
+      "meaningKR": "문",
+      "sentenceJP": "重い扉をゆっくり開けた。",
+      "sentenceReading": "おもいとびらをゆっくりあけた。",
+      "sentenceKR": "무거운 문을 천천히 열었다."
+    },
+    {
+      "word": "溝",
+      "reading": "どぶ",
+      "meaningKR": "도랑, 배수로",
+      "sentenceJP": "溝に落ち葉がたまっている。",
+      "sentenceReading": "どぶにおちばがたまっている。",
+      "sentenceKR": "도랑에 낙엽이 쌓여 있다."
+    },
+    {
+      "word": "徒歩",
+      "reading": "とほ",
+      "meaningKR": "도보",
+      "sentenceJP": "駅から徒歩で十分かかる。",
+      "sentenceReading": "えきからとほでじゅっぷんかかる。",
+      "sentenceKR": "역에서 걸어서 10분 걸린다."
+    },
+    {
+      "word": "土木",
+      "reading": "どぼく",
+      "meaningKR": "토목, 공공 토목 공사",
+      "sentenceJP": "兄は土木会社に勤めている。",
+      "sentenceReading": "あにはどぼくがいしゃにつとめている。",
+      "sentenceKR": "형은 토목 회사에 다니고 있다."
+    },
+    {
+      "word": "とぼける",
+      "reading": "とぼける",
+      "meaningKR": "시치미를 떼다, 모르는 척하다",
+      "sentenceJP": "彼は質問されてもとぼけた。",
+      "sentenceReading": "かれはしつもんされてもとぼけた。",
+      "sentenceKR": "그는 질문을 받고도 시치미를 뗐다."
     }
   ]
 }
