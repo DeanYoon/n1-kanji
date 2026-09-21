@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-20T22:53:57.241Z",
-  "count": 405,
+  "generatedAt": "2026-09-21T23:47:02.353Z",
+  "count": 450,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -3244,6 +3244,366 @@
       "sentenceJP": "長い内乱で国が疲弊した。",
       "sentenceReading": "ながいないらんでくにがひへいした。",
       "sentenceKR": "오랜 내란으로 나라가 피폐해졌다."
+    },
+    {
+      "word": "内陸",
+      "reading": "ないりく",
+      "meaningKR": "내륙",
+      "sentenceJP": "内陸部は冬の寒さが厳しい",
+      "sentenceReading": "ないりくぶはふゆのさむさがきびしい",
+      "sentenceKR": "내륙 지방은 겨울 추위가 심하다."
+    },
+    {
+      "word": "苗",
+      "reading": "なえ",
+      "meaningKR": "모종",
+      "sentenceJP": "春に田んぼへ苗を植える",
+      "sentenceReading": "はるにたんぼへなえをうえる",
+      "sentenceKR": "봄에 논에 모종을 심는다."
+    },
+    {
+      "word": "なおさら",
+      "reading": "なおさら",
+      "meaningKR": "더더욱",
+      "sentenceJP": "雨ならなおさら出かけたくない",
+      "sentenceReading": "あめならなおさらでかけたくない",
+      "sentenceKR": "비가 온다면 더더욱 나가고 싶지 않다."
+    },
+    {
+      "word": "流し",
+      "reading": "ながし",
+      "meaningKR": "싱크대",
+      "sentenceJP": "食器を流しに置いておく",
+      "sentenceReading": "しょっきをながしにおいておく",
+      "sentenceKR": "식기를 싱크대에 놓아 둔다."
+    },
+    {
+      "word": "長々",
+      "reading": "ながなが",
+      "meaningKR": "장황하게",
+      "sentenceJP": "彼は電話で長々と話した",
+      "sentenceReading": "かれはでんわでながながとはなした",
+      "sentenceKR": "그는 전화로 장황하게 이야기했다."
+    },
+    {
+      "word": "中程",
+      "reading": "なかほど",
+      "meaningKR": "중간쯤",
+      "sentenceJP": "橋の中程で立ち止まった",
+      "sentenceReading": "はしのなかほどでたちどまった",
+      "sentenceKR": "다리 중간쯤에서 멈춰 섰다."
+    },
+    {
+      "word": "渚",
+      "reading": "なぎさ",
+      "meaningKR": "물가",
+      "sentenceJP": "渚に白い波が打ち寄せる",
+      "sentenceReading": "なぎさにしろいなみがうちよせる",
+      "sentenceKR": "물가에 하얀 파도가 밀려온다."
+    },
+    {
+      "word": "嘆く",
+      "reading": "なげく",
+      "meaningKR": "한탄하다",
+      "sentenceJP": "失敗をいつまでも嘆くな",
+      "sentenceReading": "しっぱいをいつまでもなげくな",
+      "sentenceKR": "실패를 언제까지나 한탄하지 마라."
+    },
+    {
+      "word": "投げ出す",
+      "reading": "なげだす",
+      "meaningKR": "내팽개치다",
+      "sentenceJP": "困難だからと仕事を投げ出すな",
+      "sentenceReading": "こんなんだからとしごとをなげだすな",
+      "sentenceKR": "어렵다고 일을 내팽개치지 마라."
+    },
+    {
+      "word": "仲人",
+      "reading": "なこうど",
+      "meaningKR": "중매인",
+      "sentenceJP": "叔父が二人の仲人を務めた",
+      "sentenceReading": "おじがふたりのなこうどをつとめた",
+      "sentenceKR": "삼촌이 두 사람의 중매를 섰다."
+    },
+    {
+      "word": "和やか",
+      "reading": "なごやか",
+      "meaningKR": "화기애애한",
+      "sentenceJP": "和やかな雰囲気で会議が進んだ",
+      "sentenceReading": "なごやかなふんいきでかいぎがすすんだ",
+      "sentenceKR": "화기애애한 분위기에서 회의가 진행됐다."
+    },
+    {
+      "word": "名残",
+      "reading": "なごり",
+      "meaningKR": "자취, 여운",
+      "sentenceJP": "夏の名残を夕風に感じる",
+      "sentenceReading": "なつのなごりをゆうかぜにかんじる",
+      "sentenceKR": "저녁 바람에서 여름의 여운을 느낀다."
+    },
+    {
+      "word": "情け",
+      "reading": "なさけ",
+      "meaningKR": "인정, 동정심",
+      "sentenceJP": "困った人に情けをかける",
+      "sentenceReading": "こまったひとになさけをかける",
+      "sentenceKR": "곤경에 처한 사람에게 인정을 베푼다."
+    },
+    {
+      "word": "情無い",
+      "reading": "なさけない",
+      "meaningKR": "한심하다",
+      "sentenceJP": "約束も守れないとは情けない",
+      "sentenceReading": "やくそくもまもれないとはなさけない",
+      "sentenceKR": "약속조차 지키지 못하다니 한심하다."
+    },
+    {
+      "word": "情深い",
+      "reading": "なさけぶかい",
+      "meaningKR": "인정이 많다",
+      "sentenceJP": "祖母は情け深い人だった",
+      "sentenceReading": "そぼはなさけぶかいひとだった",
+      "sentenceKR": "할머니는 인정이 많은 분이었다."
+    },
+    {
+      "word": "詰る",
+      "reading": "なじる",
+      "meaningKR": "꾸짖다, 나무라다",
+      "sentenceJP": "妻は帰りの遅い夫を詰った。",
+      "sentenceReading": "つまはかえりのおそいおっとをなじった。",
+      "sentenceKR": "아내는 귀가가 늦은 남편을 나무랐다."
+    },
+    {
+      "word": "名高い",
+      "reading": "なだかい",
+      "meaningKR": "유명한, 명성 높은",
+      "sentenceJP": "この町は桜の名所として名高い。",
+      "sentenceReading": "このまちはさくらのめいしょとしてなだかい。",
+      "sentenceKR": "이 마을은 벚꽃 명소로 유명하다."
+    },
+    {
+      "word": "雪崩",
+      "reading": "なだれ",
+      "meaningKR": "눈사태",
+      "sentenceJP": "大雪で雪崩が発生した。",
+      "sentenceReading": "おおゆきでなだれがはっせいした。",
+      "sentenceKR": "폭설로 눈사태가 발생했다."
+    },
+    {
+      "word": "懐く",
+      "reading": "なつく",
+      "meaningKR": "따르다, 정이 들다",
+      "sentenceJP": "その犬はすぐ私に懐いた。",
+      "sentenceReading": "そのいぬはすぐわたしになついた。",
+      "sentenceKR": "그 개는 금세 나를 따랐다."
+    },
+    {
+      "word": "名付ける",
+      "reading": "なづける",
+      "meaningKR": "이름을 붙이다",
+      "sentenceJP": "子猫をミケと名付けた。",
+      "sentenceReading": "こねこをみけとなづけた。",
+      "sentenceKR": "새끼 고양이에게 미케라는 이름을 붙였다."
+    },
+    {
+      "word": "何気ない",
+      "reading": "なにげない",
+      "meaningKR": "아무렇지 않은, 무심한",
+      "sentenceJP": "何気ない一言に救われた。",
+      "sentenceReading": "なにげないひとことにすくわれた。",
+      "sentenceKR": "무심코 한 한마디에 위로받았다."
+    },
+    {
+      "word": "なにとぞ",
+      "reading": "なにとぞ",
+      "meaningKR": "부디, 아무쪼록",
+      "sentenceJP": "なにとぞご理解ください。",
+      "sentenceReading": "なにとぞごりかいください。",
+      "sentenceKR": "부디 이해해 주시기 바랍니다."
+    },
+    {
+      "word": "なにより",
+      "reading": "なにより",
+      "meaningKR": "무엇보다, 가장 좋은 것",
+      "sentenceJP": "家族が元気なのがなによりだ。",
+      "sentenceReading": "かぞくがげんきなのがなによりだ。",
+      "sentenceKR": "가족이 건강한 것이 무엇보다 중요하다."
+    },
+    {
+      "word": "ナプキン",
+      "reading": "ナプキン",
+      "meaningKR": "냅킨",
+      "sentenceJP": "ナプキンで口元を拭いた。",
+      "sentenceReading": "なぷきんでくちもとをふいた。",
+      "sentenceKR": "냅킨으로 입가를 닦았다."
+    },
+    {
+      "word": "名札",
+      "reading": "なふだ",
+      "meaningKR": "명찰",
+      "sentenceJP": "受付で名札を受け取った。",
+      "sentenceReading": "うけつけでなふだをうけとった。",
+      "sentenceKR": "접수처에서 명찰을 받았다."
+    },
+    {
+      "word": "生臭い",
+      "reading": "なまぐさい",
+      "meaningKR": "비린내가 나는",
+      "sentenceJP": "この魚は少し生臭い。",
+      "sentenceReading": "このさかなはすこしなまぐさい。",
+      "sentenceKR": "이 생선은 조금 비린내가 난다."
+    },
+    {
+      "word": "生温い",
+      "reading": "なまぬるい",
+      "meaningKR": "미지근한, 미온적인",
+      "sentenceJP": "スープが生温くなった。",
+      "sentenceReading": "すうぷがなまぬるくなった。",
+      "sentenceKR": "수프가 미지근해졌다."
+    },
+    {
+      "word": "生身",
+      "reading": "なまみ",
+      "meaningKR": "살아 있는 몸, 생신",
+      "sentenceJP": "生身の人間には無理だ。",
+      "sentenceReading": "なまみのにんげんにはむりだ。",
+      "sentenceKR": "살아 있는 인간에게는 무리다."
+    },
+    {
+      "word": "鉛",
+      "reading": "なまり",
+      "meaningKR": "납",
+      "sentenceJP": "鉛は非常に重い金属だ。",
+      "sentenceReading": "なまりはひじょうにおもいきんぞくだ。",
+      "sentenceKR": "납은 매우 무거운 금속이다."
+    },
+    {
+      "word": "滑らか",
+      "reading": "なめらか",
+      "meaningKR": "매끄러운, 부드러운",
+      "sentenceJP": "この布は手触りが滑らかだ。",
+      "sentenceReading": "このぬのはてざわりがなめらかだ。",
+      "sentenceKR": "이 천은 촉감이 매끄럽다."
+    },
+    {
+      "word": "嘗める",
+      "reading": "なめる",
+      "meaningKR": "핥다; 경험하다; 얕보다",
+      "sentenceJP": "若い頃に辛酸を嘗めた。",
+      "sentenceReading": "わかいころにしんさんをなめた。",
+      "sentenceKR": "젊은 시절에 온갖 고초를 겪었다."
+    },
+    {
+      "word": "悩ましい",
+      "reading": "なやましい",
+      "meaningKR": "매혹적인; 우수에 찬",
+      "sentenceJP": "彼女は悩ましい視線を向けた。",
+      "sentenceReading": "かのじょはなやましいしせんをむけた。",
+      "sentenceKR": "그녀는 매혹적인 시선을 보냈다."
+    },
+    {
+      "word": "悩ます",
+      "reading": "なやます",
+      "meaningKR": "괴롭히다; 골치 아프게 하다",
+      "sentenceJP": "騒音が住民を悩ます。",
+      "sentenceReading": "そうおんがじゅうみんをなやます。",
+      "sentenceKR": "소음이 주민들을 괴롭힌다."
+    },
+    {
+      "word": "悩み",
+      "reading": "なやみ",
+      "meaningKR": "고민; 걱정; 고충",
+      "sentenceJP": "一人で悩みを抱え込まないで。",
+      "sentenceReading": "ひとりでなやみをかかえこまないで。",
+      "sentenceKR": "혼자서 고민을 끌어안지 마."
+    },
+    {
+      "word": "並びに",
+      "reading": "ならびに",
+      "meaningKR": "및; 아울러",
+      "sentenceJP": "社長並びに社員が出席した。",
+      "sentenceReading": "しゃちょうならびにしゃいんがしゅっせきした。",
+      "sentenceKR": "사장 및 직원들이 참석했다."
+    },
+    {
+      "word": "成り立つ",
+      "reading": "なりたつ",
+      "meaningKR": "성립하다; 실현 가능하다",
+      "sentenceJP": "この計画は十分に成り立つ。",
+      "sentenceReading": "このけいかくはじゅうぶんになりたつ。",
+      "sentenceKR": "이 계획은 충분히 성립한다."
+    },
+    {
+      "word": "なるたけ",
+      "reading": "なるたけ",
+      "meaningKR": "가능한 한",
+      "sentenceJP": "なるたけ早く返事してください。",
+      "sentenceReading": "なるたけはやくへんじしてください。",
+      "sentenceKR": "가능한 한 빨리 답변해 주세요."
+    },
+    {
+      "word": "慣れ",
+      "reading": "なれ",
+      "meaningKR": "익숙함; 숙련",
+      "sentenceJP": "慣れが油断を招くこともある。",
+      "sentenceReading": "なれがゆだんをまねくこともある。",
+      "sentenceKR": "익숙함이 방심을 부를 때도 있다."
+    },
+    {
+      "word": "馴々しい",
+      "reading": "なれなれしい",
+      "meaningKR": "스스럼없는; 지나치게 친한 척하는",
+      "sentenceJP": "初対面なのに彼は馴々しい。",
+      "sentenceReading": "しょたいめんなのにかれはなれなれしい。",
+      "sentenceKR": "처음 만났는데도 그는 지나치게 스스럼없다."
+    },
+    {
+      "word": "～なんか",
+      "reading": "～なんか",
+      "meaningKR": "…따위; …같은 것",
+      "sentenceJP": "私なんかには無理な仕事だ。",
+      "sentenceReading": "わたしなんかにはむりなしごとだ。",
+      "sentenceKR": "나 같은 사람에게는 무리인 일이다."
+    },
+    {
+      "word": "ナンセンス",
+      "reading": "ナンセンス",
+      "meaningKR": "터무니없는 말; 넌센스",
+      "sentenceJP": "その説明は全くのナンセンスだ。",
+      "sentenceReading": "そのせつめいはまったくのなんせんすだ。",
+      "sentenceKR": "그 설명은 완전히 터무니없다."
+    },
+    {
+      "word": "何だか",
+      "reading": "なんだか",
+      "meaningKR": "왠지; 어쩐지",
+      "sentenceJP": "何だか今日は落ち着かない。",
+      "sentenceReading": "なんだかきょうはおちつかない。",
+      "sentenceKR": "왠지 오늘은 마음이 진정되지 않는다."
+    },
+    {
+      "word": "なんだかんだ",
+      "reading": "なんだかんだ",
+      "meaningKR": "이러니저러니; 이것저것",
+      "sentenceJP": "なんだかんだ言って彼は優しい。",
+      "sentenceReading": "なんだかんだいってかれはやさしい。",
+      "sentenceKR": "이러니저러니 해도 그는 다정하다."
+    },
+    {
+      "word": "なんなり",
+      "reading": "なんなり",
+      "meaningKR": "무엇이든; 어떤 것이든",
+      "sentenceJP": "困ったらなんなりとご相談ください。",
+      "sentenceReading": "こまったらなんなりとごそうだんください。",
+      "sentenceKR": "곤란한 일이 있으면 무엇이든 상담해 주세요."
+    },
+    {
+      "word": "荷",
+      "reading": "に",
+      "meaningKR": "짐; 화물",
+      "sentenceJP": "この荷は重くて一人では運べない。",
+      "sentenceReading": "このにはおもくてひとりでははこべない。",
+      "sentenceKR": "이 짐은 무거워서 혼자서는 옮길 수 없다."
     }
   ]
 }
