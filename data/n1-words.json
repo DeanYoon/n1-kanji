@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-21T23:47:02.353Z",
-  "count": 450,
+  "generatedAt": "2026-09-22T23:26:06.998Z",
+  "count": 495,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -3604,6 +3604,366 @@
       "sentenceJP": "この荷は重くて一人では運べない。",
       "sentenceReading": "このにはおもくてひとりでははこべない。",
       "sentenceKR": "이 짐은 무거워서 혼자서는 옮길 수 없다."
+    },
+    {
+      "word": "似通う",
+      "reading": "にかよう",
+      "meaningKR": "매우 닮다",
+      "sentenceJP": "二人の考え方はよく似通っている。",
+      "sentenceReading": "ふたりのかんがえかたはよくにかよっている。",
+      "sentenceKR": "두 사람의 사고방식은 매우 비슷하다."
+    },
+    {
+      "word": "にきび",
+      "reading": "にきび",
+      "meaningKR": "여드름",
+      "sentenceJP": "額ににきびができてしまった。",
+      "sentenceReading": "ひたいににきびができてしまった。",
+      "sentenceKR": "이마에 여드름이 나고 말았다."
+    },
+    {
+      "word": "賑わう",
+      "reading": "にぎわう",
+      "meaningKR": "붐비다, 번성하다",
+      "sentenceJP": "祭りで町中が大いに賑わった。",
+      "sentenceReading": "まつりでまちじゅうがおおいににぎわった。",
+      "sentenceKR": "축제로 온 마을이 크게 북적였다."
+    },
+    {
+      "word": "憎しみ",
+      "reading": "にくしみ",
+      "meaningKR": "증오, 미움",
+      "sentenceJP": "彼は相手への憎しみを捨てた。",
+      "sentenceReading": "かれはあいてへのにくしみをすてた。",
+      "sentenceKR": "그는 상대에 대한 증오를 버렸다."
+    },
+    {
+      "word": "肉親",
+      "reading": "にくしん",
+      "meaningKR": "혈육, 혈족",
+      "sentenceJP": "事故の知らせを肉親に伝えた。",
+      "sentenceReading": "じこのしらせをにくしんにつたえた。",
+      "sentenceKR": "사고 소식을 혈육에게 전했다."
+    },
+    {
+      "word": "肉体",
+      "reading": "にくたい",
+      "meaningKR": "육체, 신체",
+      "sentenceJP": "適度な運動で肉体を鍛える。",
+      "sentenceReading": "てきどなうんどうでにくたいをきたえる。",
+      "sentenceKR": "적당한 운동으로 육체를 단련한다."
+    },
+    {
+      "word": "逃げ出す",
+      "reading": "にげだす",
+      "meaningKR": "도망치다, 탈출하다",
+      "sentenceJP": "犬が門から突然逃げ出した。",
+      "sentenceReading": "いぬがもんからとつぜんにげだした。",
+      "sentenceKR": "개가 문에서 갑자기 도망쳤다."
+    },
+    {
+      "word": "西日",
+      "reading": "にしび",
+      "meaningKR": "서쪽에서 비치는 햇빛",
+      "sentenceJP": "強い西日が部屋に差し込む。",
+      "sentenceReading": "つよいにしびがへやにさしこむ。",
+      "sentenceKR": "강한 서쪽 햇빛이 방 안으로 들어온다."
+    },
+    {
+      "word": "滲む",
+      "reading": "にじむ",
+      "meaningKR": "번지다, 배어나다",
+      "sentenceJP": "涙で手紙の文字が滲んだ。",
+      "sentenceReading": "なみだでてがみのもじがにじんだ。",
+      "sentenceKR": "눈물로 편지의 글씨가 번졌다."
+    },
+    {
+      "word": "にせ物",
+      "reading": "にせもの",
+      "meaningKR": "가짜, 모조품",
+      "sentenceJP": "これは本物ではなく、にせ物だ。",
+      "sentenceReading": "これはほんものではなく、にせものだ。",
+      "sentenceKR": "이것은 진짜가 아니라 가짜다."
+    },
+    {
+      "word": "日夜",
+      "reading": "にちや",
+      "meaningKR": "밤낮으로, 늘",
+      "sentenceJP": "医師たちは日夜研究を続けている。",
+      "sentenceReading": "いしたちはにちやけんきゅうをつづけている。",
+      "sentenceKR": "의사들은 밤낮으로 연구를 계속하고 있다."
+    },
+    {
+      "word": "荷造り",
+      "reading": "にづくり",
+      "meaningKR": "짐 싸기, 포장",
+      "sentenceJP": "引っ越しの荷造りを始めた。",
+      "sentenceReading": "ひっこしのにづくりをはじめた。",
+      "sentenceKR": "이삿짐을 싸기 시작했다."
+    },
+    {
+      "word": "担う",
+      "reading": "になう",
+      "meaningKR": "짊어지다, 담당하다",
+      "sentenceJP": "若い世代が未来を担っていく。",
+      "sentenceReading": "わかいせだいがみらいをになっていく。",
+      "sentenceKR": "젊은 세대가 미래를 짊어지고 나간다."
+    },
+    {
+      "word": "鈍る",
+      "reading": "にぶる",
+      "meaningKR": "둔해지다, 무뎌지다",
+      "sentenceJP": "年齢とともに判断力が鈍る。",
+      "sentenceReading": "ねんれいとともにはんだんりょくがにぶる。",
+      "sentenceKR": "나이가 들면서 판단력이 둔해진다."
+    },
+    {
+      "word": "にも関わらず",
+      "reading": "にもかかわらず",
+      "meaningKR": "~에도 불구하고",
+      "sentenceJP": "雨にもかかわらず、試合は続いた。",
+      "sentenceReading": "あめにもかかわらず、しあいはつづいた。",
+      "sentenceKR": "비에도 불구하고 경기는 계속되었다."
+    },
+    {
+      "word": "ニュアンス",
+      "reading": "ニュアンス",
+      "meaningKR": "뉘앙스",
+      "sentenceJP": "微妙なニュアンスまで伝わった。",
+      "sentenceReading": "びみょうなにゅあんすまでつたわった。",
+      "sentenceKR": "미묘한 뉘앙스까지 전해졌다."
+    },
+    {
+      "word": "ニュー",
+      "reading": "ニュー",
+      "meaningKR": "새로운 것",
+      "sentenceJP": "ニューアルバムが来月発売される。",
+      "sentenceReading": "にゅうあるばむがらいげつはつばいされる。",
+      "sentenceKR": "새 앨범이 다음 달에 발매된다."
+    },
+    {
+      "word": "入手",
+      "reading": "にゅうしゅ",
+      "meaningKR": "입수",
+      "sentenceJP": "希少な資料を入手した。",
+      "sentenceReading": "きしょうなしりょうをにゅうしゅした。",
+      "sentenceKR": "희귀한 자료를 입수했다."
+    },
+    {
+      "word": "入賞",
+      "reading": "にゅうしょう",
+      "meaningKR": "입상",
+      "sentenceJP": "彼女は写真コンテストで入賞した。",
+      "sentenceReading": "かのじょはしゃしんこんてすとでにゅうしょうした。",
+      "sentenceKR": "그녀는 사진 콘테스트에서 입상했다."
+    },
+    {
+      "word": "入浴",
+      "reading": "にゅうよく",
+      "meaningKR": "목욕",
+      "sentenceJP": "入浴前に水分を取ってください。",
+      "sentenceReading": "にゅうよくまえにすいぶんをとってください。",
+      "sentenceKR": "목욕 전에 수분을 섭취해 주세요."
+    },
+    {
+      "word": "尿",
+      "reading": "にょう",
+      "meaningKR": "소변",
+      "sentenceJP": "検査のため尿を採取した。",
+      "sentenceReading": "けんさのためにょうをさいしゅした。",
+      "sentenceKR": "검사를 위해 소변을 채취했다."
+    },
+    {
+      "word": "認識",
+      "reading": "にんしき",
+      "meaningKR": "인식",
+      "sentenceJP": "問題への認識が甘かった。",
+      "sentenceReading": "もんだいへのにんしきがあまかった。",
+      "sentenceKR": "문제에 대한 인식이 안일했다."
+    },
+    {
+      "word": "妊娠",
+      "reading": "にんしん",
+      "meaningKR": "임신",
+      "sentenceJP": "妊娠中は無理をしないでね。",
+      "sentenceReading": "にんしんちゅうはむりをしないでね。",
+      "sentenceKR": "임신 중에는 무리하지 마."
+    },
+    {
+      "word": "任務",
+      "reading": "にんむ",
+      "meaningKR": "임무",
+      "sentenceJP": "無事に任務を完了した。",
+      "sentenceReading": "ぶじににんむをかんりょうした。",
+      "sentenceKR": "무사히 임무를 완수했다."
+    },
+    {
+      "word": "任命",
+      "reading": "にんめい",
+      "meaningKR": "임명",
+      "sentenceJP": "彼が新しい部長に任命された。",
+      "sentenceReading": "かれがあたらしいぶちょうににんめいされた。",
+      "sentenceKR": "그가 새 부장으로 임명되었다."
+    },
+    {
+      "word": "抜かす",
+      "reading": "ぬかす",
+      "meaningKR": "빼먹다",
+      "sentenceJP": "大事な部分を抜かして読んだ。",
+      "sentenceReading": "だいじなぶぶんをぬかしてよんだ。",
+      "sentenceKR": "중요한 부분을 빼먹고 읽었다."
+    },
+    {
+      "word": "抜け出す",
+      "reading": "ぬけだす",
+      "meaningKR": "빠져나오다",
+      "sentenceJP": "会議を抜け出して電話をかけた。",
+      "sentenceReading": "かいぎをぬけだしてでんわをかけた。",
+      "sentenceKR": "회의에서 빠져나와 전화를 걸었다."
+    },
+    {
+      "word": "主",
+      "reading": "ぬし",
+      "meaningKR": "주인",
+      "sentenceJP": "この池の主を見た人はいない。",
+      "sentenceReading": "このいけのぬしをみたひとはいない。",
+      "sentenceKR": "이 연못의 터줏대감을 본 사람은 없다."
+    },
+    {
+      "word": "沼",
+      "reading": "ぬま",
+      "meaningKR": "늪",
+      "sentenceJP": "沼の周りに霧が立ち込めた。",
+      "sentenceReading": "ぬまのまわりにきりがたちこめた。",
+      "sentenceKR": "늪 주변에 안개가 자욱이 끼었다."
+    },
+    {
+      "word": "音色",
+      "reading": "ねいろ",
+      "meaningKR": "음색",
+      "sentenceJP": "彼のギターは温かい音色だ。",
+      "sentenceReading": "かれのぎたあはあたたかいねいろだ。",
+      "sentenceKR": "그의 기타는 따뜻한 음색을 지녔다."
+    },
+    {
+      "word": "値打ち",
+      "reading": "ねうち",
+      "meaningKR": "가치, 값어치",
+      "sentenceJP": "この絵は値打ちがある。",
+      "sentenceReading": "このえはねうちがある。",
+      "sentenceKR": "이 그림은 가치가 있다."
+    },
+    {
+      "word": "ネガ",
+      "reading": "ネガ",
+      "meaningKR": "필름 음화",
+      "sentenceJP": "古いネガを現像に出した。",
+      "sentenceReading": "ふるいねがをげんぞうにだした。",
+      "sentenceKR": "오래된 필름 음화를 현상 맡겼다."
+    },
+    {
+      "word": "寝かせる",
+      "reading": "ねかせる",
+      "meaningKR": "재우다, 숙성시키다",
+      "sentenceJP": "生地を一晩寝かせる。",
+      "sentenceReading": "きじをひとばんねかせる。",
+      "sentenceKR": "반죽을 하룻밤 숙성시킨다."
+    },
+    {
+      "word": "ねじまわし",
+      "reading": "ねじまわし",
+      "meaningKR": "드라이버",
+      "sentenceJP": "ねじまわしで蓋を外す。",
+      "sentenceReading": "ねじまわしでふたをはずす。",
+      "sentenceKR": "드라이버로 뚜껑을 분리한다."
+    },
+    {
+      "word": "捩れる",
+      "reading": "ねじれる",
+      "meaningKR": "비틀리다, 꼬이다",
+      "sentenceJP": "針金が捩れてしまった。",
+      "sentenceReading": "はりがねがねじれてしまった。",
+      "sentenceKR": "철사가 비틀려 버렸다."
+    },
+    {
+      "word": "妬む",
+      "reading": "ねたむ",
+      "meaningKR": "질투하다, 시기하다",
+      "sentenceJP": "他人の成功を妬んではいけない。",
+      "sentenceReading": "たにんのせいこうをねたんではいけない。",
+      "sentenceKR": "남의 성공을 시기해서는 안 된다."
+    },
+    {
+      "word": "ねだる",
+      "reading": "ねだる",
+      "meaningKR": "조르다, 요구하다",
+      "sentenceJP": "子供がおもちゃをねだる。",
+      "sentenceReading": "こどもがおもちゃをねだる。",
+      "sentenceKR": "아이가 장난감을 사 달라고 조른다."
+    },
+    {
+      "word": "熱意",
+      "reading": "ねつい",
+      "meaningKR": "열의, 열정",
+      "sentenceJP": "彼の熱意が皆を動かした。",
+      "sentenceReading": "かれのねついがみんなをうごかした。",
+      "sentenceKR": "그의 열의가 모두의 마음을 움직였다."
+    },
+    {
+      "word": "熱湯",
+      "reading": "ねっとう",
+      "meaningKR": "끓는 물",
+      "sentenceJP": "麺に熱湯を注いで三分待つ。",
+      "sentenceReading": "めんにねっとうをそそいでさんぷんまつ。",
+      "sentenceKR": "면에 끓는 물을 붓고 3분 기다린다."
+    },
+    {
+      "word": "熱量",
+      "reading": "ねつりょう",
+      "meaningKR": "열량",
+      "sentenceJP": "この食品は熱量が高い。",
+      "sentenceReading": "このしょくひんはねつりょうがたかい。",
+      "sentenceKR": "이 식품은 열량이 높다."
+    },
+    {
+      "word": "粘り",
+      "reading": "ねばり",
+      "meaningKR": "끈기, 점성",
+      "sentenceJP": "この納豆は粘りが強い。",
+      "sentenceReading": "このなっとうはねばりがつよい。",
+      "sentenceKR": "이 낫토는 점성이 강하다."
+    },
+    {
+      "word": "粘る",
+      "reading": "ねばる",
+      "meaningKR": "끈적이다, 끈기 있게 버티다",
+      "sentenceJP": "最後まで粘って勝利をつかんだ。",
+      "sentenceReading": "さいごまでねばってしょうりをつかんだ。",
+      "sentenceKR": "끝까지 버텨서 승리를 거머쥐었다."
+    },
+    {
+      "word": "値引き",
+      "reading": "ねびき",
+      "meaningKR": "할인",
+      "sentenceJP": "現金なら値引きできます。",
+      "sentenceReading": "げんきんならねびきできます。",
+      "sentenceKR": "현금이면 할인해 드릴 수 있습니다."
+    },
+    {
+      "word": "根回し",
+      "reading": "ねまわし",
+      "meaningKR": "사전 조율, 물밑 작업",
+      "sentenceJP": "会議の前に根回しをしておく。",
+      "sentenceReading": "かいぎのまえにねまわしをしておく。",
+      "sentenceKR": "회의 전에 미리 조율해 둔다."
+    },
+    {
+      "word": "眠たい",
+      "reading": "ねむたい",
+      "meaningKR": "졸리다",
+      "sentenceJP": "昼食後はいつも眠たい。",
+      "sentenceReading": "ちゅうしょくごはいつもねむたい。",
+      "sentenceKR": "점심을 먹고 나면 항상 졸리다."
     }
   ]
 }
