@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-22T23:26:06.998Z",
-  "count": 495,
+  "generatedAt": "2026-09-23T23:24:36.945Z",
+  "count": 540,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -3964,6 +3964,366 @@
       "sentenceJP": "昼食後はいつも眠たい。",
       "sentenceReading": "ちゅうしょくごはいつもねむたい。",
       "sentenceKR": "점심을 먹고 나면 항상 졸리다."
+    },
+    {
+      "word": "練る",
+      "reading": "ねる",
+      "meaningKR": "반죽하다, 다듬다",
+      "sentenceJP": "会議で新しい計画を練る。",
+      "sentenceReading": "かいぎであたらしいけいかくをねる。",
+      "sentenceKR": "회의에서 새로운 계획을 다듬는다."
+    },
+    {
+      "word": "念",
+      "reading": "ねん",
+      "meaningKR": "생각, 마음",
+      "sentenceJP": "出発前にもう一度念を押す。",
+      "sentenceReading": "しゅっぱつまえにもういちどねんをおす。",
+      "sentenceKR": "출발 전에 다시 한번 단단히 확인한다."
+    },
+    {
+      "word": "年賀",
+      "reading": "ねんが",
+      "meaningKR": "연하, 새해 인사",
+      "sentenceJP": "年賀の挨拶をメールで送った。",
+      "sentenceReading": "ねんがのあいさつをめーるでおくった。",
+      "sentenceKR": "새해 인사를 이메일로 보냈다."
+    },
+    {
+      "word": "念願",
+      "reading": "ねんがん",
+      "meaningKR": "염원, 소원",
+      "sentenceJP": "念願の店をついに開いた。",
+      "sentenceReading": "ねんがんのみせをついにひらいた。",
+      "sentenceKR": "염원하던 가게를 마침내 열었다."
+    },
+    {
+      "word": "年号",
+      "reading": "ねんごう",
+      "meaningKR": "연호, 시대명",
+      "sentenceJP": "書類には年号も記入してください。",
+      "sentenceReading": "しょるいにはねんごうもきにゅうしてください。",
+      "sentenceKR": "서류에는 연호도 기입해 주세요."
+    },
+    {
+      "word": "燃焼",
+      "reading": "ねんしょう",
+      "meaningKR": "연소",
+      "sentenceJP": "酸素が足りず燃焼が止まった。",
+      "sentenceReading": "さんそがたりずねんしょうがとまった。",
+      "sentenceKR": "산소가 부족해 연소가 멈췄다."
+    },
+    {
+      "word": "年長",
+      "reading": "ねんちょう",
+      "meaningKR": "연상, 연장",
+      "sentenceJP": "彼は私より三歳年長だ。",
+      "sentenceReading": "かれはわたしよりさんさいねんちょうだ。",
+      "sentenceKR": "그는 나보다 세 살 연상이다."
+    },
+    {
+      "word": "燃料",
+      "reading": "ねんりょう",
+      "meaningKR": "연료",
+      "sentenceJP": "車の燃料が残り少ない。",
+      "sentenceReading": "くるまのねんりょうがのこりすくない。",
+      "sentenceKR": "자동차 연료가 얼마 남지 않았다."
+    },
+    {
+      "word": "年輪",
+      "reading": "ねんりん",
+      "meaningKR": "나이테",
+      "sentenceJP": "年輪から木の年齢が分かる。",
+      "sentenceReading": "ねんりんからきのねんれいがわかる。",
+      "sentenceKR": "나이테를 보면 나무의 나이를 알 수 있다."
+    },
+    {
+      "word": "ノイローゼ",
+      "reading": "ノイローゼ",
+      "meaningKR": "신경증, 노이로제",
+      "sentenceJP": "仕事の悩みでノイローゼになった。",
+      "sentenceReading": "しごとのなやみでのいろーぜになった。",
+      "sentenceKR": "직장 고민으로 노이로제에 걸렸다."
+    },
+    {
+      "word": "農耕",
+      "reading": "のうこう",
+      "meaningKR": "농경, 농업",
+      "sentenceJP": "この地域では農耕が盛んだ。",
+      "sentenceReading": "このちいきではのうこうがさかんだ。",
+      "sentenceKR": "이 지역에서는 농경이 활발하다."
+    },
+    {
+      "word": "農場",
+      "reading": "のうじょう",
+      "meaningKR": "농장",
+      "sentenceJP": "叔父は広い農場を経営している。",
+      "sentenceReading": "おじはひろいのうじょうをけいえいしている。",
+      "sentenceKR": "삼촌은 넓은 농장을 경영하고 있다."
+    },
+    {
+      "word": "農地",
+      "reading": "のうち",
+      "meaningKR": "농지",
+      "sentenceJP": "荒れた土地を農地に戻した。",
+      "sentenceReading": "あれたとちをのうちにもどした。",
+      "sentenceKR": "황폐한 땅을 농지로 되돌렸다."
+    },
+    {
+      "word": "納入",
+      "reading": "のうにゅう",
+      "meaningKR": "납입, 납품",
+      "sentenceJP": "代金は月末までに納入する。",
+      "sentenceReading": "だいきんはげつまつまでにのうにゅうする。",
+      "sentenceKR": "대금은 월말까지 납입한다."
+    },
+    {
+      "word": "逃す",
+      "reading": "のがす",
+      "meaningKR": "놓아주다, 달아나게 하다",
+      "sentenceJP": "捕まえた魚を川へ逃す。",
+      "sentenceReading": "つかまえたさかなをかわへのがす。",
+      "sentenceKR": "잡은 물고기를 강에 놓아준다."
+    },
+    {
+      "word": "逃れる",
+      "reading": "のがれる",
+      "meaningKR": "벗어나다, 피하다",
+      "sentenceJP": "危機を逃れて無事に帰宅した。",
+      "sentenceReading": "ききをのがれてぶじにきたくした。",
+      "sentenceKR": "위기를 벗어나 무사히 귀가했다."
+    },
+    {
+      "word": "軒並",
+      "reading": "のきなみ",
+      "meaningKR": "일제히, 모두 한결같이",
+      "sentenceJP": "各社は軒並み値上げした。",
+      "sentenceReading": "かくしゃはのきなみねあげした。",
+      "sentenceKR": "각 회사가 일제히 가격을 올렸다."
+    },
+    {
+      "word": "望ましい",
+      "reading": "のぞましい",
+      "meaningKR": "바람직하다",
+      "sentenceJP": "十分な休息を取るのが望ましい。",
+      "sentenceReading": "じゅうぶんなきゅうそくをとるのがのぞましい。",
+      "sentenceKR": "충분한 휴식을 취하는 것이 바람직하다."
+    },
+    {
+      "word": "乗っ取る",
+      "reading": "のっとる",
+      "meaningKR": "탈취하다, 장악하다",
+      "sentenceJP": "武装勢力が放送局を乗っ取った。",
+      "sentenceReading": "ぶそうせいりょくがほうそうきょくをのっとった。",
+      "sentenceKR": "무장 세력이 방송국을 장악했다."
+    },
+    {
+      "word": "のどか",
+      "reading": "のどか",
+      "meaningKR": "한적하고 평온함",
+      "sentenceJP": "のどかな田園風景が広がっている。",
+      "sentenceReading": "のどかなでんえんふうけいがひろがっている。",
+      "sentenceKR": "평온한 전원 풍경이 펼쳐져 있다."
+    },
+    {
+      "word": "罵る",
+      "reading": "ののしる",
+      "meaningKR": "욕하다, 매도하다",
+      "sentenceJP": "人前で他人を罵ってはいけない。",
+      "sentenceReading": "ひとまえでたにんをののしってはいけない。",
+      "sentenceKR": "남들 앞에서 타인을 욕해서는 안 된다."
+    },
+    {
+      "word": "延べ",
+      "reading": "のべ",
+      "meaningKR": "연인원, 누계",
+      "sentenceJP": "展示会には延べ一万人が訪れた。",
+      "sentenceReading": "てんじかいにはのべいちまんにんがおとずれた。",
+      "sentenceKR": "전시회에는 연인원 만 명이 방문했다."
+    },
+    {
+      "word": "飲み込む",
+      "reading": "のみこむ",
+      "meaningKR": "삼키다, 이해하다",
+      "sentenceJP": "彼は説明をすぐに飲み込んだ。",
+      "sentenceReading": "かれはせつめいをすぐにのみこんだ。",
+      "sentenceKR": "그는 설명을 곧바로 이해했다."
+    },
+    {
+      "word": "乗り込む",
+      "reading": "のりこむ",
+      "meaningKR": "올라타다, 들어가다",
+      "sentenceJP": "大勢の客が電車に乗り込んだ。",
+      "sentenceReading": "おおぜいのきゃくがでんしゃにのりこんだ。",
+      "sentenceKR": "많은 승객이 전철에 올라탔다."
+    },
+    {
+      "word": "刃",
+      "reading": "は",
+      "meaningKR": "칼날",
+      "sentenceJP": "刃が欠けたので包丁を替えた。",
+      "sentenceReading": "はがかけたのでほうちょうをかえた。",
+      "sentenceKR": "칼날이 이가 나가서 식칼을 바꿨다."
+    },
+    {
+      "word": "～派",
+      "reading": "～は",
+      "meaningKR": "~파, ~계열",
+      "sentenceJP": "改革派が党内で勢力を増した。",
+      "sentenceReading": "かいかくはがとうないでせいりょくをました。",
+      "sentenceKR": "개혁파가 당내에서 세력을 키웠다."
+    },
+    {
+      "word": "バー",
+      "reading": "バー",
+      "meaningKR": "바, 술집",
+      "sentenceJP": "駅前のバーで友人と飲んだ。",
+      "sentenceReading": "えきまえのばあでゆうじんとのんだ。",
+      "sentenceKR": "역 앞의 바에서 친구와 술을 마셨다."
+    },
+    {
+      "word": "把握",
+      "reading": "はあく",
+      "meaningKR": "파악, 이해",
+      "sentenceJP": "現状を正確に把握する必要がある。",
+      "sentenceReading": "げんじょうをせいかくにはあくするひつようがある。",
+      "sentenceKR": "현황을 정확히 파악할 필요가 있다."
+    },
+    {
+      "word": "パート",
+      "reading": "パート",
+      "meaningKR": "시간제 근무, 아르바이트",
+      "sentenceJP": "週末はカフェでパートをしている。",
+      "sentenceReading": "しゅうまつはかふぇでぱあとをしている。",
+      "sentenceKR": "주말에는 카페에서 아르바이트를 한다."
+    },
+    {
+      "word": "廃棄",
+      "reading": "はいき",
+      "meaningKR": "폐기",
+      "sentenceJP": "古い資料を適切に廃棄した。",
+      "sentenceReading": "ふるいしりょうをてきせつにはいきした。",
+      "sentenceKR": "오래된 자료를 적절히 폐기했다."
+    },
+    {
+      "word": "配給",
+      "reading": "はいきゅう",
+      "meaningKR": "배급",
+      "sentenceJP": "被災地へ食料を配給する。",
+      "sentenceReading": "ひさいちへしょくりょうをはいきゅうする。",
+      "sentenceKR": "재해 지역에 식량을 배급한다."
+    },
+    {
+      "word": "ばい菌",
+      "reading": "ばいきん",
+      "meaningKR": "세균, 병균",
+      "sentenceJP": "手を洗ってばい菌を落とそう。",
+      "sentenceReading": "てをあらってばいきんをおとそう。",
+      "sentenceKR": "손을 씻어서 세균을 없애자."
+    },
+    {
+      "word": "配偶者",
+      "reading": "はいぐうしゃ",
+      "meaningKR": "배우자",
+      "sentenceJP": "配偶者の同意が必要です。",
+      "sentenceReading": "はいぐうしゃのどういがひつようです。",
+      "sentenceKR": "배우자의 동의가 필요합니다."
+    },
+    {
+      "word": "拝啓",
+      "reading": "はいけい",
+      "meaningKR": "삼가 아룁니다",
+      "sentenceJP": "拝啓、皆様お元気でしょうか。",
+      "sentenceReading": "はいけい、みなさまおげんきでしょうか。",
+      "sentenceKR": "삼가 아룁니다. 여러분, 잘 지내시는지요."
+    },
+    {
+      "word": "背景",
+      "reading": "はいけい",
+      "meaningKR": "배경",
+      "sentenceJP": "事件の背景を詳しく調べる。",
+      "sentenceReading": "じけんのはいけいをくわしくしらべる。",
+      "sentenceKR": "사건의 배경을 자세히 조사한다."
+    },
+    {
+      "word": "背後",
+      "reading": "はいご",
+      "meaningKR": "배후, 뒤쪽",
+      "sentenceJP": "背後から突然声をかけられた。",
+      "sentenceReading": "はいごからとつぜんこえをかけられた。",
+      "sentenceKR": "뒤에서 갑자기 말을 걸어왔다."
+    },
+    {
+      "word": "廃止",
+      "reading": "はいし",
+      "meaningKR": "폐지",
+      "sentenceJP": "その制度は来年廃止される。",
+      "sentenceReading": "そのせいどはらいねんはいしされる。",
+      "sentenceKR": "그 제도는 내년에 폐지된다."
+    },
+    {
+      "word": "拝借",
+      "reading": "はいしゃく",
+      "meaningKR": "빌림, 차용",
+      "sentenceJP": "少しお知恵を拝借したい。",
+      "sentenceReading": "すこしおちえをはいしゃくしたい。",
+      "sentenceKR": "지혜를 조금 빌리고 싶습니다."
+    },
+    {
+      "word": "排除",
+      "reading": "はいじょ",
+      "meaningKR": "배제, 제거",
+      "sentenceJP": "危険な要因を排除する。",
+      "sentenceReading": "きけんなよういんをはいじょする。",
+      "sentenceKR": "위험한 요인을 제거한다."
+    },
+    {
+      "word": "賠償",
+      "reading": "ばいしょう",
+      "meaningKR": "배상, 보상",
+      "sentenceJP": "会社に損害賠償を求めた。",
+      "sentenceReading": "かいしゃにそんがいばいしょうをもとめた。",
+      "sentenceKR": "회사에 손해 배상을 요구했다."
+    },
+    {
+      "word": "排水",
+      "reading": "はいすい",
+      "meaningKR": "배수",
+      "sentenceJP": "大雨で排水が追いつかない。",
+      "sentenceReading": "おおあめではいすいがおいつかない。",
+      "sentenceKR": "폭우로 배수가 따라가지 못한다."
+    },
+    {
+      "word": "敗戦",
+      "reading": "はいせん",
+      "meaningKR": "패전",
+      "sentenceJP": "敗戦から国を立て直した。",
+      "sentenceReading": "はいせんからくにをたてなおした。",
+      "sentenceKR": "패전 후 나라를 재건했다."
+    },
+    {
+      "word": "配置",
+      "reading": "はいち",
+      "meaningKR": "배치",
+      "sentenceJP": "入口に警備員を配置する。",
+      "sentenceReading": "いりぐちにけいびいんをはいちする。",
+      "sentenceKR": "입구에 경비원을 배치한다."
+    },
+    {
+      "word": "配布",
+      "reading": "はいふ",
+      "meaningKR": "배포",
+      "sentenceJP": "駅前でチラシを配布した。",
+      "sentenceReading": "えきまえでちらしをはいふした。",
+      "sentenceKR": "역 앞에서 전단지를 배포했다."
+    },
+    {
+      "word": "配分",
+      "reading": "はいぶん",
+      "meaningKR": "배분, 할당",
+      "sentenceJP": "利益を公平に配分する。",
+      "sentenceReading": "りえきをこうへいにはいぶんする。",
+      "sentenceKR": "이익을 공평하게 배분한다."
     }
   ]
 }
