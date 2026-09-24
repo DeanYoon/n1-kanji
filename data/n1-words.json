@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-23T23:24:36.945Z",
-  "count": 540,
+  "generatedAt": "2026-09-24T23:43:59.744Z",
+  "count": 585,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -4324,6 +4324,366 @@
       "sentenceJP": "利益を公平に配分する。",
       "sentenceReading": "りえきをこうへいにはいぶんする。",
       "sentenceKR": "이익을 공평하게 배분한다."
+    },
+    {
+      "word": "敗北",
+      "reading": "はいぼく",
+      "meaningKR": "패배",
+      "sentenceJP": "決勝戦で敗北を喫した。",
+      "sentenceReading": "けっしょうせんではいぼくをきっした。",
+      "sentenceKR": "결승전에서 패배했다."
+    },
+    {
+      "word": "倍率",
+      "reading": "ばいりつ",
+      "meaningKR": "배율",
+      "sentenceJP": "この顕微鏡は倍率が高い。",
+      "sentenceReading": "このけんびきょうはばいりつがたかい。",
+      "sentenceKR": "이 현미경은 배율이 높다."
+    },
+    {
+      "word": "配慮",
+      "reading": "はいりょ",
+      "meaningKR": "배려",
+      "sentenceJP": "周囲への配慮を忘れない。",
+      "sentenceReading": "しゅういへのはいりょをわすれない。",
+      "sentenceKR": "주변에 대한 배려를 잊지 않는다."
+    },
+    {
+      "word": "配列",
+      "reading": "はいれつ",
+      "meaningKR": "배열",
+      "sentenceJP": "データを順番に配列する。",
+      "sentenceReading": "でーたをじゅんばんにはいれつする。",
+      "sentenceKR": "데이터를 순서대로 배열한다."
+    },
+    {
+      "word": "破壊",
+      "reading": "はかい",
+      "meaningKR": "파괴",
+      "sentenceJP": "地震が多くの建物を破壊した。",
+      "sentenceReading": "じしんがおおくのたてものをはかいした。",
+      "sentenceKR": "지진이 많은 건물을 파괴했다."
+    },
+    {
+      "word": "いたわる",
+      "reading": "いたわる",
+      "meaningKR": "돌보다, 위로하다",
+      "sentenceJP": "病気の友人をいたわる。",
+      "sentenceReading": "びょうきのゆうじんをいたわる。",
+      "sentenceKR": "아픈 친구를 보살핀다."
+    },
+    {
+      "word": "一概に",
+      "reading": "いちがいに",
+      "meaningKR": "일률적으로, 무조건",
+      "sentenceJP": "結果だけで一概に判断できない。",
+      "sentenceReading": "けっかだけでいちがいにはんだんできない。",
+      "sentenceKR": "결과만으로 일률적으로 판단할 수 없다."
+    },
+    {
+      "word": "著しい",
+      "reading": "いちじるしい",
+      "meaningKR": "현저하다",
+      "sentenceJP": "技術の進歩は著しい。",
+      "sentenceReading": "ぎじゅつのしんぽはいちじるしい。",
+      "sentenceKR": "기술의 진보가 현저하다."
+    },
+    {
+      "word": "一同",
+      "reading": "いちどう",
+      "meaningKR": "일동, 모두",
+      "sentenceJP": "社員一同、心より感謝します。",
+      "sentenceReading": "しゃいんいちどう、こころよりかんしゃします。",
+      "sentenceKR": "사원 일동은 진심으로 감사드립니다."
+    },
+    {
+      "word": "一部分",
+      "reading": "いちぶぶん",
+      "meaningKR": "일부분",
+      "sentenceJP": "壁の一部分が崩れている。",
+      "sentenceReading": "かべのいちぶぶんがくずれている。",
+      "sentenceKR": "벽의 일부분이 무너져 있다."
+    },
+    {
+      "word": "一別",
+      "reading": "いちべつ",
+      "meaningKR": "이별",
+      "sentenceJP": "一別以来、十年が過ぎた。",
+      "sentenceReading": "いちべついらい、じゅうねんがすぎた。",
+      "sentenceKR": "헤어진 이후 10년이 지났다."
+    },
+    {
+      "word": "一面",
+      "reading": "いちめん",
+      "meaningKR": "일면, 한 측면",
+      "sentenceJP": "彼には頑固な一面がある。",
+      "sentenceReading": "かれにはがんこないちめんがある。",
+      "sentenceKR": "그에게는 완고한 면이 있다."
+    },
+    {
+      "word": "一目",
+      "reading": "いちもく",
+      "meaningKR": "한눈, 힐끗 봄",
+      "sentenceJP": "一目見て偽物だと分かった。",
+      "sentenceReading": "ひとめみてにせものだとわかった。",
+      "sentenceKR": "한눈에 가짜라는 것을 알았다."
+    },
+    {
+      "word": "一様",
+      "reading": "いちよう",
+      "meaningKR": "한결같음, 동일함",
+      "sentenceJP": "全員が一様にうなずいた。",
+      "sentenceReading": "ぜんいんがいちようにうなずいた。",
+      "sentenceKR": "전원이 한결같이 고개를 끄덕였다."
+    },
+    {
+      "word": "一律",
+      "reading": "いちりつ",
+      "meaningKR": "일률적임, 균일함",
+      "sentenceJP": "料金は年齢を問わず一律だ。",
+      "sentenceReading": "りょうきんはねんれいをとわずいちりつだ。",
+      "sentenceKR": "요금은 나이와 관계없이 동일하다."
+    },
+    {
+      "word": "一連",
+      "reading": "いちれん",
+      "meaningKR": "일련, 연속",
+      "sentenceJP": "一連の事件がようやく解決した。",
+      "sentenceReading": "いちれんのじけんがようやくかいけつした。",
+      "sentenceKR": "일련의 사건이 마침내 해결되었다."
+    },
+    {
+      "word": "一括",
+      "reading": "いっかつ",
+      "meaningKR": "일괄, 한꺼번에",
+      "sentenceJP": "代金は月末に一括で払う。",
+      "sentenceReading": "だいきんはげつまつにいっかつではらう。",
+      "sentenceKR": "대금은 월말에 한꺼번에 지불한다."
+    },
+    {
+      "word": "一気",
+      "reading": "いっき",
+      "meaningKR": "단숨에",
+      "sentenceJP": "冷たい水を一気に飲み干した。",
+      "sentenceReading": "つめたいみずをいっきにのみほした。",
+      "sentenceKR": "찬물을 단숨에 다 마셨다."
+    },
+    {
+      "word": "一挙に",
+      "reading": "いっきょに",
+      "meaningKR": "단번에, 일거에",
+      "sentenceJP": "新制度で問題が一挙に解決した。",
+      "sentenceReading": "しんせいどでもんだいがいっきょにかいけつした。",
+      "sentenceKR": "새 제도로 문제가 단번에 해결되었다."
+    },
+    {
+      "word": "一見",
+      "reading": "いっけん",
+      "meaningKR": "얼핏 봄, 첫인상",
+      "sentenceJP": "一見、簡単そうに見える。",
+      "sentenceReading": "いっけん、かんたんそうにみえる。",
+      "sentenceKR": "얼핏 보기에는 간단해 보인다."
+    },
+    {
+      "word": "一切",
+      "reading": "いっさい",
+      "meaningKR": "일체, 전혀",
+      "sentenceJP": "彼は質問に一切答えなかった。",
+      "sentenceReading": "かれはしつもんにいっさいこたえなかった。",
+      "sentenceKR": "그는 질문에 일절 대답하지 않았다."
+    },
+    {
+      "word": "一心",
+      "reading": "いっしん",
+      "meaningKR": "한마음, 전념",
+      "sentenceJP": "彼は一心に絵を描き続けた。",
+      "sentenceReading": "かれはいっしんにえをかきつづけた。",
+      "sentenceKR": "그는 한마음으로 계속 그림을 그렸다."
+    },
+    {
+      "word": "いっそ",
+      "reading": "いっそ",
+      "meaningKR": "차라리",
+      "sentenceJP": "いっそ最初からやり直そう。",
+      "sentenceReading": "いっそさいしょからやりなおそう。",
+      "sentenceKR": "차라리 처음부터 다시 하자."
+    },
+    {
+      "word": "一変",
+      "reading": "いっぺん",
+      "meaningKR": "완전한 변화, 급변",
+      "sentenceJP": "再開発で町の景色が一変した。",
+      "sentenceReading": "さいかいはつでまちのけしきがいっぺんした。",
+      "sentenceKR": "재개발로 마을 풍경이 완전히 바뀌었다."
+    },
+    {
+      "word": "意図",
+      "reading": "いと",
+      "meaningKR": "의도, 목적",
+      "sentenceJP": "発言の意図を正しく説明した。",
+      "sentenceReading": "はつげんのいとをただしくせつめいした。",
+      "sentenceKR": "발언의 의도를 정확히 설명했다."
+    },
+    {
+      "word": "営む",
+      "reading": "いとなむ",
+      "meaningKR": "운영하다, 영위하다",
+      "sentenceJP": "祖父は小さな食堂を営んでいる。",
+      "sentenceReading": "そふはちいさなしょくどうをいとなんでいる。",
+      "sentenceKR": "할아버지는 작은 식당을 운영하고 있다."
+    },
+    {
+      "word": "挑む",
+      "reading": "いどむ",
+      "meaningKR": "도전하다, 맞서다",
+      "sentenceJP": "昨日、新人が王者に挑んだ。",
+      "sentenceReading": "きのう、しんじんがおうじゃにいどんだ。",
+      "sentenceKR": "어제 신인이 챔피언에게 도전했다."
+    },
+    {
+      "word": "稲光",
+      "reading": "いなびかり",
+      "meaningKR": "번갯불, 번개",
+      "sentenceJP": "夜空に鋭い稲光が走った。",
+      "sentenceReading": "よぞらにするどいいなびかりがはしった。",
+      "sentenceKR": "밤하늘에 날카로운 번개가 번쩍였다."
+    },
+    {
+      "word": "祈り",
+      "reading": "いのり",
+      "meaningKR": "기도, 기원",
+      "sentenceJP": "皆で平和への祈りを捧げた。",
+      "sentenceReading": "みんなでへいわへのいのりをささげた。",
+      "sentenceKR": "모두 함께 평화를 위한 기도를 올렸다."
+    },
+    {
+      "word": "いびき",
+      "reading": "いびき",
+      "meaningKR": "코골이",
+      "sentenceJP": "父の大きないびきで目が覚めた。",
+      "sentenceReading": "ちちのおおきないびきでめがさめた。",
+      "sentenceKR": "아버지의 큰 코골이 소리에 잠이 깼다."
+    },
+    {
+      "word": "今更",
+      "reading": "いまさら",
+      "meaningKR": "이제 와서, 새삼",
+      "sentenceJP": "今更後悔しても遅い。",
+      "sentenceReading": "いまさらこうかいしてもおそい。",
+      "sentenceKR": "이제 와서 후회해도 늦다."
+    },
+    {
+      "word": "未だ",
+      "reading": "いまだ",
+      "meaningKR": "아직, 여전히",
+      "sentenceJP": "問題は未だ解決していない。",
+      "sentenceReading": "もんだいはいまだかいけつしていない。",
+      "sentenceKR": "문제는 아직 해결되지 않았다."
+    },
+    {
+      "word": "移民",
+      "reading": "いみん",
+      "meaningKR": "이민자",
+      "sentenceJP": "多くの移民を受け入れる。",
+      "sentenceReading": "おおくのいみんをうけいれる。",
+      "sentenceKR": "많은 이민자를 받아들인다."
+    },
+    {
+      "word": "嫌々",
+      "reading": "いやいや",
+      "meaningKR": "마지못해",
+      "sentenceJP": "嫌々ながら仕事を引き受けた。",
+      "sentenceReading": "いやいやながらしごとをひきうけた。",
+      "sentenceKR": "마지못해 일을 맡았다."
+    },
+    {
+      "word": "卑しい",
+      "reading": "いやしい",
+      "meaningKR": "천박하다, 탐욕스럽다",
+      "sentenceJP": "卑しい考えを捨てなさい。",
+      "sentenceReading": "いやしいかんがえをすてなさい。",
+      "sentenceKR": "천박한 생각은 버려라."
+    },
+    {
+      "word": "いやに",
+      "reading": "いやに",
+      "meaningKR": "몹시, 유난히",
+      "sentenceJP": "今日はいやに静かだ。",
+      "sentenceReading": "きょうはいやにしずかだ。",
+      "sentenceKR": "오늘은 유난히 조용하다."
+    },
+    {
+      "word": "いやらしい",
+      "reading": "いやらしい",
+      "meaningKR": "불쾌하다, 외설스럽다",
+      "sentenceJP": "いやらしい目で見るな。",
+      "sentenceReading": "いやらしいめでみるな。",
+      "sentenceKR": "음흉한 눈으로 보지 마라."
+    },
+    {
+      "word": "意欲",
+      "reading": "いよく",
+      "meaningKR": "의욕, 의지",
+      "sentenceJP": "学習意欲が高まっている。",
+      "sentenceReading": "がくしゅういよくがたかまっている。",
+      "sentenceKR": "학습 의욕이 높아지고 있다."
+    },
+    {
+      "word": "威力",
+      "reading": "いりょく",
+      "meaningKR": "위력, 힘",
+      "sentenceJP": "台風の威力を思い知った。",
+      "sentenceReading": "たいふうのいりょくをおもいしった。",
+      "sentenceKR": "태풍의 위력을 절감했다."
+    },
+    {
+      "word": "衣類",
+      "reading": "いるい",
+      "meaningKR": "의류, 옷가지",
+      "sentenceJP": "季節の衣類を整理する。",
+      "sentenceReading": "きせつのいるいをせいりする。",
+      "sentenceKR": "계절 의류를 정리한다."
+    },
+    {
+      "word": "異論",
+      "reading": "いろん",
+      "meaningKR": "이론, 반대 의견",
+      "sentenceJP": "その提案に異論はない。",
+      "sentenceReading": "そのていあんにいろんはない。",
+      "sentenceKR": "그 제안에 이의는 없다."
+    },
+    {
+      "word": "印鑑",
+      "reading": "いんかん",
+      "meaningKR": "도장",
+      "sentenceJP": "書類に印鑑を押してください。",
+      "sentenceReading": "しょるいにいんかんをおしてください。",
+      "sentenceKR": "서류에 도장을 찍어 주세요."
+    },
+    {
+      "word": "陰気",
+      "reading": "いんき",
+      "meaningKR": "음침함, 우울함",
+      "sentenceJP": "陰気な部屋から出よう。",
+      "sentenceReading": "いんきなへやからでよう。",
+      "sentenceKR": "음침한 방에서 나가자."
+    },
+    {
+      "word": "隠居",
+      "reading": "いんきょ",
+      "meaningKR": "은퇴, 은거",
+      "sentenceJP": "祖父は田舎で隠居している。",
+      "sentenceReading": "そふはいなかでいんきょしている。",
+      "sentenceKR": "할아버지는 시골에서 은거하고 계신다."
+    },
+    {
+      "word": "インターチェンジ",
+      "reading": "インターチェンジ",
+      "meaningKR": "나들목, 인터체인지",
+      "sentenceJP": "次のインターチェンジで降りる。",
+      "sentenceReading": "つぎのいんたあちぇんじでおりる。",
+      "sentenceKR": "다음 나들목에서 빠져나간다."
     }
   ]
 }
