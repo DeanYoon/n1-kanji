@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-24T23:43:59.744Z",
-  "count": 585,
+  "generatedAt": "2026-09-27T23:33:39.814Z",
+  "count": 630,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -4684,6 +4684,366 @@
       "sentenceJP": "次のインターチェンジで降りる。",
       "sentenceReading": "つぎのいんたあちぇんじでおりる。",
       "sentenceKR": "다음 나들목에서 빠져나간다."
+    },
+    {
+      "word": "インターナショナル",
+      "reading": "インターナショナル",
+      "meaningKR": "국제적인",
+      "sentenceJP": "彼はインターナショナルな感覚を持つ。",
+      "sentenceReading": "かれはいんたあなしょなるなかんかくをもつ。",
+      "sentenceKR": "그는 국제적인 감각을 지니고 있다."
+    },
+    {
+      "word": "インターフォン",
+      "reading": "インターフォン",
+      "meaningKR": "인터폰",
+      "sentenceJP": "夜中にインターフォンが鳴った。",
+      "sentenceReading": "よなかにいんたあふぉんがなった。",
+      "sentenceKR": "한밤중에 인터폰이 울렸다."
+    },
+    {
+      "word": "インテリ",
+      "reading": "インテリ",
+      "meaningKR": "지식인, 인텔리",
+      "sentenceJP": "あの作家はインテリとして知られる。",
+      "sentenceReading": "あのさっかはいんてりとしてしられる。",
+      "sentenceKR": "그 작가는 지식인으로 알려져 있다."
+    },
+    {
+      "word": "インフォメーション",
+      "reading": "インフォメーション",
+      "meaningKR": "정보, 안내소",
+      "sentenceJP": "駅のインフォメーションで尋ねた。",
+      "sentenceReading": "えきのいんふぉめえしょんでたずねた。",
+      "sentenceKR": "역 안내소에서 물어보았다."
+    },
+    {
+      "word": "インフレ",
+      "reading": "インフレ",
+      "meaningKR": "인플레이션, 물가 상승",
+      "sentenceJP": "インフレで生活費が増えた。",
+      "sentenceReading": "いんふれでせいかつひがふえた。",
+      "sentenceKR": "인플레이션으로 생활비가 늘었다."
+    },
+    {
+      "word": "受かる",
+      "reading": "うかる",
+      "meaningKR": "시험에 합격하다",
+      "sentenceJP": "彼は難関試験に受かった。",
+      "sentenceReading": "かれはなんかんしけんにうかった。",
+      "sentenceKR": "그는 어려운 시험에 합격했다."
+    },
+    {
+      "word": "受け入れ",
+      "reading": "うけいれ",
+      "meaningKR": "수용, 받아들임",
+      "sentenceJP": "留学生の受け入れを拡大する。",
+      "sentenceReading": "りゅうがくせいのうけいれをかくだいする。",
+      "sentenceKR": "유학생 수용을 확대한다."
+    },
+    {
+      "word": "受け入れる",
+      "reading": "うけいれる",
+      "meaningKR": "받아들이다, 수용하다",
+      "sentenceJP": "文化の違いを受け入れる。",
+      "sentenceReading": "ぶんかのちがいをうけいれる。",
+      "sentenceKR": "문화의 차이를 받아들인다."
+    },
+    {
+      "word": "受け継ぐ",
+      "reading": "うけつぐ",
+      "meaningKR": "물려받다, 계승하다",
+      "sentenceJP": "祖父の店を父が受け継いだ。",
+      "sentenceReading": "そふのみせをちちがうけついだ。",
+      "sentenceKR": "아버지가 할아버지의 가게를 물려받았다."
+    },
+    {
+      "word": "受け付ける",
+      "reading": "うけつける",
+      "meaningKR": "접수하다, 받아들이다",
+      "sentenceJP": "申請は窓口で受け付ける。",
+      "sentenceReading": "しんせいはまどぐちでうけつける。",
+      "sentenceKR": "신청은 창구에서 접수한다."
+    },
+    {
+      "word": "受け止める",
+      "reading": "うけとめる",
+      "meaningKR": "받아들이다, 받아내다",
+      "sentenceJP": "厳しい批判も受け止める。",
+      "sentenceReading": "きびしいひはんもうけとめる。",
+      "sentenceKR": "엄한 비판도 받아들인다."
+    },
+    {
+      "word": "受身",
+      "reading": "うけみ",
+      "meaningKR": "수동, 수동태",
+      "sentenceJP": "受身の姿勢では何も変わらない。",
+      "sentenceReading": "うけみのしせいではなにもかわらない。",
+      "sentenceKR": "수동적인 자세로는 아무것도 변하지 않는다."
+    },
+    {
+      "word": "受持ち",
+      "reading": "うけもち",
+      "meaningKR": "담당, 담당 업무",
+      "sentenceJP": "このクラスは私の受持ちです。",
+      "sentenceReading": "このくらすはわたしのうけもちです。",
+      "sentenceKR": "이 반은 제가 담당합니다."
+    },
+    {
+      "word": "動き",
+      "reading": "うごき",
+      "meaningKR": "움직임, 동향",
+      "sentenceJP": "市場の動きを慎重に見守る。",
+      "sentenceReading": "しじょうのうごきをしんちょうにみまもる。",
+      "sentenceKR": "시장의 움직임을 신중히 지켜본다."
+    },
+    {
+      "word": "埋める",
+      "reading": "うずめる",
+      "meaningKR": "파묻다, 가득 메우다",
+      "sentenceJP": "顔を両手に埋めて泣いた。",
+      "sentenceReading": "かおをりょうてにうずめてないた。",
+      "sentenceKR": "두 손에 얼굴을 파묻고 울었다."
+    },
+    {
+      "word": "嘘つき",
+      "reading": "うそつき",
+      "meaningKR": "거짓말쟁이",
+      "sentenceJP": "あの嘘つきのことは誰も信じない。",
+      "sentenceReading": "あのうそつきのことはだれもしんじない。",
+      "sentenceKR": "아무도 저 거짓말쟁이를 믿지 않는다."
+    },
+    {
+      "word": "うたた寝",
+      "reading": "うたたね",
+      "meaningKR": "선잠, 낮잠",
+      "sentenceJP": "電車でついうたた寝をしてしまった。",
+      "sentenceReading": "でんしゃでついうたたねをしてしまった。",
+      "sentenceKR": "전철에서 나도 모르게 깜빡 졸았다."
+    },
+    {
+      "word": "打ち明ける",
+      "reading": "うちあける",
+      "meaningKR": "털어놓다, 고백하다",
+      "sentenceJP": "本当の気持ちを彼女に打ち明けた。",
+      "sentenceReading": "ほんとうのきもちをかのじょにうちあけた。",
+      "sentenceKR": "진심을 그녀에게 털어놓았다."
+    },
+    {
+      "word": "打ち切る",
+      "reading": "うちきる",
+      "meaningKR": "중단하다, 종결하다",
+      "sentenceJP": "資金不足で計画を打ち切った。",
+      "sentenceReading": "しきんぶそくでけいかくをうちきった。",
+      "sentenceKR": "자금 부족으로 계획을 중단했다."
+    },
+    {
+      "word": "打ち消し",
+      "reading": "うちけし",
+      "meaningKR": "부정, 부인",
+      "sentenceJP": "打ち消しの表現を正しく使おう。",
+      "sentenceReading": "うちけしのひょうげんをただしくつかおう。",
+      "sentenceKR": "부정 표현을 올바르게 사용하자."
+    },
+    {
+      "word": "打ち込む",
+      "reading": "うちこむ",
+      "meaningKR": "몰두하다, 쏘아 넣다",
+      "sentenceJP": "彼は研究に一心に打ち込んでいる。",
+      "sentenceReading": "かれはけんきゅうにいっしんにうちこんでいる。",
+      "sentenceKR": "그는 연구에 온 힘을 다해 몰두하고 있다."
+    },
+    {
+      "word": "団扇",
+      "reading": "うちわ",
+      "meaningKR": "부채",
+      "sentenceJP": "暑いので団扇で風を送った。",
+      "sentenceReading": "あついのでうちわでかぜをおくった。",
+      "sentenceKR": "더워서 부채로 바람을 일으켰다."
+    },
+    {
+      "word": "内訳",
+      "reading": "うちわけ",
+      "meaningKR": "내역, 세부 항목",
+      "sentenceJP": "費用の内訳を詳しく説明してください。",
+      "sentenceReading": "ひようのうちわけをくわしくせつめいしてください。",
+      "sentenceKR": "비용 내역을 자세히 설명해 주세요."
+    },
+    {
+      "word": "写し",
+      "reading": "うつし",
+      "meaningKR": "사본, 복사본",
+      "sentenceJP": "契約書の写しを保管しておく。",
+      "sentenceReading": "けいやくしょのうつしをほかんしておく。",
+      "sentenceKR": "계약서 사본을 보관해 둔다."
+    },
+    {
+      "word": "訴え",
+      "reading": "うったえ",
+      "meaningKR": "소송, 호소",
+      "sentenceJP": "住民の訴えがようやく認められた。",
+      "sentenceReading": "じゅうみんのうったえがようやくみとめられた。",
+      "sentenceKR": "주민들의 호소가 마침내 받아들여졌다."
+    },
+    {
+      "word": "うっとうしい",
+      "reading": "うっとうしい",
+      "meaningKR": "성가시다, 답답하다",
+      "sentenceJP": "湿気が多くてうっとうしい日だ。",
+      "sentenceReading": "しっけがおおくてうっとうしいひだ。",
+      "sentenceKR": "습기가 많아 답답한 날이다."
+    },
+    {
+      "word": "うつむく",
+      "reading": "うつむく",
+      "meaningKR": "고개를 숙이다",
+      "sentenceJP": "彼は何も言わずにうつむいた。",
+      "sentenceReading": "かれはなにもいわずにうつむいた。",
+      "sentenceKR": "그는 아무 말 없이 고개를 숙였다."
+    },
+    {
+      "word": "空ろ",
+      "reading": "うつろ",
+      "meaningKR": "공허한, 멍한",
+      "sentenceJP": "彼女は空ろな目で窓を見ていた。",
+      "sentenceReading": "かのじょはうつろなめでまどをみていた。",
+      "sentenceKR": "그녀는 공허한 눈으로 창밖을 보고 있었다."
+    },
+    {
+      "word": "器",
+      "reading": "うつわ",
+      "meaningKR": "그릇, 용기",
+      "sentenceJP": "この器にサラダを盛り付けよう。",
+      "sentenceReading": "このうつわにさらだをもりつけよう。",
+      "sentenceKR": "이 그릇에 샐러드를 담자."
+    },
+    {
+      "word": "腕前",
+      "reading": "うでまえ",
+      "meaningKR": "솜씨, 실력",
+      "sentenceJP": "料理人が見事な腕前を披露した。",
+      "sentenceReading": "りょうりにんがみごとなうでまえをひろうした。",
+      "sentenceKR": "요리사가 훌륭한 솜씨를 선보였다."
+    },
+    {
+      "word": "雨天",
+      "reading": "うてん",
+      "meaningKR": "우천, 비 오는 날씨",
+      "sentenceJP": "雨天のため、試合は延期された。",
+      "sentenceReading": "うてんのため、しあいはえんきされた。",
+      "sentenceKR": "비 때문에 경기가 연기되었다."
+    },
+    {
+      "word": "促す",
+      "reading": "うながす",
+      "meaningKR": "촉구하다, 권하다",
+      "sentenceJP": "医師は彼に検診を受けるよう促した。",
+      "sentenceReading": "いしはかれにけんしんをうけるよううながした。",
+      "sentenceKR": "의사는 그에게 검진을 받으라고 권했다."
+    },
+    {
+      "word": "うぬぼれ",
+      "reading": "うぬぼれ",
+      "meaningKR": "자만심, 자만",
+      "sentenceJP": "彼のうぬぼれには困っている。",
+      "sentenceReading": "かれのうぬぼれにはこまっている。",
+      "sentenceKR": "그의 자만심 때문에 골치가 아프다."
+    },
+    {
+      "word": "生まれつき",
+      "reading": "うまれつき",
+      "meaningKR": "선천적으로, 타고나길",
+      "sentenceJP": "彼女は生まれつき耳がよい。",
+      "sentenceReading": "かのじょはうまれつきみみがよい。",
+      "sentenceKR": "그녀는 타고나길 귀가 밝다."
+    },
+    {
+      "word": "埋め込む",
+      "reading": "うめこむ",
+      "meaningKR": "내장하다, 삽입하다",
+      "sentenceJP": "壁に小型カメラを埋め込んだ。",
+      "sentenceReading": "かべにこがたかめらをうめこんだ。",
+      "sentenceKR": "벽에 소형 카메라를 내장했다."
+    },
+    {
+      "word": "梅干し",
+      "reading": "うめぼし",
+      "meaningKR": "매실장아찌, 우메보시",
+      "sentenceJP": "朝食に梅干しを一つ食べた。",
+      "sentenceReading": "ちょうしょくにうめぼしをひとつたべた。",
+      "sentenceKR": "아침 식사로 매실장아찌를 하나 먹었다."
+    },
+    {
+      "word": "裏返し",
+      "reading": "うらがえし",
+      "meaningKR": "뒤집음, 거꾸로",
+      "sentenceJP": "シャツを裏返しに着ていた。",
+      "sentenceReading": "しゃつをうらがえしにきていた。",
+      "sentenceKR": "셔츠를 뒤집어 입고 있었다."
+    },
+    {
+      "word": "売り出し",
+      "reading": "うりだし",
+      "meaningKR": "특매, 할인 판매",
+      "sentenceJP": "今日から冬物の売り出しが始まる。",
+      "sentenceReading": "きょうからふゆもののうりだしがはじまる。",
+      "sentenceKR": "오늘부터 겨울 상품 특매가 시작된다."
+    },
+    {
+      "word": "売り出す",
+      "reading": "うりだす",
+      "meaningKR": "판매를 시작하다, 출시하다",
+      "sentenceJP": "新商品を来月から売り出す。",
+      "sentenceReading": "しんしょうひんをらいげつからうりだす。",
+      "sentenceKR": "신상품을 다음 달부터 판매한다."
+    },
+    {
+      "word": "潤う",
+      "reading": "うるおう",
+      "meaningKR": "촉촉해지다, 이익을 보다",
+      "sentenceJP": "観光客が増え、町の店が潤った。",
+      "sentenceReading": "かんこうきゃくがふえ、まちのみせがうるおった。",
+      "sentenceKR": "관광객이 늘어 마을 상점들이 이익을 보았다."
+    },
+    {
+      "word": "浮気",
+      "reading": "うわき",
+      "meaningKR": "외도, 바람",
+      "sentenceJP": "夫の浮気が原因で離婚した。",
+      "sentenceReading": "おっとのうわきがげんいんでりこんした。",
+      "sentenceKR": "남편의 외도가 원인이 되어 이혼했다."
+    },
+    {
+      "word": "上回る",
+      "reading": "うわまわる",
+      "meaningKR": "웃돌다, 초과하다",
+      "sentenceJP": "売上が前年を大きく上回った。",
+      "sentenceReading": "うりあげがぜんねんをおおきくうわまわった。",
+      "sentenceKR": "매출이 전년을 크게 웃돌았다."
+    },
+    {
+      "word": "植わる",
+      "reading": "うわる",
+      "meaningKR": "심어져 있다",
+      "sentenceJP": "庭には桜の木が植わっている。",
+      "sentenceReading": "にわにはさくらのきがうわっている。",
+      "sentenceKR": "정원에는 벚나무가 심어져 있다."
+    },
+    {
+      "word": "運営",
+      "reading": "うんえい",
+      "meaningKR": "운영, 관리",
+      "sentenceJP": "委員会が施設の運営を担う。",
+      "sentenceReading": "いいんかいがしせつのうんえいをになう。",
+      "sentenceKR": "위원회가 시설 운영을 맡는다."
+    },
+    {
+      "word": "うんざり",
+      "reading": "うんざり",
+      "meaningKR": "신물이 남, 지긋지긋함",
+      "sentenceJP": "同じ言い訳にはもううんざりだ。",
+      "sentenceReading": "おなじいいわけにはもううんざりだ。",
+      "sentenceKR": "똑같은 변명에는 이제 신물이 난다."
     }
   ]
 }
