@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-27T23:33:39.814Z",
-  "count": 630,
+  "generatedAt": "2026-09-29T00:47:34.887Z",
+  "count": 675,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -5044,6 +5044,366 @@
       "sentenceJP": "同じ言い訳にはもううんざりだ。",
       "sentenceReading": "おなじいいわけにはもううんざりだ。",
       "sentenceKR": "똑같은 변명에는 이제 신물이 난다."
+    },
+    {
+      "word": "運送",
+      "reading": "うんそう",
+      "meaningKR": "운송, 배송",
+      "sentenceJP": "荷物を運送会社に預けた。",
+      "sentenceReading": "にもつをうんそうがいしゃにあずけた。",
+      "sentenceKR": "짐을 운송 회사에 맡겼다."
+    },
+    {
+      "word": "運賃",
+      "reading": "うんちん",
+      "meaningKR": "운임, 배송비",
+      "sentenceJP": "電車の運賃が値上がりした。",
+      "sentenceReading": "でんしゃのうんちんがねあがりした。",
+      "sentenceKR": "전철 운임이 올랐다."
+    },
+    {
+      "word": "云々",
+      "reading": "うんぬん",
+      "meaningKR": "등등, 이러쿵저러쿵",
+      "sentenceJP": "費用云々より安全が大事だ。",
+      "sentenceReading": "ひよううんぬんよりあんぜんがだいじだ。",
+      "sentenceKR": "비용이 어떻고 하는 것보다 안전이 중요하다."
+    },
+    {
+      "word": "運搬",
+      "reading": "うんぱん",
+      "meaningKR": "운반, 수송",
+      "sentenceJP": "資材の運搬には許可が要る。",
+      "sentenceReading": "しざいのうんぱんにはきょかがいる。",
+      "sentenceKR": "자재 운반에는 허가가 필요하다."
+    },
+    {
+      "word": "運命",
+      "reading": "うんめい",
+      "meaningKR": "운명",
+      "sentenceJP": "これも運命だと受け入れた。",
+      "sentenceReading": "これもうんめいだとうけいれた。",
+      "sentenceKR": "이것도 운명이라고 받아들였다."
+    },
+    {
+      "word": "運輸",
+      "reading": "うんゆ",
+      "meaningKR": "운수, 운송",
+      "sentenceJP": "運輸業界は人手不足に悩む。",
+      "sentenceReading": "うんゆぎょうかいはひとでぶそくになやむ。",
+      "sentenceKR": "운수 업계는 인력 부족으로 고심한다."
+    },
+    {
+      "word": "運用",
+      "reading": "うんよう",
+      "meaningKR": "운용, 활용",
+      "sentenceJP": "資金を長期的に運用する。",
+      "sentenceReading": "しきんをちょうきてきにうんようする。",
+      "sentenceKR": "자금을 장기적으로 운용한다."
+    },
+    {
+      "word": "エアメール",
+      "reading": "エアメール",
+      "meaningKR": "항공우편",
+      "sentenceJP": "書類をエアメールで送った。",
+      "sentenceReading": "しょるいをえあめえるでおくった。",
+      "sentenceKR": "서류를 항공우편으로 보냈다."
+    },
+    {
+      "word": "～営",
+      "reading": "～えい",
+      "meaningKR": "~ 운영, ~ 경영",
+      "sentenceJP": "このバスは市営です。",
+      "sentenceReading": "このばすはしえいです。",
+      "sentenceKR": "이 버스는 시에서 운영합니다."
+    },
+    {
+      "word": "英字",
+      "reading": "えいじ",
+      "meaningKR": "영문자, 알파벳",
+      "sentenceJP": "名前を英字で入力してください。",
+      "sentenceReading": "なまえをえいじでにゅうりょくしてください。",
+      "sentenceKR": "이름을 영문자로 입력해 주세요."
+    },
+    {
+      "word": "映写",
+      "reading": "えいしゃ",
+      "meaningKR": "영사, 상영",
+      "sentenceJP": "体育館で映画を映写する。",
+      "sentenceReading": "たいいくかんでえいがをえいしゃする。",
+      "sentenceKR": "체육관에서 영화를 상영한다."
+    },
+    {
+      "word": "映像",
+      "reading": "えいぞう",
+      "meaningKR": "영상, 이미지",
+      "sentenceJP": "防犯カメラの映像を確認した。",
+      "sentenceReading": "ぼうはんかめらのえいぞうをかくにんした。",
+      "sentenceKR": "방범 카메라 영상을 확인했다."
+    },
+    {
+      "word": "英雄",
+      "reading": "えいゆう",
+      "meaningKR": "영웅, 위인",
+      "sentenceJP": "彼は国を救った英雄だ。",
+      "sentenceReading": "かれはくにをすくったえいゆうだ。",
+      "sentenceKR": "그는 나라를 구한 영웅이다."
+    },
+    {
+      "word": "液",
+      "reading": "えき",
+      "meaningKR": "액체, 용액",
+      "sentenceJP": "容器から透明な液が漏れた。",
+      "sentenceReading": "ようきからとうめいなえきがもれた。",
+      "sentenceKR": "용기에서 투명한 액체가 샜다."
+    },
+    {
+      "word": "閲覧",
+      "reading": "えつらん",
+      "meaningKR": "열람, 조회",
+      "sentenceJP": "資料は自由に閲覧できます。",
+      "sentenceReading": "しりょうはじゆうにえつらんできます。",
+      "sentenceKR": "자료는 자유롭게 열람할 수 있습니다."
+    },
+    {
+      "word": "獲物",
+      "reading": "えもの",
+      "meaningKR": "사냥감, 전리품",
+      "sentenceJP": "猟師は獲物を背負って山を下りた。",
+      "sentenceReading": "りょうしはえものをせおってやまをおりた。",
+      "sentenceKR": "사냥꾼은 사냥감을 짊어지고 산을 내려왔다."
+    },
+    {
+      "word": "襟",
+      "reading": "えり",
+      "meaningKR": "옷깃, 칼라",
+      "sentenceJP": "シャツの襟をきちんと整える。",
+      "sentenceReading": "しゃつのえりをきちんとととのえる。",
+      "sentenceKR": "셔츠의 옷깃을 단정히 정돈한다."
+    },
+    {
+      "word": "エレガント",
+      "reading": "エレガント",
+      "meaningKR": "우아한, 품격 있는",
+      "sentenceJP": "エレガントな装いが目を引いた。",
+      "sentenceReading": "えれがんとなよそおいがめをひいた。",
+      "sentenceKR": "우아한 옷차림이 눈길을 끌었다."
+    },
+    {
+      "word": "円滑",
+      "reading": "えんかつ",
+      "meaningKR": "원활함, 순조로움",
+      "sentenceJP": "交渉は円滑に進んでいる。",
+      "sentenceReading": "こうしょうはえんかつにすすんでいる。",
+      "sentenceKR": "협상은 원활하게 진행되고 있다."
+    },
+    {
+      "word": "縁側",
+      "reading": "えんがわ",
+      "meaningKR": "툇마루",
+      "sentenceJP": "猫が縁側で昼寝をしている。",
+      "sentenceReading": "ねこがえんがわでひるねをしている。",
+      "sentenceKR": "고양이가 툇마루에서 낮잠을 자고 있다."
+    },
+    {
+      "word": "沿岸",
+      "reading": "えんがん",
+      "meaningKR": "연안, 해안",
+      "sentenceJP": "沿岸地域に避難勧告が出た。",
+      "sentenceReading": "えんがんちいきにひなんかんこくがでた。",
+      "sentenceKR": "연안 지역에 대피 권고가 내려졌다."
+    },
+    {
+      "word": "婉曲",
+      "reading": "えんきょく",
+      "meaningKR": "완곡함, 에두름",
+      "sentenceJP": "彼は婉曲な表現で断った。",
+      "sentenceReading": "かれはえんきょくなひょうげんでことわった。",
+      "sentenceKR": "그는 완곡한 표현으로 거절했다."
+    },
+    {
+      "word": "演出",
+      "reading": "えんしゅつ",
+      "meaningKR": "연출",
+      "sentenceJP": "舞台の演出を彼女が担当した。",
+      "sentenceReading": "ぶたいのえんしゅつをかのじょがたんとうした。",
+      "sentenceKR": "그녀가 무대 연출을 담당했다."
+    },
+    {
+      "word": "エンジニア",
+      "reading": "エンジニア",
+      "meaningKR": "엔지니어, 기술자",
+      "sentenceJP": "兄は自動車会社のエンジニアだ。",
+      "sentenceReading": "あにはじどうしゃがいしゃのえんじにあだ。",
+      "sentenceKR": "형은 자동차 회사의 엔지니어다."
+    },
+    {
+      "word": "演じる",
+      "reading": "えんじる",
+      "meaningKR": "연기하다, 역할을 맡다",
+      "sentenceJP": "彼女は難しい役を見事に演じた。",
+      "sentenceReading": "かのじょはむずかしいやくをみごとにえんじた。",
+      "sentenceKR": "그녀는 어려운 역할을 훌륭히 연기했다."
+    },
+    {
+      "word": "演ずる",
+      "reading": "えんずる",
+      "meaningKR": "연기하다, 역할을 맡다",
+      "sentenceJP": "主人公を演ずる俳優が決まった。",
+      "sentenceReading": "しゅじんこうをえんずるはいゆうがきまった。",
+      "sentenceKR": "주인공을 연기할 배우가 정해졌다."
+    },
+    {
+      "word": "沿線",
+      "reading": "えんせん",
+      "meaningKR": "철도 노선 주변",
+      "sentenceJP": "沿線には新しい店が増えた。",
+      "sentenceReading": "えんせんにはあたらしいみせがふえた。",
+      "sentenceKR": "철도 노선 주변에 새 가게가 늘었다."
+    },
+    {
+      "word": "縁談",
+      "reading": "えんだん",
+      "meaningKR": "혼담",
+      "sentenceJP": "娘に縁談が持ち込まれた。",
+      "sentenceReading": "むすめにえんだんがもちこまれた。",
+      "sentenceKR": "딸에게 혼담이 들어왔다."
+    },
+    {
+      "word": "遠方",
+      "reading": "えんぽう",
+      "meaningKR": "먼 곳, 원방",
+      "sentenceJP": "遠方から友人が訪ねてきた。",
+      "sentenceReading": "えんぽうからゆうじんがたずねてきた。",
+      "sentenceKR": "먼 곳에서 친구가 찾아왔다."
+    },
+    {
+      "word": "円満",
+      "reading": "えんまん",
+      "meaningKR": "원만함, 화목함",
+      "sentenceJP": "問題は円満に解決した。",
+      "sentenceReading": "もんだいはえんまんにかいけつした。",
+      "sentenceKR": "문제는 원만하게 해결되었다."
+    },
+    {
+      "word": "追い込む",
+      "reading": "おいこむ",
+      "meaningKR": "몰아넣다, 궁지에 몰다",
+      "sentenceJP": "締め切り前に自分を追い込む。",
+      "sentenceReading": "しめきりまえにじぶんをおいこむ。",
+      "sentenceKR": "마감 전에 자신을 몰아붙인다."
+    },
+    {
+      "word": "追い出す",
+      "reading": "おいだす",
+      "meaningKR": "쫓아내다",
+      "sentenceJP": "猫を部屋から追い出した。",
+      "sentenceReading": "ねこをへやからおいだした。",
+      "sentenceKR": "고양이를 방에서 쫓아냈다."
+    },
+    {
+      "word": "於いて",
+      "reading": "おいて",
+      "meaningKR": "~에서, ~에 있어서",
+      "sentenceJP": "本大会に於いて新記録が出た。",
+      "sentenceReading": "ほんたいかいにおいてしんきろくがでた。",
+      "sentenceKR": "이번 대회에서 신기록이 나왔다."
+    },
+    {
+      "word": "老いる",
+      "reading": "おいる",
+      "meaningKR": "늙다, 나이 들다",
+      "sentenceJP": "人は誰でも老いていく。",
+      "sentenceReading": "ひとはだれでもおいていく。",
+      "sentenceKR": "사람은 누구나 늙어 간다."
+    },
+    {
+      "word": "応急",
+      "reading": "おうきゅう",
+      "meaningKR": "응급",
+      "sentenceJP": "応急処置を施してください。",
+      "sentenceReading": "おうきゅうしょちをほどこしてください。",
+      "sentenceKR": "응급 처치를 해 주세요."
+    },
+    {
+      "word": "黄金",
+      "reading": "おうごん",
+      "meaningKR": "황금",
+      "sentenceJP": "黄金に輝く稲穂が揺れる。",
+      "sentenceReading": "おうごんにかがやくいなほがゆれる。",
+      "sentenceKR": "황금빛으로 빛나는 벼이삭이 흔들린다."
+    },
+    {
+      "word": "往診",
+      "reading": "おうしん",
+      "meaningKR": "왕진",
+      "sentenceJP": "医師に往診をお願いした。",
+      "sentenceReading": "いしにおうしんをおねがいした。",
+      "sentenceKR": "의사에게 왕진을 부탁했다."
+    },
+    {
+      "word": "応募",
+      "reading": "おうぼ",
+      "meaningKR": "응모, 지원",
+      "sentenceJP": "新人賞に応募する。",
+      "sentenceReading": "しんじんしょうにおうぼする。",
+      "sentenceKR": "신인상에 응모한다."
+    },
+    {
+      "word": "おおい (かん)",
+      "reading": "おおい (かん)",
+      "meaningKR": "어이, 이봐",
+      "sentenceJP": "おおい、こっちへ来てくれ。",
+      "sentenceReading": "おおい、こっちへきてくれ。",
+      "sentenceKR": "어이, 이쪽으로 와 줘."
+    },
+    {
+      "word": "大方",
+      "reading": "おおかた",
+      "meaningKR": "대부분, 대체로",
+      "sentenceJP": "仕事は大方片づいた。",
+      "sentenceReading": "しごとはおおかたかたづいた。",
+      "sentenceKR": "일은 거의 다 정리되었다."
+    },
+    {
+      "word": "大柄",
+      "reading": "おおがら",
+      "meaningKR": "큰 체격, 큰 무늬",
+      "sentenceJP": "彼は大柄で力も強い。",
+      "sentenceReading": "かれはおおがらでちからもつよい。",
+      "sentenceKR": "그는 체격이 크고 힘도 세다."
+    },
+    {
+      "word": "おおげさ",
+      "reading": "おおげさ",
+      "meaningKR": "과장됨, 유난스러움",
+      "sentenceJP": "そんなにおおげさに騒ぐな。",
+      "sentenceReading": "そんなにおおげさにさわぐな。",
+      "sentenceKR": "그렇게 유난스럽게 떠들지 마."
+    },
+    {
+      "word": "大筋",
+      "reading": "おおすじ",
+      "meaningKR": "대강, 개요",
+      "sentenceJP": "計画の大筋は決まった。",
+      "sentenceReading": "けいかくのおおすじはきまった。",
+      "sentenceKR": "계획의 큰 틀은 정해졌다."
+    },
+    {
+      "word": "大空",
+      "reading": "おおぞら",
+      "meaningKR": "넓은 하늘",
+      "sentenceJP": "鳥が大空を自由に舞う。",
+      "sentenceReading": "とりがおおぞらをじゆうにまう。",
+      "sentenceKR": "새가 넓은 하늘을 자유롭게 난다."
+    },
+    {
+      "word": "オートマチック",
+      "reading": "オートマチック",
+      "meaningKR": "자동식, 오토매틱",
+      "sentenceJP": "この車はオートマチックだ。",
+      "sentenceReading": "このくるまはおーとまちっくだ。",
+      "sentenceKR": "이 차는 자동식이다."
     }
   ]
 }
