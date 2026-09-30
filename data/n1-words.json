@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-29T00:47:34.887Z",
-  "count": 675,
+  "generatedAt": "2026-09-30T00:02:11.856Z",
+  "count": 720,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -5404,6 +5404,366 @@
       "sentenceJP": "この車はオートマチックだ。",
       "sentenceReading": "このくるまはおーとまちっくだ。",
       "sentenceKR": "이 차는 자동식이다."
+    },
+    {
+      "word": "大幅",
+      "reading": "おおはば",
+      "meaningKR": "대폭, 큰 폭",
+      "sentenceJP": "売上は大幅に伸びた。",
+      "sentenceReading": "うりあげはおおはばにのびた。",
+      "sentenceKR": "매출은 큰 폭으로 증가했다."
+    },
+    {
+      "word": "おおまかな",
+      "reading": "おおまかな",
+      "meaningKR": "대략적인, 개략적인",
+      "sentenceJP": "おおまかな予定を決めた。",
+      "sentenceReading": "おおまかなよていをきめた。",
+      "sentenceKR": "대략적인 일정을 정했다."
+    },
+    {
+      "word": "大水",
+      "reading": "おおみず",
+      "meaningKR": "홍수",
+      "sentenceJP": "大水で古い橋が流された。",
+      "sentenceReading": "おおみずでふるいはしがながされた。",
+      "sentenceKR": "홍수로 오래된 다리가 떠내려갔다."
+    },
+    {
+      "word": "公",
+      "reading": "おおやけ",
+      "meaningKR": "공공, 공개된 상태",
+      "sentenceJP": "その事実は公になった。",
+      "sentenceReading": "そのじじつはおおやけになった。",
+      "sentenceKR": "그 사실은 세상에 공개되었다."
+    },
+    {
+      "word": "犯す",
+      "reading": "おかす",
+      "meaningKR": "저지르다, 위반하다",
+      "sentenceJP": "彼は重大な罪を犯した。",
+      "sentenceReading": "かれはじゅうだいなつみをおかした。",
+      "sentenceKR": "그는 중대한 죄를 저질렀다."
+    },
+    {
+      "word": "侵す",
+      "reading": "おかす",
+      "meaningKR": "침범하다, 침해하다",
+      "sentenceJP": "他国の領土を侵してはならない。",
+      "sentenceReading": "たこくのりょうどをおかしてはならない。",
+      "sentenceKR": "다른 나라의 영토를 침범해서는 안 된다."
+    },
+    {
+      "word": "臆病",
+      "reading": "おくびょう",
+      "meaningKR": "겁이 많음, 소심함",
+      "sentenceJP": "臆病な自分を変えたい。",
+      "sentenceReading": "おくびょうなじぶんをかえたい。",
+      "sentenceKR": "겁이 많은 자신을 바꾸고 싶다."
+    },
+    {
+      "word": "遅らす",
+      "reading": "おくらす",
+      "meaningKR": "늦추다, 지연시키다",
+      "sentenceJP": "開始時刻を一時間遅らす。",
+      "sentenceReading": "かいしじこくをいちじかんおくらす。",
+      "sentenceKR": "시작 시각을 한 시간 늦춘다."
+    },
+    {
+      "word": "厳か",
+      "reading": "おごそか",
+      "meaningKR": "엄숙함, 장엄함",
+      "sentenceJP": "厳かな雰囲気の式典だった。",
+      "sentenceReading": "おごそかなふんいきのしきてんだった。",
+      "sentenceKR": "엄숙한 분위기의 의식이었다."
+    },
+    {
+      "word": "行い",
+      "reading": "おこない",
+      "meaningKR": "행실, 행동",
+      "sentenceJP": "日頃の行いが評価された。",
+      "sentenceReading": "ひごろのおこないがひょうかされた。",
+      "sentenceKR": "평소의 행실이 좋은 평가를 받았다."
+    },
+    {
+      "word": "おごる (ゆうしょくを～)",
+      "reading": "おごる (ゆうしょくを～)",
+      "meaningKR": "한턱내다",
+      "sentenceJP": "今日は私が夕食をおごるよ。",
+      "sentenceReading": "きょうはわたしがゆうしょくをおごるよ。",
+      "sentenceKR": "오늘은 내가 저녁을 살게."
+    },
+    {
+      "word": "収まる",
+      "reading": "おさまる",
+      "meaningKR": "제자리에 들어가다",
+      "sentenceJP": "荷物は棚にきれいに収まった。",
+      "sentenceReading": "にもつはたなにきれいにおさまった。",
+      "sentenceKR": "짐은 선반에 깔끔하게 들어갔다."
+    },
+    {
+      "word": "納まる",
+      "reading": "おさまる",
+      "meaningKR": "납부되다, 들어가다",
+      "sentenceJP": "会費は期限内に納まった。",
+      "sentenceReading": "かいひはきげんないにおさまった。",
+      "sentenceKR": "회비는 기한 내에 납부되었다."
+    },
+    {
+      "word": "治まる",
+      "reading": "おさまる",
+      "meaningKR": "가라앉다, 평온해지다",
+      "sentenceJP": "騒ぎはようやく治まった。",
+      "sentenceReading": "さわぎはようやくおさまった。",
+      "sentenceKR": "소란은 마침내 가라앉았다."
+    },
+    {
+      "word": "お産",
+      "reading": "おさん",
+      "meaningKR": "출산",
+      "sentenceJP": "姉は無事にお産を終えた。",
+      "sentenceReading": "あねはぶじにおさんをおえた。",
+      "sentenceKR": "언니는 무사히 출산을 마쳤다."
+    },
+    {
+      "word": "押し切る",
+      "reading": "おしきる",
+      "meaningKR": "자기 뜻을 관철하다",
+      "sentenceJP": "反対を押し切って計画を進めた。",
+      "sentenceReading": "はんたいをおしきってけいかくをすすめた。",
+      "sentenceKR": "반대를 무릅쓰고 계획을 추진했다."
+    },
+    {
+      "word": "押し込む",
+      "reading": "おしこむ",
+      "meaningKR": "밀어 넣다",
+      "sentenceJP": "荷物を箱に無理やり押し込んだ。",
+      "sentenceReading": "にもつをはこにむりやりおしこんだ。",
+      "sentenceKR": "짐을 상자에 억지로 밀어 넣었다."
+    },
+    {
+      "word": "惜しむ",
+      "reading": "おしむ",
+      "meaningKR": "아쉬워하다",
+      "sentenceJP": "別れを惜しんで何度も振り返った。",
+      "sentenceReading": "わかれをおしんでなんどもふりかえった。",
+      "sentenceKR": "이별을 아쉬워하며 몇 번이나 뒤돌아봤다."
+    },
+    {
+      "word": "押し寄せる",
+      "reading": "おしよせる",
+      "meaningKR": "밀려오다",
+      "sentenceJP": "津波が町へ一気に押し寄せた。",
+      "sentenceReading": "つなみがまちへいっきにおしよせた。",
+      "sentenceKR": "쓰나미가 마을로 단숨에 밀려왔다."
+    },
+    {
+      "word": "雄",
+      "reading": "おす",
+      "meaningKR": "수컷",
+      "sentenceJP": "このライオンは雄です。",
+      "sentenceReading": "このらいおんはおすです。",
+      "sentenceKR": "이 사자는 수컷입니다."
+    },
+    {
+      "word": "御世辞",
+      "reading": "おせじ",
+      "meaningKR": "아첨, 빈말",
+      "sentenceJP": "それは御世辞でも嬉しいです。",
+      "sentenceReading": "それはおせじでもうれしいです。",
+      "sentenceKR": "그게 빈말이라도 기쁩니다."
+    },
+    {
+      "word": "襲う",
+      "reading": "おそう",
+      "meaningKR": "습격하다",
+      "sentenceJP": "突然、熊が村人を襲った。",
+      "sentenceReading": "とつぜん、くまがむらびとをおそった。",
+      "sentenceKR": "갑자기 곰이 마을 사람을 습격했다."
+    },
+    {
+      "word": "遅くとも",
+      "reading": "おそくとも",
+      "meaningKR": "늦어도",
+      "sentenceJP": "遅くとも九時までに来てください。",
+      "sentenceReading": "おそくともくじまでにきてください。",
+      "sentenceKR": "늦어도 아홉 시까지 와 주세요."
+    },
+    {
+      "word": "恐れ",
+      "reading": "おそれ",
+      "meaningKR": "두려움, 우려",
+      "sentenceJP": "再発の恐れがあります。",
+      "sentenceReading": "さいはつのおそれがあります。",
+      "sentenceKR": "재발할 우려가 있습니다."
+    },
+    {
+      "word": "恐れ入る",
+      "reading": "おそれいる",
+      "meaningKR": "송구스럽다",
+      "sentenceJP": "ご丁寧な対応に恐れ入ります。",
+      "sentenceReading": "ごていねいなたいおうにおそれいります。",
+      "sentenceKR": "정중한 대응에 송구스럽습니다."
+    },
+    {
+      "word": "おだてる",
+      "reading": "おだてる",
+      "meaningKR": "추켜세우다",
+      "sentenceJP": "彼をおだてて仕事を任せた。",
+      "sentenceReading": "かれをおだててしごとをまかせた。",
+      "sentenceKR": "그를 추켜세워 일을 맡겼다."
+    },
+    {
+      "word": "落ち込む",
+      "reading": "おちこむ",
+      "meaningKR": "낙담하다",
+      "sentenceJP": "試験に落ちて落ち込んだ。",
+      "sentenceReading": "しけんにおちておちこんだ。",
+      "sentenceKR": "시험에 떨어져 낙담했다."
+    },
+    {
+      "word": "落ち着き",
+      "reading": "おちつき",
+      "meaningKR": "침착함",
+      "sentenceJP": "彼の声には落ち着きがある。",
+      "sentenceReading": "かれのこえにはおちつきがある。",
+      "sentenceKR": "그의 목소리에는 침착함이 있다."
+    },
+    {
+      "word": "落葉",
+      "reading": "おちば",
+      "meaningKR": "낙엽",
+      "sentenceJP": "庭の落葉を集めて燃やした。",
+      "sentenceReading": "にわのおちばをあつめてもやした。",
+      "sentenceKR": "마당의 낙엽을 모아 태웠다."
+    },
+    {
+      "word": "乙",
+      "reading": "おつ",
+      "meaningKR": "을, 둘째 등급",
+      "sentenceJP": "甲案より乙案を採用した。",
+      "sentenceReading": "こうあんよりおつあんをさいようした。",
+      "sentenceKR": "갑안보다 을안을 채택했다."
+    },
+    {
+      "word": "お使い",
+      "reading": "おつかい",
+      "meaningKR": "심부름",
+      "sentenceJP": "お使いで牛乳を買ってきた。",
+      "sentenceReading": "おつかいでぎゅうにゅうをかってきた。",
+      "sentenceKR": "심부름으로 우유를 사 왔다."
+    },
+    {
+      "word": "おっかない",
+      "reading": "おっかない",
+      "meaningKR": "무서운",
+      "sentenceJP": "夜道は一人だとおっかない。",
+      "sentenceReading": "よみちはひとりだとおっかない。",
+      "sentenceKR": "밤길은 혼자면 무섭다."
+    },
+    {
+      "word": "お手上げ",
+      "reading": "おてあげ",
+      "meaningKR": "속수무책",
+      "sentenceJP": "この難問にはもうお手上げだ。",
+      "sentenceReading": "このなんもんにはもうおてあげだ。",
+      "sentenceKR": "이 난제에는 이제 속수무책이다."
+    },
+    {
+      "word": "おどおど",
+      "reading": "おどおど",
+      "meaningKR": "주뼛주뼛",
+      "sentenceJP": "彼は面接でおどおどしていた。",
+      "sentenceReading": "かれはめんせつでおどおどしていた。",
+      "sentenceKR": "그는 면접에서 주뼛거리고 있었다."
+    },
+    {
+      "word": "脅す",
+      "reading": "おどす",
+      "meaningKR": "협박하다",
+      "sentenceJP": "金を出せと彼を脅した。",
+      "sentenceReading": "かねをだせとかれをおどした。",
+      "sentenceKR": "돈을 내놓으라고 그를 협박했다."
+    },
+    {
+      "word": "訪れる",
+      "reading": "おとずれる",
+      "meaningKR": "찾아오다",
+      "sentenceJP": "春がようやく村を訪れた。",
+      "sentenceReading": "はるがようやくむらをおとずれた。",
+      "sentenceKR": "봄이 마침내 마을에 찾아왔다."
+    },
+    {
+      "word": "お供",
+      "reading": "おとも",
+      "meaningKR": "동행",
+      "sentenceJP": "祖父の散歩にお供した。",
+      "sentenceReading": "そふのさんぽにおともした。",
+      "sentenceKR": "할아버지의 산책에 동행했다."
+    },
+    {
+      "word": "衰える",
+      "reading": "おとろえる",
+      "meaningKR": "쇠퇴하다",
+      "sentenceJP": "年齢とともに体力が衰える。",
+      "sentenceReading": "ねんれいとともにたいりょくがおとろえる。",
+      "sentenceKR": "나이가 들면서 체력이 쇠퇴한다."
+    },
+    {
+      "word": "同い年",
+      "reading": "おないどし",
+      "meaningKR": "동갑",
+      "sentenceJP": "彼女とは同い年です。",
+      "sentenceReading": "かのじょとはおないどしです。",
+      "sentenceKR": "그녀와는 동갑입니다."
+    },
+    {
+      "word": "自ずから",
+      "reading": "おのずから",
+      "meaningKR": "자연히",
+      "sentenceJP": "真実は自ずから明らかになる。",
+      "sentenceReading": "しんじつはおのずからあきらかになる。",
+      "sentenceKR": "진실은 자연히 밝혀진다."
+    },
+    {
+      "word": "怯える",
+      "reading": "おびえる",
+      "meaningKR": "겁먹다",
+      "sentenceJP": "子供が雷に怯えている。",
+      "sentenceReading": "こどもがかみなりにおびえている。",
+      "sentenceKR": "아이가 천둥에 겁먹고 있다."
+    },
+    {
+      "word": "おびただしい",
+      "reading": "おびただしい",
+      "meaningKR": "엄청나게 많은",
+      "sentenceJP": "おびただしい数の虫が湧いた。",
+      "sentenceReading": "おびただしいかずのむしがわいた。",
+      "sentenceKR": "엄청나게 많은 벌레가 생겨났다."
+    },
+    {
+      "word": "脅かす",
+      "reading": "おびやかす",
+      "meaningKR": "위협하다",
+      "sentenceJP": "海面上昇が島の暮らしを脅かす。",
+      "sentenceReading": "かいめんじょうしょうがしまのくらしをおびやかす。",
+      "sentenceKR": "해수면 상승이 섬의 생활을 위협한다."
+    },
+    {
+      "word": "帯びる",
+      "reading": "おびる",
+      "meaningKR": "띠다",
+      "sentenceJP": "その言葉は深い意味を帯びている。",
+      "sentenceReading": "そのことばはふかいいみをおびている。",
+      "sentenceKR": "그 말은 깊은 의미를 띠고 있다."
+    },
+    {
+      "word": "お袋",
+      "reading": "おふくろ",
+      "meaningKR": "어머니",
+      "sentenceJP": "久しぶりにお袋の声を聞いた。",
+      "sentenceReading": "ひさしぶりにおふくろのこえをきいた。",
+      "sentenceKR": "오랜만에 어머니의 목소리를 들었다."
     }
   ]
 }
