@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-30T00:02:11.856Z",
-  "count": 720,
+  "generatedAt": "2026-10-01T00:19:32.361Z",
+  "count": 765,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -5764,6 +5764,366 @@
       "sentenceJP": "久しぶりにお袋の声を聞いた。",
       "sentenceReading": "ひさしぶりにおふくろのこえをきいた。",
       "sentenceKR": "오랜만에 어머니의 목소리를 들었다."
+    },
+    {
+      "word": "覚え",
+      "reading": "おぼえ",
+      "meaningKR": "기억, 경험",
+      "sentenceJP": "身に覚えがありません。",
+      "sentenceReading": "みにおぼえがありません。",
+      "sentenceKR": "전혀 기억에 없습니다."
+    },
+    {
+      "word": "おまけ",
+      "reading": "おまけ",
+      "meaningKR": "덤, 추가 서비스",
+      "sentenceJP": "この商品にはおまけが付く。",
+      "sentenceReading": "このしょうひんにはおまけがつく。",
+      "sentenceKR": "이 상품에는 덤이 붙는다."
+    },
+    {
+      "word": "お宮",
+      "reading": "おみや",
+      "meaningKR": "신사",
+      "sentenceJP": "近くのお宮へお参りした。",
+      "sentenceReading": "ちかくのおみやへおまいりした。",
+      "sentenceKR": "근처 신사에 참배하러 갔다."
+    },
+    {
+      "word": "おむつ",
+      "reading": "おむつ",
+      "meaningKR": "기저귀",
+      "sentenceJP": "赤ちゃんのおむつを替えた。",
+      "sentenceReading": "あかちゃんのおむつをかえた。",
+      "sentenceKR": "아기의 기저귀를 갈았다."
+    },
+    {
+      "word": "思い付き",
+      "reading": "おもいつき",
+      "meaningKR": "문득 떠오른 생각, 아이디어",
+      "sentenceJP": "単なる思い付きではない。",
+      "sentenceReading": "たんなるおもいつきではない。",
+      "sentenceKR": "단순히 문득 떠오른 생각은 아니다."
+    },
+    {
+      "word": "趣",
+      "reading": "おもむき",
+      "meaningKR": "정취, 운치",
+      "sentenceJP": "古い町並みには趣がある。",
+      "sentenceReading": "ふるいまちなみにはおもむきがある。",
+      "sentenceKR": "오래된 거리에는 운치가 있다."
+    },
+    {
+      "word": "赴く",
+      "reading": "おもむく",
+      "meaningKR": "향하다, 가다",
+      "sentenceJP": "調査のため現地へ赴いた。",
+      "sentenceReading": "ちょうさのためげんちへおもむいた。",
+      "sentenceKR": "조사를 위해 현지로 향했다."
+    },
+    {
+      "word": "重んじる",
+      "reading": "おもんじる",
+      "meaningKR": "중시하다, 존중하다",
+      "sentenceJP": "彼は職場の和を重んじる。",
+      "sentenceReading": "かれはしょくばのわをおもんじる。",
+      "sentenceKR": "그는 직장의 화합을 중시한다."
+    },
+    {
+      "word": "重んずる",
+      "reading": "おもんずる",
+      "meaningKR": "중시하다, 존중하다",
+      "sentenceJP": "我が社は実績を重んずる。",
+      "sentenceReading": "わがしゃはじっせきをおもんずる。",
+      "sentenceKR": "우리 회사는 실적을 중시한다."
+    },
+    {
+      "word": "親父",
+      "reading": "おやじ",
+      "meaningKR": "아버지, 아저씨",
+      "sentenceJP": "親父は今も元気に働いている。",
+      "sentenceReading": "おやじはいまもげんきにはたらいている。",
+      "sentenceKR": "아버지는 지금도 건강하게 일하고 계신다."
+    },
+    {
+      "word": "及び",
+      "reading": "および",
+      "meaningKR": "및, 그리고",
+      "sentenceJP": "申込書及び身分証をご提示ください。",
+      "sentenceReading": "もうしこみしょおよびみぶんしょうをごていじください。",
+      "sentenceKR": "신청서 및 신분증을 제시해 주세요."
+    },
+    {
+      "word": "及ぶ",
+      "reading": "およぶ",
+      "meaningKR": "미치다, 이르다",
+      "sentenceJP": "被害は隣の町にまで及んだ。",
+      "sentenceReading": "ひがいはとなりのまちにまでおよんだ。",
+      "sentenceKR": "피해는 이웃 마을에까지 미쳤다."
+    },
+    {
+      "word": "折",
+      "reading": "おり",
+      "meaningKR": "때, 기회",
+      "sentenceJP": "上京した折に友人を訪ねた。",
+      "sentenceReading": "じょうきょうしたおりにゆうじんをたずねた。",
+      "sentenceKR": "도쿄에 갔을 때 친구를 찾아갔다."
+    },
+    {
+      "word": "檻",
+      "reading": "おり",
+      "meaningKR": "우리, 감방",
+      "sentenceJP": "ライオンが檻の中を歩いている。",
+      "sentenceReading": "らいおんがおりのなかをあるいている。",
+      "sentenceKR": "사자가 우리 안을 걷고 있다."
+    },
+    {
+      "word": "オリエンテーション",
+      "reading": "オリエンテーション",
+      "meaningKR": "오리엔테이션, 안내 교육",
+      "sentenceJP": "新入社員向けのオリエンテーションを行う。",
+      "sentenceReading": "しんにゅうしゃいんむけのおりえんてーしょんをおこなう。",
+      "sentenceKR": "신입 사원을 위한 오리엔테이션을 실시한다."
+    },
+    {
+      "word": "折り返す",
+      "reading": "おりかえす",
+      "meaningKR": "접어 올리다, 되접다",
+      "sentenceJP": "袖を折り返して縫った。",
+      "sentenceReading": "そでをおりかえしてぬった。",
+      "sentenceKR": "소매를 접어 올려 꿰맸다."
+    },
+    {
+      "word": "織物",
+      "reading": "おりもの",
+      "meaningKR": "직물, 옷감",
+      "sentenceJP": "この織物は手触りがいい。",
+      "sentenceReading": "このおりものはてざわりがいい。",
+      "sentenceKR": "이 직물은 촉감이 좋다."
+    },
+    {
+      "word": "俺",
+      "reading": "おれ",
+      "meaningKR": "나, 내가",
+      "sentenceJP": "俺が最後までやるよ。",
+      "sentenceReading": "おれがさいごまでやるよ。",
+      "sentenceKR": "내가 끝까지 할게."
+    },
+    {
+      "word": "愚か",
+      "reading": "おろか",
+      "meaningKR": "어리석음, 바보스러움",
+      "sentenceJP": "愚かな判断を悔やんだ。",
+      "sentenceReading": "おろかなはんだんをくやんだ。",
+      "sentenceKR": "어리석은 판단을 후회했다."
+    },
+    {
+      "word": "おろそか",
+      "reading": "おろそか",
+      "meaningKR": "소홀함, 부주의",
+      "sentenceJP": "安全確認をおろそかにするな。",
+      "sentenceReading": "あんぜんかくにんをおろそかにするな。",
+      "sentenceKR": "안전 확인을 소홀히 하지 마라."
+    },
+    {
+      "word": "おんぶ",
+      "reading": "おんぶ",
+      "meaningKR": "업기, 등에 업음",
+      "sentenceJP": "子供をおんぶして歩く。",
+      "sentenceReading": "こどもをおんぶしてあるく。",
+      "sentenceKR": "아이를 등에 업고 걷는다."
+    },
+    {
+      "word": "オンライン",
+      "reading": "オンライン",
+      "meaningKR": "온라인",
+      "sentenceJP": "会議はオンラインで行う。",
+      "sentenceReading": "かいぎはおんらいんでおこなう。",
+      "sentenceKR": "회의는 온라인으로 진행한다."
+    },
+    {
+      "word": "温和",
+      "reading": "おんわ",
+      "meaningKR": "온화함, 온순함",
+      "sentenceJP": "彼は温和で話しやすい。",
+      "sentenceReading": "かれはおんわではなしやすい。",
+      "sentenceKR": "그는 온화해서 이야기하기 편하다."
+    },
+    {
+      "word": "我",
+      "reading": "が～",
+      "meaningKR": "자아, 고집",
+      "sentenceJP": "彼はいつも我を通そうとする。",
+      "sentenceReading": "かれはいつもがをとおそうとする。",
+      "sentenceKR": "그는 항상 자기 고집을 관철하려 한다."
+    },
+    {
+      "word": "カーペット",
+      "reading": "カーペット",
+      "meaningKR": "카펫",
+      "sentenceJP": "新しいカーペットを敷いた。",
+      "sentenceReading": "あたらしいかーぺっとをしいた。",
+      "sentenceKR": "새 카펫을 깔았다."
+    },
+    {
+      "word": "～界",
+      "reading": "～かい",
+      "meaningKR": "계, 분야",
+      "sentenceJP": "彼女は芸能界で活躍している。",
+      "sentenceReading": "かのじょはげいのうかいでかつやくしている。",
+      "sentenceKR": "그녀는 연예계에서 활약하고 있다."
+    },
+    {
+      "word": "～街",
+      "reading": "～がい",
+      "meaningKR": "거리, 지구",
+      "sentenceJP": "駅前の商店街は活気がある。",
+      "sentenceReading": "えきまえのしょうてんがいはかっきがある。",
+      "sentenceKR": "역 앞 상점가는 활기가 넘친다."
+    },
+    {
+      "word": "改悪",
+      "reading": "かいあく",
+      "meaningKR": "개악, 나쁘게 바꿈",
+      "sentenceJP": "制度の改悪に反対する。",
+      "sentenceReading": "せいどのかいあくにはんたいする。",
+      "sentenceKR": "제도의 개악에 반대한다."
+    },
+    {
+      "word": "海運",
+      "reading": "かいうん",
+      "meaningKR": "해운, 해상 운송",
+      "sentenceJP": "この港は海運で栄えた。",
+      "sentenceReading": "このみなとはかいうんでさかえた。",
+      "sentenceKR": "이 항구는 해운으로 번영했다."
+    },
+    {
+      "word": "外貨",
+      "reading": "がいか",
+      "meaningKR": "외화, 외국 화폐",
+      "sentenceJP": "外貨を銀行で両替した。",
+      "sentenceReading": "がいかをぎんこうでりょうがえした。",
+      "sentenceKR": "외화를 은행에서 환전했다."
+    },
+    {
+      "word": "改革",
+      "reading": "かいかく",
+      "meaningKR": "개혁, 혁신",
+      "sentenceJP": "社会の改革を進める必要がある。",
+      "sentenceReading": "しゃかいのかいかくをすすめるひつようがある。",
+      "sentenceKR": "사회의 개혁을 추진할 필요가 있다."
+    },
+    {
+      "word": "貝殻",
+      "reading": "かいがら",
+      "meaningKR": "조개껍데기",
+      "sentenceJP": "浜辺で白い貝殻を拾った。",
+      "sentenceReading": "はまべでしろいかいがらをひろった。",
+      "sentenceKR": "해변에서 하얀 조개껍데기를 주웠다."
+    },
+    {
+      "word": "外観",
+      "reading": "がいかん",
+      "meaningKR": "외관, 겉모습",
+      "sentenceJP": "建物の外観はとても重厚だ。",
+      "sentenceReading": "たてもののがいかんはとてもじゅうこうだ。",
+      "sentenceKR": "건물 외관은 매우 중후하다."
+    },
+    {
+      "word": "階級",
+      "reading": "かいきゅう",
+      "meaningKR": "계급, 등급",
+      "sentenceJP": "軍では階級が重視される。",
+      "sentenceReading": "ぐんではかいきゅうがじゅうしされる。",
+      "sentenceKR": "군대에서는 계급이 중시된다."
+    },
+    {
+      "word": "海峡",
+      "reading": "かいきょう",
+      "meaningKR": "해협",
+      "sentenceJP": "船が狭い海峡を通過した。",
+      "sentenceReading": "ふねがせまいかいきょうをつうかした。",
+      "sentenceKR": "배가 좁은 해협을 통과했다."
+    },
+    {
+      "word": "会見",
+      "reading": "かいけん",
+      "meaningKR": "회견, 기자회견",
+      "sentenceJP": "大臣は会見で謝罪した。",
+      "sentenceReading": "だいじんはかいけんでしゃざいした。",
+      "sentenceKR": "장관은 회견에서 사과했다."
+    },
+    {
+      "word": "介護",
+      "reading": "かいご",
+      "meaningKR": "간병, 돌봄",
+      "sentenceJP": "祖母の介護を家族で担う。",
+      "sentenceReading": "そぼのかいごをかぞくでになう。",
+      "sentenceKR": "할머니의 간병을 가족이 맡는다."
+    },
+    {
+      "word": "開催",
+      "reading": "かいさい",
+      "meaningKR": "개최",
+      "sentenceJP": "来月、展覧会を開催する。",
+      "sentenceReading": "らいげつ、てんらんかいをかいさいする。",
+      "sentenceKR": "다음 달에 전시회를 개최한다."
+    },
+    {
+      "word": "回収",
+      "reading": "かいしゅう",
+      "meaningKR": "회수, 수거",
+      "sentenceJP": "使用済み容器を回収する。",
+      "sentenceReading": "しようずみようきをかいしゅうする。",
+      "sentenceKR": "사용한 용기를 회수한다."
+    },
+    {
+      "word": "改修",
+      "reading": "かいしゅう",
+      "meaningKR": "보수, 개량",
+      "sentenceJP": "老朽化した校舎を改修する。",
+      "sentenceReading": "ろうきゅうかしたこうしゃをかいしゅうする。",
+      "sentenceKR": "노후한 교사를 보수한다."
+    },
+    {
+      "word": "怪獣",
+      "reading": "かいじゅう",
+      "meaningKR": "괴수, 괴물",
+      "sentenceJP": "巨大な怪獣が街を襲う。",
+      "sentenceReading": "きょだいなかいじゅうがまちをおそう。",
+      "sentenceKR": "거대한 괴수가 도시를 습격한다."
+    },
+    {
+      "word": "解除",
+      "reading": "かいじょ",
+      "meaningKR": "해제, 취소",
+      "sentenceJP": "警報は先ほど解除された。",
+      "sentenceReading": "けいほうはさきほどかいじょされた。",
+      "sentenceKR": "경보는 조금 전에 해제되었다."
+    },
+    {
+      "word": "外相",
+      "reading": "がいしょう",
+      "meaningKR": "외무장관",
+      "sentenceJP": "外相が隣国を訪問した。",
+      "sentenceReading": "がいしょうがりんごくをほうもんした。",
+      "sentenceKR": "외무장관이 이웃 나라를 방문했다."
+    },
+    {
+      "word": "害する",
+      "reading": "がいする",
+      "meaningKR": "해치다, 손상시키다",
+      "sentenceJP": "睡眠不足は健康を害する。",
+      "sentenceReading": "すいみんぶそくはけんこうをがいする。",
+      "sentenceKR": "수면 부족은 건강을 해친다."
+    },
+    {
+      "word": "概説",
+      "reading": "がいせつ",
+      "meaningKR": "개괄, 개요 설명",
+      "sentenceJP": "本書は制度の歴史を概説する。",
+      "sentenceReading": "ほんしょはせいどのれきしをがいせつする。",
+      "sentenceKR": "이 책은 제도의 역사를 개괄한다."
     }
   ]
 }
