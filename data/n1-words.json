@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-01T00:19:32.361Z",
-  "count": 765,
+  "generatedAt": "2026-10-02T00:26:43.410Z",
+  "count": 810,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -6124,6 +6124,366 @@
       "sentenceJP": "本書は制度の歴史を概説する。",
       "sentenceReading": "ほんしょはせいどのれきしをがいせつする。",
       "sentenceKR": "이 책은 제도의 역사를 개괄한다."
+    },
+    {
+      "word": "回送",
+      "reading": "かいそう",
+      "meaningKR": "회송",
+      "sentenceJP": "この列車は車庫へ回送される。",
+      "sentenceReading": "このれっしゃはしゃこへかいそうされる。",
+      "sentenceKR": "이 열차는 차량기지로 회송된다."
+    },
+    {
+      "word": "階層",
+      "reading": "かいそう",
+      "meaningKR": "계층, 위계",
+      "sentenceJP": "組織の階層を簡素化する。",
+      "sentenceReading": "そしきのかいそうをかんそかする。",
+      "sentenceKR": "조직의 계층을 단순화한다."
+    },
+    {
+      "word": "開拓",
+      "reading": "かいたく",
+      "meaningKR": "개척",
+      "sentenceJP": "未開の市場を開拓する。",
+      "sentenceReading": "みかいのしじょうをかいたくする。",
+      "sentenceKR": "미개척 시장을 개척한다."
+    },
+    {
+      "word": "会談",
+      "reading": "かいだん",
+      "meaningKR": "회담",
+      "sentenceJP": "両首脳が会談を行った。",
+      "sentenceReading": "りょうしゅのうがかいだんをおこなった。",
+      "sentenceKR": "양국 정상이 회담을 가졌다."
+    },
+    {
+      "word": "改定",
+      "reading": "かいてい",
+      "meaningKR": "개정",
+      "sentenceJP": "料金制度が来月改定される。",
+      "sentenceReading": "りょうきんせいどがらいげつかいていされる。",
+      "sentenceKR": "요금 제도가 다음 달에 개정된다."
+    },
+    {
+      "word": "改訂",
+      "reading": "かいてい",
+      "meaningKR": "개정, 수정",
+      "sentenceJP": "誤植を直して改訂版を出す。",
+      "sentenceReading": "ごしょくをなおしてかいていばんをだす。",
+      "sentenceKR": "오자를 고쳐 개정판을 낸다."
+    },
+    {
+      "word": "ガイド",
+      "reading": "ガイド",
+      "meaningKR": "안내자, 가이드",
+      "sentenceJP": "現地ガイドが町を案内した。",
+      "sentenceReading": "げんちがいどがまちをあんないした。",
+      "sentenceKR": "현지 가이드가 마을을 안내했다."
+    },
+    {
+      "word": "街道",
+      "reading": "かいどう",
+      "meaningKR": "가도, 큰길",
+      "sentenceJP": "古い街道を歩いて宿場へ向かう。",
+      "sentenceReading": "ふるいかいどうをあるいてしゅくばへむかう。",
+      "sentenceKR": "옛 가도를 걸어 역참 마을로 향한다."
+    },
+    {
+      "word": "該当",
+      "reading": "がいとう",
+      "meaningKR": "해당",
+      "sentenceJP": "条件に該当する人へ通知する。",
+      "sentenceReading": "じょうけんにがいとうするひとへつうちする。",
+      "sentenceKR": "조건에 해당하는 사람에게 통지한다."
+    },
+    {
+      "word": "街頭",
+      "reading": "がいとう",
+      "meaningKR": "거리, 길거리",
+      "sentenceJP": "駅前で街頭演説が始まった。",
+      "sentenceReading": "えきまえでがいとうえんぜつがはじまった。",
+      "sentenceKR": "역 앞에서 거리 연설이 시작되었다."
+    },
+    {
+      "word": "ガイドブック",
+      "reading": "ガイドブック",
+      "meaningKR": "여행 안내서",
+      "sentenceJP": "旅行前にガイドブックを買った。",
+      "sentenceReading": "りょこうまえにがいどぶっくをかった。",
+      "sentenceKR": "여행 전에 가이드북을 샀다."
+    },
+    {
+      "word": "介入",
+      "reading": "かいにゅう",
+      "meaningKR": "개입",
+      "sentenceJP": "政府が市場に介入した。",
+      "sentenceReading": "せいふがしじょうにかいにゅうした。",
+      "sentenceKR": "정부가 시장에 개입했다."
+    },
+    {
+      "word": "概念",
+      "reading": "がいねん",
+      "meaningKR": "개념",
+      "sentenceJP": "この概念は理解しにくい。",
+      "sentenceReading": "このがいねんはりかいしにくい。",
+      "sentenceKR": "이 개념은 이해하기 어렵다."
+    },
+    {
+      "word": "開発",
+      "reading": "かいはつ",
+      "meaningKR": "개발",
+      "sentenceJP": "新薬の開発が進んでいる。",
+      "sentenceReading": "しんやくのかいはつがすすんでいる。",
+      "sentenceKR": "신약 개발이 진행되고 있다."
+    },
+    {
+      "word": "海抜",
+      "reading": "かいばつ",
+      "meaningKR": "해발",
+      "sentenceJP": "村は海抜千メートルに位置する。",
+      "sentenceReading": "むらはかいばつせんめーとるにいちする。",
+      "sentenceKR": "마을은 해발 천 미터에 위치한다."
+    },
+    {
+      "word": "介抱",
+      "reading": "かいほう",
+      "meaningKR": "간호, 돌봄",
+      "sentenceJP": "酔った友人を朝まで介抱した。",
+      "sentenceReading": "よったゆうじんをあさまでかいほうした。",
+      "sentenceKR": "술 취한 친구를 아침까지 돌보았다."
+    },
+    {
+      "word": "解剖",
+      "reading": "かいぼう",
+      "meaningKR": "해부, 부검",
+      "sentenceJP": "解剖の結果、死因が判明した。",
+      "sentenceReading": "かいぼうのけっか、しいんがはんめいした。",
+      "sentenceKR": "부검 결과 사인이 밝혀졌다."
+    },
+    {
+      "word": "外来",
+      "reading": "がいらい",
+      "meaningKR": "외래 진료",
+      "sentenceJP": "外来で医師の診察を受けた。",
+      "sentenceReading": "がいらいでいしのしんさつをうけた。",
+      "sentenceKR": "외래에서 의사의 진찰을 받았다."
+    },
+    {
+      "word": "回覧",
+      "reading": "かいらん",
+      "meaningKR": "회람",
+      "sentenceJP": "資料を部署内で回覧した。",
+      "sentenceReading": "しりょうをぶしょないでかいらんした。",
+      "sentenceKR": "자료를 부서 내에서 회람했다."
+    },
+    {
+      "word": "概略",
+      "reading": "がいりゃく",
+      "meaningKR": "개요, 요지",
+      "sentenceJP": "計画の概略を簡潔に説明した。",
+      "sentenceReading": "けいかくのがいりゃくをかんけつにせつめいした。",
+      "sentenceKR": "계획의 개요를 간결하게 설명했다."
+    },
+    {
+      "word": "海流",
+      "reading": "かいりゅう",
+      "meaningKR": "해류",
+      "sentenceJP": "この海流は北へ流れている。",
+      "sentenceReading": "このかいりゅうはきたへながれている。",
+      "sentenceKR": "이 해류는 북쪽으로 흐르고 있다."
+    },
+    {
+      "word": "改良",
+      "reading": "かいりょう",
+      "meaningKR": "개량, 개선",
+      "sentenceJP": "製品を改良して耐久性を高めた。",
+      "sentenceReading": "せいひんをかいりょうしてたいきゅうせいをたかめた。",
+      "sentenceKR": "제품을 개량해 내구성을 높였다."
+    },
+    {
+      "word": "回路",
+      "reading": "かいろ",
+      "meaningKR": "전기 회로",
+      "sentenceJP": "故障した回路をすぐ交換した。",
+      "sentenceReading": "こしょうしたかいろをすぐこうかんした。",
+      "sentenceKR": "고장 난 회로를 바로 교체했다."
+    },
+    {
+      "word": "海路",
+      "reading": "かいろ",
+      "meaningKR": "바닷길, 해로",
+      "sentenceJP": "島へは海路で向かった。",
+      "sentenceReading": "しまへはかいろでむかった。",
+      "sentenceKR": "섬에는 바닷길로 향했다."
+    },
+    {
+      "word": "省みる",
+      "reading": "かえりみる",
+      "meaningKR": "돌이켜 반성하다",
+      "sentenceJP": "自らの行いを省みる。",
+      "sentenceReading": "みずからのおこないをかえりみる。",
+      "sentenceKR": "자신의 행동을 돌이켜 반성한다."
+    },
+    {
+      "word": "顧みる",
+      "reading": "かえりみる",
+      "meaningKR": "돌아보다, 회고하다",
+      "sentenceJP": "彼は過去を顧みてため息をついた。",
+      "sentenceReading": "かれはかこをかえりみてためいきをついた。",
+      "sentenceKR": "그는 과거를 돌아보며 한숨을 쉬었다."
+    },
+    {
+      "word": "顔付き",
+      "reading": "かおつき",
+      "meaningKR": "얼굴 생김새, 표정",
+      "sentenceJP": "彼は不安そうな顔付きをしていた。",
+      "sentenceReading": "かれはふあんそうなかおつきをしていた。",
+      "sentenceKR": "그는 불안한 듯한 표정을 짓고 있었다."
+    },
+    {
+      "word": "課外",
+      "reading": "かがい",
+      "meaningKR": "과외, 정규 수업 외",
+      "sentenceJP": "課外活動で地域を清掃した。",
+      "sentenceReading": "かがいかつどうでちいきをせいそうした。",
+      "sentenceKR": "과외 활동으로 지역을 청소했다."
+    },
+    {
+      "word": "掲げる",
+      "reading": "かかげる",
+      "meaningKR": "높이 내걸다, 게양하다",
+      "sentenceJP": "式典で国旗を高く掲げた。",
+      "sentenceReading": "しきてんでこっきをたかくかかげた。",
+      "sentenceKR": "식전에서 국기를 높이 게양했다."
+    },
+    {
+      "word": "かかと",
+      "reading": "かかと",
+      "meaningKR": "신발 뒤축",
+      "sentenceJP": "靴のかかとがすり減っている。",
+      "sentenceReading": "くつのかかとがすりへっている。",
+      "sentenceKR": "신발 뒤축이 닳아 있다."
+    },
+    {
+      "word": "書き取る",
+      "reading": "かきとる",
+      "meaningKR": "받아쓰다, 적어 두다",
+      "sentenceJP": "先生の説明を書き取った。",
+      "sentenceReading": "せんせいのせつめいをかきとった。",
+      "sentenceKR": "선생님의 설명을 받아 적었다."
+    },
+    {
+      "word": "掻き回す",
+      "reading": "かきまわす",
+      "meaningKR": "휘젓다, 소란스럽게 하다",
+      "sentenceJP": "鍋の中身を箸で掻き回した。",
+      "sentenceReading": "なべのなかみをはしでかきまわした。",
+      "sentenceKR": "냄비 속을 젓가락으로 휘저었다."
+    },
+    {
+      "word": "かく (はじを)",
+      "reading": "かく (はじを)",
+      "meaningKR": "망신을 당하다",
+      "sentenceJP": "皆の前で恥をかいた。",
+      "sentenceReading": "みんなのまえではじをかいた。",
+      "sentenceKR": "모두 앞에서 망신을 당했다."
+    },
+    {
+      "word": "～画",
+      "reading": "～かく",
+      "meaningKR": "~획",
+      "sentenceJP": "この漢字は全部で五画です。",
+      "sentenceReading": "このかんじはぜんぶでごかくです。",
+      "sentenceKR": "이 한자는 모두 5획입니다."
+    },
+    {
+      "word": "学芸",
+      "reading": "がくげい",
+      "meaningKR": "학문과 예술",
+      "sentenceJP": "学芸の振興に力を注ぐ。",
+      "sentenceReading": "がくげいのしんこうにちからをそそぐ。",
+      "sentenceKR": "학예 진흥에 힘을 쏟는다."
+    },
+    {
+      "word": "格差",
+      "reading": "かくさ",
+      "meaningKR": "격차",
+      "sentenceJP": "都市と地方の格差が広がる。",
+      "sentenceReading": "としとちほうのかくさがひろがる。",
+      "sentenceKR": "도시와 지방의 격차가 벌어진다."
+    },
+    {
+      "word": "拡散",
+      "reading": "かくさん",
+      "meaningKR": "확산",
+      "sentenceJP": "うわさがネットで拡散した。",
+      "sentenceReading": "うわさがねっとでかくさんした。",
+      "sentenceKR": "소문이 인터넷에서 확산되었다."
+    },
+    {
+      "word": "学士",
+      "reading": "がくし",
+      "meaningKR": "학사, 대학 졸업자",
+      "sentenceJP": "彼は学士の学位を取得した。",
+      "sentenceReading": "かれはがくしのがくいをしゅとくした。",
+      "sentenceKR": "그는 학사 학위를 취득했다."
+    },
+    {
+      "word": "各種",
+      "reading": "かくしゅ",
+      "meaningKR": "각종, 여러 종류",
+      "sentenceJP": "各種サービスを用意しています。",
+      "sentenceReading": "かくしゅさーびすをよういしています。",
+      "sentenceKR": "각종 서비스를 준비해 놓았습니다."
+    },
+    {
+      "word": "隔週",
+      "reading": "かくしゅう",
+      "meaningKR": "격주",
+      "sentenceJP": "会議は隔週で開かれる。",
+      "sentenceReading": "かいぎはかくしゅうでひらかれる。",
+      "sentenceKR": "회의는 격주로 열린다."
+    },
+    {
+      "word": "確信",
+      "reading": "かくしん",
+      "meaningKR": "확신",
+      "sentenceJP": "彼の無実を確信している。",
+      "sentenceReading": "かれのむじつをかくしんしている。",
+      "sentenceKR": "그의 결백을 확신하고 있다."
+    },
+    {
+      "word": "革新",
+      "reading": "かくしん",
+      "meaningKR": "혁신",
+      "sentenceJP": "技術革新が社会を変える。",
+      "sentenceReading": "ぎじゅつかくしんがしゃかいをかえる。",
+      "sentenceKR": "기술 혁신이 사회를 바꾼다."
+    },
+    {
+      "word": "学説",
+      "reading": "がくせつ",
+      "meaningKR": "학설",
+      "sentenceJP": "新たな学説が注目を集めた。",
+      "sentenceReading": "あらたながくせつがちゅうもくをあつめた。",
+      "sentenceKR": "새로운 학설이 주목을 받았다."
+    },
+    {
+      "word": "確定",
+      "reading": "かくてい",
+      "meaningKR": "확정",
+      "sentenceJP": "開催日が正式に確定した。",
+      "sentenceReading": "かいさいびがせいしきにかくていした。",
+      "sentenceKR": "개최일이 정식으로 확정되었다."
+    },
+    {
+      "word": "カクテル",
+      "reading": "カクテル",
+      "meaningKR": "칵테일",
+      "sentenceJP": "彼女は甘いカクテルを頼んだ。",
+      "sentenceReading": "かのじょはあまいかくてるをたのんだ。",
+      "sentenceKR": "그녀는 달콤한 칵테일을 주문했다."
     }
   ]
 }
