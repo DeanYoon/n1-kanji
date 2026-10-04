@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-02T00:26:43.410Z",
-  "count": 810,
+  "generatedAt": "2026-10-04T23:47:18.001Z",
+  "count": 855,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -6484,6 +6484,366 @@
       "sentenceJP": "彼女は甘いカクテルを頼んだ。",
       "sentenceReading": "かのじょはあまいかくてるをたのんだ。",
       "sentenceKR": "그녀는 달콤한 칵테일을 주문했다."
+    },
+    {
+      "word": "獲得",
+      "reading": "かくとく",
+      "meaningKR": "획득",
+      "sentenceJP": "新技術の特許を獲得した。",
+      "sentenceReading": "しんぎじゅつのとっきょをかくとくした。",
+      "sentenceKR": "신기술 특허를 획득했다."
+    },
+    {
+      "word": "楽譜",
+      "reading": "がくふ",
+      "meaningKR": "악보",
+      "sentenceJP": "楽譜を見ながらピアノを弾く。",
+      "sentenceReading": "がくふをみながらぴあのをひく。",
+      "sentenceKR": "악보를 보면서 피아노를 친다."
+    },
+    {
+      "word": "確保",
+      "reading": "かくほ",
+      "meaningKR": "확보",
+      "sentenceJP": "避難場所を早急に確保した。",
+      "sentenceReading": "ひなんばしょをそうきゅうにかくほした。",
+      "sentenceKR": "대피 장소를 신속히 확보했다."
+    },
+    {
+      "word": "革命",
+      "reading": "かくめい",
+      "meaningKR": "혁명",
+      "sentenceJP": "革命が国の歴史を変えた。",
+      "sentenceReading": "かくめいがくにのれきしをかえた。",
+      "sentenceKR": "혁명이 나라의 역사를 바꾸었다."
+    },
+    {
+      "word": "確立",
+      "reading": "かくりつ",
+      "meaningKR": "확립",
+      "sentenceJP": "新しい制度の確立を目指す。",
+      "sentenceReading": "あたらしいせいどのかくりつをめざす。",
+      "sentenceKR": "새로운 제도의 확립을 목표로 한다."
+    },
+    {
+      "word": "賭",
+      "reading": "かけ",
+      "meaningKR": "내기, 도박",
+      "sentenceJP": "彼は危険な賭けに出た。",
+      "sentenceReading": "かれはきけんなかけにでた。",
+      "sentenceKR": "그는 위험한 도박에 나섰다."
+    },
+    {
+      "word": "掛～",
+      "reading": "かけ～",
+      "meaningKR": "외상, 신용 거래",
+      "sentenceJP": "常連客には掛け売りをする。",
+      "sentenceReading": "じょうれんきゃくにはかけうりをする。",
+      "sentenceKR": "단골손님에게는 외상으로 판매한다."
+    },
+    {
+      "word": "～掛け",
+      "reading": "～かけ",
+      "meaningKR": "걸이, 걸이대",
+      "sentenceJP": "上着を洋服掛けに掛けた。",
+      "sentenceReading": "うわぎをようふくかけにかけた。",
+      "sentenceKR": "겉옷을 옷걸이에 걸었다."
+    },
+    {
+      "word": "崖",
+      "reading": "がけ",
+      "meaningKR": "절벽",
+      "sentenceJP": "崖の下に荒波が打ち寄せる。",
+      "sentenceReading": "がけのしたにあらなみがうちよせる。",
+      "sentenceKR": "절벽 아래로 거친 파도가 밀려온다."
+    },
+    {
+      "word": "駆け足",
+      "reading": "かけあし",
+      "meaningKR": "구보, 뜀걸음",
+      "sentenceJP": "駅まで駆け足で向かった。",
+      "sentenceReading": "えきまでかけあしでむかった。",
+      "sentenceKR": "역까지 뛰어서 갔다."
+    },
+    {
+      "word": "家計",
+      "reading": "かけい",
+      "meaningKR": "가계, 집안 살림",
+      "sentenceJP": "物価高が家計を圧迫している。",
+      "sentenceReading": "ぶっかだかがかけいをあっぱくしている。",
+      "sentenceKR": "물가 상승이 가계를 압박하고 있다."
+    },
+    {
+      "word": "駆けっこ",
+      "reading": "かけっこ",
+      "meaningKR": "달리기 경주",
+      "sentenceJP": "子供たちが広場で駆けっこする。",
+      "sentenceReading": "こどもたちがひろばでかけっこする。",
+      "sentenceKR": "아이들이 광장에서 달리기 경주를 한다."
+    },
+    {
+      "word": "加工",
+      "reading": "かこう",
+      "meaningKR": "가공",
+      "sentenceJP": "木材を加工して家具を作る。",
+      "sentenceReading": "もくざいをかこうしてかぐをつくる。",
+      "sentenceKR": "목재를 가공해 가구를 만든다."
+    },
+    {
+      "word": "化合",
+      "reading": "かごう",
+      "meaningKR": "화합, 화학 결합",
+      "sentenceJP": "水素と酸素が化合して水になる。",
+      "sentenceReading": "すいそとさんそがかごうしてみずになる。",
+      "sentenceKR": "수소와 산소가 화합하여 물이 된다."
+    },
+    {
+      "word": "かさばる",
+      "reading": "かさばる",
+      "meaningKR": "부피가 크다",
+      "sentenceJP": "この箱は大きくてかさばる。",
+      "sentenceReading": "このはこはおおきくてかさばる。",
+      "sentenceKR": "이 상자는 커서 부피를 많이 차지한다."
+    },
+    {
+      "word": "かさむ",
+      "reading": "かさむ",
+      "meaningKR": "쌓이다, 늘어나다",
+      "sentenceJP": "出張が続き、交通費がかさんだ。",
+      "sentenceReading": "しゅっちょうがつづき、こうつうひがかさんだ。",
+      "sentenceKR": "출장이 계속되어 교통비가 늘어났다."
+    },
+    {
+      "word": "箇条書",
+      "reading": "かじょうがき",
+      "meaningKR": "개조식, 항목별 나열",
+      "sentenceJP": "要点を箇条書きにまとめた。",
+      "sentenceReading": "ようてんをかじょうがきにまとめた。",
+      "sentenceKR": "요점을 개조식으로 정리했다."
+    },
+    {
+      "word": "頭",
+      "reading": "かしら",
+      "meaningKR": "우두머리, 수장",
+      "sentenceJP": "一座の頭として皆を率いる。",
+      "sentenceReading": "いちざのかしらとしてみんなをひきいる。",
+      "sentenceKR": "극단의 우두머리로서 모두를 이끈다."
+    },
+    {
+      "word": "微か",
+      "reading": "かすか",
+      "meaningKR": "희미함, 미약함",
+      "sentenceJP": "遠くで微かな音が聞こえた。",
+      "sentenceReading": "とおくでかすかなおとがきこえた。",
+      "sentenceKR": "멀리서 희미한 소리가 들렸다."
+    },
+    {
+      "word": "霞む",
+      "reading": "かすむ",
+      "meaningKR": "흐릿해지다, 안개가 끼다",
+      "sentenceJP": "霧で遠くの山が霞んでいる。",
+      "sentenceReading": "きりでとおくのやまがかすんでいる。",
+      "sentenceKR": "안개 때문에 먼 산이 흐릿하게 보인다."
+    },
+    {
+      "word": "擦る",
+      "reading": "かする",
+      "meaningKR": "스치다, 문지르다",
+      "sentenceJP": "枝が頬を擦って傷ができた。",
+      "sentenceReading": "えだがほおをかすってきずができた。",
+      "sentenceKR": "나뭇가지가 뺨을 스쳐 상처가 났다."
+    },
+    {
+      "word": "火星",
+      "reading": "かせい",
+      "meaningKR": "화성",
+      "sentenceJP": "火星に生命がいるかもしれない。",
+      "sentenceReading": "かせいにせいめいがいるかもしれない。",
+      "sentenceKR": "화성에 생명체가 있을지도 모른다."
+    },
+    {
+      "word": "化石",
+      "reading": "かせき",
+      "meaningKR": "화석",
+      "sentenceJP": "博物館で恐竜の化石を見た。",
+      "sentenceReading": "はくぶつかんできょうりゅうのかせきをみた。",
+      "sentenceKR": "박물관에서 공룡 화석을 보았다."
+    },
+    {
+      "word": "河川",
+      "reading": "かせん",
+      "meaningKR": "하천",
+      "sentenceJP": "大雨で河川が氾濫した。",
+      "sentenceReading": "おおあめでかせんがはんらんした。",
+      "sentenceKR": "폭우로 하천이 범람했다."
+    },
+    {
+      "word": "化繊",
+      "reading": "かせん",
+      "meaningKR": "합성 섬유",
+      "sentenceJP": "このシャツは化繊でできている。",
+      "sentenceReading": "このしゃつはかせんでできている。",
+      "sentenceKR": "이 셔츠는 합성 섬유로 만들어졌다."
+    },
+    {
+      "word": "過疎",
+      "reading": "かそ",
+      "meaningKR": "과소화, 인구 감소",
+      "sentenceJP": "この町では過疎が進んでいる。",
+      "sentenceReading": "このまちではかそがすすんでいる。",
+      "sentenceKR": "이 마을에서는 과소화가 진행되고 있다."
+    },
+    {
+      "word": "片～",
+      "reading": "かた～",
+      "meaningKR": "한쪽-, 한편-",
+      "sentenceJP": "片道だけの切符を買った。",
+      "sentenceReading": "かたみちだけのきっぷをかった。",
+      "sentenceKR": "편도 승차권만 샀다."
+    },
+    {
+      "word": "片言",
+      "reading": "かたこと",
+      "meaningKR": "서툰 말씨, 더듬더듬 하는 말",
+      "sentenceJP": "彼は片言の日本語で話した。",
+      "sentenceReading": "かれはかたことのにほんごではなした。",
+      "sentenceKR": "그는 서툰 일본어로 말했다."
+    },
+    {
+      "word": "傾ける",
+      "reading": "かたむける",
+      "meaningKR": "기울이다, 기울게 하다",
+      "sentenceJP": "彼は静かに耳を傾けた。",
+      "sentenceReading": "かれはしずかにみみをかたむけた。",
+      "sentenceKR": "그는 조용히 귀를 기울였다."
+    },
+    {
+      "word": "固める",
+      "reading": "かためる",
+      "meaningKR": "굳히다, 단단하게 하다",
+      "sentenceJP": "地面を踏んで固める。",
+      "sentenceReading": "じめんをふんでかためる。",
+      "sentenceKR": "땅을 밟아 단단하게 다진다."
+    },
+    {
+      "word": "傍ら",
+      "reading": "かたわら",
+      "meaningKR": "곁, 한편으로",
+      "sentenceJP": "彼は会社勤めの傍ら、小説を書く。",
+      "sentenceReading": "かれはかいしゃづとめのかたわら、しょうせつをかく。",
+      "sentenceKR": "그는 회사를 다니는 한편 소설을 쓴다."
+    },
+    {
+      "word": "花壇",
+      "reading": "かだん",
+      "meaningKR": "화단",
+      "sentenceJP": "公園の花壇に花が咲いた。",
+      "sentenceReading": "こうえんのかだんにはながさいた。",
+      "sentenceKR": "공원 화단에 꽃이 피었다."
+    },
+    {
+      "word": "家畜",
+      "reading": "かちく",
+      "meaningKR": "가축",
+      "sentenceJP": "この村では家畜を大切に育てる。",
+      "sentenceReading": "このむらではかちくをたいせつにそだてる。",
+      "sentenceKR": "이 마을에서는 가축을 소중히 기른다."
+    },
+    {
+      "word": "且つ",
+      "reading": "かつ",
+      "meaningKR": "그리고, 동시에",
+      "sentenceJP": "安全且つ効率的な方法を選ぶ。",
+      "sentenceReading": "あんぜんかつこうりつてきなほうほうをえらぶ。",
+      "sentenceKR": "안전하고 효율적인 방법을 고른다."
+    },
+    {
+      "word": "がっくり",
+      "reading": "がっくり",
+      "meaningKR": "낙심하여, 맥없이",
+      "sentenceJP": "試験に落ちてがっくりした。",
+      "sentenceReading": "しけんにおちてがっくりした。",
+      "sentenceKR": "시험에 떨어져 크게 낙심했다."
+    },
+    {
+      "word": "合唱",
+      "reading": "がっしょう",
+      "meaningKR": "합창",
+      "sentenceJP": "全員で校歌を合唱した。",
+      "sentenceReading": "ぜんいんでこうかをがっしょうした。",
+      "sentenceKR": "모두 함께 교가를 합창했다."
+    },
+    {
+      "word": "がっしり",
+      "reading": "がっしり",
+      "meaningKR": "다부지게, 튼튼하게",
+      "sentenceJP": "彼はがっしりした体格の選手だ。",
+      "sentenceReading": "かれはがっしりしたたいかくのせんしゅだ。",
+      "sentenceKR": "그는 다부진 체격의 선수다."
+    },
+    {
+      "word": "合致",
+      "reading": "がっち",
+      "meaningKR": "합치, 일치",
+      "sentenceJP": "証言が事実と合致している。",
+      "sentenceReading": "しょうげんがじじつとがっちしている。",
+      "sentenceKR": "증언이 사실과 일치한다."
+    },
+    {
+      "word": "がっちり",
+      "reading": "がっちり",
+      "meaningKR": "단단히, 빈틈없이",
+      "sentenceJP": "箱をロープでがっちり固定した。",
+      "sentenceReading": "はこをろーぷでがっちりこていした。",
+      "sentenceKR": "상자를 밧줄로 단단히 고정했다."
+    },
+    {
+      "word": "かつて",
+      "reading": "かつて",
+      "meaningKR": "한때, 이전에",
+      "sentenceJP": "ここはかつて海だった。",
+      "sentenceReading": "ここはかつてうみだった。",
+      "sentenceKR": "이곳은 한때 바다였다."
+    },
+    {
+      "word": "勝手",
+      "reading": "かって",
+      "meaningKR": "제멋대로 함, 독단",
+      "sentenceJP": "勝手な判断はやめてください。",
+      "sentenceReading": "かってなはんだんはやめてください。",
+      "sentenceKR": "제멋대로 판단하지 마세요."
+    },
+    {
+      "word": "カット",
+      "reading": "カット",
+      "meaningKR": "자르기, 커트",
+      "sentenceJP": "前髪を少しカットしてもらった。",
+      "sentenceReading": "まえがみをすこしかっとしてもらった。",
+      "sentenceKR": "앞머리를 조금 잘라 달라고 했다."
+    },
+    {
+      "word": "活発",
+      "reading": "かっぱつ",
+      "meaningKR": "활발함, 활기참",
+      "sentenceJP": "子供たちが活発に意見を交わす。",
+      "sentenceReading": "こどもたちがかっぱつにいけんをかわす。",
+      "sentenceKR": "아이들이 활발하게 의견을 나눈다."
+    },
+    {
+      "word": "合併",
+      "reading": "がっぺい",
+      "meaningKR": "합병",
+      "sentenceJP": "二社は来月合併する予定だ。",
+      "sentenceReading": "にしゃはらいげつがっぺいするよていだ。",
+      "sentenceKR": "두 회사는 다음 달에 합병할 예정이다."
+    },
+    {
+      "word": "カテゴリー",
+      "reading": "カテゴリー",
+      "meaningKR": "범주, 부문",
+      "sentenceJP": "この商品は別のカテゴリーに属する。",
+      "sentenceReading": "このしょうひんはべつのかてごりーにぞくする。",
+      "sentenceKR": "이 상품은 다른 범주에 속한다."
     }
   ]
 }
