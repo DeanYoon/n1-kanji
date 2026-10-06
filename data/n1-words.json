@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T23:47:18.001Z",
-  "count": 855,
+  "generatedAt": "2026-10-06T01:39:26.193Z",
+  "count": 900,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -6844,6 +6844,366 @@
       "sentenceJP": "この商品は別のカテゴリーに属する。",
       "sentenceReading": "このしょうひんはべつのかてごりーにぞくする。",
       "sentenceKR": "이 상품은 다른 범주에 속한다."
+    },
+    {
+      "word": "叶う",
+      "reading": "かなう",
+      "meaningKR": "이루어지다",
+      "sentenceJP": "長年の夢がついに叶った。",
+      "sentenceReading": "ながねんのゆめがついにかなった。",
+      "sentenceKR": "오랜 꿈이 마침내 이루어졌다."
+    },
+    {
+      "word": "叶える",
+      "reading": "かなえる",
+      "meaningKR": "이루어 주다",
+      "sentenceJP": "彼女の願いを叶えてあげたい。",
+      "sentenceReading": "かのじょのねがいをかなえてあげたい。",
+      "sentenceKR": "그녀의 소원을 이루어 주고 싶다."
+    },
+    {
+      "word": "金槌",
+      "reading": "かなづち",
+      "meaningKR": "쇠망치",
+      "sentenceJP": "金槌で釘をしっかり打ち込む。",
+      "sentenceReading": "かなづちでくぎをしっかりうちこむ。",
+      "sentenceKR": "쇠망치로 못을 단단히 박는다."
+    },
+    {
+      "word": "かなわない",
+      "reading": "かなわない",
+      "meaningKR": "당해 낼 수 없다",
+      "sentenceJP": "体力では若者にかなわない。",
+      "sentenceReading": "たいりょくではわかものにかなわない。",
+      "sentenceKR": "체력으로는 젊은이를 당해 낼 수 없다."
+    },
+    {
+      "word": "加入",
+      "reading": "かにゅう",
+      "meaningKR": "가입",
+      "sentenceJP": "新しい保険に加入した。",
+      "sentenceReading": "あたらしいほけんにかにゅうした。",
+      "sentenceKR": "새로운 보험에 가입했다."
+    },
+    {
+      "word": "予て",
+      "reading": "かねて",
+      "meaningKR": "이전부터",
+      "sentenceJP": "予てより計画していた旅に出る。",
+      "sentenceReading": "かねてよりけいかくしていたたびにでる。",
+      "sentenceKR": "이전부터 계획했던 여행을 떠난다."
+    },
+    {
+      "word": "庇う",
+      "reading": "かばう",
+      "meaningKR": "감싸다",
+      "sentenceJP": "彼は子供を庇って前に出た。",
+      "sentenceReading": "かれはこどもをかばってまえにでた。",
+      "sentenceKR": "그는 아이를 감싸며 앞으로 나섰다."
+    },
+    {
+      "word": "株式",
+      "reading": "かぶしき",
+      "meaningKR": "주식",
+      "sentenceJP": "株式への投資は慎重に行う。",
+      "sentenceReading": "かぶしきへのとうしはしんちょうにおこなう。",
+      "sentenceKR": "주식 투자는 신중하게 한다."
+    },
+    {
+      "word": "かぶれる",
+      "reading": "かぶれる",
+      "meaningKR": "피부가 자극받다",
+      "sentenceJP": "新しい化粧品で肌がかぶれた。",
+      "sentenceReading": "あたらしいけしょうひんではだがかぶれた。",
+      "sentenceKR": "새 화장품 때문에 피부에 염증이 생겼다."
+    },
+    {
+      "word": "花粉",
+      "reading": "かふん",
+      "meaningKR": "꽃가루",
+      "sentenceJP": "春は花粉が多く飛んでいる。",
+      "sentenceReading": "はるはかふんがおおくとんでいる。",
+      "sentenceKR": "봄에는 꽃가루가 많이 날린다."
+    },
+    {
+      "word": "貨幣",
+      "reading": "かへい",
+      "meaningKR": "화폐",
+      "sentenceJP": "この国では独自の貨幣が使われる。",
+      "sentenceReading": "このくにではどくじのかへいがつかわれる。",
+      "sentenceKR": "이 나라에서는 독자적인 화폐가 사용된다."
+    },
+    {
+      "word": "構える",
+      "reading": "かまえる",
+      "meaningKR": "차리다",
+      "sentenceJP": "駅前に新しい店を構えた。",
+      "sentenceReading": "えきまえにあたらしいみせをかまえた。",
+      "sentenceKR": "역 앞에 새 가게를 차렸다."
+    },
+    {
+      "word": "過密",
+      "reading": "かみつ",
+      "meaningKR": "과밀",
+      "sentenceJP": "都市の過密が深刻化している。",
+      "sentenceReading": "としのかみつがしんこくかしている。",
+      "sentenceKR": "도시의 과밀화가 심각해지고 있다."
+    },
+    {
+      "word": "噛み切る",
+      "reading": "かみきる",
+      "meaningKR": "물어 끊다",
+      "sentenceJP": "固い肉を前歯で噛み切った。",
+      "sentenceReading": "かたいにくをまえばでかみきった。",
+      "sentenceKR": "질긴 고기를 앞니로 물어 끊었다."
+    },
+    {
+      "word": "カムバック",
+      "reading": "カムバック",
+      "meaningKR": "복귀",
+      "sentenceJP": "彼は十年ぶりにカムバックした。",
+      "sentenceReading": "かれはじゅうねんぶりにかむばっくした。",
+      "sentenceKR": "그는 10년 만에 복귀했다."
+    },
+    {
+      "word": "カメラマン",
+      "reading": "カメラマン",
+      "meaningKR": "카메라맨",
+      "sentenceJP": "カメラマンが選手を撮影する。",
+      "sentenceReading": "かめらまんがせんしゅをさつえいする。",
+      "sentenceKR": "카메라맨이 선수를 촬영한다."
+    },
+    {
+      "word": "粥",
+      "reading": "かゆ",
+      "meaningKR": "죽",
+      "sentenceJP": "朝は温かい粥を食べた。",
+      "sentenceReading": "あさはあたたかいかゆをたべた。",
+      "sentenceKR": "아침에는 따뜻한 죽을 먹었다."
+    },
+    {
+      "word": "体付き",
+      "reading": "からだつき",
+      "meaningKR": "체격, 몸매",
+      "sentenceJP": "彼はがっしりした体付きだ。",
+      "sentenceReading": "かれはがっしりしたからだつきだ。",
+      "sentenceKR": "그는 다부진 체격이다."
+    },
+    {
+      "word": "絡む",
+      "reading": "からむ",
+      "meaningKR": "얽히다",
+      "sentenceJP": "蔦が古い壁に絡んでいる。",
+      "sentenceReading": "つたがふるいかべにからんでいる。",
+      "sentenceKR": "담쟁이덩굴이 낡은 벽에 얽혀 있다."
+    },
+    {
+      "word": "かりに",
+      "reading": "かりに",
+      "meaningKR": "임시로; 가령",
+      "sentenceJP": "かりに失敗しても、また挑もう。",
+      "sentenceReading": "かりにしっぱいしても、またいどもう。",
+      "sentenceKR": "가령 실패하더라도 다시 도전하자."
+    },
+    {
+      "word": "カルテ",
+      "reading": "カルテ",
+      "meaningKR": "진료 기록, 차트",
+      "sentenceJP": "医師が患者のカルテを確認した。",
+      "sentenceReading": "いしがかんじゃのかるてをかくにんした。",
+      "sentenceKR": "의사가 환자의 진료 기록을 확인했다."
+    },
+    {
+      "word": "ガレージ",
+      "reading": "ガレージ",
+      "meaningKR": "차고",
+      "sentenceJP": "車をガレージに入れておいた。",
+      "sentenceReading": "くるまをがれーじにいれておいた。",
+      "sentenceKR": "차를 차고에 넣어 두었다."
+    },
+    {
+      "word": "過労",
+      "reading": "かろう",
+      "meaningKR": "과로",
+      "sentenceJP": "過労で体調を崩してしまった。",
+      "sentenceReading": "かろうでたいちょうをくずしてしまった。",
+      "sentenceKR": "과로로 몸 상태가 나빠졌다."
+    },
+    {
+      "word": "かろうじて",
+      "reading": "かろうじて",
+      "meaningKR": "겨우, 간신히",
+      "sentenceJP": "かろうじて終電に間に合った。",
+      "sentenceReading": "かろうじてしゅうでんにまにあった。",
+      "sentenceKR": "간신히 막차 시간에 맞췄다."
+    },
+    {
+      "word": "交す",
+      "reading": "かわす",
+      "meaningKR": "주고받다",
+      "sentenceJP": "二人は笑顔で言葉を交した。",
+      "sentenceReading": "ふたりはえがおでことばをかわした。",
+      "sentenceKR": "두 사람은 웃으며 말을 주고받았다."
+    },
+    {
+      "word": "代る代る",
+      "reading": "かわるがわる",
+      "meaningKR": "번갈아 가며",
+      "sentenceJP": "姉妹が代る代る母を看病した。",
+      "sentenceReading": "しまいがかわるがわるははをかんびょうした。",
+      "sentenceKR": "자매가 번갈아 가며 어머니를 간병했다."
+    },
+    {
+      "word": "簡易",
+      "reading": "かんい",
+      "meaningKR": "간이, 간편함",
+      "sentenceJP": "簡易な検査ですぐ結果が出る。",
+      "sentenceReading": "かんいなけんさですぐけっかがでる。",
+      "sentenceKR": "간이 검사라서 결과가 바로 나온다."
+    },
+    {
+      "word": "灌漑",
+      "reading": "かんがい",
+      "meaningKR": "관개",
+      "sentenceJP": "この地域では灌漑が欠かせない。",
+      "sentenceReading": "このちいきではかんがいがかかせない。",
+      "sentenceKR": "이 지역에서는 관개가 필수적이다."
+    },
+    {
+      "word": "眼科",
+      "reading": "がんか",
+      "meaningKR": "안과",
+      "sentenceJP": "目が痛むので眼科を受診した。",
+      "sentenceReading": "めがいたむのでがんかをじゅしんした。",
+      "sentenceKR": "눈이 아파서 안과 진료를 받았다."
+    },
+    {
+      "word": "眼球",
+      "reading": "がんきゅう",
+      "meaningKR": "안구",
+      "sentenceJP": "眼球の動きを詳しく調べる。",
+      "sentenceReading": "がんきゅうのうごきをくわしくしらべる。",
+      "sentenceKR": "안구의 움직임을 자세히 살펴본다."
+    },
+    {
+      "word": "玩具",
+      "reading": "がんぐ",
+      "meaningKR": "장난감",
+      "sentenceJP": "子供に新しい玩具を買った。",
+      "sentenceReading": "こどもにあたらしいがんぐをかった。",
+      "sentenceKR": "아이에게 새 장난감을 사 주었다."
+    },
+    {
+      "word": "簡潔",
+      "reading": "かんけつ",
+      "meaningKR": "간결함",
+      "sentenceJP": "要点を簡潔に説明してください。",
+      "sentenceReading": "ようてんをかんけつにせつめいしてください。",
+      "sentenceKR": "요점을 간결하게 설명해 주세요."
+    },
+    {
+      "word": "還元",
+      "reading": "かんげん",
+      "meaningKR": "환원, 반환",
+      "sentenceJP": "利益を地域社会に還元する。",
+      "sentenceReading": "りえきをちいきしゃかいにかんげんする。",
+      "sentenceKR": "이익을 지역 사회에 환원한다."
+    },
+    {
+      "word": "看護",
+      "reading": "かんご",
+      "meaningKR": "간호",
+      "sentenceJP": "母の看護で病院に通っている。",
+      "sentenceReading": "ははのかんごでびょういんにかよっている。",
+      "sentenceKR": "어머니를 간호하러 병원에 다니고 있다."
+    },
+    {
+      "word": "漢語",
+      "reading": "かんご",
+      "meaningKR": "한자어",
+      "sentenceJP": "この漢語の意味を調べた。",
+      "sentenceReading": "このかんごのいみをしらべた。",
+      "sentenceKR": "이 한자어의 뜻을 찾아보았다."
+    },
+    {
+      "word": "頑固",
+      "reading": "がんこ",
+      "meaningKR": "완고함, 고집스러움",
+      "sentenceJP": "祖父は頑固で考えを曲げない。",
+      "sentenceReading": "そふはがんこでかんがえをまげない。",
+      "sentenceKR": "할아버지는 완고해서 생각을 굽히지 않는다."
+    },
+    {
+      "word": "勧告",
+      "reading": "かんこく",
+      "meaningKR": "권고",
+      "sentenceJP": "医師の勧告に従って休養した。",
+      "sentenceReading": "いしのかんこくにしたがってきゅうようした。",
+      "sentenceKR": "의사의 권고에 따라 휴식을 취했다."
+    },
+    {
+      "word": "換算",
+      "reading": "かんさん",
+      "meaningKR": "환산",
+      "sentenceJP": "円に換算すると一万円ほどだ。",
+      "sentenceReading": "えんにかんさんするといちまんえんほどだ。",
+      "sentenceKR": "엔으로 환산하면 만 엔 정도다."
+    },
+    {
+      "word": "監視",
+      "reading": "かんし",
+      "meaningKR": "감시",
+      "sentenceJP": "警備員が入口を監視している。",
+      "sentenceReading": "けいびいんがいりぐちをかんししている。",
+      "sentenceKR": "경비원이 입구를 감시하고 있다."
+    },
+    {
+      "word": "慣習",
+      "reading": "かんしゅう",
+      "meaningKR": "관습",
+      "sentenceJP": "古い慣習が今も残っている。",
+      "sentenceReading": "ふるいかんしゅうがいまものこっている。",
+      "sentenceKR": "오래된 관습이 지금도 남아 있다."
+    },
+    {
+      "word": "観衆",
+      "reading": "かんしゅう",
+      "meaningKR": "관중",
+      "sentenceJP": "観衆から大きな拍手が湧いた。",
+      "sentenceReading": "かんしゅうからおおきなはくしゅがわいた。",
+      "sentenceKR": "관중에게서 큰 박수가 터져 나왔다."
+    },
+    {
+      "word": "願書",
+      "reading": "がんしょ",
+      "meaningKR": "지원서",
+      "sentenceJP": "大学に願書を期限内に出した。",
+      "sentenceReading": "だいがくにがんしょをきげんないにだした。",
+      "sentenceKR": "대학에 지원서를 기한 내에 제출했다."
+    },
+    {
+      "word": "干渉",
+      "reading": "かんしょう",
+      "meaningKR": "간섭, 개입",
+      "sentenceJP": "親が進路に干渉しすぎる。",
+      "sentenceReading": "おやがしんろにかんしょうしすぎる。",
+      "sentenceKR": "부모가 진로에 지나치게 간섭한다."
+    },
+    {
+      "word": "頑丈",
+      "reading": "がんじょう",
+      "meaningKR": "튼튼함, 견고함",
+      "sentenceJP": "この箱は頑丈で壊れにくい。",
+      "sentenceReading": "このはこはがんじょうでこわれにくい。",
+      "sentenceKR": "이 상자는 튼튼해서 잘 부서지지 않는다."
+    },
+    {
+      "word": "感触",
+      "reading": "かんしょく",
+      "meaningKR": "촉감, 느낌",
+      "sentenceJP": "柔らかな布の感触が心地よい。",
+      "sentenceReading": "やわらかなぬののかんしょくがここちよい。",
+      "sentenceKR": "부드러운 천의 촉감이 기분 좋다."
     }
   ]
 }
