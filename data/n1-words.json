@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-06T01:39:26.193Z",
-  "count": 900,
+  "generatedAt": "2026-10-07T00:19:21.131Z",
+  "count": 945,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -7204,6 +7204,366 @@
       "sentenceJP": "柔らかな布の感触が心地よい。",
       "sentenceReading": "やわらかなぬののかんしょくがここちよい。",
       "sentenceKR": "부드러운 천의 촉감이 기분 좋다."
+    },
+    {
+      "word": "肝心",
+      "reading": "かんじん",
+      "meaningKR": "필수적임, 중요함",
+      "sentenceJP": "健康管理では睡眠が肝心だ。",
+      "sentenceReading": "けんこうかんりではすいみんがかんじんだ。",
+      "sentenceKR": "건강 관리에서는 수면이 중요하다."
+    },
+    {
+      "word": "肝腎",
+      "reading": "かんじん",
+      "meaningKR": "필수적임, 중요함",
+      "sentenceJP": "成功には地道な努力が肝腎だ。",
+      "sentenceReading": "せいこうにはじみちなどりょくがかんじんだ。",
+      "sentenceKR": "성공에는 꾸준한 노력이 중요하다."
+    },
+    {
+      "word": "関税",
+      "reading": "かんぜい",
+      "meaningKR": "관세",
+      "sentenceJP": "輸入品には関税がかかる。",
+      "sentenceReading": "ゆにゅうひんにはかんぜいがかかる。",
+      "sentenceKR": "수입품에는 관세가 붙는다."
+    },
+    {
+      "word": "岩石",
+      "reading": "がんせき",
+      "meaningKR": "암석",
+      "sentenceJP": "海岸には黒い岩石が多い。",
+      "sentenceReading": "かいがんにはくろいがんせきがおおい。",
+      "sentenceKR": "해안에는 검은 암석이 많다."
+    },
+    {
+      "word": "感染",
+      "reading": "かんせん",
+      "meaningKR": "감염, 전염",
+      "sentenceJP": "手洗いで感染を予防しよう。",
+      "sentenceReading": "てあらいでかんせんをよぼうしよう。",
+      "sentenceKR": "손 씻기로 감염을 예방하자."
+    },
+    {
+      "word": "幹線",
+      "reading": "かんせん",
+      "meaningKR": "간선, 주요 노선",
+      "sentenceJP": "この列車は幹線を走っている。",
+      "sentenceReading": "このれっしゃはかんせんをはしっている。",
+      "sentenceKR": "이 열차는 간선 노선을 달리고 있다."
+    },
+    {
+      "word": "簡素",
+      "reading": "かんそ",
+      "meaningKR": "간소함, 소박함",
+      "sentenceJP": "式は簡素に執り行われた。",
+      "sentenceReading": "しきはかんそにとりおこなわれた。",
+      "sentenceKR": "행사는 간소하게 거행되었다."
+    },
+    {
+      "word": "観点",
+      "reading": "かんてん",
+      "meaningKR": "관점, 시각",
+      "sentenceJP": "別の観点から問題を見直す。",
+      "sentenceReading": "べつのかんてんからもんだいをみなおす。",
+      "sentenceKR": "다른 관점에서 문제를 재검토한다."
+    },
+    {
+      "word": "感度",
+      "reading": "かんど",
+      "meaningKR": "감도",
+      "sentenceJP": "この機器は光への感度が高い。",
+      "sentenceReading": "このききはひかりへのかんどがたかい。",
+      "sentenceKR": "이 기기는 빛에 대한 감도가 높다."
+    },
+    {
+      "word": "カンニング",
+      "reading": "カンニング",
+      "meaningKR": "부정행위, 커닝",
+      "sentenceJP": "試験中のカンニングは禁止だ。",
+      "sentenceReading": "しけんちゅうのかんにんぐはきんしだ。",
+      "sentenceKR": "시험 중의 부정행위는 금지다."
+    },
+    {
+      "word": "元年",
+      "reading": "がんねん",
+      "meaningKR": "원년, 연호의 첫해",
+      "sentenceJP": "令和元年に新制度が始まった。",
+      "sentenceReading": "れいわがんねんにしんせいどがはじまった。",
+      "sentenceKR": "레이와 원년에 새 제도가 시작되었다."
+    },
+    {
+      "word": "幹部",
+      "reading": "かんぶ",
+      "meaningKR": "간부, 경영진",
+      "sentenceJP": "会社幹部が会議に出席した。",
+      "sentenceReading": "かいしゃかんぶがかいぎにしゅっせきした。",
+      "sentenceKR": "회사 간부가 회의에 참석했다."
+    },
+    {
+      "word": "完ぺき",
+      "reading": "かんぺき",
+      "meaningKR": "완벽함, 흠잡을 데 없음",
+      "sentenceJP": "彼の演技はほぼ完ぺきだった。",
+      "sentenceReading": "かれのえんぎはほぼかんぺきだった。",
+      "sentenceKR": "그의 연기는 거의 완벽했다."
+    },
+    {
+      "word": "勘弁",
+      "reading": "かんべん",
+      "meaningKR": "용서, 봐줌",
+      "sentenceJP": "もう勘弁してください。",
+      "sentenceReading": "もうかんべんしてください。",
+      "sentenceKR": "이제 그만 봐주세요."
+    },
+    {
+      "word": "感無量",
+      "reading": "かんむりょう",
+      "meaningKR": "감개무량함",
+      "sentenceJP": "長年の夢がかない感無量だ。",
+      "sentenceReading": "ながねんのゆめがかないかんむりょうだ。",
+      "sentenceKR": "오랜 꿈이 이루어져 감개무량하다."
+    },
+    {
+      "word": "勧誘",
+      "reading": "かんゆう",
+      "meaningKR": "권유, 권유 활동",
+      "sentenceJP": "新聞の勧誘を丁寧に断った。",
+      "sentenceReading": "しんぶんのかんゆうをていねいにことわった。",
+      "sentenceKR": "신문 구독 권유를 정중히 거절했다."
+    },
+    {
+      "word": "関与",
+      "reading": "かんよ",
+      "meaningKR": "관여, 참여",
+      "sentenceJP": "犯行への関与を強く否定した。",
+      "sentenceReading": "はんこうへのかんよをつよくひていした。",
+      "sentenceKR": "범행 관여를 강하게 부인했다."
+    },
+    {
+      "word": "寛容",
+      "reading": "かんよう",
+      "meaningKR": "관용, 너그러움",
+      "sentenceJP": "他人の失敗に寛容でありたい。",
+      "sentenceReading": "たにんのしっぱいにかんようでありたい。",
+      "sentenceKR": "다른 사람의 실패에 관대하고 싶다."
+    },
+    {
+      "word": "元来",
+      "reading": "がんらい",
+      "meaningKR": "원래, 본래",
+      "sentenceJP": "この建物は元来倉庫だった。",
+      "sentenceReading": "このたてものはがんらいそうこだった。",
+      "sentenceKR": "이 건물은 원래 창고였다."
+    },
+    {
+      "word": "観覧",
+      "reading": "かんらん",
+      "meaningKR": "관람",
+      "sentenceJP": "美術展を観覧する人が多い。",
+      "sentenceReading": "びじゅつてんをかんらんするひとがおおい。",
+      "sentenceKR": "미술전을 관람하는 사람이 많다."
+    },
+    {
+      "word": "慣例",
+      "reading": "かんれい",
+      "meaningKR": "관례, 전례",
+      "sentenceJP": "会議は慣例に従って進められた。",
+      "sentenceReading": "かいぎはかんれいにしたがってすすめられた。",
+      "sentenceKR": "회의는 관례에 따라 진행되었다."
+    },
+    {
+      "word": "還暦",
+      "reading": "かんれき",
+      "meaningKR": "환갑, 예순 살 생일",
+      "sentenceJP": "父の還暦を家族で祝った。",
+      "sentenceReading": "ちちのかんれきをかぞくでいわった。",
+      "sentenceKR": "아버지의 환갑을 가족과 함께 축하했다."
+    },
+    {
+      "word": "貫禄",
+      "reading": "かんろく",
+      "meaningKR": "관록, 위엄",
+      "sentenceJP": "ベテランらしい貫禄がある。",
+      "sentenceReading": "べてらんらしいかんろくがある。",
+      "sentenceKR": "베테랑다운 관록이 있다."
+    },
+    {
+      "word": "緩和",
+      "reading": "かんわ",
+      "meaningKR": "완화, 경감",
+      "sentenceJP": "規制緩和で参入が容易になった。",
+      "sentenceReading": "きせいかんわでさんにゅうがよういになった。",
+      "sentenceKR": "규제 완화로 시장 진입이 쉬워졌다."
+    },
+    {
+      "word": "議案",
+      "reading": "ぎあん",
+      "meaningKR": "의안, 법안",
+      "sentenceJP": "議案は賛成多数で可決された。",
+      "sentenceReading": "ぎあんはさんせいたすうでかけつされた。",
+      "sentenceKR": "의안은 찬성 다수로 가결되었다."
+    },
+    {
+      "word": "危害",
+      "reading": "きがい",
+      "meaningKR": "위해, 해악",
+      "sentenceJP": "他人に危害を加えてはならない。",
+      "sentenceReading": "たにんにきがいをくわえてはならない。",
+      "sentenceKR": "다른 사람에게 위해를 가해서는 안 된다."
+    },
+    {
+      "word": "企画",
+      "reading": "きかく",
+      "meaningKR": "기획, 계획",
+      "sentenceJP": "新商品の企画を任された。",
+      "sentenceReading": "しんしょうひんのきかくをまかされた。",
+      "sentenceKR": "신상품 기획을 맡게 되었다."
+    },
+    {
+      "word": "規格",
+      "reading": "きかく",
+      "meaningKR": "규격, 표준",
+      "sentenceJP": "この部品は国際規格に合っている。",
+      "sentenceReading": "このぶひんはこくさいきかくにあっている。",
+      "sentenceKR": "이 부품은 국제 규격에 맞는다."
+    },
+    {
+      "word": "着飾る",
+      "reading": "きかざる",
+      "meaningKR": "옷을 차려입다",
+      "sentenceJP": "彼女は着飾って会場に現れた。",
+      "sentenceReading": "かのじょはきかざってかいじょうにあらわれた。",
+      "sentenceKR": "그녀는 화려하게 차려입고 행사장에 나타났다."
+    },
+    {
+      "word": "気兼ね",
+      "reading": "きがね",
+      "meaningKR": "거리낌, 눈치",
+      "sentenceJP": "気兼ねなく意見を述べてください。",
+      "sentenceReading": "きがねなくいけんをのべてください。",
+      "sentenceKR": "거리낌 없이 의견을 말씀해 주세요."
+    },
+    {
+      "word": "気軽",
+      "reading": "きがる",
+      "meaningKR": "홀가분함",
+      "sentenceJP": "気軽に相談してください。",
+      "sentenceReading": "きがるにそうだんしてください。",
+      "sentenceKR": "부담 없이 상담해 주세요."
+    },
+    {
+      "word": "危機",
+      "reading": "きき",
+      "meaningKR": "위기",
+      "sentenceJP": "会社は深刻な危機に直面した。",
+      "sentenceReading": "かいしゃはしんこくなききにちょくめんした。",
+      "sentenceKR": "회사는 심각한 위기에 직면했다."
+    },
+    {
+      "word": "聞き取り",
+      "reading": "ききとり",
+      "meaningKR": "듣기 이해",
+      "sentenceJP": "聞き取りの練習を毎日続ける。",
+      "sentenceReading": "ききとりのれんしゅうをまいにちつづける。",
+      "sentenceKR": "듣기 연습을 매일 계속한다."
+    },
+    {
+      "word": "効き目",
+      "reading": "ききめ",
+      "meaningKR": "효과",
+      "sentenceJP": "この薬はすぐに効き目が現れる。",
+      "sentenceReading": "このくすりはすぐにききめがあらわれる。",
+      "sentenceKR": "이 약은 금세 효과가 나타난다."
+    },
+    {
+      "word": "帰京",
+      "reading": "ききょう",
+      "meaningKR": "도쿄로 돌아감",
+      "sentenceJP": "大臣は明日帰京する予定だ。",
+      "sentenceReading": "だいじんはあすききょうするよていだ。",
+      "sentenceKR": "대신은 내일 도쿄로 돌아갈 예정이다."
+    },
+    {
+      "word": "戯曲",
+      "reading": "ぎきょく",
+      "meaningKR": "희곡",
+      "sentenceJP": "この戯曲は今も上演されている。",
+      "sentenceReading": "このぎきょくはいまもじょうえんされている。",
+      "sentenceKR": "이 희곡은 지금도 상연되고 있다."
+    },
+    {
+      "word": "基金",
+      "reading": "ききん",
+      "meaningKR": "기금",
+      "sentenceJP": "奨学基金に寄付をした。",
+      "sentenceReading": "しょうがくききんにきふをした。",
+      "sentenceKR": "장학 기금에 기부했다."
+    },
+    {
+      "word": "喜劇",
+      "reading": "きげき",
+      "meaningKR": "희극",
+      "sentenceJP": "彼の喜劇に観客は大笑いした。",
+      "sentenceReading": "かれのきげきにかんきゃくはおおわらいした。",
+      "sentenceKR": "그의 희극에 관객들은 크게 웃었다."
+    },
+    {
+      "word": "議決",
+      "reading": "ぎけつ",
+      "meaningKR": "의결",
+      "sentenceJP": "予算案は議会で議決された。",
+      "sentenceReading": "よさんあんはぎかいでぎけつされた。",
+      "sentenceKR": "예산안은 의회에서 의결되었다."
+    },
+    {
+      "word": "棄権",
+      "reading": "きけん",
+      "meaningKR": "기권",
+      "sentenceJP": "彼は今回の投票を棄権した。",
+      "sentenceReading": "かれはこんかいのとうひょうをきけんした。",
+      "sentenceKR": "그는 이번 투표를 기권했다."
+    },
+    {
+      "word": "既婚",
+      "reading": "きこん",
+      "meaningKR": "기혼",
+      "sentenceJP": "彼が既婚だとは知らなかった。",
+      "sentenceReading": "かれがきこんだとはしらなかった。",
+      "sentenceKR": "그가 기혼인 줄은 몰랐다."
+    },
+    {
+      "word": "気障",
+      "reading": "きざ",
+      "meaningKR": "잘난 체함",
+      "sentenceJP": "彼は気障な台詞を平然と吐く。",
+      "sentenceReading": "かれはきざなせりふをへいぜんとはく。",
+      "sentenceKR": "그는 잘난 체하는 대사를 태연히 내뱉는다."
+    },
+    {
+      "word": "記載",
+      "reading": "きさい",
+      "meaningKR": "기재",
+      "sentenceJP": "申込書に住所を記載してください。",
+      "sentenceReading": "もうしこみしょにじゅうしょをきさいしてください。",
+      "sentenceKR": "신청서에 주소를 기재해 주세요."
+    },
+    {
+      "word": "兆",
+      "reading": "きざし",
+      "meaningKR": "조짐",
+      "sentenceJP": "景気回復の兆しが見えてきた。",
+      "sentenceReading": "けいきかいふくのきざしがみえてきた。",
+      "sentenceKR": "경기 회복의 조짐이 보이기 시작했다."
+    },
+    {
+      "word": "気質",
+      "reading": "きしつ",
+      "meaningKR": "기질",
+      "sentenceJP": "この犬は穏やかな気質を持つ。",
+      "sentenceReading": "このいぬはおだやかなきしつをもつ。",
+      "sentenceKR": "이 개는 온순한 기질을 지니고 있다."
     }
   ]
 }
