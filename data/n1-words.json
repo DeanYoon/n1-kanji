@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-07T00:19:21.131Z",
-  "count": 945,
+  "generatedAt": "2026-10-08T00:40:41.656Z",
+  "count": 990,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -7564,6 +7564,366 @@
       "sentenceJP": "この犬は穏やかな気質を持つ。",
       "sentenceReading": "このいぬはおだやかなきしつをもつ。",
       "sentenceKR": "이 개는 온순한 기질을 지니고 있다."
+    },
+    {
+      "word": "期日",
+      "reading": "きじつ",
+      "meaningKR": "기일, 결제일",
+      "sentenceJP": "期日までに代金を支払ってください。",
+      "sentenceReading": "きじつまでにだいきんをしはらってください。",
+      "sentenceKR": "기일까지 대금을 지불해 주세요."
+    },
+    {
+      "word": "きしむ",
+      "reading": "きしむ",
+      "meaningKR": "삐걱거리다",
+      "sentenceJP": "古い床がきしむ音で目が覚めた。",
+      "sentenceReading": "ふるいゆかがきしむおとでめがさめた。",
+      "sentenceKR": "낡은 바닥이 삐걱거리는 소리에 잠이 깼다."
+    },
+    {
+      "word": "議事堂",
+      "reading": "ぎじどう",
+      "meaningKR": "국회의사당",
+      "sentenceJP": "議事堂の前に人々が集まった。",
+      "sentenceReading": "ぎじどうのまえにひとびとがあつまった。",
+      "sentenceKR": "국회의사당 앞에 사람들이 모였다."
+    },
+    {
+      "word": "記述",
+      "reading": "きじゅつ",
+      "meaningKR": "기술, 서술",
+      "sentenceJP": "事故の経緯を詳しく記述する。",
+      "sentenceReading": "じこのけいいをくわしくきじゅつする。",
+      "sentenceKR": "사고의 경위를 자세히 기술한다."
+    },
+    {
+      "word": "気象",
+      "reading": "きしょう",
+      "meaningKR": "기상, 날씨",
+      "sentenceJP": "山の気象は変わりやすい。",
+      "sentenceReading": "やまのきしょうはかわりやすい。",
+      "sentenceKR": "산의 기상은 변하기 쉽다."
+    },
+    {
+      "word": "傷付く",
+      "reading": "きずつく",
+      "meaningKR": "다치다, 상처받다",
+      "sentenceJP": "彼の一言で深く傷付いた。",
+      "sentenceReading": "かれのひとことでふかくきずついた。",
+      "sentenceKR": "그의 한마디에 깊이 상처받았다."
+    },
+    {
+      "word": "傷付ける",
+      "reading": "きずつける",
+      "meaningKR": "상처 입히다, 마음을 아프게 하다",
+      "sentenceJP": "心ない言葉で彼女を傷付けた。",
+      "sentenceReading": "こころないことばでかのじょをきずつけた。",
+      "sentenceKR": "매정한 말로 그녀에게 상처를 주었다."
+    },
+    {
+      "word": "犠牲",
+      "reading": "ぎせい",
+      "meaningKR": "희생",
+      "sentenceJP": "多くの犠牲を払って勝利した。",
+      "sentenceReading": "おおくのぎせいをはらってしょうりした。",
+      "sentenceKR": "많은 희생을 치르고 승리했다."
+    },
+    {
+      "word": "汽船",
+      "reading": "きせん",
+      "meaningKR": "기선, 증기선",
+      "sentenceJP": "汽船がゆっくり港を離れた。",
+      "sentenceReading": "きせんがゆっくりみなとをはなれた。",
+      "sentenceKR": "증기선이 천천히 항구를 떠났다."
+    },
+    {
+      "word": "寄贈",
+      "reading": "きぞう",
+      "meaningKR": "기증",
+      "sentenceJP": "母校に蔵書を寄贈した。",
+      "sentenceReading": "ぼこうにぞうしょをきぞうした。",
+      "sentenceKR": "모교에 소장 도서를 기증했다."
+    },
+    {
+      "word": "偽造",
+      "reading": "ぎぞう",
+      "meaningKR": "위조, 날조",
+      "sentenceJP": "身分証の偽造が発覚した。",
+      "sentenceReading": "みぶんしょうのぎぞうがはっかくした。",
+      "sentenceKR": "신분증 위조가 발각되었다."
+    },
+    {
+      "word": "貴族",
+      "reading": "きぞく",
+      "meaningKR": "귀족",
+      "sentenceJP": "彼は古い貴族の家系に生まれた。",
+      "sentenceReading": "かれはふるいきぞくのかけいにうまれた。",
+      "sentenceKR": "그는 유서 깊은 귀족 가문에서 태어났다."
+    },
+    {
+      "word": "議題",
+      "reading": "ぎだい",
+      "meaningKR": "의제, 토의 주제",
+      "sentenceJP": "次の議題について話し合おう。",
+      "sentenceReading": "つぎのぎだいについてはなしあおう。",
+      "sentenceKR": "다음 의제에 관해 논의하자."
+    },
+    {
+      "word": "鍛える",
+      "reading": "きたえる",
+      "meaningKR": "단련하다, 훈련하다",
+      "sentenceJP": "毎朝走って体を鍛える。",
+      "sentenceReading": "まいあさはしってからだをきたえる。",
+      "sentenceKR": "매일 아침 달리며 몸을 단련한다."
+    },
+    {
+      "word": "気立て",
+      "reading": "きだて",
+      "meaningKR": "마음씨, 성품",
+      "sentenceJP": "彼女は気立てがよく、皆に好かれる。",
+      "sentenceReading": "かのじょはきだてがよく、みんなにすかれる。",
+      "sentenceKR": "그녀는 마음씨가 좋아 모두에게 사랑받는다."
+    },
+    {
+      "word": "来る",
+      "reading": "きたる",
+      "meaningKR": "오다, 다가오다",
+      "sentenceJP": "来る春には新校舎が完成する。",
+      "sentenceReading": "きたるはるにはしんこうしゃがかんせいする。",
+      "sentenceKR": "다가오는 봄에는 새 교사가 완공된다."
+    },
+    {
+      "word": "きちっと",
+      "reading": "きちっと",
+      "meaningKR": "정확히, 완벽하게",
+      "sentenceJP": "彼は書類をきちっとそろえた。",
+      "sentenceReading": "かれはしょるいをきちっとそろえた。",
+      "sentenceKR": "그는 서류를 반듯하게 정리했다."
+    },
+    {
+      "word": "几帳面",
+      "reading": "きちょうめん",
+      "meaningKR": "꼼꼼함, 빈틈없음",
+      "sentenceJP": "彼女は几帳面に記録をつける。",
+      "sentenceReading": "かのじょはきちょうめんにきろくをつける。",
+      "sentenceKR": "그녀는 꼼꼼하게 기록한다."
+    },
+    {
+      "word": "きっかり",
+      "reading": "きっかり",
+      "meaningKR": "정확히, 딱",
+      "sentenceJP": "会議はきっかり五時に始まる。",
+      "sentenceReading": "かいぎはきっかりごじにはじまる。",
+      "sentenceKR": "회의는 정확히 다섯 시에 시작한다."
+    },
+    {
+      "word": "きっちり",
+      "reading": "きっちり",
+      "meaningKR": "빈틈없이, 꼭 맞게",
+      "sentenceJP": "荷物を箱にきっちり詰めた。",
+      "sentenceReading": "にもつをはこにきっちりつめた。",
+      "sentenceKR": "짐을 상자에 빈틈없이 채웠다."
+    },
+    {
+      "word": "きっぱり",
+      "reading": "きっぱり",
+      "meaningKR": "단호하게, 명확히",
+      "sentenceJP": "彼は依頼をきっぱり断った。",
+      "sentenceReading": "かれはいらいをきっぱりことわった。",
+      "sentenceKR": "그는 부탁을 단호하게 거절했다."
+    },
+    {
+      "word": "規定",
+      "reading": "きてい",
+      "meaningKR": "규정, 조항",
+      "sentenceJP": "規定に従って手続きを進める。",
+      "sentenceReading": "きていにしたがっててつづきをすすめる。",
+      "sentenceKR": "규정에 따라 절차를 진행한다."
+    },
+    {
+      "word": "起点",
+      "reading": "きてん",
+      "meaningKR": "기점, 출발점",
+      "sentenceJP": "この駅を旅の起点にしよう。",
+      "sentenceReading": "このえきをたびのきてんにしよう。",
+      "sentenceKR": "이 역을 여행의 기점으로 삼자."
+    },
+    {
+      "word": "軌道",
+      "reading": "きどう",
+      "meaningKR": "궤도, 경로",
+      "sentenceJP": "ようやく事業が軌道に乗った。",
+      "sentenceReading": "ようやくじぎょうがきどうにのった。",
+      "sentenceKR": "마침내 사업이 궤도에 올랐다."
+    },
+    {
+      "word": "技能",
+      "reading": "ぎのう",
+      "meaningKR": "기능, 기술 능력",
+      "sentenceJP": "熟練の技能が求められる。",
+      "sentenceReading": "じゅくれんのぎのうがもとめられる。",
+      "sentenceKR": "숙련된 기능이 요구된다."
+    },
+    {
+      "word": "規範",
+      "reading": "きはん",
+      "meaningKR": "규범, 본보기",
+      "sentenceJP": "社会の規範を守るべきだ。",
+      "sentenceReading": "しゃかいのきはんをまもるべきだ。",
+      "sentenceKR": "사회의 규범을 지켜야 한다."
+    },
+    {
+      "word": "気品",
+      "reading": "きひん",
+      "meaningKR": "기품, 품위",
+      "sentenceJP": "彼女の振る舞いには気品がある。",
+      "sentenceReading": "かのじょのふるまいにはきひんがある。",
+      "sentenceKR": "그녀의 행동에는 기품이 있다."
+    },
+    {
+      "word": "気風",
+      "reading": "きふう",
+      "meaningKR": "기풍, 분위기",
+      "sentenceJP": "自由な気風がこの会社の魅力だ。",
+      "sentenceReading": "じゆうなきふうがこのかいしゃのみりょくだ。",
+      "sentenceKR": "자유로운 기풍이 이 회사의 매력이다."
+    },
+    {
+      "word": "起伏",
+      "reading": "きふく",
+      "meaningKR": "기복, 굴곡",
+      "sentenceJP": "この道は起伏が激しい。",
+      "sentenceReading": "このみちはきふくがはげしい。",
+      "sentenceKR": "이 길은 기복이 심하다."
+    },
+    {
+      "word": "規模",
+      "reading": "きぼ",
+      "meaningKR": "규모, 범위",
+      "sentenceJP": "計画の規模をさらに拡大する。",
+      "sentenceReading": "けいかくのきぼをさらにかくだいする。",
+      "sentenceKR": "계획의 규모를 더욱 확대한다."
+    },
+    {
+      "word": "気まぐれ",
+      "reading": "きまぐれ",
+      "meaningKR": "변덕, 변덕스러움",
+      "sentenceJP": "彼の気まぐれには困っている。",
+      "sentenceReading": "かれのきまぐれにはこまっている。",
+      "sentenceKR": "그의 변덕에는 곤란을 겪고 있다."
+    },
+    {
+      "word": "生真面目",
+      "reading": "きまじめ",
+      "meaningKR": "고지식할 만큼 성실함",
+      "sentenceJP": "彼は生真面目で冗談が通じない。",
+      "sentenceReading": "かれはきまじめでじょうだんがつうじない。",
+      "sentenceKR": "그는 너무 진지해서 농담이 통하지 않는다."
+    },
+    {
+      "word": "期末",
+      "reading": "きまつ",
+      "meaningKR": "학기 말, 기말",
+      "sentenceJP": "期末試験に向けて勉強する。",
+      "sentenceReading": "きまつしけんにむけてべんきょうする。",
+      "sentenceKR": "기말시험을 위해 공부한다."
+    },
+    {
+      "word": "きまりわるい",
+      "reading": "きまりわるい",
+      "meaningKR": "멋쩍다, 부끄럽다",
+      "sentenceJP": "失敗を見られてきまりわるい。",
+      "sentenceReading": "しっぱいをみられてきまりわるい。",
+      "sentenceKR": "실수하는 모습을 들켜서 멋쩍다."
+    },
+    {
+      "word": "記名",
+      "reading": "きめい",
+      "meaningKR": "이름 기재, 서명",
+      "sentenceJP": "書類に記名してください。",
+      "sentenceReading": "しょるいにきめいしてください。",
+      "sentenceKR": "서류에 이름을 기재해 주세요."
+    },
+    {
+      "word": "規約",
+      "reading": "きやく",
+      "meaningKR": "규약, 규정",
+      "sentenceJP": "規約をよく読んで同意した。",
+      "sentenceReading": "きやくをよくよんでどういした。",
+      "sentenceKR": "규약을 잘 읽고 동의했다."
+    },
+    {
+      "word": "脚色",
+      "reading": "きゃくしょく",
+      "meaningKR": "각색",
+      "sentenceJP": "史実を大胆に脚色した映画だ。",
+      "sentenceReading": "しじつをだいたんにきゃくしょくしたえいがだ。",
+      "sentenceKR": "역사적 사실을 대담하게 각색한 영화다."
+    },
+    {
+      "word": "逆転",
+      "reading": "ぎゃくてん",
+      "meaningKR": "역전, 반전",
+      "sentenceJP": "劣勢から一気に逆転した。",
+      "sentenceReading": "れっせいからいっきにぎゃくてんした。",
+      "sentenceKR": "열세에서 단숨에 역전했다."
+    },
+    {
+      "word": "脚本",
+      "reading": "きゃくほん",
+      "meaningKR": "각본, 시나리오",
+      "sentenceJP": "彼が映画の脚本を書いた。",
+      "sentenceReading": "かれがえいがのきゃくほんをかいた。",
+      "sentenceKR": "그가 영화 각본을 썼다."
+    },
+    {
+      "word": "華奢",
+      "reading": "きゃしゃ",
+      "meaningKR": "가냘프고 섬세함",
+      "sentenceJP": "華奢な指に指輪が光っている。",
+      "sentenceReading": "きゃしゃなゆびにゆびわがひかっている。",
+      "sentenceKR": "가냘픈 손가락에서 반지가 빛나고 있다."
+    },
+    {
+      "word": "客観",
+      "reading": "きゃっかん",
+      "meaningKR": "객관, 객관적 관점",
+      "sentenceJP": "客観と主観を区別する。",
+      "sentenceReading": "きゃっかんとしゅかんをくべつする。",
+      "sentenceKR": "객관과 주관을 구별한다."
+    },
+    {
+      "word": "キャッチ",
+      "reading": "キャッチ",
+      "meaningKR": "잡기, 포착",
+      "sentenceJP": "ボールを片手でキャッチした。",
+      "sentenceReading": "ぼおるをかたてできゃっちした。",
+      "sentenceKR": "공을 한 손으로 잡았다."
+    },
+    {
+      "word": "キャリア",
+      "reading": "キャリア",
+      "meaningKR": "경력, 커리어",
+      "sentenceJP": "海外でキャリアを積みたい。",
+      "sentenceReading": "かいがいできゃりあをつみたい。",
+      "sentenceKR": "해외에서 경력을 쌓고 싶다."
+    },
+    {
+      "word": "救援",
+      "reading": "きゅうえん",
+      "meaningKR": "구원, 구조, 원조",
+      "sentenceJP": "被災地へ救援物資を送った。",
+      "sentenceReading": "ひさいちへきゅうえんぶっしをおくった。",
+      "sentenceKR": "재해 지역에 구호 물자를 보냈다."
+    },
+    {
+      "word": "休学",
+      "reading": "きゅうがく",
+      "meaningKR": "휴학",
+      "sentenceJP": "病気のため一年間休学した。",
+      "sentenceReading": "びょうきのためいちねんかんきゅうがくした。",
+      "sentenceKR": "병 때문에 일 년 동안 휴학했다."
     }
   ]
 }
