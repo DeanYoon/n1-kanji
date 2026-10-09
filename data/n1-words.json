@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-08T00:40:41.656Z",
-  "count": 990,
+  "generatedAt": "2026-10-09T00:56:11.448Z",
+  "count": 1035,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -7924,6 +7924,366 @@
       "sentenceJP": "病気のため一年間休学した。",
       "sentenceReading": "びょうきのためいちねんかんきゅうがくした。",
       "sentenceKR": "병 때문에 일 년 동안 휴학했다."
+    },
+    {
+      "word": "究極",
+      "reading": "きゅうきょく",
+      "meaningKR": "궁극, 최종",
+      "sentenceJP": "究極の選択を迫られた。",
+      "sentenceReading": "きゅうきょくのせんたくをせまられた。",
+      "sentenceKR": "궁극의 선택을 강요받았다."
+    },
+    {
+      "word": "窮屈",
+      "reading": "きゅうくつ",
+      "meaningKR": "비좁음, 답답함",
+      "sentenceJP": "この靴は少し窮屈だ。",
+      "sentenceReading": "このくつはすこしきゅうくつだ。",
+      "sentenceKR": "이 신발은 조금 꽉 낀다."
+    },
+    {
+      "word": "球根",
+      "reading": "きゅうこん",
+      "meaningKR": "구근, 알뿌리",
+      "sentenceJP": "春に備えて球根を植えた。",
+      "sentenceReading": "はるにそなえてきゅうこんをうえた。",
+      "sentenceKR": "봄에 대비해 구근을 심었다."
+    },
+    {
+      "word": "救済",
+      "reading": "きゅうさい",
+      "meaningKR": "구제, 구조",
+      "sentenceJP": "被災者の救済を急ぐ。",
+      "sentenceReading": "ひさいしゃのきゅうさいをいそぐ。",
+      "sentenceKR": "이재민 구호를 서두른다."
+    },
+    {
+      "word": "給仕",
+      "reading": "きゅうじ",
+      "meaningKR": "웨이터, 시중드는 사람",
+      "sentenceJP": "給仕が料理を運んできた。",
+      "sentenceReading": "きゅうじがりょうりをはこんできた。",
+      "sentenceKR": "웨이터가 요리를 가져왔다."
+    },
+    {
+      "word": "給食",
+      "reading": "きゅうしょく",
+      "meaningKR": "급식",
+      "sentenceJP": "今日の給食は魚料理だ。",
+      "sentenceReading": "きょうのきゅうしょくはさかなりょうりだ。",
+      "sentenceKR": "오늘 급식은 생선 요리다."
+    },
+    {
+      "word": "休戦",
+      "reading": "きゅうせん",
+      "meaningKR": "휴전",
+      "sentenceJP": "両国は一時休戦に合意した。",
+      "sentenceReading": "りょうこくはいちじきゅうせんにごういした。",
+      "sentenceKR": "양국은 임시 휴전에 합의했다."
+    },
+    {
+      "word": "宮殿",
+      "reading": "きゅうでん",
+      "meaningKR": "궁전",
+      "sentenceJP": "王は豪華な宮殿に住んでいる。",
+      "sentenceReading": "おうはごうかなきゅうでんにすんでいる。",
+      "sentenceKR": "왕은 호화로운 궁전에 살고 있다."
+    },
+    {
+      "word": "旧知",
+      "reading": "きゅうち",
+      "meaningKR": "오랜 지인, 옛 친구",
+      "sentenceJP": "旧知の友と十年ぶりに会った。",
+      "sentenceReading": "きゅうちのともとじゅうねんぶりにあった。",
+      "sentenceKR": "오랜 친구를 10년 만에 만났다."
+    },
+    {
+      "word": "窮乏",
+      "reading": "きゅうぼう",
+      "meaningKR": "궁핍",
+      "sentenceJP": "戦後、多くの人が窮乏にあえいだ。",
+      "sentenceReading": "せんご、おおくのひとがきゅうぼうにあえいだ。",
+      "sentenceKR": "전후 많은 사람이 궁핍에 시달렸다."
+    },
+    {
+      "word": "寄与",
+      "reading": "きよ",
+      "meaningKR": "기여, 공헌",
+      "sentenceJP": "この研究は医療の発展に寄与する。",
+      "sentenceReading": "このけんきゅうはいりょうのはってんにきよする。",
+      "sentenceKR": "이 연구는 의료 발전에 기여한다."
+    },
+    {
+      "word": "強",
+      "reading": "きょう",
+      "meaningKR": "강함, 강한 단계",
+      "sentenceJP": "震度六強の揺れを観測した。",
+      "sentenceReading": "しんどろくきょうのゆれをかんそくした。",
+      "sentenceKR": "진도 6강의 흔들림을 관측했다."
+    },
+    {
+      "word": "～狂",
+      "reading": "～きょう",
+      "meaningKR": "광, 열광자",
+      "sentenceJP": "彼は筋金入りの野球狂だ。",
+      "sentenceReading": "かれはすじがねいりのやきゅうきょうだ。",
+      "sentenceKR": "그는 골수 야구광이다."
+    },
+    {
+      "word": "驚異",
+      "reading": "きょうい",
+      "meaningKR": "경이, 놀라운 일",
+      "sentenceJP": "科学の進歩は驚異に満ちている。",
+      "sentenceReading": "かがくのしんぽはきょういにみちている。",
+      "sentenceKR": "과학의 진보는 경이로 가득하다."
+    },
+    {
+      "word": "教科",
+      "reading": "きょうか",
+      "meaningKR": "교과, 과목",
+      "sentenceJP": "国語は私の得意な教科です。",
+      "sentenceReading": "こくごはわたしのとくいなきょうかです。",
+      "sentenceKR": "국어는 내가 잘하는 과목이다."
+    },
+    {
+      "word": "協会",
+      "reading": "きょうかい",
+      "meaningKR": "협회, 단체",
+      "sentenceJP": "新しい協会が設立された。",
+      "sentenceReading": "あたらしいきょうかいがせつりつされた。",
+      "sentenceKR": "새로운 협회가 설립되었다."
+    },
+    {
+      "word": "共学",
+      "reading": "きょうがく",
+      "meaningKR": "남녀 공학",
+      "sentenceJP": "この学校は男女共学です。",
+      "sentenceReading": "このがっこうはだんじょきょうがくです。",
+      "sentenceKR": "이 학교는 남녀 공학입니다."
+    },
+    {
+      "word": "共感",
+      "reading": "きょうかん",
+      "meaningKR": "공감",
+      "sentenceJP": "彼の意見に強く共感した。",
+      "sentenceReading": "かれのいけんにつよくきょうかんした。",
+      "sentenceKR": "그의 의견에 깊이 공감했다."
+    },
+    {
+      "word": "境遇",
+      "reading": "きょうぐう",
+      "meaningKR": "처지, 환경",
+      "sentenceJP": "彼は恵まれない境遇で育った。",
+      "sentenceReading": "かれはめぐまれないきょうぐうでそだった。",
+      "sentenceKR": "그는 불우한 환경에서 자랐다."
+    },
+    {
+      "word": "教訓",
+      "reading": "きょうくん",
+      "meaningKR": "교훈",
+      "sentenceJP": "失敗を教訓にして前へ進む。",
+      "sentenceReading": "しっぱいをきょうくんにしてまえへすすむ。",
+      "sentenceKR": "실패를 교훈 삼아 앞으로 나아간다."
+    },
+    {
+      "word": "強行",
+      "reading": "きょうこう",
+      "meaningKR": "강행",
+      "sentenceJP": "反対を押し切り計画を強行した。",
+      "sentenceReading": "はんたいをおしきりけいかくをきょうこうした。",
+      "sentenceKR": "반대를 무릅쓰고 계획을 강행했다."
+    },
+    {
+      "word": "強硬",
+      "reading": "きょうこう",
+      "meaningKR": "강경함",
+      "sentenceJP": "政府は強硬な姿勢を崩さない。",
+      "sentenceReading": "せいふはきょうこうなしせいをくずさない。",
+      "sentenceKR": "정부는 강경한 태도를 굽히지 않는다."
+    },
+    {
+      "word": "教材",
+      "reading": "きょうざい",
+      "meaningKR": "교재",
+      "sentenceJP": "教材を授業前に準備する。",
+      "sentenceReading": "きょうざいをじゅぎょうまえにじゅんびする。",
+      "sentenceKR": "수업 전에 교재를 준비한다."
+    },
+    {
+      "word": "凶作",
+      "reading": "きょうさく",
+      "meaningKR": "흉작",
+      "sentenceJP": "長雨で今年は凶作となった。",
+      "sentenceReading": "ながあめでことしはきょうさくとなった。",
+      "sentenceKR": "긴 장마로 올해는 흉작이 되었다."
+    },
+    {
+      "word": "業者",
+      "reading": "ぎょうしゃ",
+      "meaningKR": "업자, 업체",
+      "sentenceJP": "専門業者に修理を依頼した。",
+      "sentenceReading": "せんもんぎょうしゃにしゅうりをいらいした。",
+      "sentenceKR": "전문 업체에 수리를 의뢰했다."
+    },
+    {
+      "word": "教習",
+      "reading": "きょうしゅう",
+      "meaningKR": "교육, 강습",
+      "sentenceJP": "運転教習を毎週受けている。",
+      "sentenceReading": "うんてんきょうしゅうをまいしゅううけている。",
+      "sentenceKR": "매주 운전 교육을 받고 있다."
+    },
+    {
+      "word": "郷愁",
+      "reading": "きょうしゅう",
+      "meaningKR": "향수, 고향에 대한 그리움",
+      "sentenceJP": "故郷の歌を聞き、郷愁を覚えた。",
+      "sentenceReading": "ふるさとのうたをきき、きょうしゅうをおぼえた。",
+      "sentenceKR": "고향 노래를 듣고 향수를 느꼈다."
+    },
+    {
+      "word": "教職",
+      "reading": "きょうしょく",
+      "meaningKR": "교직",
+      "sentenceJP": "姉は長年教職に就いている。",
+      "sentenceReading": "あねはながねんきょうしょくについている。",
+      "sentenceKR": "누나는 오랫동안 교직에 몸담고 있다."
+    },
+    {
+      "word": "興じる",
+      "reading": "きょうじる",
+      "meaningKR": "즐기다, 흥겹게 놀다",
+      "sentenceJP": "宴会で歌や踊りに興じた。",
+      "sentenceReading": "えんかいでうたやおどりにきょうじた。",
+      "sentenceKR": "연회에서 노래와 춤을 즐겼다."
+    },
+    {
+      "word": "強制",
+      "reading": "きょうせい",
+      "meaningKR": "강제",
+      "sentenceJP": "参加を強制してはいけない。",
+      "sentenceReading": "さんかをきょうせいしてはいけない。",
+      "sentenceKR": "참가를 강요해서는 안 된다."
+    },
+    {
+      "word": "行政",
+      "reading": "ぎょうせい",
+      "meaningKR": "행정",
+      "sentenceJP": "行政の対応が遅れている。",
+      "sentenceReading": "ぎょうせいのたいおうがおくれている。",
+      "sentenceKR": "행정 당국의 대응이 늦어지고 있다."
+    },
+    {
+      "word": "業績",
+      "reading": "ぎょうせき",
+      "meaningKR": "업적, 공적",
+      "sentenceJP": "彼は優れた業績を残した。",
+      "sentenceReading": "かれはすぐれたぎょうせきをのこした。",
+      "sentenceKR": "그는 뛰어난 업적을 남겼다."
+    },
+    {
+      "word": "共存",
+      "reading": "きょうぞん",
+      "meaningKR": "공존",
+      "sentenceJP": "人間と自然の共存を目指す。",
+      "sentenceReading": "にんげんとしぜんのきょうぞんをめざす。",
+      "sentenceKR": "인간과 자연의 공존을 지향한다."
+    },
+    {
+      "word": "協定",
+      "reading": "きょうてい",
+      "meaningKR": "협정",
+      "sentenceJP": "両国は新たな協定を結んだ。",
+      "sentenceReading": "りょうこくはあらたなきょうていをむすんだ。",
+      "sentenceKR": "양국은 새로운 협정을 맺었다."
+    },
+    {
+      "word": "郷土",
+      "reading": "きょうど",
+      "meaningKR": "향토, 고향",
+      "sentenceJP": "郷土の歴史を後世に伝える。",
+      "sentenceReading": "きょうどのれきしをこうせいにつたえる。",
+      "sentenceKR": "향토의 역사를 후세에 전한다."
+    },
+    {
+      "word": "脅迫",
+      "reading": "きょうはく",
+      "meaningKR": "협박, 위협",
+      "sentenceJP": "彼は脅迫の疑いで逮捕された。",
+      "sentenceReading": "かれはきょうはくのうたがいでたいほされた。",
+      "sentenceKR": "그는 협박 혐의로 체포되었다."
+    },
+    {
+      "word": "業務",
+      "reading": "ぎょうむ",
+      "meaningKR": "업무",
+      "sentenceJP": "本日の業務は終了しました。",
+      "sentenceReading": "ほんじつのぎょうむはしゅうりょうしました。",
+      "sentenceKR": "오늘 업무는 종료되었습니다."
+    },
+    {
+      "word": "共鳴",
+      "reading": "きょうめい",
+      "meaningKR": "공명, 공감",
+      "sentenceJP": "彼の主張に深く共鳴した。",
+      "sentenceReading": "かれのしゅちょうにふかくきょうめいした。",
+      "sentenceKR": "그의 주장에 깊이 공감했다."
+    },
+    {
+      "word": "郷里",
+      "reading": "きょうり",
+      "meaningKR": "고향, 출생지",
+      "sentenceJP": "十年ぶりに郷里へ帰った。",
+      "sentenceReading": "じゅうねんぶりにきょうりへかえった。",
+      "sentenceKR": "10년 만에 고향으로 돌아갔다."
+    },
+    {
+      "word": "強烈",
+      "reading": "きょうれつ",
+      "meaningKR": "강렬함, 격렬함",
+      "sentenceJP": "強烈な印象が今も残っている。",
+      "sentenceReading": "きょうれつないんしょうがいまものこっている。",
+      "sentenceKR": "강렬한 인상이 지금도 남아 있다."
+    },
+    {
+      "word": "共和",
+      "reading": "きょうわ",
+      "meaningKR": "공화, 공화주의",
+      "sentenceJP": "自由と共和の理念を掲げる。",
+      "sentenceReading": "じゆうときょうわのりねんをかかげる。",
+      "sentenceKR": "자유와 공화의 이념을 내세운다."
+    },
+    {
+      "word": "局限",
+      "reading": "きょくげん",
+      "meaningKR": "국한, 한정",
+      "sentenceJP": "問題を一地域に局限する。",
+      "sentenceReading": "もんだいをいちちいきにきょくげんする。",
+      "sentenceKR": "문제를 한 지역에 국한한다."
+    },
+    {
+      "word": "極端",
+      "reading": "きょくたん",
+      "meaningKR": "극단, 극단적임",
+      "sentenceJP": "極端な意見は避けるべきだ。",
+      "sentenceReading": "きょくたんないけんはさけるべきだ。",
+      "sentenceKR": "극단적인 의견은 피해야 한다."
+    },
+    {
+      "word": "居住",
+      "reading": "きょじゅう",
+      "meaningKR": "거주",
+      "sentenceJP": "この地域には外国人も居住する。",
+      "sentenceReading": "このちいきにはがいこくじんもきょじゅうする。",
+      "sentenceKR": "이 지역에는 외국인도 거주한다."
+    },
+    {
+      "word": "拒絶",
+      "reading": "きょぜつ",
+      "meaningKR": "거절, 거부",
+      "sentenceJP": "彼は入国を拒絶された。",
+      "sentenceReading": "かれはにゅうこくをきょぜつされた。",
+      "sentenceKR": "그는 입국을 거부당했다."
     }
   ]
 }
