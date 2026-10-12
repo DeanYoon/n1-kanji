@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-09T00:56:11.448Z",
-  "count": 1035,
+  "generatedAt": "2026-10-12T00:09:19.237Z",
+  "count": 1080,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -8284,6 +8284,366 @@
       "sentenceJP": "彼は入国を拒絶された。",
       "sentenceReading": "かれはにゅうこくをきょぜつされた。",
       "sentenceKR": "그는 입국을 거부당했다."
+    },
+    {
+      "word": "漁船",
+      "reading": "ぎょせん",
+      "meaningKR": "어선",
+      "sentenceJP": "漁船が港へ戻ってきた。",
+      "sentenceReading": "ぎょせんがみなとへもどってきた。",
+      "sentenceKR": "어선이 항구로 돌아왔다."
+    },
+    {
+      "word": "漁村",
+      "reading": "ぎょそん",
+      "meaningKR": "어촌",
+      "sentenceJP": "祖父は小さな漁村で育った。",
+      "sentenceReading": "そふはちいさなぎょそんでそだった。",
+      "sentenceKR": "할아버지는 작은 어촌에서 자랐다."
+    },
+    {
+      "word": "拒否",
+      "reading": "きょひ",
+      "meaningKR": "거부",
+      "sentenceJP": "彼は提案をきっぱり拒否した。",
+      "sentenceReading": "かれはていあんをきっぱりきょひした。",
+      "sentenceKR": "그는 제안을 단호히 거부했다."
+    },
+    {
+      "word": "許容",
+      "reading": "きょよう",
+      "meaningKR": "허용",
+      "sentenceJP": "多少の誤差は許容できる。",
+      "sentenceReading": "たしょうのごさはきょようできる。",
+      "sentenceKR": "약간의 오차는 허용할 수 있다."
+    },
+    {
+      "word": "清らか",
+      "reading": "きよらか",
+      "meaningKR": "맑고 순수한",
+      "sentenceJP": "清らかな歌声が響いた。",
+      "sentenceReading": "きよらかなうたごえがひびいた。",
+      "sentenceKR": "맑고 순수한 노랫소리가 울려 퍼졌다."
+    },
+    {
+      "word": "きらびやか",
+      "reading": "きらびやか",
+      "meaningKR": "화려하고 눈부신",
+      "sentenceJP": "きらびやかな衣装が目を引く。",
+      "sentenceReading": "きらびやかないしょうがめをひく。",
+      "sentenceKR": "화려한 의상이 눈길을 끈다."
+    },
+    {
+      "word": "～きり",
+      "reading": "～きり",
+      "meaningKR": "~만, ~뿐",
+      "sentenceJP": "二人きりで静かに話した。",
+      "sentenceReading": "ふたりきりでしずかにはなした。",
+      "sentenceKR": "둘만 조용히 이야기했다."
+    },
+    {
+      "word": "義理",
+      "reading": "ぎり",
+      "meaningKR": "의리, 도리",
+      "sentenceJP": "義理を果たすために出席した。",
+      "sentenceReading": "ぎりをはたすためにしゅっせきした。",
+      "sentenceKR": "도리를 다하기 위해 참석했다."
+    },
+    {
+      "word": "切替",
+      "reading": "きりかえ",
+      "meaningKR": "전환, 변경",
+      "sentenceJP": "設定の切替が必要だ。",
+      "sentenceReading": "せっていのきりかえがひつようだ。",
+      "sentenceKR": "설정 전환이 필요하다."
+    },
+    {
+      "word": "気流",
+      "reading": "きりゅう",
+      "meaningKR": "기류",
+      "sentenceJP": "上空で強い気流が発生した。",
+      "sentenceReading": "じょうくうでつよいきりゅうがはっせいした。",
+      "sentenceKR": "상공에서 강한 기류가 발생했다."
+    },
+    {
+      "word": "切れ目",
+      "reading": "きれめ",
+      "meaningKR": "끊기는 지점, 틈",
+      "sentenceJP": "話の切れ目に質問した。",
+      "sentenceReading": "はなしのきれめにしつもんした。",
+      "sentenceKR": "이야기가 끊긴 틈에 질문했다."
+    },
+    {
+      "word": "疑惑",
+      "reading": "ぎわく",
+      "meaningKR": "의혹",
+      "sentenceJP": "彼に不正の疑惑がかけられた。",
+      "sentenceReading": "かれにふせいのぎわくがかけられた。",
+      "sentenceKR": "그에게 부정행위 의혹이 제기되었다."
+    },
+    {
+      "word": "極めて",
+      "reading": "きわめて",
+      "meaningKR": "극히, 매우",
+      "sentenceJP": "この問題は極めて深刻だ。",
+      "sentenceReading": "このもんだいはきわめてしんこくだ。",
+      "sentenceKR": "이 문제는 매우 심각하다."
+    },
+    {
+      "word": "近眼",
+      "reading": "きんがん",
+      "meaningKR": "근시",
+      "sentenceJP": "私は近眼で遠くが見えない。",
+      "sentenceReading": "わたしはきんがんでとおくがみえない。",
+      "sentenceKR": "나는 근시라서 멀리 보이지 않는다."
+    },
+    {
+      "word": "緊急",
+      "reading": "きんきゅう",
+      "meaningKR": "긴급",
+      "sentenceJP": "緊急の連絡が入った。",
+      "sentenceReading": "きんきゅうのれんらくがはいった。",
+      "sentenceKR": "긴급 연락이 왔다."
+    },
+    {
+      "word": "近郊",
+      "reading": "きんこう",
+      "meaningKR": "근교, 교외",
+      "sentenceJP": "東京近郊に新しい家を買った。",
+      "sentenceReading": "とうきょうきんこうにあたらしいいえをかった。",
+      "sentenceKR": "도쿄 근교에 새집을 샀다."
+    },
+    {
+      "word": "均衡",
+      "reading": "きんこう",
+      "meaningKR": "균형, 균형 상태",
+      "sentenceJP": "両国の力の均衡が崩れた。",
+      "sentenceReading": "りょうこくのちからのきんこうがくずれた。",
+      "sentenceKR": "양국의 힘의 균형이 무너졌다."
+    },
+    {
+      "word": "禁じる",
+      "reading": "きんじる",
+      "meaningKR": "금지하다",
+      "sentenceJP": "校内での喫煙を禁じる。",
+      "sentenceReading": "こうないでのきつえんをきんじる。",
+      "sentenceKR": "교내에서의 흡연을 금지한다."
+    },
+    {
+      "word": "勤勉",
+      "reading": "きんべん",
+      "meaningKR": "근면함, 성실함",
+      "sentenceJP": "彼は勤勉な学生だ。",
+      "sentenceReading": "かれはきんべんながくせいだ。",
+      "sentenceKR": "그는 근면한 학생이다."
+    },
+    {
+      "word": "吟味",
+      "reading": "ぎんみ",
+      "meaningKR": "꼼꼼히 검토함",
+      "sentenceJP": "素材を十分に吟味する。",
+      "sentenceReading": "そざいをじゅうぶんにぎんみする。",
+      "sentenceKR": "소재를 충분히 검토한다."
+    },
+    {
+      "word": "勤務",
+      "reading": "きんむ",
+      "meaningKR": "근무",
+      "sentenceJP": "姉は市役所に勤務している。",
+      "sentenceReading": "あねはしやくしょにきんむしている。",
+      "sentenceKR": "언니는 시청에 근무하고 있다."
+    },
+    {
+      "word": "禁物",
+      "reading": "きんもつ",
+      "meaningKR": "금물, 해서는 안 될 것",
+      "sentenceJP": "大事な試合では油断は禁物だ。",
+      "sentenceReading": "だいじなしあいではゆだんはきんもつだ。",
+      "sentenceKR": "중요한 경기에서는 방심은 금물이다."
+    },
+    {
+      "word": "勤労",
+      "reading": "きんろう",
+      "meaningKR": "근로, 노동",
+      "sentenceJP": "勤労の尊さを若者に伝える。",
+      "sentenceReading": "きんろうのとうとさをわかものにつたえる。",
+      "sentenceKR": "근로의 소중함을 젊은이들에게 전한다."
+    },
+    {
+      "word": "クイズ",
+      "reading": "クイズ",
+      "meaningKR": "퀴즈",
+      "sentenceJP": "友達と難しいクイズを解いた。",
+      "sentenceReading": "ともだちとむずかしいくいずをといた。",
+      "sentenceKR": "친구와 어려운 퀴즈를 풀었다."
+    },
+    {
+      "word": "食い違う",
+      "reading": "くいちがう",
+      "meaningKR": "엇갈리다, 서로 다르다",
+      "sentenceJP": "二人の証言が食い違っている。",
+      "sentenceReading": "ふたりのしょうげんがくいちがっている。",
+      "sentenceKR": "두 사람의 증언이 엇갈리고 있다."
+    },
+    {
+      "word": "空間",
+      "reading": "くうかん",
+      "meaningKR": "공간",
+      "sentenceJP": "明るく開放的な空間で休む。",
+      "sentenceReading": "あかるくかいほうてきなくうかんでやすむ。",
+      "sentenceKR": "밝고 개방적인 공간에서 쉰다."
+    },
+    {
+      "word": "空腹",
+      "reading": "くうふく",
+      "meaningKR": "공복, 배고픔",
+      "sentenceJP": "空腹を感じて早めに昼食を取った。",
+      "sentenceReading": "くうふくをかんじてはやめにちゅうしょくをとった。",
+      "sentenceKR": "배고픔을 느껴 일찍 점심을 먹었다."
+    },
+    {
+      "word": "区画",
+      "reading": "くかく",
+      "meaningKR": "구획, 구역",
+      "sentenceJP": "この区画には住宅が建てられる。",
+      "sentenceReading": "このくかくにはじゅうたくがたてられる。",
+      "sentenceKR": "이 구역에는 주택이 지어진다."
+    },
+    {
+      "word": "区間",
+      "reading": "くかん",
+      "meaningKR": "구간",
+      "sentenceJP": "この区間は工事で通行できない。",
+      "sentenceReading": "このくかんはこうじでつうこうできない。",
+      "sentenceKR": "이 구간은 공사로 통행할 수 없다."
+    },
+    {
+      "word": "茎",
+      "reading": "くき",
+      "meaningKR": "줄기",
+      "sentenceJP": "花の茎を斜めに切って水に挿した。",
+      "sentenceReading": "はなのくきをななめにきってみずにさした。",
+      "sentenceKR": "꽃줄기를 비스듬히 잘라 물에 꽂았다."
+    },
+    {
+      "word": "区切り",
+      "reading": "くぎり",
+      "meaningKR": "구분, 한 단락",
+      "sentenceJP": "仕事に一区切りつけて休む。",
+      "sentenceReading": "しごとにひとくぎりつけてやすむ。",
+      "sentenceKR": "일을 한 단락 마무리하고 쉰다."
+    },
+    {
+      "word": "くぐる",
+      "reading": "くぐる",
+      "meaningKR": "통과하다, 빠져나가다",
+      "sentenceJP": "暖簾をくぐって店に入る。",
+      "sentenceReading": "のれんをくぐってみせにはいる。",
+      "sentenceKR": "노렌을 지나 가게에 들어간다."
+    },
+    {
+      "word": "くじ (～をひく)",
+      "reading": "くじ (～をひく)",
+      "meaningKR": "제비, 추첨권",
+      "sentenceJP": "祭りでくじを引いて当たった。",
+      "sentenceReading": "まつりでくじをひいてあたった。",
+      "sentenceKR": "축제에서 제비를 뽑아 당첨됐다."
+    },
+    {
+      "word": "くじびき",
+      "reading": "くじびき",
+      "meaningKR": "제비뽑기",
+      "sentenceJP": "くじびきで席を決めた。",
+      "sentenceReading": "くじびきでせきをきめた。",
+      "sentenceKR": "제비뽑기로 자리를 정했다."
+    },
+    {
+      "word": "くすぐったい",
+      "reading": "くすぐったい",
+      "meaningKR": "간지럽다",
+      "sentenceJP": "脇を触られるとくすぐったい。",
+      "sentenceReading": "わきをさわられるとくすぐったい。",
+      "sentenceKR": "겨드랑이를 만지면 간지럽다."
+    },
+    {
+      "word": "愚痴",
+      "reading": "ぐち",
+      "meaningKR": "푸념, 불평",
+      "sentenceJP": "愚痴ばかり言わずに働こう。",
+      "sentenceReading": "ぐちばかりいわずにはたらこう。",
+      "sentenceKR": "불평만 하지 말고 일하자."
+    },
+    {
+      "word": "口吟む",
+      "reading": "くちずさむ",
+      "meaningKR": "흥얼거리다",
+      "sentenceJP": "好きな歌を口吟みながら歩く。",
+      "sentenceReading": "すきなうたをくちずさみながらあるく。",
+      "sentenceKR": "좋아하는 노래를 흥얼거리며 걷는다."
+    },
+    {
+      "word": "嘴",
+      "reading": "くちばし",
+      "meaningKR": "부리",
+      "sentenceJP": "小鳥が嘴で実をつつく。",
+      "sentenceReading": "ことりがくちばしでみをつつく。",
+      "sentenceKR": "작은 새가 부리로 열매를 쪼아 먹는다."
+    },
+    {
+      "word": "朽ちる",
+      "reading": "くちる",
+      "meaningKR": "썩다, 부식하다",
+      "sentenceJP": "古い木の柱が朽ちている。",
+      "sentenceReading": "ふるいきのはしらがくちている。",
+      "sentenceKR": "오래된 나무 기둥이 썩어 있다."
+    },
+    {
+      "word": "覆す",
+      "reading": "くつがえす",
+      "meaningKR": "뒤집다, 전복시키다",
+      "sentenceJP": "新たな証拠が判決を覆した。",
+      "sentenceReading": "あらたなしょうこがはんけつをくつがえした。",
+      "sentenceKR": "새로운 증거가 판결을 뒤집었다."
+    },
+    {
+      "word": "くっきり",
+      "reading": "くっきり",
+      "meaningKR": "선명하게, 뚜렷이",
+      "sentenceJP": "山の稜線がくっきり見える。",
+      "sentenceReading": "やまのりょうせんがくっきりみえる。",
+      "sentenceKR": "산의 능선이 선명하게 보인다."
+    },
+    {
+      "word": "屈折",
+      "reading": "くっせつ",
+      "meaningKR": "굴절",
+      "sentenceJP": "光は水面で屈折する。",
+      "sentenceReading": "ひかりはすいめんでくっせつする。",
+      "sentenceKR": "빛은 수면에서 굴절한다."
+    },
+    {
+      "word": "ぐっと",
+      "reading": "ぐっと",
+      "meaningKR": "힘껏, 훨씬",
+      "sentenceJP": "腕をぐっと引き寄せた。",
+      "sentenceReading": "うでをぐっとひきよせた。",
+      "sentenceKR": "팔을 힘껏 끌어당겼다."
+    },
+    {
+      "word": "首飾り",
+      "reading": "くびかざり",
+      "meaningKR": "목걸이",
+      "sentenceJP": "真珠の首飾りを贈った。",
+      "sentenceReading": "しんじゅのくびかざりをおくった。",
+      "sentenceKR": "진주 목걸이를 선물했다."
+    },
+    {
+      "word": "首輪",
+      "reading": "くびわ",
+      "meaningKR": "목줄, 초커",
+      "sentenceJP": "犬の首輪を新しくした。",
+      "sentenceReading": "いぬのくびわをあたらしくした。",
+      "sentenceKR": "개의 목줄을 새것으로 바꿨다."
     }
   ]
 }
