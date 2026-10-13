@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T00:09:19.237Z",
-  "count": 1080,
+  "generatedAt": "2026-10-13T02:22:07.180Z",
+  "count": 1125,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -8644,6 +8644,366 @@
       "sentenceJP": "犬の首輪を新しくした。",
       "sentenceReading": "いぬのくびわをあたらしくした。",
       "sentenceKR": "개의 목줄을 새것으로 바꿨다."
+    },
+    {
+      "word": "組み込む",
+      "reading": "くみこむ",
+      "meaningKR": "삽입하다, 포함시키다",
+      "sentenceJP": "新機能をシステムに組み込む。",
+      "sentenceReading": "しんきのうをしすてむにくみこむ。",
+      "sentenceKR": "새 기능을 시스템에 포함시킨다."
+    },
+    {
+      "word": "組み合わせる",
+      "reading": "くみあわせる",
+      "meaningKR": "조합하다, 결합하다",
+      "sentenceJP": "二つの素材を組み合わせる。",
+      "sentenceReading": "ふたつのそざいをくみあわせる。",
+      "sentenceKR": "두 가지 소재를 조합한다."
+    },
+    {
+      "word": "蔵",
+      "reading": "くら",
+      "meaningKR": "창고, 곳간",
+      "sentenceJP": "古い蔵に米を保管する。",
+      "sentenceReading": "ふるいくらにこめをほかんする。",
+      "sentenceKR": "오래된 곳간에 쌀을 보관한다."
+    },
+    {
+      "word": "グレー",
+      "reading": "グレー",
+      "meaningKR": "회색",
+      "sentenceJP": "壁をグレーに塗り替えた。",
+      "sentenceReading": "かべをぐれーにぬりかえた。",
+      "sentenceKR": "벽을 회색으로 다시 칠했다."
+    },
+    {
+      "word": "クレーン",
+      "reading": "クレーン",
+      "meaningKR": "기중기, 크레인",
+      "sentenceJP": "クレーンで資材を運ぶ。",
+      "sentenceReading": "くれーんでしざいをはこぶ。",
+      "sentenceKR": "크레인으로 자재를 나른다."
+    },
+    {
+      "word": "玄人",
+      "reading": "くろうと",
+      "meaningKR": "전문가, 프로",
+      "sentenceJP": "彼は交渉術の玄人として有名だ。",
+      "sentenceReading": "かれはこうしょうじゅつのくろうととしてゆうめいだ。",
+      "sentenceKR": "그는 협상 전문가로 유명하다."
+    },
+    {
+      "word": "黒字",
+      "reading": "くろじ",
+      "meaningKR": "흑자",
+      "sentenceJP": "今年は会社が黒字になった。",
+      "sentenceReading": "ことしはかいしゃがくろじになった。",
+      "sentenceKR": "올해는 회사가 흑자로 전환했다."
+    },
+    {
+      "word": "軍艦",
+      "reading": "ぐんかん",
+      "meaningKR": "군함",
+      "sentenceJP": "軍艦が港に停泊している。",
+      "sentenceReading": "ぐんかんがみなとにていはくしている。",
+      "sentenceKR": "군함이 항구에 정박해 있다."
+    },
+    {
+      "word": "軍事",
+      "reading": "ぐんじ",
+      "meaningKR": "군사, 군사 문제",
+      "sentenceJP": "軍事に関する議論が続く。",
+      "sentenceReading": "ぐんじにかんするぎろんがつづく。",
+      "sentenceKR": "군사에 관한 논의가 계속된다."
+    },
+    {
+      "word": "君主",
+      "reading": "くんしゅ",
+      "meaningKR": "군주",
+      "sentenceJP": "君主が長く国を治めていた。",
+      "sentenceReading": "くんしゅがながくくにをおさめていた。",
+      "sentenceKR": "군주가 오랫동안 나라를 다스리고 있었다."
+    },
+    {
+      "word": "群集",
+      "reading": "ぐんしゅう",
+      "meaningKR": "군집, 집단",
+      "sentenceJP": "群集心理を詳しく分析する。",
+      "sentenceReading": "ぐんしゅうしんりをくわしくぶんせきする。",
+      "sentenceKR": "군중 심리를 자세히 분석한다."
+    },
+    {
+      "word": "群衆",
+      "reading": "ぐんしゅう",
+      "meaningKR": "군중, 인파",
+      "sentenceJP": "群衆から大きな歓声が上がった。",
+      "sentenceReading": "ぐんしゅうからおおきなかんせいがあがった。",
+      "sentenceKR": "군중에게서 큰 환호성이 터져 나왔다."
+    },
+    {
+      "word": "軍備",
+      "reading": "ぐんび",
+      "meaningKR": "군비, 군사력",
+      "sentenceJP": "国は急速に軍備を増強した。",
+      "sentenceReading": "くにはきゅうそくにぐんびをぞうきょうした。",
+      "sentenceKR": "국가는 빠르게 군비를 증강했다."
+    },
+    {
+      "word": "軍服",
+      "reading": "ぐんぷく",
+      "meaningKR": "군복",
+      "sentenceJP": "兵士たちは軍服を着ている。",
+      "sentenceReading": "へいしたちはぐんぷくをきている。",
+      "sentenceKR": "병사들은 군복을 입고 있다."
+    },
+    {
+      "word": "芸",
+      "reading": "げい",
+      "meaningKR": "기예, 재주, 공연",
+      "sentenceJP": "彼の芸は多くの観客を魅了した。",
+      "sentenceReading": "かれのげいはおおくのかんきゃくをみりょうした。",
+      "sentenceKR": "그의 기예는 많은 관객을 매료시켰다."
+    },
+    {
+      "word": "経過",
+      "reading": "けいか",
+      "meaningKR": "경과, 진행 상황",
+      "sentenceJP": "手術後の経過は順調です。",
+      "sentenceReading": "しゅじゅつごのけいかはじゅんちょうです。",
+      "sentenceKR": "수술 후 경과는 순조롭습니다."
+    },
+    {
+      "word": "軽快",
+      "reading": "けいかい",
+      "meaningKR": "경쾌함, 가벼움",
+      "sentenceJP": "軽快な音楽に合わせて踊る。",
+      "sentenceReading": "けいかいなおんがくにあわせておどる。",
+      "sentenceKR": "경쾌한 음악에 맞춰 춤춘다."
+    },
+    {
+      "word": "警戒",
+      "reading": "けいかい",
+      "meaningKR": "경계, 주의",
+      "sentenceJP": "周囲を警戒しながら進んだ。",
+      "sentenceReading": "しゅういをけいかいしながらすすんだ。",
+      "sentenceKR": "주위를 경계하면서 나아갔다."
+    },
+    {
+      "word": "敬具",
+      "reading": "けいぐ",
+      "meaningKR": "삼가 올림",
+      "sentenceJP": "手紙の末尾に敬具と記した。",
+      "sentenceReading": "てがみのまつびにけいぐとしるした。",
+      "sentenceKR": "편지 끝에 '삼가 올림'이라고 적었다."
+    },
+    {
+      "word": "軽減",
+      "reading": "けいげん",
+      "meaningKR": "경감, 완화",
+      "sentenceJP": "税負担の軽減を求める。",
+      "sentenceReading": "ぜいふたんのけいげんをもとめる。",
+      "sentenceKR": "세금 부담의 경감을 요구한다."
+    },
+    {
+      "word": "掲載",
+      "reading": "けいさい",
+      "meaningKR": "게재",
+      "sentenceJP": "雑誌に記事が掲載された。",
+      "sentenceReading": "ざっしにきじがけいさいされた。",
+      "sentenceKR": "잡지에 기사가 게재되었다."
+    },
+    {
+      "word": "傾斜",
+      "reading": "けいしゃ",
+      "meaningKR": "경사, 기울기",
+      "sentenceJP": "この坂は傾斜が急だ。",
+      "sentenceReading": "このさかはけいしゃがきゅうだ。",
+      "sentenceKR": "이 언덕은 경사가 가파르다."
+    },
+    {
+      "word": "形成",
+      "reading": "けいせい",
+      "meaningKR": "형성",
+      "sentenceJP": "幼少期に人格が形成される。",
+      "sentenceReading": "ようしょうきにじんかくがけいせいされる。",
+      "sentenceKR": "유년기에 인격이 형성된다."
+    },
+    {
+      "word": "形勢",
+      "reading": "けいせい",
+      "meaningKR": "형세, 상황",
+      "sentenceJP": "試合の形勢が逆転した。",
+      "sentenceReading": "しあいのけいせいがぎゃくてんした。",
+      "sentenceKR": "경기의 형세가 역전되었다."
+    },
+    {
+      "word": "軽率",
+      "reading": "けいそつ",
+      "meaningKR": "경솔함",
+      "sentenceJP": "軽率な発言は控えるべきだ。",
+      "sentenceReading": "けいそつなはつげんはひかえるべきだ。",
+      "sentenceKR": "경솔한 발언은 삼가야 한다."
+    },
+    {
+      "word": "刑罰",
+      "reading": "けいばつ",
+      "meaningKR": "형벌, 처벌",
+      "sentenceJP": "重い刑罰が科された。",
+      "sentenceReading": "おもいけいばつがかされた。",
+      "sentenceKR": "무거운 형벌이 부과되었다."
+    },
+    {
+      "word": "経費",
+      "reading": "けいひ",
+      "meaningKR": "경비, 비용",
+      "sentenceJP": "出張の経費を精算する。",
+      "sentenceReading": "しゅっちょうのけいひをせいさんする。",
+      "sentenceKR": "출장 경비를 정산한다."
+    },
+    {
+      "word": "警部",
+      "reading": "けいぶ",
+      "meaningKR": "경부, 경찰 간부",
+      "sentenceJP": "警部が事件の指揮を執った。",
+      "sentenceReading": "けいぶがじけんのしきをとった。",
+      "sentenceKR": "경부가 사건을 지휘했다."
+    },
+    {
+      "word": "転換",
+      "reading": "てんかん",
+      "meaningKR": "전환",
+      "sentenceJP": "発想の転換が必要だ。",
+      "sentenceReading": "はっそうのてんかんがひつようだ。",
+      "sentenceKR": "발상의 전환이 필요하다."
+    },
+    {
+      "word": "転居",
+      "reading": "てんきょ",
+      "meaningKR": "이사, 거처 이전",
+      "sentenceJP": "来月大阪へ転居します。",
+      "sentenceReading": "らいげつおおさかへてんきょします。",
+      "sentenceKR": "다음 달에 오사카로 이사합니다."
+    },
+    {
+      "word": "転勤",
+      "reading": "てんきん",
+      "meaningKR": "전근",
+      "sentenceJP": "来月、大阪支社へ転勤する。",
+      "sentenceReading": "らいげつ、おおさかししゃへてんきんする。",
+      "sentenceKR": "다음 달에 오사카 지사로 전근한다."
+    },
+    {
+      "word": "点検",
+      "reading": "てんけん",
+      "meaningKR": "점검",
+      "sentenceJP": "出発前に車両を点検する。",
+      "sentenceReading": "しゅっぱつまえにしゃりょうをてんけんする。",
+      "sentenceKR": "출발 전에 차량을 점검한다."
+    },
+    {
+      "word": "電源",
+      "reading": "でんげん",
+      "meaningKR": "전원",
+      "sentenceJP": "使用後は電源を切ってください。",
+      "sentenceReading": "しようごはでんげんをきってください。",
+      "sentenceKR": "사용 후에는 전원을 꺼 주세요."
+    },
+    {
+      "word": "天国",
+      "reading": "てんごく",
+      "meaningKR": "천국",
+      "sentenceJP": "ここはまるで天国のようだ。",
+      "sentenceReading": "ここはまるでてんごくのようだ。",
+      "sentenceKR": "이곳은 마치 천국 같다."
+    },
+    {
+      "word": "天才",
+      "reading": "てんさい",
+      "meaningKR": "천재",
+      "sentenceJP": "彼女は数学の天才だ。",
+      "sentenceReading": "かのじょはすうがくのてんさいだ。",
+      "sentenceKR": "그녀는 수학 천재다."
+    },
+    {
+      "word": "天災",
+      "reading": "てんさい",
+      "meaningKR": "천재지변",
+      "sentenceJP": "天災への備えを強化する。",
+      "sentenceReading": "てんさいへのそなえをきょうかする。",
+      "sentenceKR": "천재지변에 대한 대비를 강화한다."
+    },
+    {
+      "word": "展示",
+      "reading": "てんじ",
+      "meaningKR": "전시",
+      "sentenceJP": "新作を会場に展示する。",
+      "sentenceReading": "しんさくをかいじょうにてんじする。",
+      "sentenceKR": "신작을 행사장에 전시한다."
+    },
+    {
+      "word": "伝説",
+      "reading": "でんせつ",
+      "meaningKR": "전설",
+      "sentenceJP": "村には竜の伝説が残る。",
+      "sentenceReading": "むらにはりゅうのでんせつがのこる。",
+      "sentenceKR": "마을에는 용의 전설이 남아 있다."
+    },
+    {
+      "word": "点線",
+      "reading": "てんせん",
+      "meaningKR": "점선",
+      "sentenceJP": "点線に沿って切ってください。",
+      "sentenceReading": "てんせんにそってきってください。",
+      "sentenceKR": "점선을 따라 잘라 주세요."
+    },
+    {
+      "word": "転じる",
+      "reading": "てんじる",
+      "meaningKR": "바뀌다, 전환되다",
+      "sentenceJP": "悲しみがやがて怒りに転じる。",
+      "sentenceReading": "かなしみがやがていかりにてんじる。",
+      "sentenceKR": "슬픔이 이윽고 분노로 바뀐다."
+    },
+    {
+      "word": "転ずる",
+      "reading": "てんずる",
+      "meaningKR": "바꾸다, 전환하다",
+      "sentenceJP": "状況に応じて方針を転ずる。",
+      "sentenceReading": "じょうきょうにおうじてほうしんをてんずる。",
+      "sentenceKR": "상황에 따라 방침을 전환한다."
+    },
+    {
+      "word": "天体",
+      "reading": "てんたい",
+      "meaningKR": "천체",
+      "sentenceJP": "望遠鏡で天体を観測する。",
+      "sentenceReading": "ぼうえんきょうでてんたいをかんそくする。",
+      "sentenceKR": "망원경으로 천체를 관측한다."
+    },
+    {
+      "word": "伝達",
+      "reading": "でんたつ",
+      "meaningKR": "전달",
+      "sentenceJP": "情報を迅速に伝達する。",
+      "sentenceReading": "じょうほうをじんそくにでんたつする。",
+      "sentenceKR": "정보를 신속하게 전달한다."
+    },
+    {
+      "word": "天地",
+      "reading": "てんち",
+      "meaningKR": "천지, 하늘과 땅",
+      "sentenceJP": "天地を揺るがす轟音が響いた。",
+      "sentenceReading": "てんちをゆるがすごうおんがひびいた。",
+      "sentenceKR": "천지를 뒤흔드는 굉음이 울려 퍼졌다."
+    },
+    {
+      "word": "てんで",
+      "reading": "てんで",
+      "meaningKR": "전혀, 도무지",
+      "sentenceJP": "彼の説明はてんで分からない。",
+      "sentenceReading": "かれのせつめいはてんでわからない。",
+      "sentenceKR": "그의 설명은 도무지 이해할 수 없다."
     }
   ]
 }
