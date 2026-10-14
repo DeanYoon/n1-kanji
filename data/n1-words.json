@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-14T00:04:46.008Z",
-  "count": 1170,
+  "generatedAt": "2026-10-14T23:36:49.790Z",
+  "count": 1215,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -9364,6 +9364,366 @@
       "sentenceJP": "大臣が被災地を視察した。",
       "sentenceReading": "だいじんがひさいちをしさつした。",
       "sentenceKR": "장관이 재해 지역을 시찰했다."
+    },
+    {
+      "word": "資産",
+      "reading": "しさん",
+      "meaningKR": "자산, 재산",
+      "sentenceJP": "資産を適切に管理する。",
+      "sentenceReading": "しさんをてきせつにかんりする。",
+      "sentenceKR": "자산을 적절하게 관리한다."
+    },
+    {
+      "word": "支持",
+      "reading": "しじ",
+      "meaningKR": "지지",
+      "sentenceJP": "多くの市民が政策を支持した。",
+      "sentenceReading": "おおくのしみんがせいさくをしじした。",
+      "sentenceKR": "많은 시민이 정책을 지지했다."
+    },
+    {
+      "word": "自主",
+      "reading": "じしゅ",
+      "meaningKR": "자주, 자율",
+      "sentenceJP": "自主を重んじる校風だ。",
+      "sentenceReading": "じしゅをおもんじるこうふうだ。",
+      "sentenceKR": "자율을 중시하는 교풍이다."
+    },
+    {
+      "word": "自首",
+      "reading": "じしゅ",
+      "meaningKR": "자수",
+      "sentenceJP": "容疑者が警察に自首した。",
+      "sentenceReading": "ようぎしゃがけいさつにじしゅした。",
+      "sentenceKR": "용의자가 경찰에 자수했다."
+    },
+    {
+      "word": "刺繍",
+      "reading": "ししゅう",
+      "meaningKR": "자수, 자수품",
+      "sentenceJP": "母は布に花の刺繍を施した。",
+      "sentenceReading": "はははぬのにはなのししゅうをほどこした。",
+      "sentenceKR": "어머니는 천에 꽃 자수를 놓았다."
+    },
+    {
+      "word": "市場",
+      "reading": "しじょう",
+      "meaningKR": "시장",
+      "sentenceJP": "市場は急速に拡大している。",
+      "sentenceReading": "しじょうはきゅうそくにかくだいしている。",
+      "sentenceKR": "시장은 급속히 확대되고 있다."
+    },
+    {
+      "word": "辞職",
+      "reading": "じしょく",
+      "meaningKR": "사직",
+      "sentenceJP": "社長は責任を取り辞職した。",
+      "sentenceReading": "しゃちょうはせきにんをとりじしょくした。",
+      "sentenceKR": "사장은 책임을 지고 사직했다."
+    },
+    {
+      "word": "雫",
+      "reading": "しずく",
+      "meaningKR": "물방울",
+      "sentenceJP": "葉先から雫がこぼれ落ちた。",
+      "sentenceReading": "はさきからしずくがこぼれおちた。",
+      "sentenceKR": "잎 끝에서 물방울이 떨어졌다."
+    },
+    {
+      "word": "システム",
+      "reading": "システム",
+      "meaningKR": "시스템, 체계",
+      "sentenceJP": "新しいシステムを導入した。",
+      "sentenceReading": "あたらしいしすてむをどうにゅうした。",
+      "sentenceKR": "새로운 시스템을 도입했다."
+    },
+    {
+      "word": "沈める",
+      "reading": "しずめる",
+      "meaningKR": "가라앉히다, 물에 잠기게 하다",
+      "sentenceJP": "重りを水底に沈める。",
+      "sentenceReading": "おもりをみなそこにしずめる。",
+      "sentenceKR": "추를 물 밑바닥에 가라앉힌다."
+    },
+    {
+      "word": "施設",
+      "reading": "しせつ",
+      "meaningKR": "시설",
+      "sentenceJP": "この施設は年中利用できる。",
+      "sentenceReading": "このしせつはねんじゅうりようできる。",
+      "sentenceKR": "이 시설은 연중 이용할 수 있다."
+    },
+    {
+      "word": "事前",
+      "reading": "じぜん",
+      "meaningKR": "사전, 미리",
+      "sentenceJP": "事前に予約が必要です。",
+      "sentenceReading": "じぜんによやくがひつようです。",
+      "sentenceKR": "사전에 예약이 필요합니다."
+    },
+    {
+      "word": "子息",
+      "reading": "しそく",
+      "meaningKR": "아드님",
+      "sentenceJP": "社長のご子息が入社した。",
+      "sentenceReading": "しゃちょうのごしそくがにゅうしゃした。",
+      "sentenceKR": "사장님의 아드님이 입사했다."
+    },
+    {
+      "word": "持続",
+      "reading": "じぞく",
+      "meaningKR": "지속, 유지",
+      "sentenceJP": "集中力を長く持続させる。",
+      "sentenceReading": "しゅうちゅうりょくをながくじぞくさせる。",
+      "sentenceKR": "집중력을 오래 지속시킨다."
+    },
+    {
+      "word": "自尊心",
+      "reading": "じそんしん",
+      "meaningKR": "자존심, 자부심",
+      "sentenceJP": "彼は強い自尊心を持っている。",
+      "sentenceReading": "かれはつよいじそんしんをもっている。",
+      "sentenceKR": "그는 자존심이 강하다."
+    },
+    {
+      "word": "慕う",
+      "reading": "したう",
+      "meaningKR": "그리워하다, 흠모하다",
+      "sentenceJP": "師を慕って弟子が集まった。",
+      "sentenceReading": "しをしたってでしがあつまった。",
+      "sentenceKR": "스승을 흠모하여 제자들이 모였다."
+    },
+    {
+      "word": "下心",
+      "reading": "したごころ",
+      "meaningKR": "속셈, 숨은 의도",
+      "sentenceJP": "彼の親切には下心がある。",
+      "sentenceReading": "かれのしんせつにはしたごころがある。",
+      "sentenceKR": "그의 친절에는 속셈이 있다."
+    },
+    {
+      "word": "下地",
+      "reading": "したじ",
+      "meaningKR": "기초, 토대",
+      "sentenceJP": "幼い頃に語学の下地を作った。",
+      "sentenceReading": "おさないころにごがくのしたじをつくった。",
+      "sentenceKR": "어릴 때 어학의 기초를 다졌다."
+    },
+    {
+      "word": "親しむ",
+      "reading": "したしむ",
+      "meaningKR": "가까이하다, 친숙해지다",
+      "sentenceJP": "子供の頃から音楽に親しむ。",
+      "sentenceReading": "こどものころからおんがくにしたしむ。",
+      "sentenceKR": "어릴 때부터 음악을 가까이한다."
+    },
+    {
+      "word": "下調べ",
+      "reading": "したしらべ",
+      "meaningKR": "사전 조사",
+      "sentenceJP": "現地へ行く前に下調べをした。",
+      "sentenceReading": "げんちへいくまえにしたしらべをした。",
+      "sentenceKR": "현지에 가기 전에 사전 조사를 했다."
+    },
+    {
+      "word": "愛想",
+      "reading": "あいそう",
+      "meaningKR": "붙임성, 상냥한 태도",
+      "sentenceJP": "彼は誰にでも愛想がいい。",
+      "sentenceReading": "かれはだれにでもあいそうがいい。",
+      "sentenceKR": "그는 누구에게나 붙임성이 좋다."
+    },
+    {
+      "word": "間柄",
+      "reading": "あいだがら",
+      "meaningKR": "관계, 사이",
+      "sentenceJP": "二人は遠慮のいらない間柄だ。",
+      "sentenceReading": "ふたりはえんりょのいらないあいだがらだ。",
+      "sentenceKR": "두 사람은 서로 스스럼없는 사이다."
+    },
+    {
+      "word": "合間",
+      "reading": "あいま",
+      "meaningKR": "틈, 사이",
+      "sentenceJP": "仕事の合間にコーヒーを飲む。",
+      "sentenceReading": "しごとのあいまにこーひーをのむ。",
+      "sentenceKR": "일하는 틈에 커피를 마신다."
+    },
+    {
+      "word": "敢えて",
+      "reading": "あえて",
+      "meaningKR": "감히, 굳이",
+      "sentenceJP": "難しい役に敢えて挑戦した。",
+      "sentenceReading": "むずかしいやくにあえてちょうせんした。",
+      "sentenceKR": "어려운 역할에 과감히 도전했다."
+    },
+    {
+      "word": "仰ぐ",
+      "reading": "あおぐ",
+      "meaningKR": "우러러보다, 청하다",
+      "sentenceJP": "専門家の意見を仰ぐことにした。",
+      "sentenceReading": "せんもんかのいけんをあおぐことにした。",
+      "sentenceKR": "전문가의 의견을 구하기로 했다."
+    },
+    {
+      "word": "垢",
+      "reading": "あか",
+      "meaningKR": "때, 오물",
+      "sentenceJP": "風呂で体の垢を落とした。",
+      "sentenceReading": "ふろでからだのあかをおとした。",
+      "sentenceKR": "목욕하면서 몸의 때를 벗겼다."
+    },
+    {
+      "word": "赤字",
+      "reading": "あかじ",
+      "meaningKR": "적자",
+      "sentenceJP": "今月も会社は赤字だった。",
+      "sentenceReading": "こんげつもかいしゃはあかじだった。",
+      "sentenceKR": "이번 달에도 회사는 적자였다."
+    },
+    {
+      "word": "明かす",
+      "reading": "あかす",
+      "meaningKR": "밝히다, 밤을 새우다",
+      "sentenceJP": "彼は皆の前で秘密を明かした。",
+      "sentenceReading": "かれはみんなのまえでひみつをあかした。",
+      "sentenceKR": "그는 모두 앞에서 비밀을 밝혔다."
+    },
+    {
+      "word": "赤らむ",
+      "reading": "あからむ",
+      "meaningKR": "붉어지다, 얼굴을 붉히다",
+      "sentenceJP": "褒められて彼女の頬が赤らんだ。",
+      "sentenceReading": "ほめられてかのじょのほおがあからんだ。",
+      "sentenceKR": "칭찬을 받자 그녀의 볼이 붉어졌다."
+    },
+    {
+      "word": "上がり",
+      "reading": "あがり",
+      "meaningKR": "상승, 수입, 완료",
+      "sentenceJP": "今日の仕事はこれで上がりだ。",
+      "sentenceReading": "きょうのしごとはこれであがりだ。",
+      "sentenceKR": "오늘 일은 이것으로 끝이다."
+    },
+    {
+      "word": "諦め",
+      "reading": "あきらめ",
+      "meaningKR": "체념, 단념",
+      "sentenceJP": "時には諦めも肝心だ。",
+      "sentenceReading": "ときにはあきらめもかんじんだ。",
+      "sentenceKR": "때로는 포기도 중요하다."
+    },
+    {
+      "word": "アクセル",
+      "reading": "アクセル",
+      "meaningKR": "가속 페달",
+      "sentenceJP": "アクセルをゆっくり踏んだ。",
+      "sentenceReading": "あくせるをゆっくりふんだ。",
+      "sentenceKR": "가속 페달을 천천히 밟았다."
+    },
+    {
+      "word": "あくどい",
+      "reading": "あくどい",
+      "meaningKR": "악랄하고 야한",
+      "sentenceJP": "あくどい商売には関わるな。",
+      "sentenceReading": "あくどいしょうばいにはかかわるな。",
+      "sentenceKR": "악랄한 장사에는 관여하지 마라."
+    },
+    {
+      "word": "顎",
+      "reading": "あご",
+      "meaningKR": "턱",
+      "sentenceJP": "転んで顎を強く打った。",
+      "sentenceReading": "ころんであごをつよくうった。",
+      "sentenceKR": "넘어져서 턱을 세게 부딪쳤다."
+    },
+    {
+      "word": "憧れ",
+      "reading": "あこがれ",
+      "meaningKR": "동경, 선망",
+      "sentenceJP": "海外で働くことへの憧れがある。",
+      "sentenceReading": "かいがいではたらくことへのあこがれがある。",
+      "sentenceKR": "해외에서 일하는 것에 대한 동경이 있다."
+    },
+    {
+      "word": "麻",
+      "reading": "あさ",
+      "meaningKR": "삼, 마",
+      "sentenceJP": "この服は麻で作られている。",
+      "sentenceReading": "このふくはあさでつくられている。",
+      "sentenceKR": "이 옷은 삼으로 만들어졌다."
+    },
+    {
+      "word": "あざ",
+      "reading": "あざ",
+      "meaningKR": "멍, 반점",
+      "sentenceJP": "腕に大きなあざができた。",
+      "sentenceReading": "うでにおおきなあざができた。",
+      "sentenceKR": "팔에 큰 멍이 들었다."
+    },
+    {
+      "word": "浅ましい",
+      "reading": "あさましい",
+      "meaningKR": "비열하다, 한심하다",
+      "sentenceJP": "弱者を欺くとは浅ましい。",
+      "sentenceReading": "じゃくしゃをあざむくとはあさましい。",
+      "sentenceKR": "약자를 속이다니 비열하다."
+    },
+    {
+      "word": "欺く",
+      "reading": "あざむく",
+      "meaningKR": "속이다, 기만하다",
+      "sentenceJP": "巧みな話術で客を欺いた。",
+      "sentenceReading": "たくみなわじゅつできゃくをあざむいた。",
+      "sentenceKR": "능숙한 화술로 손님을 속였다."
+    },
+    {
+      "word": "鮮やか",
+      "reading": "あざやか",
+      "meaningKR": "선명하다, 생생하다",
+      "sentenceJP": "鮮やかな夕焼けに見とれた。",
+      "sentenceReading": "あざやかなゆうやけにみとれた。",
+      "sentenceKR": "선명한 저녁놀에 넋을 잃었다."
+    },
+    {
+      "word": "嘲笑う",
+      "reading": "あざわらう",
+      "meaningKR": "비웃다, 조롱하다",
+      "sentenceJP": "他人の失敗を嘲笑ってはいけない。",
+      "sentenceReading": "たにんのしっぱいをあざわらってはいけない。",
+      "sentenceKR": "남의 실패를 비웃어서는 안 된다."
+    },
+    {
+      "word": "悪しからず",
+      "reading": "あしからず",
+      "meaningKR": "나쁘게 생각하지 말길, 양해 바람",
+      "sentenceJP": "今回は欠席しますが、悪しからず。",
+      "sentenceReading": "こんかいはけっせきしますが、あしからず。",
+      "sentenceKR": "이번에는 결석하니 부디 양해 바랍니다."
+    },
+    {
+      "word": "味わい",
+      "reading": "あじわい",
+      "meaningKR": "풍미, 운치",
+      "sentenceJP": "古い木材ならではの味わいがある。",
+      "sentenceReading": "ふるいもくざいならではのあじわいがある。",
+      "sentenceKR": "오래된 목재만의 운치가 있다."
+    },
+    {
+      "word": "焦る",
+      "reading": "あせる",
+      "meaningKR": "초조해하다, 조급해하다",
+      "sentenceJP": "結果を急いで焦る必要はない。",
+      "sentenceReading": "けっかをいそいであせるひつようはない。",
+      "sentenceKR": "결과를 서두르며 초조해할 필요는 없다."
+    },
+    {
+      "word": "あせる (こえが～)",
+      "reading": "あせる (こえが～)",
+      "meaningKR": "바래다, 퇴색하다",
+      "sentenceJP": "日差しでカーテンの色があせた。",
+      "sentenceReading": "ひざしでかあてんのいろがあせた。",
+      "sentenceKR": "햇빛 때문에 커튼 색이 바랬다."
     }
   ]
 }
