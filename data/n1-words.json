@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-13T02:22:07.180Z",
-  "count": 1125,
+  "generatedAt": "2026-10-14T00:04:46.008Z",
+  "count": 1170,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -9004,6 +9004,366 @@
       "sentenceJP": "彼の説明はてんで分からない。",
       "sentenceReading": "かれのせつめいはてんでわからない。",
       "sentenceKR": "그의 설명은 도무지 이해할 수 없다."
+    },
+    {
+      "word": "転任",
+      "reading": "てんにん",
+      "meaningKR": "전임, 전근",
+      "sentenceJP": "父は大阪支社へ転任した。",
+      "sentenceReading": "ちちはおおさかししゃへてんにんした。",
+      "sentenceKR": "아버지는 오사카 지사로 전근했다."
+    },
+    {
+      "word": "展望",
+      "reading": "てんぼう",
+      "meaningKR": "전망, 조망",
+      "sentenceJP": "山頂からの展望は素晴らしい。",
+      "sentenceReading": "さんちょうからのてんぼうはすばらしい。",
+      "sentenceKR": "산 정상에서의 전망은 훌륭하다."
+    },
+    {
+      "word": "伝来",
+      "reading": "でんらい",
+      "meaningKR": "전래, 외부에서 전해짐",
+      "sentenceJP": "仏教は大陸から日本へ伝来した。",
+      "sentenceReading": "ぶっきょうはたいりくからにほんへでんらいした。",
+      "sentenceKR": "불교는 대륙에서 일본으로 전래되었다."
+    },
+    {
+      "word": "転落",
+      "reading": "てんらく",
+      "meaningKR": "추락, 전락",
+      "sentenceJP": "彼は階段から転落した。",
+      "sentenceReading": "かれはかいだんからてんらくした。",
+      "sentenceKR": "그는 계단에서 추락했다."
+    },
+    {
+      "word": "問い合わせる",
+      "reading": "といあわせる",
+      "meaningKR": "문의하다",
+      "sentenceJP": "詳細は窓口に問い合わせてください。",
+      "sentenceReading": "しょうさいはまどぐちにといあわせてください。",
+      "sentenceKR": "자세한 내용은 창구에 문의해 주세요."
+    },
+    {
+      "word": "当～",
+      "reading": "とう～",
+      "meaningKR": "당사·당점 등의 ‘당(當)’",
+      "sentenceJP": "当ホテルでは朝食を無料で提供します。",
+      "sentenceReading": "とうほてるではちょうしょくをむりょうでていきょうします。",
+      "sentenceKR": "저희 호텔에서는 조식을 무료로 제공합니다."
+    },
+    {
+      "word": "胴",
+      "reading": "どう",
+      "meaningKR": "몸통, 동체",
+      "sentenceJP": "胴に太い帯を巻いた。",
+      "sentenceReading": "どうにふといおびをまいた。",
+      "sentenceKR": "몸통에 굵은 띠를 둘렀다."
+    },
+    {
+      "word": "同意",
+      "reading": "どうい",
+      "meaningKR": "동의, 승낙",
+      "sentenceJP": "提案に全員が同意した。",
+      "sentenceReading": "ていあんにぜんいんがどういした。",
+      "sentenceKR": "제안에 전원이 동의했다."
+    },
+    {
+      "word": "動員",
+      "reading": "どういん",
+      "meaningKR": "동원",
+      "sentenceJP": "救助隊を総動員して捜索した。",
+      "sentenceReading": "きゅうじょたいをそうどういんしてそうさくした。",
+      "sentenceKR": "구조대를 총동원해 수색했다."
+    },
+    {
+      "word": "同感",
+      "reading": "どうかん",
+      "meaningKR": "동감, 같은 생각",
+      "sentenceJP": "私も彼の意見には同感だ。",
+      "sentenceReading": "わたしもかれのいけんにはどうかんだ。",
+      "sentenceKR": "나도 그의 의견에 동감한다."
+    },
+    {
+      "word": "陶器",
+      "reading": "とうき",
+      "meaningKR": "도기, 도자기",
+      "sentenceJP": "この町は陶器の生産で有名だ。",
+      "sentenceReading": "このまちはとうきのせいさんでゆうめいだ。",
+      "sentenceKR": "이 마을은 도자기 생산으로 유명하다."
+    },
+    {
+      "word": "討議",
+      "reading": "とうぎ",
+      "meaningKR": "토의, 논의",
+      "sentenceJP": "委員会で新制度を討議した。",
+      "sentenceReading": "いいんかいでしんせいどをとうぎした。",
+      "sentenceKR": "위원회에서 새 제도를 논의했다."
+    },
+    {
+      "word": "動機",
+      "reading": "どうき",
+      "meaningKR": "동기, 계기",
+      "sentenceJP": "犯行の動機はまだ不明だ。",
+      "sentenceReading": "はんこうのどうきはまだふめいだ。",
+      "sentenceKR": "범행 동기는 아직 불분명하다."
+    },
+    {
+      "word": "等級",
+      "reading": "とうきゅう",
+      "meaningKR": "등급, 계급",
+      "sentenceJP": "成績に応じて等級が決まる。",
+      "sentenceReading": "せいせきにおうじてとうきゅうがきまる。",
+      "sentenceKR": "성적에 따라 등급이 정해진다."
+    },
+    {
+      "word": "同級",
+      "reading": "どうきゅう",
+      "meaningKR": "같은 학년, 동급",
+      "sentenceJP": "彼とは高校で同級だった。",
+      "sentenceReading": "かれとはこうこうでどうきゅうだった。",
+      "sentenceKR": "그와는 고등학교에서 같은 학년이었다."
+    },
+    {
+      "word": "同居",
+      "reading": "どうきょ",
+      "meaningKR": "동거",
+      "sentenceJP": "祖母と同居している。",
+      "sentenceReading": "そぼとどうきょしている。",
+      "sentenceKR": "할머니와 함께 살고 있다."
+    },
+    {
+      "word": "登校",
+      "reading": "とうこう",
+      "meaningKR": "등교",
+      "sentenceJP": "毎朝八時に登校する。",
+      "sentenceReading": "まいあさはちじにとうこうする。",
+      "sentenceKR": "매일 아침 8시에 등교한다."
+    },
+    {
+      "word": "統合",
+      "reading": "とうごう",
+      "meaningKR": "통합",
+      "sentenceJP": "二つの部署を統合した。",
+      "sentenceReading": "ふたつのぶしょをとうごうした。",
+      "sentenceKR": "두 부서를 통합했다."
+    },
+    {
+      "word": "動向",
+      "reading": "どうこう",
+      "meaningKR": "동향",
+      "sentenceJP": "市場の動向を注視する。",
+      "sentenceReading": "しじょうのどうこうをちゅうしする。",
+      "sentenceKR": "시장의 동향을 주시한다."
+    },
+    {
+      "word": "投資",
+      "reading": "とうし",
+      "meaningKR": "투자",
+      "sentenceJP": "将来のために投資する。",
+      "sentenceReading": "しょうらいのためにとうしする。",
+      "sentenceKR": "미래를 위해 투자한다."
+    },
+    {
+      "word": "同情",
+      "reading": "どうじょう",
+      "meaningKR": "동정",
+      "sentenceJP": "彼の境遇に同情した。",
+      "sentenceReading": "かれのきょうぐうにどうじょうした。",
+      "sentenceKR": "그의 처지에 동정했다."
+    },
+    {
+      "word": "道場",
+      "reading": "どうじょう",
+      "meaningKR": "도장",
+      "sentenceJP": "放課後、道場で稽古する。",
+      "sentenceReading": "ほうかご、どうじょうでけいこする。",
+      "sentenceKR": "방과 후 도장에서 수련한다."
+    },
+    {
+      "word": "統制",
+      "reading": "とうせい",
+      "meaningKR": "통제",
+      "sentenceJP": "政府が情報を統制した。",
+      "sentenceReading": "せいふがじょうほうをとうせいした。",
+      "sentenceKR": "정부가 정보를 통제했다."
+    },
+    {
+      "word": "当選",
+      "reading": "とうせん",
+      "meaningKR": "당선",
+      "sentenceJP": "選挙で彼が当選した。",
+      "sentenceReading": "せんきょでかれがとうせんした。",
+      "sentenceKR": "선거에서 그가 당선되었다."
+    },
+    {
+      "word": "逃走",
+      "reading": "とうそう",
+      "meaningKR": "도주",
+      "sentenceJP": "容疑者は車で逃走した。",
+      "sentenceReading": "ようぎしゃはくるまでとうそうした。",
+      "sentenceKR": "용의자는 차로 도주했다."
+    },
+    {
+      "word": "統率",
+      "reading": "とうそつ",
+      "meaningKR": "통솔",
+      "sentenceJP": "彼には組織を統率する力がある。",
+      "sentenceReading": "かれにはそしきをとうそつするちからがある。",
+      "sentenceKR": "그에게는 조직을 통솔하는 힘이 있다."
+    },
+    {
+      "word": "到達",
+      "reading": "とうたつ",
+      "meaningKR": "도달",
+      "sentenceJP": "ようやく山頂に到達した。",
+      "sentenceReading": "ようやくさんちょうにとうたつした。",
+      "sentenceKR": "마침내 산 정상에 도달했다."
+    },
+    {
+      "word": "統治",
+      "reading": "とうち",
+      "meaningKR": "통치",
+      "sentenceJP": "国王が長年国を統治した。",
+      "sentenceReading": "こくおうがながねんくにをとうちした。",
+      "sentenceKR": "국왕이 오랫동안 나라를 통치했다."
+    },
+    {
+      "word": "仕切る",
+      "reading": "しきる",
+      "meaningKR": "구획하다",
+      "sentenceJP": "部屋をカーテンで仕切る。",
+      "sentenceReading": "へやをかーてんでしきる。",
+      "sentenceKR": "방을 커튼으로 나눈다."
+    },
+    {
+      "word": "資金",
+      "reading": "しきん",
+      "meaningKR": "자금",
+      "sentenceJP": "事業の資金を確保した。",
+      "sentenceReading": "じぎょうのしきんをかくほした。",
+      "sentenceKR": "사업 자금을 확보했다."
+    },
+    {
+      "word": "軸",
+      "reading": "じく",
+      "meaningKR": "축, 중심축",
+      "sentenceJP": "この計画は教育を軸に進める。",
+      "sentenceReading": "このけいかくはきょういくをじくにすすめる。",
+      "sentenceKR": "이 계획은 교육을 중심으로 추진한다."
+    },
+    {
+      "word": "しくじる",
+      "reading": "しくじる",
+      "meaningKR": "실패하다, 일을 그르치다",
+      "sentenceJP": "大事な面接でしくじった。",
+      "sentenceReading": "だいじなめんせつでしくじった。",
+      "sentenceKR": "중요한 면접에서 실수했다."
+    },
+    {
+      "word": "仕組",
+      "reading": "しくみ",
+      "meaningKR": "구조, 원리",
+      "sentenceJP": "この機械の仕組は単純だ。",
+      "sentenceReading": "このきかいのしくみはたんじゅんだ。",
+      "sentenceKR": "이 기계의 구조는 단순하다."
+    },
+    {
+      "word": "死刑",
+      "reading": "しけい",
+      "meaningKR": "사형",
+      "sentenceJP": "裁判所は被告に死刑を言い渡した。",
+      "sentenceReading": "さいばんしょはひこくにしけいをいいわたした。",
+      "sentenceKR": "법원은 피고에게 사형을 선고했다."
+    },
+    {
+      "word": "湿気る",
+      "reading": "しける",
+      "meaningKR": "눅눅해지다",
+      "sentenceJP": "海苔が湿気ってしまった。",
+      "sentenceReading": "のりがしけってしまった。",
+      "sentenceKR": "김이 눅눅해져 버렸다."
+    },
+    {
+      "word": "施行",
+      "reading": "しこう",
+      "meaningKR": "시행",
+      "sentenceJP": "新法は来月から施行される。",
+      "sentenceReading": "しんぽうはらいげつからしこうされる。",
+      "sentenceKR": "새 법은 다음 달부터 시행된다."
+    },
+    {
+      "word": "思考",
+      "reading": "しこう",
+      "meaningKR": "사고, 사유",
+      "sentenceJP": "深い思考が解決策を生む。",
+      "sentenceReading": "ふかいしこうがかいけつさくをうむ。",
+      "sentenceKR": "깊은 사고가 해결책을 낳는다."
+    },
+    {
+      "word": "志向",
+      "reading": "しこう",
+      "meaningKR": "지향",
+      "sentenceJP": "健康志向の商品が増えた。",
+      "sentenceReading": "けんこうしこうのしょうひんがふえた。",
+      "sentenceKR": "건강 지향 상품이 늘었다."
+    },
+    {
+      "word": "嗜好",
+      "reading": "しこう",
+      "meaningKR": "기호, 취향",
+      "sentenceJP": "食の嗜好は人によって異なる。",
+      "sentenceReading": "しょくのしこうはひとによってことなる。",
+      "sentenceKR": "음식 취향은 사람마다 다르다."
+    },
+    {
+      "word": "事項",
+      "reading": "じこう",
+      "meaningKR": "사항, 항목",
+      "sentenceJP": "必要事項を用紙に記入する。",
+      "sentenceReading": "ひつようじこうをようしにきにゅうする。",
+      "sentenceKR": "필요 사항을 용지에 기입한다."
+    },
+    {
+      "word": "時刻表",
+      "reading": "じこくひょう",
+      "meaningKR": "시간표, 운행표",
+      "sentenceJP": "時刻表で発車時刻を確認した。",
+      "sentenceReading": "じこくひょうではっしゃじこくをかくにんした。",
+      "sentenceKR": "시간표로 출발 시각을 확인했다."
+    },
+    {
+      "word": "地獄",
+      "reading": "じごく",
+      "meaningKR": "지옥",
+      "sentenceJP": "締め切り前は地獄だった。",
+      "sentenceReading": "しめきりまえはじごくだった。",
+      "sentenceKR": "마감 전은 지옥 같았다."
+    },
+    {
+      "word": "時差",
+      "reading": "じさ",
+      "meaningKR": "시차",
+      "sentenceJP": "日本との時差は二時間だ。",
+      "sentenceReading": "にほんとのじさはにじかんだ。",
+      "sentenceKR": "일본과의 시차는 두 시간이다."
+    },
+    {
+      "word": "自在",
+      "reading": "じざい",
+      "meaningKR": "자유자재",
+      "sentenceJP": "彼は三か国語を自在に操る。",
+      "sentenceReading": "かれはさんかこくごをじざいにあやつる。",
+      "sentenceKR": "그는 3개 국어를 자유자재로 구사한다."
+    },
+    {
+      "word": "視察",
+      "reading": "しさつ",
+      "meaningKR": "시찰",
+      "sentenceJP": "大臣が被災地を視察した。",
+      "sentenceReading": "だいじんがひさいちをしさつした。",
+      "sentenceKR": "장관이 재해 지역을 시찰했다."
     }
   ]
 }
