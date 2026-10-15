@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-14T23:36:49.790Z",
-  "count": 1215,
+  "generatedAt": "2026-10-15T23:30:50.333Z",
+  "count": 1260,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -9724,6 +9724,366 @@
       "sentenceJP": "日差しでカーテンの色があせた。",
       "sentenceReading": "ひざしでかあてんのいろがあせた。",
       "sentenceKR": "햇빛 때문에 커튼 색이 바랬다."
+    },
+    {
+      "word": "値",
+      "reading": "あたい",
+      "meaningKR": "가치, 값",
+      "sentenceJP": "この絵には高い値がある。",
+      "sentenceReading": "このえにはたかいあたいがある。",
+      "sentenceKR": "이 그림에는 높은 가치가 있다."
+    },
+    {
+      "word": "値する",
+      "reading": "あたいする",
+      "meaningKR": "가치가 있다, 자격이 있다",
+      "sentenceJP": "彼の勇気は称賛に値する。",
+      "sentenceReading": "かれのゆうきはしょうさんにあたいする。",
+      "sentenceKR": "그의 용기는 칭찬받을 만하다."
+    },
+    {
+      "word": "悪化",
+      "reading": "あっか",
+      "meaningKR": "악화",
+      "sentenceJP": "病状が急速に悪化した。",
+      "sentenceReading": "びょうじょうがきゅうそくにあっかした。",
+      "sentenceKR": "병세가 급속히 악화되었다."
+    },
+    {
+      "word": "扱い",
+      "reading": "あつかい",
+      "meaningKR": "대우, 취급",
+      "sentenceJP": "客への扱いが雑すぎる。",
+      "sentenceReading": "きゃくへのあつかいがざつすぎる。",
+      "sentenceKR": "손님을 대하는 태도가 너무 성의 없다."
+    },
+    {
+      "word": "呆気ない",
+      "reading": "あっけない",
+      "meaningKR": "허무하다, 싱겁다",
+      "sentenceJP": "試合は呆気なく終わった。",
+      "sentenceReading": "しあいはあっけなくおわった。",
+      "sentenceKR": "경기는 싱겁게 끝났다."
+    },
+    {
+      "word": "あっさり",
+      "reading": "あっさり",
+      "meaningKR": "쉽게, 선뜻",
+      "sentenceJP": "彼は要求をあっさり断った。",
+      "sentenceReading": "かれはようきゅうをあっさりことわった。",
+      "sentenceKR": "그는 요구를 단번에 거절했다."
+    },
+    {
+      "word": "斡旋",
+      "reading": "あっせん",
+      "meaningKR": "알선, 중개",
+      "sentenceJP": "就職先を斡旋してもらった。",
+      "sentenceReading": "しゅうしょくさきをあっせんしてもらった。",
+      "sentenceKR": "취직할 곳을 알선받았다."
+    },
+    {
+      "word": "圧倒",
+      "reading": "あっとう",
+      "meaningKR": "압도",
+      "sentenceJP": "相手を圧倒する演技だった。",
+      "sentenceReading": "あいてをあっとうするえんぎだった。",
+      "sentenceKR": "상대를 압도하는 연기였다."
+    },
+    {
+      "word": "圧迫",
+      "reading": "あっぱく",
+      "meaningKR": "압박, 억압",
+      "sentenceJP": "長時間の労働が生活を圧迫する。",
+      "sentenceReading": "ちょうじかんのろうどうがせいかつをあっぱくする。",
+      "sentenceKR": "장시간 노동이 생활을 압박한다."
+    },
+    {
+      "word": "あつらえる",
+      "reading": "あつらえる",
+      "meaningKR": "맞추어 주문하다",
+      "sentenceJP": "式のために礼服をあつらえた。",
+      "sentenceReading": "しきのためにれいふくをあつらえた。",
+      "sentenceKR": "행사를 위해 예복을 맞췄다."
+    },
+    {
+      "word": "圧力",
+      "reading": "あつりょく",
+      "meaningKR": "압력",
+      "sentenceJP": "政府に圧力をかけた。",
+      "sentenceReading": "せいふにあつりょくをかけた。",
+      "sentenceKR": "정부에 압력을 가했다."
+    },
+    {
+      "word": "当て",
+      "reading": "あて",
+      "meaningKR": "기대, 의지할 곳",
+      "sentenceJP": "彼の援助を当てにしている。",
+      "sentenceReading": "かれのえんじょをあてにしている。",
+      "sentenceKR": "그의 원조를 기대하고 있다."
+    },
+    {
+      "word": "～宛",
+      "reading": "～あて",
+      "meaningKR": "~앞, ~수신",
+      "sentenceJP": "山田様宛に手紙を送った。",
+      "sentenceReading": "やまださまあてにてがみをおくった。",
+      "sentenceKR": "야마다 님 앞으로 편지를 보냈다."
+    },
+    {
+      "word": "当て字",
+      "reading": "あてじ",
+      "meaningKR": "음차 표기, 차자",
+      "sentenceJP": "亜米利加はアメリカの当て字だ。",
+      "sentenceReading": "あめりかはあめりかのあてじだ。",
+      "sentenceKR": "‘亜米利加’는 아메리카의 음차 표기다."
+    },
+    {
+      "word": "跡継ぎ",
+      "reading": "あとつぎ",
+      "meaningKR": "후계자, 상속자",
+      "sentenceJP": "彼が家業の跡継ぎに決まった。",
+      "sentenceReading": "かれがかぎょうのあとつぎにきまった。",
+      "sentenceKR": "그가 가업의 후계자로 결정되었다."
+    },
+    {
+      "word": "後回し",
+      "reading": "あとまわし",
+      "meaningKR": "미루기, 뒤로 돌림",
+      "sentenceJP": "面倒な仕事を後回しにした。",
+      "sentenceReading": "めんどうなしごとをあとまわしにした。",
+      "sentenceKR": "번거로운 일을 뒤로 미뤘다."
+    },
+    {
+      "word": "油絵",
+      "reading": "あぶらえ",
+      "meaningKR": "유화",
+      "sentenceJP": "趣味で風景の油絵を描く。",
+      "sentenceReading": "しゅみでふうけいのあぶらえをえがく。",
+      "sentenceKR": "취미로 풍경 유화를 그린다."
+    },
+    {
+      "word": "アプローチ",
+      "reading": "アプローチ",
+      "meaningKR": "어프로치 샷",
+      "sentenceJP": "彼はアプローチを正確に決めた。",
+      "sentenceReading": "かれはあぷろーちをせいかくにきめた。",
+      "sentenceKR": "그는 어프로치 샷을 정확히 성공시켰다."
+    },
+    {
+      "word": "あべこべ",
+      "reading": "あべこべ",
+      "meaningKR": "뒤바뀜, 정반대",
+      "sentenceJP": "靴を左右あべこべに履いていた。",
+      "sentenceReading": "くつをさゆうあべこべにはいていた。",
+      "sentenceKR": "신발을 좌우 반대로 신고 있었다."
+    },
+    {
+      "word": "甘える",
+      "reading": "あまえる",
+      "meaningKR": "응석부리다, 어리광을 피우다",
+      "sentenceJP": "いつまでも親に甘えてはいけない。",
+      "sentenceReading": "いつまでもおやにあまえてはいけない。",
+      "sentenceKR": "언제까지나 부모에게 응석을 부려서는 안 된다."
+    },
+    {
+      "word": "雨具",
+      "reading": "あまぐ",
+      "meaningKR": "우비, 방우 장비",
+      "sentenceJP": "雨具を忘れてずぶぬれになった。",
+      "sentenceReading": "あまぐをわすれてずぶぬれになった。",
+      "sentenceKR": "우비를 잊어버려 흠뻑 젖었다."
+    },
+    {
+      "word": "甘口",
+      "reading": "あまくち",
+      "meaningKR": "단맛, 순한 맛",
+      "sentenceJP": "私は甘口のカレーが好きだ。",
+      "sentenceReading": "わたしはあまくちのかれーがすきだ。",
+      "sentenceKR": "나는 순한 맛 카레를 좋아한다."
+    },
+    {
+      "word": "アマチュア",
+      "reading": "アマチュア",
+      "meaningKR": "아마추어",
+      "sentenceJP": "彼はアマチュア大会で優勝した。",
+      "sentenceReading": "かれはあまちゅあたいかいでゆうしょうした。",
+      "sentenceKR": "그는 아마추어 대회에서 우승했다."
+    },
+    {
+      "word": "網",
+      "reading": "あみ",
+      "meaningKR": "그물",
+      "sentenceJP": "漁師が海に大きな網を投げた。",
+      "sentenceReading": "りょうしがうみにおおきなあみをなげた。",
+      "sentenceKR": "어부가 바다에 큰 그물을 던졌다."
+    },
+    {
+      "word": "操る",
+      "reading": "あやつる",
+      "meaningKR": "조종하다, 교묘히 다루다",
+      "sentenceJP": "彼は巧みに人形を操った。",
+      "sentenceReading": "かれはたくみににんぎょうをあやつった。",
+      "sentenceKR": "그는 능숙하게 인형을 조종했다."
+    },
+    {
+      "word": "危ぶむ",
+      "reading": "あやぶむ",
+      "meaningKR": "우려하다, 의심하다",
+      "sentenceJP": "専門家は計画の実現を危ぶんだ。",
+      "sentenceReading": "せんもんかはけいかくのじつげんをあやぶんだ。",
+      "sentenceKR": "전문가는 계획의 실현 가능성을 우려했다."
+    },
+    {
+      "word": "あやふや",
+      "reading": "あやふや",
+      "meaningKR": "불확실함, 애매함",
+      "sentenceJP": "あやふやな返事では困る。",
+      "sentenceReading": "あやふやなへんじではこまる。",
+      "sentenceKR": "애매한 대답으로는 곤란하다."
+    },
+    {
+      "word": "過ち",
+      "reading": "あやまち",
+      "meaningKR": "잘못, 과오",
+      "sentenceJP": "過ちを認めて素直に謝った。",
+      "sentenceReading": "あやまちをみとめてすなおにあやまった。",
+      "sentenceKR": "잘못을 인정하고 솔직하게 사과했다."
+    },
+    {
+      "word": "誤る",
+      "reading": "あやまる",
+      "meaningKR": "잘못하다, 그르치다",
+      "sentenceJP": "判断を誤ると大事故につながる。",
+      "sentenceReading": "はんだんをあやまるとだいじこにつながる。",
+      "sentenceKR": "판단을 그르치면 큰 사고로 이어진다."
+    },
+    {
+      "word": "歩み",
+      "reading": "あゆみ",
+      "meaningKR": "발걸음, 진전, 역사",
+      "sentenceJP": "人類の歩みを振り返る。",
+      "sentenceReading": "じんるいのあゆみをふりかえる。",
+      "sentenceKR": "인류의 발자취를 되돌아본다."
+    },
+    {
+      "word": "歩む",
+      "reading": "あゆむ",
+      "meaningKR": "걷다, 나아가다",
+      "sentenceJP": "自分の道を一歩ずつ歩む。",
+      "sentenceReading": "じぶんのみちをいっぽずつあゆむ。",
+      "sentenceKR": "자신의 길을 한 걸음씩 나아간다."
+    },
+    {
+      "word": "予め",
+      "reading": "あらかじめ",
+      "meaningKR": "미리, 사전에",
+      "sentenceJP": "必要な資料を予め用意する。",
+      "sentenceReading": "ひつようなしりょうをあらかじめよういする。",
+      "sentenceKR": "필요한 자료를 미리 준비한다."
+    },
+    {
+      "word": "荒らす",
+      "reading": "あらす",
+      "meaningKR": "망가뜨리다, 침범하다",
+      "sentenceJP": "心ない客が店内を荒らした。",
+      "sentenceReading": "こころないきゃくがてんないをあらした。",
+      "sentenceKR": "몰지각한 손님이 가게 안을 엉망으로 만들었다."
+    },
+    {
+      "word": "争い",
+      "reading": "あらそい",
+      "meaningKR": "분쟁, 다툼, 갈등",
+      "sentenceJP": "小さな誤解が争いを生んだ。",
+      "sentenceReading": "ちいさなごかいがあらそいをうんだ。",
+      "sentenceKR": "작은 오해가 다툼을 낳았다."
+    },
+    {
+      "word": "改まる",
+      "reading": "あらたまる",
+      "meaningKR": "격식을 차리다, 새로워지다",
+      "sentenceJP": "改まった場では敬語を使う。",
+      "sentenceReading": "あらたまったばではけいごをつかう。",
+      "sentenceKR": "격식을 차리는 자리에서는 경어를 쓴다."
+    },
+    {
+      "word": "荒っぽい",
+      "reading": "あらっぽい",
+      "meaningKR": "거칠다, 난폭하다",
+      "sentenceJP": "彼は運転が少し荒っぽい。",
+      "sentenceReading": "かれはうんてんがすこしあらっぽい。",
+      "sentenceKR": "그는 운전이 조금 거칠다."
+    },
+    {
+      "word": "アラブ",
+      "reading": "アラブ",
+      "meaningKR": "아랍",
+      "sentenceJP": "彼はアラブの歴史を研究する。",
+      "sentenceReading": "かれはあらぶのれきしをけんきゅうする。",
+      "sentenceKR": "그는 아랍의 역사를 연구한다."
+    },
+    {
+      "word": "霰",
+      "reading": "あられ",
+      "meaningKR": "우박",
+      "sentenceJP": "突然、激しい霰が降り始めた。",
+      "sentenceReading": "とつぜん、はげしいあられがふりはじめた。",
+      "sentenceKR": "갑자기 거센 우박이 내리기 시작했다."
+    },
+    {
+      "word": "有り様",
+      "reading": "ありさま",
+      "meaningKR": "상태, 형편",
+      "sentenceJP": "事故現場はひどい有り様だった。",
+      "sentenceReading": "じこげんばはひどいありさまだった。",
+      "sentenceKR": "사고 현장은 참혹한 상태였다."
+    },
+    {
+      "word": "ありのまま",
+      "reading": "ありのまま",
+      "meaningKR": "있는 그대로, 솔직하게",
+      "sentenceJP": "見たことをありのまま話した。",
+      "sentenceReading": "みたことをありのままはなした。",
+      "sentenceKR": "본 것을 있는 그대로 이야기했다."
+    },
+    {
+      "word": "ありふれる",
+      "reading": "ありふれる",
+      "meaningKR": "흔하다, 평범하다",
+      "sentenceJP": "ありふれた話にはもう飽きた。",
+      "sentenceReading": "ありふれたはなしにはもうあきた。",
+      "sentenceKR": "흔해 빠진 이야기는 이제 질렸다."
+    },
+    {
+      "word": "アルカリ",
+      "reading": "アルカリ",
+      "meaningKR": "알칼리",
+      "sentenceJP": "アルカリは酸を中和する。",
+      "sentenceReading": "あるかりはさんをちゅうわする。",
+      "sentenceKR": "알칼리는 산을 중화한다."
+    },
+    {
+      "word": "アルミ",
+      "reading": "アルミ",
+      "meaningKR": "알루미늄",
+      "sentenceJP": "この缶はアルミでできている。",
+      "sentenceReading": "このかんはあるみでできている。",
+      "sentenceKR": "이 캔은 알루미늄으로 만들어졌다."
+    },
+    {
+      "word": "アワー",
+      "reading": "アワー",
+      "meaningKR": "시간",
+      "sentenceJP": "一アワーの特番が放送される。",
+      "sentenceReading": "いちあわーのとくばんがほうそうされる。",
+      "sentenceKR": "한 시간짜리 특별 방송이 방영된다."
+    },
+    {
+      "word": "合わす",
+      "reading": "あわす",
+      "meaningKR": "합치다, 맞추다",
+      "sentenceJP": "皆で力を合わして難局を越えた。",
+      "sentenceReading": "みんなでちからをあわしてなんきょくをこえた。",
+      "sentenceKR": "모두 힘을 합쳐 난국을 헤쳐 나갔다."
     }
   ]
 }
