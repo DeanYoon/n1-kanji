@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-15T23:30:50.333Z",
-  "count": 1260,
+  "generatedAt": "2026-10-18T22:43:08.241Z",
+  "count": 1305,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -10084,6 +10084,366 @@
       "sentenceJP": "皆で力を合わして難局を越えた。",
       "sentenceReading": "みんなでちからをあわしてなんきょくをこえた。",
       "sentenceKR": "모두 힘을 합쳐 난국을 헤쳐 나갔다."
+    },
+    {
+      "word": "～合せ",
+      "reading": "～あわせ",
+      "meaningKR": "합쳐서, 총",
+      "sentenceJP": "三人合わせて百歳になる。",
+      "sentenceReading": "さんにんあわせてひゃくさいになる。",
+      "sentenceKR": "세 사람의 나이를 합치면 백 살이 된다."
+    },
+    {
+      "word": "アンコール",
+      "reading": "アンコール",
+      "meaningKR": "앙코르",
+      "sentenceJP": "アンコールに応えてもう一曲歌った。",
+      "sentenceReading": "あんこーるにこたえてもういっきょくうたった。",
+      "sentenceKR": "앙코르에 응해 한 곡 더 불렀다."
+    },
+    {
+      "word": "暗殺",
+      "reading": "あんさつ",
+      "meaningKR": "암살",
+      "sentenceJP": "大統領の暗殺計画が発覚した。",
+      "sentenceReading": "だいとうりょうのあんさつけいかくがはっかくした。",
+      "sentenceKR": "대통령 암살 계획이 발각되었다."
+    },
+    {
+      "word": "暗算",
+      "reading": "あんざん",
+      "meaningKR": "암산",
+      "sentenceJP": "彼は複雑な計算も暗算できる。",
+      "sentenceReading": "かれはふくざつなけいさんもあんざんできる。",
+      "sentenceKR": "그는 복잡한 계산도 암산할 수 있다."
+    },
+    {
+      "word": "暗示",
+      "reading": "あんじ",
+      "meaningKR": "암시, 시사",
+      "sentenceJP": "その発言は辞任を暗示している。",
+      "sentenceReading": "そのはつげんはじにんをあんじしている。",
+      "sentenceKR": "그 발언은 사임을 암시하고 있다."
+    },
+    {
+      "word": "案じる",
+      "reading": "あんじる",
+      "meaningKR": "걱정하다, 염려하다",
+      "sentenceJP": "母は息子の身を案じている。",
+      "sentenceReading": "はははむすこのみをあんじている。",
+      "sentenceKR": "어머니는 아들의 안위를 걱정하고 있다."
+    },
+    {
+      "word": "安静",
+      "reading": "あんせい",
+      "meaningKR": "안정, 휴식",
+      "sentenceJP": "医者に一週間の安静を命じられた。",
+      "sentenceReading": "いしゃにいっしゅうかんのあんせいをめいじられた。",
+      "sentenceKR": "의사에게 일주일간 안정을 취하라는 지시를 받았다."
+    },
+    {
+      "word": "案の定",
+      "reading": "あんのじょう",
+      "meaningKR": "아니나 다를까",
+      "sentenceJP": "案の定、電車に乗り遅れた。",
+      "sentenceReading": "あんのじょう、でんしゃにのりおくれた。",
+      "sentenceKR": "아니나 다를까 전철을 놓쳤다."
+    },
+    {
+      "word": "いい加減",
+      "reading": "いいかげん",
+      "meaningKR": "무책임한, 성의 없는",
+      "sentenceJP": "いい加減な返事はやめなさい。",
+      "sentenceReading": "いいかげんなへんじはやめなさい。",
+      "sentenceKR": "성의 없는 대답은 그만해라."
+    },
+    {
+      "word": "言い訳",
+      "reading": "いいわけ",
+      "meaningKR": "변명, 해명",
+      "sentenceJP": "遅刻の言い訳を考えた。",
+      "sentenceReading": "ちこくのいいわけをかんがえた。",
+      "sentenceKR": "지각에 대한 변명을 생각했다."
+    },
+    {
+      "word": "イェス",
+      "reading": "イェス",
+      "meaningKR": "예; 예수",
+      "sentenceJP": "彼は質問にイェスと答えた。",
+      "sentenceReading": "かれはしつもんにいぇすとこたえた。",
+      "sentenceKR": "그는 질문에 예라고 대답했다."
+    },
+    {
+      "word": "家出",
+      "reading": "いえで",
+      "meaningKR": "가출",
+      "sentenceJP": "彼は十六歳で家出した。",
+      "sentenceReading": "かれはじゅうろくさいでいえでした。",
+      "sentenceKR": "그는 열여섯 살에 가출했다."
+    },
+    {
+      "word": "生かす",
+      "reading": "いかす",
+      "meaningKR": "살리다, 활용하다",
+      "sentenceJP": "海外での経験を仕事に生かしたい。",
+      "sentenceReading": "かいがいでのけいけんをしごとにいかしたい。",
+      "sentenceKR": "해외에서의 경험을 일에 활용하고 싶다."
+    },
+    {
+      "word": "いかに",
+      "reading": "いかに",
+      "meaningKR": "어떻게, 얼마나",
+      "sentenceJP": "結果はいかに努力するかで決まる。",
+      "sentenceReading": "けっかはいかにどりょくするかできまる。",
+      "sentenceKR": "결과는 어떻게 노력하느냐에 따라 결정된다."
+    },
+    {
+      "word": "いかにも",
+      "reading": "いかにも",
+      "meaningKR": "정말로, 과연",
+      "sentenceJP": "彼はいかにも学者らしい。",
+      "sentenceReading": "かれはいかにもがくしゃらしい。",
+      "sentenceKR": "그는 정말 학자다운 모습이다."
+    },
+    {
+      "word": "異議",
+      "reading": "いぎ",
+      "meaningKR": "이의, 반대 의견",
+      "sentenceJP": "彼はその決定に異議を唱えた。",
+      "sentenceReading": "かれはそのけっていにいぎをとなえた。",
+      "sentenceKR": "그는 그 결정에 이의를 제기했다."
+    },
+    {
+      "word": "生き甲斐",
+      "reading": "いきがい",
+      "meaningKR": "삶의 보람",
+      "sentenceJP": "子育てが私の生き甲斐だ。",
+      "sentenceReading": "こそだてがわたしのいきがいだ。",
+      "sentenceKR": "아이를 키우는 것이 내 삶의 보람이다."
+    },
+    {
+      "word": "行き違い",
+      "reading": "いきちがい",
+      "meaningKR": "엇갈림, 오해",
+      "sentenceJP": "連絡の行き違いで会えなかった。",
+      "sentenceReading": "れんらくのいきちがいであえなかった。",
+      "sentenceKR": "연락이 엇갈려서 만나지 못했다."
+    },
+    {
+      "word": "意気込む",
+      "reading": "いきごむ",
+      "meaningKR": "의욕을 보이다",
+      "sentenceJP": "新事業に意気込んでいる。",
+      "sentenceReading": "しんじぎょうにいきごんでいる。",
+      "sentenceKR": "새 사업에 의욕을 보이고 있다."
+    },
+    {
+      "word": "育成",
+      "reading": "いくせい",
+      "meaningKR": "육성, 양성",
+      "sentenceJP": "若手選手の育成に力を注ぐ。",
+      "sentenceReading": "わかてせんしゅのいくせいにちからをそそぐ。",
+      "sentenceKR": "젊은 선수 육성에 힘을 쏟는다."
+    },
+    {
+      "word": "幾多",
+      "reading": "いくた",
+      "meaningKR": "수많은",
+      "sentenceJP": "幾多の困難を乗り越えた。",
+      "sentenceReading": "いくたのこんなんをのりこえた。",
+      "sentenceKR": "수많은 어려움을 극복했다."
+    },
+    {
+      "word": "(花を〜) 生ける, 活ける",
+      "reading": "(はなを～) いける",
+      "meaningKR": "꽃을 꽂다",
+      "sentenceJP": "彼女は玄関に花を生けた。",
+      "sentenceReading": "かのじょはげんかんにはなをいけた。",
+      "sentenceKR": "그녀는 현관에 꽃을 꽂았다."
+    },
+    {
+      "word": "異見",
+      "reading": "いけん",
+      "meaningKR": "다른 의견, 이견",
+      "sentenceJP": "会議で異見を率直に述べた。",
+      "sentenceReading": "かいぎでいけんをそっちょくにのべた。",
+      "sentenceKR": "회의에서 이견을 솔직하게 밝혔다."
+    },
+    {
+      "word": "意向",
+      "reading": "いこう",
+      "meaningKR": "의향, 뜻",
+      "sentenceJP": "ご本人の意向を確認します。",
+      "sentenceReading": "ごほんにんのいこうをかくにんします。",
+      "sentenceKR": "본인의 의향을 확인하겠습니다."
+    },
+    {
+      "word": "移行",
+      "reading": "いこう",
+      "meaningKR": "이행, 전환",
+      "sentenceJP": "新制度へ段階的に移行する。",
+      "sentenceReading": "しんせいどへだんかいてきにいこうする。",
+      "sentenceKR": "새 제도로 단계적으로 전환한다."
+    },
+    {
+      "word": "いざ",
+      "reading": "いざ",
+      "meaningKR": "막상, 만일의 순간",
+      "sentenceJP": "いざという時は私を呼んで。",
+      "sentenceReading": "いざというときはわたしをよんで。",
+      "sentenceKR": "정작 필요할 때는 나를 불러."
+    },
+    {
+      "word": "移住",
+      "reading": "いじゅう",
+      "meaningKR": "이주",
+      "sentenceJP": "家族で北海道へ移住した。",
+      "sentenceReading": "かぞくでほっかいどうへいじゅうした。",
+      "sentenceKR": "가족과 함께 홋카이도로 이주했다."
+    },
+    {
+      "word": "衣装",
+      "reading": "いしょう",
+      "meaningKR": "의상, 복장",
+      "sentenceJP": "舞台用の衣装を試着した。",
+      "sentenceReading": "ぶたいようのいしょうをしちゃくした。",
+      "sentenceKR": "무대용 의상을 입어 보았다."
+    },
+    {
+      "word": "いじる",
+      "reading": "いじる",
+      "meaningKR": "만지작거리다, 함부로 건드리다",
+      "sentenceJP": "勝手に設定をいじらないで。",
+      "sentenceReading": "かってにせっていをいじらないで。",
+      "sentenceKR": "마음대로 설정을 건드리지 마."
+    },
+    {
+      "word": "異性",
+      "reading": "いせい",
+      "meaningKR": "이성",
+      "sentenceJP": "異性との会話に緊張する。",
+      "sentenceReading": "いせいとのかいわにきんちょうする。",
+      "sentenceKR": "이성과 대화할 때 긴장한다."
+    },
+    {
+      "word": "遺跡",
+      "reading": "いせき",
+      "meaningKR": "유적",
+      "sentenceJP": "古代の遺跡を調査する。",
+      "sentenceReading": "こだいのいせきをちょうさする。",
+      "sentenceKR": "고대 유적을 조사한다."
+    },
+    {
+      "word": "依存",
+      "reading": "いぞん",
+      "meaningKR": "의존",
+      "sentenceJP": "スマホへの依存が深刻だ。",
+      "sentenceReading": "すまほへのいぞんがしんこくだ。",
+      "sentenceKR": "스마트폰 의존이 심각하다."
+    },
+    {
+      "word": "委託",
+      "reading": "いたく",
+      "meaningKR": "위탁",
+      "sentenceJP": "配送業務を外部に委託した。",
+      "sentenceReading": "はいそうぎょうむをがいぶにいたくした。",
+      "sentenceKR": "배송 업무를 외부에 위탁했다."
+    },
+    {
+      "word": "いたって",
+      "reading": "いたって",
+      "meaningKR": "매우",
+      "sentenceJP": "祖父はいたって元気です。",
+      "sentenceReading": "そふはいたってげんきです。",
+      "sentenceKR": "할아버지는 매우 건강하십니다."
+    },
+    {
+      "word": "出世",
+      "reading": "しゅっせ",
+      "meaningKR": "출세",
+      "sentenceJP": "彼は若くして出世した。",
+      "sentenceReading": "かれはわかくしてしゅっせした。",
+      "sentenceKR": "그는 젊은 나이에 출세했다."
+    },
+    {
+      "word": "出題",
+      "reading": "しゅつだい",
+      "meaningKR": "출제",
+      "sentenceJP": "試験に難問が出題された。",
+      "sentenceReading": "しけんになんもんがしゅつだいされた。",
+      "sentenceKR": "시험에 어려운 문제가 출제되었다."
+    },
+    {
+      "word": "出動",
+      "reading": "しゅつどう",
+      "meaningKR": "출동",
+      "sentenceJP": "消防隊が現場へ出動した。",
+      "sentenceReading": "しょうぼうたいがげんばへしゅつどうした。",
+      "sentenceKR": "소방대가 현장으로 출동했다."
+    },
+    {
+      "word": "出費",
+      "reading": "しゅっぴ",
+      "meaningKR": "지출",
+      "sentenceJP": "引っ越しで出費がかさんだ。",
+      "sentenceReading": "ひっこしでしゅっぴがかさんだ。",
+      "sentenceKR": "이사로 지출이 늘어났다."
+    },
+    {
+      "word": "出品",
+      "reading": "しゅっぴん",
+      "meaningKR": "출품",
+      "sentenceJP": "絵画を展覧会に出品する。",
+      "sentenceReading": "かいがをてんらんかいにしゅっぴんする。",
+      "sentenceKR": "그림을 전시회에 출품한다."
+    },
+    {
+      "word": "主導",
+      "reading": "しゅどう",
+      "meaningKR": "주도",
+      "sentenceJP": "政府主導で改革を進める。",
+      "sentenceReading": "せいふしゅどうでかいかくをすすめる。",
+      "sentenceKR": "정부 주도로 개혁을 추진한다."
+    },
+    {
+      "word": "主任",
+      "reading": "しゅにん",
+      "meaningKR": "주임, 책임자",
+      "sentenceJP": "彼女が新しい主任に就いた。",
+      "sentenceReading": "かのじょがあたらしいしゅにんについた。",
+      "sentenceKR": "그녀가 새 주임으로 취임했다."
+    },
+    {
+      "word": "首脳",
+      "reading": "しゅのう",
+      "meaningKR": "수뇌, 지도자",
+      "sentenceJP": "各国の首脳が東京に集まった。",
+      "sentenceReading": "かっこくのしゅのうがとうきょうにあつまった。",
+      "sentenceKR": "각국의 정상들이 도쿄에 모였다."
+    },
+    {
+      "word": "守備",
+      "reading": "しゅび",
+      "meaningKR": "수비",
+      "sentenceJP": "守備を固めて反撃を待つ。",
+      "sentenceReading": "しゅびをかためてはんげきをまつ。",
+      "sentenceKR": "수비를 강화하고 반격을 기다린다."
+    },
+    {
+      "word": "手法",
+      "reading": "しゅほう",
+      "meaningKR": "기법",
+      "sentenceJP": "独自の手法で問題を解いた。",
+      "sentenceReading": "どくじのしゅほうでもんだいをといた。",
+      "sentenceKR": "독자적인 기법으로 문제를 풀었다."
+    },
+    {
+      "word": "樹木",
+      "reading": "じゅもく",
+      "meaningKR": "수목",
+      "sentenceJP": "庭の樹木を丁寧に手入れする。",
+      "sentenceReading": "にわのじゅもくをていねいにていれする。",
+      "sentenceKR": "정원의 수목을 정성껏 가꾼다."
     }
   ]
 }
