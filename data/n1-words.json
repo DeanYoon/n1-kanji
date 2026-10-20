@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T22:43:08.241Z",
-  "count": 1305,
+  "generatedAt": "2026-10-20T00:04:33.761Z",
+  "count": 1350,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -10444,6 +10444,366 @@
       "sentenceJP": "庭の樹木を丁寧に手入れする。",
       "sentenceReading": "にわのじゅもくをていねいにていれする。",
       "sentenceKR": "정원의 수목을 정성껏 가꾼다."
+    },
+    {
+      "word": "樹立",
+      "reading": "じゅりつ",
+      "meaningKR": "수립, 확립",
+      "sentenceJP": "彼は新記録を樹立した。",
+      "sentenceReading": "かれはしんきろくをじゅりつした。",
+      "sentenceKR": "그는 신기록을 세웠다."
+    },
+    {
+      "word": "準急",
+      "reading": "じゅんきゅう",
+      "meaningKR": "준급행열차",
+      "sentenceJP": "準急で次の駅まで行く。",
+      "sentenceReading": "じゅんきゅうでつぎのえきまでいく。",
+      "sentenceKR": "준급행열차로 다음 역까지 간다."
+    },
+    {
+      "word": "準じる",
+      "reading": "じゅんじる",
+      "meaningKR": "따르다, 준하다",
+      "sentenceJP": "規則に準じて処理する。",
+      "sentenceReading": "きそくにじゅんじてしょりする。",
+      "sentenceKR": "규칙에 준하여 처리한다."
+    },
+    {
+      "word": "～署",
+      "reading": "～しょ",
+      "meaningKR": "서, 관서",
+      "sentenceJP": "警察署に届け出た。",
+      "sentenceReading": "けいさつしょにとどけでた。",
+      "sentenceKR": "경찰서에 신고했다."
+    },
+    {
+      "word": "～症",
+      "reading": "～しょう",
+      "meaningKR": "증, 질환",
+      "sentenceJP": "花粉症に悩んでいる。",
+      "sentenceReading": "かふんしょうになやんでいる。",
+      "sentenceKR": "꽃가루 알레르기로 고생하고 있다."
+    },
+    {
+      "word": "～証",
+      "reading": "～しょう",
+      "meaningKR": "증명서, 증",
+      "sentenceJP": "免許証を見せてください。",
+      "sentenceReading": "めんきょしょうをみせてください。",
+      "sentenceKR": "면허증을 보여 주세요."
+    },
+    {
+      "word": "～嬢",
+      "reading": "～じょう",
+      "meaningKR": "아가씨, 젊은 여성",
+      "sentenceJP": "受付嬢が笑顔で迎えた。",
+      "sentenceReading": "うけつけじょうがえがおでむかえた。",
+      "sentenceKR": "접수 담당 여성이 미소로 맞이했다."
+    },
+    {
+      "word": "上位",
+      "reading": "じょうい",
+      "meaningKR": "상위, 높은 순위",
+      "sentenceJP": "上位三名が決勝に進む。",
+      "sentenceReading": "じょういさんめいがけっしょうにすすむ。",
+      "sentenceKR": "상위 세 명이 결승에 진출한다."
+    },
+    {
+      "word": "上演",
+      "reading": "じょうえん",
+      "meaningKR": "상연, 공연",
+      "sentenceJP": "この劇は来月上演される。",
+      "sentenceReading": "このげきはらいげつじょうえんされる。",
+      "sentenceKR": "이 연극은 다음 달에 상연된다."
+    },
+    {
+      "word": "城下",
+      "reading": "じょうか",
+      "meaningKR": "성 주변 지역",
+      "sentenceJP": "城下に商人が集まった。",
+      "sentenceReading": "じょうかにしょうにんがあつまった。",
+      "sentenceKR": "성 아래 지역에 상인들이 모였다."
+    },
+    {
+      "word": "消去",
+      "reading": "しょうきょ",
+      "meaningKR": "삭제, 소거",
+      "sentenceJP": "不要な記録を消去した。",
+      "sentenceReading": "ふようなきろくをしょうきょした。",
+      "sentenceKR": "불필요한 기록을 삭제했다."
+    },
+    {
+      "word": "上空",
+      "reading": "じょうくう",
+      "meaningKR": "상공",
+      "sentenceJP": "飛行機が東京上空を飛ぶ。",
+      "sentenceReading": "ひこうきがとうきょうじょうくうをとぶ。",
+      "sentenceKR": "비행기가 도쿄 상공을 난다."
+    },
+    {
+      "word": "衝撃",
+      "reading": "しょうげき",
+      "meaningKR": "충격",
+      "sentenceJP": "その知らせに衝撃を受けた。",
+      "sentenceReading": "そのしらせにしょうげきをうけた。",
+      "sentenceKR": "그 소식에 충격을 받았다."
+    },
+    {
+      "word": "証言",
+      "reading": "しょうげん",
+      "meaningKR": "증언",
+      "sentenceJP": "目撃者が法廷で証言した。",
+      "sentenceReading": "もくげきしゃがほうていでしょうげんした。",
+      "sentenceKR": "목격자가 법정에서 증언했다."
+    },
+    {
+      "word": "証拠",
+      "reading": "しょうこ",
+      "meaningKR": "증거",
+      "sentenceJP": "犯行の証拠が見つかった。",
+      "sentenceReading": "はんこうのしょうこがみつかった。",
+      "sentenceKR": "범행의 증거가 발견되었다."
+    },
+    {
+      "word": "照合",
+      "reading": "しょうごう",
+      "meaningKR": "대조, 확인",
+      "sentenceJP": "書類を原本と照合した。",
+      "sentenceReading": "しょるいをげんぽんとしょうごうした。",
+      "sentenceKR": "서류를 원본과 대조했다."
+    },
+    {
+      "word": "詳細",
+      "reading": "しょうさい",
+      "meaningKR": "상세, 세부 사항",
+      "sentenceJP": "詳細は後ほどお知らせします。",
+      "sentenceReading": "しょうさいはのちほどおしらせします。",
+      "sentenceKR": "자세한 내용은 나중에 알려 드리겠습니다."
+    },
+    {
+      "word": "上昇",
+      "reading": "じょうしょう",
+      "meaningKR": "상승",
+      "sentenceJP": "気温が急激に上昇した。",
+      "sentenceReading": "きおんがきゅうげきにじょうしょうした。",
+      "sentenceKR": "기온이 급격히 상승했다."
+    },
+    {
+      "word": "昇進",
+      "reading": "しょうしん",
+      "meaningKR": "승진",
+      "sentenceJP": "彼は部長に昇進した。",
+      "sentenceReading": "かれはぶちょうにしょうしんした。",
+      "sentenceKR": "그는 부장으로 승진했다."
+    },
+    {
+      "word": "称する",
+      "reading": "しょうする",
+      "meaningKR": "칭하다, 자칭하다",
+      "sentenceJP": "自らを芸術家と称する。",
+      "sentenceReading": "みずからをげいじゅつかとしょうする。",
+      "sentenceKR": "스스로를 예술가라고 칭한다."
+    },
+    {
+      "word": "情勢",
+      "reading": "じょうせい",
+      "meaningKR": "정세, 상황",
+      "sentenceJP": "国際情勢は緊迫している。",
+      "sentenceReading": "こくさいじょうせいはきんぱくしている。",
+      "sentenceKR": "국제 정세가 긴박하다."
+    },
+    {
+      "word": "消息",
+      "reading": "しょうそく",
+      "meaningKR": "소식, 행방",
+      "sentenceJP": "彼の消息は今も不明だ。",
+      "sentenceReading": "かれのしょうそくはいまもふめいだ。",
+      "sentenceKR": "그의 행방은 지금도 알 수 없다."
+    },
+    {
+      "word": "承諾",
+      "reading": "しょうだく",
+      "meaningKR": "승낙, 동의",
+      "sentenceJP": "両親の承諾を得て留学した。",
+      "sentenceReading": "りょうしんのしょうだくをえてりゅうがくした。",
+      "sentenceKR": "부모님의 승낙을 얻어 유학했다."
+    },
+    {
+      "word": "情緒",
+      "reading": "じょうちょ",
+      "meaningKR": "정서, 감정",
+      "sentenceJP": "古都の情緒を味わう。",
+      "sentenceReading": "ことのじょうちょをあじわう。",
+      "sentenceKR": "옛 도읍의 정취를 느낀다."
+    },
+    {
+      "word": "情緒",
+      "reading": "じょうしょ",
+      "meaningKR": "정서, 감정",
+      "sentenceJP": "豊かな情緒を育む。",
+      "sentenceReading": "ゆたかなじょうしょをはぐくむ。",
+      "sentenceKR": "풍부한 정서를 기른다."
+    },
+    {
+      "word": "象徴",
+      "reading": "しょうちょう",
+      "meaningKR": "상징",
+      "sentenceJP": "鳩は平和の象徴だ。",
+      "sentenceReading": "はとはへいわのしょうちょうだ。",
+      "sentenceKR": "비둘기는 평화의 상징이다."
+    },
+    {
+      "word": "小児科",
+      "reading": "しょうにか",
+      "meaningKR": "소아과",
+      "sentenceJP": "息子を小児科に連れて行く。",
+      "sentenceReading": "むすこをしょうにかにつれていく。",
+      "sentenceKR": "아들을 소아과에 데려간다."
+    },
+    {
+      "word": "使用人",
+      "reading": "しようにん",
+      "meaningKR": "고용인, 하인",
+      "sentenceJP": "屋敷には使用人が三人いる。",
+      "sentenceReading": "やしきにはしようにんがさんにんいる。",
+      "sentenceKR": "저택에는 고용인이 세 명 있다."
+    },
+    {
+      "word": "情熱",
+      "reading": "じょうねつ",
+      "meaningKR": "열정, 열의",
+      "sentenceJP": "彼女は仕事に情熱を注ぐ。",
+      "sentenceReading": "かのじょはしごとにじょうねつをそそぐ。",
+      "sentenceKR": "그녀는 일에 열정을 쏟는다."
+    },
+    {
+      "word": "譲歩",
+      "reading": "じょうほ",
+      "meaningKR": "양보, 타협",
+      "sentenceJP": "双方が譲歩して合意に至った。",
+      "sentenceReading": "そうほうがじょうほしてごういにいたった。",
+      "sentenceKR": "양측이 양보하여 합의에 이르렀다."
+    },
+    {
+      "word": "条約",
+      "reading": "じょうやく",
+      "meaningKR": "조약, 협정",
+      "sentenceJP": "条約を両国が締結した。",
+      "sentenceReading": "じょうやくをりょうこくがていけつした。",
+      "sentenceKR": "양국이 조약을 체결했다."
+    },
+    {
+      "word": "勝利",
+      "reading": "しょうり",
+      "meaningKR": "승리",
+      "sentenceJP": "勝利を信じて戦い続ける。",
+      "sentenceReading": "しょうりをしんじてたたかいつづける。",
+      "sentenceKR": "승리를 믿고 계속 싸운다."
+    },
+    {
+      "word": "上陸",
+      "reading": "じょうりく",
+      "meaningKR": "상륙",
+      "sentenceJP": "船は無事に島へ上陸した。",
+      "sentenceReading": "ふねはぶじにしまへじょうりくした。",
+      "sentenceKR": "배는 무사히 섬에 상륙했다."
+    },
+    {
+      "word": "蒸溜",
+      "reading": "じょうりゅう",
+      "meaningKR": "증류",
+      "sentenceJP": "酒を蒸溜して香りを高める。",
+      "sentenceReading": "さけをじょうりゅうしてかおりをたかめる。",
+      "sentenceKR": "술을 증류해 향을 끌어올린다."
+    },
+    {
+      "word": "奨励",
+      "reading": "しょうれい",
+      "meaningKR": "장려, 권장",
+      "sentenceJP": "運動を奨励する制度がある。",
+      "sentenceReading": "うんどうをしょうれいするせいどがある。",
+      "sentenceKR": "운동을 장려하는 제도가 있다."
+    },
+    {
+      "word": "ショー",
+      "reading": "ショー",
+      "meaningKR": "쇼, 공연",
+      "sentenceJP": "華やかなショーが始まった。",
+      "sentenceReading": "はなやかなしょーがはじまった。",
+      "sentenceKR": "화려한 쇼가 시작되었다."
+    },
+    {
+      "word": "除外",
+      "reading": "じょがい",
+      "meaningKR": "제외, 배제",
+      "sentenceJP": "未経験者は選考から除外する。",
+      "sentenceReading": "みけいけんしゃはせんこうからじょがいする。",
+      "sentenceKR": "경험이 없는 사람은 선발에서 제외한다."
+    },
+    {
+      "word": "職員",
+      "reading": "しょくいん",
+      "meaningKR": "직원",
+      "sentenceJP": "市の職員が窓口で対応した。",
+      "sentenceReading": "しのしょくいんがまどぐちでたいおうした。",
+      "sentenceKR": "시청 직원이 창구에서 응대했다."
+    },
+    {
+      "word": "植民地",
+      "reading": "しょくみんち",
+      "meaningKR": "식민지",
+      "sentenceJP": "その国は長く植民地だった。",
+      "sentenceReading": "そのくにはながくしょくみんちだった。",
+      "sentenceKR": "그 나라는 오랫동안 식민지였다."
+    },
+    {
+      "word": "職務",
+      "reading": "しょくむ",
+      "meaningKR": "직무, 업무",
+      "sentenceJP": "職務を忠実に遂行する。",
+      "sentenceReading": "しょくむをちゅうじつにすいこうする。",
+      "sentenceKR": "직무를 충실히 수행한다."
+    },
+    {
+      "word": "諸君",
+      "reading": "しょくん",
+      "meaningKR": "여러분, 제군",
+      "sentenceJP": "諸君の健闘を心から祈る。",
+      "sentenceReading": "しょくんのけんとうをこころからいのる。",
+      "sentenceKR": "여러분의 선전을 진심으로 기원한다."
+    },
+    {
+      "word": "助言",
+      "reading": "じょげん",
+      "meaningKR": "조언, 충고",
+      "sentenceJP": "専門家から助言を受けた。",
+      "sentenceReading": "せんもんかからじょげんをうけた。",
+      "sentenceKR": "전문가에게 조언을 받았다."
+    },
+    {
+      "word": "徐行",
+      "reading": "じょこう",
+      "meaningKR": "서행",
+      "sentenceJP": "校内では徐行してください。",
+      "sentenceReading": "こうないではじょこうしてください。",
+      "sentenceKR": "교내에서는 서행해 주세요."
+    },
+    {
+      "word": "所在",
+      "reading": "しょざい",
+      "meaningKR": "소재, 행방",
+      "sentenceJP": "容疑者の所在を確認した。",
+      "sentenceReading": "ようぎしゃのしょざいをかくにんした。",
+      "sentenceKR": "용의자의 소재를 확인했다."
+    },
+    {
+      "word": "所持",
+      "reading": "しょじ",
+      "meaningKR": "소지, 보유",
+      "sentenceJP": "刃物の所持は禁止されている。",
+      "sentenceReading": "はもののしょじはきんしされている。",
+      "sentenceKR": "흉기의 소지는 금지되어 있다."
     }
   ]
 }
