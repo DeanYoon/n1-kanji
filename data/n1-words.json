@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-20T00:04:33.761Z",
-  "count": 1350,
+  "generatedAt": "2026-10-20T23:35:52.845Z",
+  "count": 1395,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -10804,6 +10804,366 @@
       "sentenceJP": "刃物の所持は禁止されている。",
       "sentenceReading": "はもののしょじはきんしされている。",
       "sentenceKR": "흉기의 소지는 금지되어 있다."
+    },
+    {
+      "word": "所属",
+      "reading": "しょぞく",
+      "meaningKR": "소속",
+      "sentenceJP": "研究所に所属しています。",
+      "sentenceReading": "けんきゅうじょにしょぞくしています。",
+      "sentenceKR": "연구소에 소속되어 있습니다."
+    },
+    {
+      "word": "処置",
+      "reading": "しょち",
+      "meaningKR": "처치",
+      "sentenceJP": "傷口に適切な処置を施した。",
+      "sentenceReading": "きずぐちにてきせつなしょちをほどこした。",
+      "sentenceKR": "상처에 적절한 처치를 했다."
+    },
+    {
+      "word": "しょっちゅう",
+      "reading": "しょっちゅう",
+      "meaningKR": "늘, 자주",
+      "sentenceJP": "彼はしょっちゅう遅刻する。",
+      "sentenceReading": "かれはしょっちゅうちこくする。",
+      "sentenceKR": "그는 툭하면 지각한다."
+    },
+    {
+      "word": "所定",
+      "reading": "しょてい",
+      "meaningKR": "소정, 규정된 것",
+      "sentenceJP": "所定の用紙に記入してください。",
+      "sentenceReading": "しょていのようしにきにゅうしてください。",
+      "sentenceKR": "소정의 용지에 기입해 주세요."
+    },
+    {
+      "word": "所得",
+      "reading": "しょとく",
+      "meaningKR": "소득",
+      "sentenceJP": "所得に応じて税金が決まる。",
+      "sentenceReading": "しょとくにおうじてぜいきんがきまる。",
+      "sentenceKR": "소득에 따라 세금이 정해진다."
+    },
+    {
+      "word": "処罰",
+      "reading": "しょばつ",
+      "meaningKR": "처벌",
+      "sentenceJP": "違反者は厳しく処罰された。",
+      "sentenceReading": "いはんしゃはきびしくしょばつされた。",
+      "sentenceKR": "위반자는 엄하게 처벌받았다."
+    },
+    {
+      "word": "初版",
+      "reading": "しょはん",
+      "meaningKR": "초판",
+      "sentenceJP": "この本の初版は完売した。",
+      "sentenceReading": "このほんのしょはんはかんばいした。",
+      "sentenceKR": "이 책의 초판은 매진되었다."
+    },
+    {
+      "word": "書評",
+      "reading": "しょひょう",
+      "meaningKR": "서평",
+      "sentenceJP": "新聞に書評が掲載された。",
+      "sentenceReading": "しんぶんにしょひょうがけいさいされた。",
+      "sentenceKR": "신문에 서평이 실렸다."
+    },
+    {
+      "word": "処分",
+      "reading": "しょぶん",
+      "meaningKR": "처분",
+      "sentenceJP": "古い家具を処分した。",
+      "sentenceReading": "ふるいかぐをしょぶんした。",
+      "sentenceKR": "낡은 가구를 처분했다."
+    },
+    {
+      "word": "庶民",
+      "reading": "しょみん",
+      "meaningKR": "서민, 일반 대중",
+      "sentenceJP": "庶民の暮らしを描いた小説だ。",
+      "sentenceReading": "しょみんのくらしをえがいたしょうせつだ。",
+      "sentenceKR": "서민의 삶을 그린 소설이다."
+    },
+    {
+      "word": "庶務",
+      "reading": "しょむ",
+      "meaningKR": "서무, 일반 사무",
+      "sentenceJP": "庶務の仕事を担当している。",
+      "sentenceReading": "しょむのしごとをたんとうしている。",
+      "sentenceKR": "서무 업무를 담당하고 있다."
+    },
+    {
+      "word": "所有",
+      "reading": "しょゆう",
+      "meaningKR": "소유, 소유권",
+      "sentenceJP": "彼は複数の土地を所有している。",
+      "sentenceReading": "かれはふくすうのとちをしょゆうしている。",
+      "sentenceKR": "그는 여러 토지를 소유하고 있다."
+    },
+    {
+      "word": "調べ",
+      "reading": "しらべ",
+      "meaningKR": "조사",
+      "sentenceJP": "警察の調べで真相が判明した。",
+      "sentenceReading": "けいさつのしらべでしんそうがはんめいした。",
+      "sentenceKR": "경찰 조사로 진상이 밝혀졌다."
+    },
+    {
+      "word": "自立",
+      "reading": "じりつ",
+      "meaningKR": "자립, 독립",
+      "sentenceJP": "経済的な自立を目指している。",
+      "sentenceReading": "けいざいてきなじりつをめざしている。",
+      "sentenceKR": "경제적 자립을 목표로 하고 있다."
+    },
+    {
+      "word": "記す",
+      "reading": "しるす",
+      "meaningKR": "기록하다, 적다",
+      "sentenceJP": "名前と住所をここに記す。",
+      "sentenceReading": "なまえとじゅうしょをここにしるす。",
+      "sentenceKR": "이름과 주소를 여기에 적는다."
+    },
+    {
+      "word": "指令",
+      "reading": "しれい",
+      "meaningKR": "명령, 지시",
+      "sentenceJP": "指令を受け、すぐ現場へ向かった。",
+      "sentenceReading": "しれいをうけ、すぐげんばへむかった。",
+      "sentenceKR": "지시를 받고 곧바로 현장으로 향했다."
+    },
+    {
+      "word": "～心",
+      "reading": "～しん",
+      "meaningKR": "~하려는 마음, ~심",
+      "sentenceJP": "彼は強い探究心を持っている。",
+      "sentenceReading": "かれはつよいたんきゅうしんをもっている。",
+      "sentenceKR": "그는 강한 탐구심을 지니고 있다."
+    },
+    {
+      "word": "陣",
+      "reading": "じん",
+      "meaningKR": "진영, 진지",
+      "sentenceJP": "敵は山中に陣を構えた。",
+      "sentenceReading": "てきはさんちゅうにじんをかまえた。",
+      "sentenceKR": "적은 산속에 진을 쳤다."
+    },
+    {
+      "word": "進化",
+      "reading": "しんか",
+      "meaningKR": "진화, 발전",
+      "sentenceJP": "技術は日々進化している。",
+      "sentenceReading": "ぎじゅつはひびしんかしている。",
+      "sentenceKR": "기술은 나날이 진화하고 있다."
+    },
+    {
+      "word": "人格",
+      "reading": "じんかく",
+      "meaningKR": "인격, 품성",
+      "sentenceJP": "彼は優れた人格の持ち主だ。",
+      "sentenceReading": "かれはすぐれたじんかくのもちぬしだ。",
+      "sentenceKR": "그는 훌륭한 인격의 소유자다."
+    },
+    {
+      "word": "審議",
+      "reading": "しんぎ",
+      "meaningKR": "심의",
+      "sentenceJP": "法案の審議が国会で始まった。",
+      "sentenceReading": "ほうあんのしんぎがこっかいではじまった。",
+      "sentenceKR": "법안 심의가 국회에서 시작되었다."
+    },
+    {
+      "word": "新婚",
+      "reading": "しんこん",
+      "meaningKR": "신혼",
+      "sentenceJP": "二人は新婚生活を楽しんでいる。",
+      "sentenceReading": "ふたりはしんこんせいかつをたのしんでいる。",
+      "sentenceKR": "두 사람은 신혼 생활을 즐기고 있다."
+    },
+    {
+      "word": "審査",
+      "reading": "しんさ",
+      "meaningKR": "심사, 검사",
+      "sentenceJP": "書類審査に無事合格した。",
+      "sentenceReading": "しょるいしんさにぶじごうかくした。",
+      "sentenceKR": "서류 심사에 무사히 합격했다."
+    },
+    {
+      "word": "人材",
+      "reading": "じんざい",
+      "meaningKR": "인재",
+      "sentenceJP": "優秀な人材を海外から招く。",
+      "sentenceReading": "ゆうしゅうなじんざいをかいがいからまねく。",
+      "sentenceKR": "우수한 인재를 해외에서 초빙한다."
+    },
+    {
+      "word": "紳士",
+      "reading": "しんし",
+      "meaningKR": "신사",
+      "sentenceJP": "彼は礼儀正しい紳士だ。",
+      "sentenceReading": "かれはれいぎただしいしんしだ。",
+      "sentenceKR": "그는 예의 바른 신사다."
+    },
+    {
+      "word": "真実",
+      "reading": "しんじつ",
+      "meaningKR": "진실, 사실",
+      "sentenceJP": "真実を知る覚悟はあるか。",
+      "sentenceReading": "しんじつをしるかくごはあるか。",
+      "sentenceKR": "진실을 알 각오는 되어 있는가?"
+    },
+    {
+      "word": "信者",
+      "reading": "しんじゃ",
+      "meaningKR": "신자, 신도",
+      "sentenceJP": "多くの信者が寺に集まった。",
+      "sentenceReading": "おおくのしんじゃがてらにあつまった。",
+      "sentenceKR": "많은 신자가 절에 모였다."
+    },
+    {
+      "word": "真珠",
+      "reading": "しんじゅ",
+      "meaningKR": "진주",
+      "sentenceJP": "母から真珠の指輪をもらった。",
+      "sentenceReading": "ははからしんじゅのゆびわをもらった。",
+      "sentenceKR": "어머니에게 진주 반지를 받았다."
+    },
+    {
+      "word": "進出",
+      "reading": "しんしゅつ",
+      "meaningKR": "진출",
+      "sentenceJP": "その企業は海外進出を決めた。",
+      "sentenceReading": "そのきぎょうはかいがいしんしゅつをきめた。",
+      "sentenceKR": "그 기업은 해외 진출을 결정했다."
+    },
+    {
+      "word": "心情",
+      "reading": "しんじょう",
+      "meaningKR": "심정, 마음",
+      "sentenceJP": "被害者の心情に配慮する。",
+      "sentenceReading": "ひがいしゃのしんじょうにはいりょする。",
+      "sentenceKR": "피해자의 심정을 배려한다."
+    },
+    {
+      "word": "新人",
+      "reading": "しんじん",
+      "meaningKR": "신입, 신인",
+      "sentenceJP": "新人が今日から配属された。",
+      "sentenceReading": "しんじんがきょうからはいぞくされた。",
+      "sentenceKR": "신입이 오늘부터 배치되었다."
+    },
+    {
+      "word": "神聖",
+      "reading": "しんせい",
+      "meaningKR": "신성함",
+      "sentenceJP": "ここは神聖な場所とされている。",
+      "sentenceReading": "ここはしんせいなばしょとされている。",
+      "sentenceKR": "이곳은 신성한 장소로 여겨진다."
+    },
+    {
+      "word": "親善",
+      "reading": "しんぜん",
+      "meaningKR": "친선",
+      "sentenceJP": "両国の親善を深める催しだ。",
+      "sentenceReading": "りょうこくのしんぜんをふかめるもよおしだ。",
+      "sentenceKR": "양국의 친선을 다지는 행사다."
+    },
+    {
+      "word": "真相",
+      "reading": "しんそう",
+      "meaningKR": "진상, 실상",
+      "sentenceJP": "事件の真相が明らかになった。",
+      "sentenceReading": "じけんのしんそうがあきらかになった。",
+      "sentenceKR": "사건의 진상이 밝혀졌다."
+    },
+    {
+      "word": "迅速",
+      "reading": "じんそく",
+      "meaningKR": "신속함",
+      "sentenceJP": "迅速な対応に感謝します。",
+      "sentenceReading": "じんそくなたいおうにかんしゃします。",
+      "sentenceKR": "신속한 대응에 감사드립니다."
+    },
+    {
+      "word": "人体",
+      "reading": "じんたい",
+      "meaningKR": "인체",
+      "sentenceJP": "人体の仕組みを詳しく学ぶ。",
+      "sentenceReading": "じんたいのしくみをくわしくまなぶ。",
+      "sentenceKR": "인체의 구조를 자세히 배운다."
+    },
+    {
+      "word": "新築",
+      "reading": "しんちく",
+      "meaningKR": "신축",
+      "sentenceJP": "駅の近くに家を新築した。",
+      "sentenceReading": "えきのちかくにいえをしんちくした。",
+      "sentenceKR": "역 근처에 집을 새로 지었다."
+    },
+    {
+      "word": "心中",
+      "reading": "しんじゅう",
+      "meaningKR": "동반 자살",
+      "sentenceJP": "その小説は男女の心中を描く。",
+      "sentenceReading": "そのしょうせつはだんじょのしんじゅうをえがく。",
+      "sentenceKR": "그 소설은 남녀의 동반 자살을 그린다."
+    },
+    {
+      "word": "進呈",
+      "reading": "しんてい",
+      "meaningKR": "증정",
+      "sentenceJP": "抽選で記念品を進呈します。",
+      "sentenceReading": "ちゅうせんできねんひんをしんていします。",
+      "sentenceKR": "추첨을 통해 기념품을 증정합니다."
+    },
+    {
+      "word": "進展",
+      "reading": "しんてん",
+      "meaningKR": "진전, 발전",
+      "sentenceJP": "交渉に大きな進展があった。",
+      "sentenceReading": "こうしょうにおおきなしんてんがあった。",
+      "sentenceKR": "협상에 큰 진전이 있었다."
+    },
+    {
+      "word": "神殿",
+      "reading": "しんでん",
+      "meaningKR": "신전",
+      "sentenceJP": "丘の上に古い神殿が立っている。",
+      "sentenceReading": "おかのうえにふるいしんでんがたっている。",
+      "sentenceKR": "언덕 위에 오래된 신전이 서 있다."
+    },
+    {
+      "word": "進度",
+      "reading": "しんど",
+      "meaningKR": "진도",
+      "sentenceJP": "授業の進度を少し遅らせる。",
+      "sentenceReading": "じゅぎょうのしんどをすこしおくらせる。",
+      "sentenceKR": "수업 진도를 조금 늦춘다."
+    },
+    {
+      "word": "振動",
+      "reading": "しんどう",
+      "meaningKR": "진동",
+      "sentenceJP": "機械の振動が床に伝わる。",
+      "sentenceReading": "きかいのしんどうがゆかにつたわる。",
+      "sentenceKR": "기계의 진동이 바닥에 전해진다."
+    },
+    {
+      "word": "新入生",
+      "reading": "しんにゅうせい",
+      "meaningKR": "신입생",
+      "sentenceJP": "新入生を歓迎する会を開いた。",
+      "sentenceReading": "しんにゅうせいをかんげいするかいをひらいた。",
+      "sentenceKR": "신입생을 환영하는 모임을 열었다."
+    },
+    {
+      "word": "信任",
+      "reading": "しんにん",
+      "meaningKR": "신임, 신뢰",
+      "sentenceJP": "首相は議会の信任を得た。",
+      "sentenceReading": "しゅしょうはぎかいのしんにんをえた。",
+      "sentenceKR": "총리는 의회의 신임을 얻었다."
     }
   ]
 }
