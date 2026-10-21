@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-20T23:35:52.845Z",
-  "count": 1395,
+  "generatedAt": "2026-10-21T23:53:06.784Z",
+  "count": 1440,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -11164,6 +11164,366 @@
       "sentenceJP": "首相は議会の信任を得た。",
       "sentenceReading": "しゅしょうはぎかいのしんにんをえた。",
       "sentenceKR": "총리는 의회의 신임을 얻었다."
+    },
+    {
+      "word": "神秘",
+      "reading": "しんぴ",
+      "meaningKR": "신비",
+      "sentenceJP": "宇宙の神秘に心を奪われる。",
+      "sentenceReading": "うちゅうのしんぴにこころをうばわれる。",
+      "sentenceKR": "우주의 신비에 마음을 빼앗긴다."
+    },
+    {
+      "word": "辛抱",
+      "reading": "しんぼう",
+      "meaningKR": "인내, 참음",
+      "sentenceJP": "もう少しの辛抱で春が来る。",
+      "sentenceReading": "もうすこしのしんぼうではるがくる。",
+      "sentenceKR": "조금만 더 참으면 봄이 온다."
+    },
+    {
+      "word": "人民",
+      "reading": "じんみん",
+      "meaningKR": "인민, 국민",
+      "sentenceJP": "憲法は人民の権利を守る。",
+      "sentenceReading": "けんぽうはじんみんのけんりをまもる。",
+      "sentenceKR": "헌법은 국민의 권리를 지킨다."
+    },
+    {
+      "word": "侵略",
+      "reading": "しんりゃく",
+      "meaningKR": "침략",
+      "sentenceJP": "その国は他国への侵略を始めた。",
+      "sentenceReading": "そのくにはたこくへのしんりゃくをはじめた。",
+      "sentenceKR": "그 나라는 다른 나라에 대한 침략을 시작했다."
+    },
+    {
+      "word": "診療",
+      "reading": "しんりょう",
+      "meaningKR": "진료",
+      "sentenceJP": "この医院は夜間も診療する。",
+      "sentenceReading": "このいいんはやかんもしんりょうする。",
+      "sentenceKR": "이 의원은 야간에도 진료한다."
+    },
+    {
+      "word": "粋",
+      "reading": "すい",
+      "meaningKR": "정수, 진수",
+      "sentenceJP": "技術の粋を集めた製品だ。",
+      "sentenceReading": "ぎじゅつのすいをあつめたせいひんだ。",
+      "sentenceKR": "기술의 정수를 모은 제품이다."
+    },
+    {
+      "word": "水源",
+      "reading": "すいげん",
+      "meaningKR": "수원, 발원지",
+      "sentenceJP": "森林は大切な水源を守る。",
+      "sentenceReading": "しんりんはたいせつなすいげんをまもる。",
+      "sentenceKR": "삼림은 소중한 수원을 지킨다."
+    },
+    {
+      "word": "推進",
+      "reading": "すいしん",
+      "meaningKR": "추진",
+      "sentenceJP": "政府は行政改革を推進する。",
+      "sentenceReading": "せいふはぎょうせいかいかくをすいしんする。",
+      "sentenceKR": "정부는 행정 개혁을 추진한다."
+    },
+    {
+      "word": "吹奏",
+      "reading": "すいそう",
+      "meaningKR": "관악기 연주",
+      "sentenceJP": "楽団が式典で国歌を吹奏した。",
+      "sentenceReading": "がくだんがしきてんでこっかをすいそうした。",
+      "sentenceKR": "악단이 기념식에서 국가를 관악기로 연주했다."
+    },
+    {
+      "word": "推測",
+      "reading": "すいそく",
+      "meaningKR": "추측",
+      "sentenceJP": "表情から彼の本音を推測した。",
+      "sentenceReading": "ひょうじょうからかれのほんねをすいそくした。",
+      "sentenceKR": "표정으로 그의 속마음을 추측했다."
+    },
+    {
+      "word": "水田",
+      "reading": "すいでん",
+      "meaningKR": "논",
+      "sentenceJP": "夏の水田に青空が映る。",
+      "sentenceReading": "なつのすいでんにあおぞらがうつる。",
+      "sentenceKR": "여름 논에 푸른 하늘이 비친다."
+    },
+    {
+      "word": "推理",
+      "reading": "すいり",
+      "meaningKR": "추리, 추론",
+      "sentenceJP": "彼は証拠から真相を推理した。",
+      "sentenceReading": "かれはしょうこからしんそうをすいりした。",
+      "sentenceKR": "그는 증거를 바탕으로 진상을 추리했다."
+    },
+    {
+      "word": "数詞",
+      "reading": "すうし",
+      "meaningKR": "수사, 수를 나타내는 말",
+      "sentenceJP": "日本語の数詞は使い分けが難しい。",
+      "sentenceReading": "にほんごのすうしはつかいわけがむずかしい。",
+      "sentenceKR": "일본어 수사는 구분해서 쓰기가 어렵다."
+    },
+    {
+      "word": "崇拝",
+      "reading": "すうはい",
+      "meaningKR": "숭배",
+      "sentenceJP": "古代人は太陽を神として崇拝した。",
+      "sentenceReading": "こだいじんはたいようをかみとしてすうはいした。",
+      "sentenceKR": "고대인은 태양을 신으로 숭배했다."
+    },
+    {
+      "word": "据え付ける",
+      "reading": "すえつける",
+      "meaningKR": "설치하다, 장착하다",
+      "sentenceJP": "屋上に新しいアンテナを据え付ける。",
+      "sentenceReading": "おくじょうにあたらしいあんてなをすえつける。",
+      "sentenceKR": "옥상에 새 안테나를 설치한다."
+    },
+    {
+      "word": "据える",
+      "reading": "すえる",
+      "meaningKR": "놓다, 설치하다",
+      "sentenceJP": "椅子を窓辺に据えた。",
+      "sentenceReading": "いすをまどべにすえた。",
+      "sentenceKR": "의자를 창가에 놓았다."
+    },
+    {
+      "word": "すがすがしい",
+      "reading": "すがすがしい",
+      "meaningKR": "상쾌하다",
+      "sentenceJP": "朝の空気がすがすがしい。",
+      "sentenceReading": "あさのくうきがすがすがしい。",
+      "sentenceKR": "아침 공기가 상쾌하다."
+    },
+    {
+      "word": "救い",
+      "reading": "すくい",
+      "meaningKR": "도움, 위안",
+      "sentenceJP": "彼の言葉が唯一の救いだった。",
+      "sentenceReading": "かれのことばがゆいいつのすくいだった。",
+      "sentenceKR": "그의 말이 유일한 위안이었다."
+    },
+    {
+      "word": "すくう (みずを～)",
+      "reading": "すくう (みずを～)",
+      "meaningKR": "뜨다, 퍼 올리다",
+      "sentenceJP": "両手で水をすくって飲んだ。",
+      "sentenceReading": "りょうてでみずをすくってのんだ。",
+      "sentenceKR": "두 손으로 물을 떠서 마셨다."
+    },
+    {
+      "word": "健やか",
+      "reading": "すこやか",
+      "meaningKR": "건강하다, 건전하다",
+      "sentenceJP": "子供が健やかに育っている。",
+      "sentenceReading": "こどもがすこやかにそだっている。",
+      "sentenceKR": "아이가 건강하게 자라고 있다."
+    },
+    {
+      "word": "濯ぐ",
+      "reading": "すすぐ",
+      "meaningKR": "헹구다",
+      "sentenceJP": "食器を水でよく濯いでください。",
+      "sentenceReading": "しょっきをみずでよくすすいでください。",
+      "sentenceKR": "식기를 물로 잘 헹궈 주세요."
+    },
+    {
+      "word": "進み",
+      "reading": "すすみ",
+      "meaningKR": "진행, 진척",
+      "sentenceJP": "工事の進みが予想より遅い。",
+      "sentenceReading": "こうじのすすみがよそうよりおそい。",
+      "sentenceKR": "공사 진행이 예상보다 느리다."
+    },
+    {
+      "word": "裾",
+      "reading": "すそ",
+      "meaningKR": "옷자락, 바짓단",
+      "sentenceJP": "ズボンの裾を少し直した。",
+      "sentenceReading": "ずぼんのすそをすこしなおした。",
+      "sentenceKR": "바짓단을 조금 고쳤다."
+    },
+    {
+      "word": "スタジオ",
+      "reading": "スタジオ",
+      "meaningKR": "스튜디오",
+      "sentenceJP": "スタジオで新曲を録音した。",
+      "sentenceReading": "すたじおでしんきょくをろくおんした。",
+      "sentenceKR": "스튜디오에서 신곡을 녹음했다."
+    },
+    {
+      "word": "スチーム",
+      "reading": "スチーム",
+      "meaningKR": "증기, 스팀",
+      "sentenceJP": "スチームでしわを伸ばす。",
+      "sentenceReading": "すちーむでしわをのばす。",
+      "sentenceKR": "스팀으로 주름을 편다."
+    },
+    {
+      "word": "ストライキ",
+      "reading": "ストライキ",
+      "meaningKR": "파업",
+      "sentenceJP": "従業員がストライキに入った。",
+      "sentenceReading": "じゅうぎょういんがすとらいきにはいった。",
+      "sentenceKR": "종업원들이 파업에 들어갔다."
+    },
+    {
+      "word": "スト",
+      "reading": "スト",
+      "meaningKR": "파업",
+      "sentenceJP": "鉄道会社でストが始まった。",
+      "sentenceReading": "てつどうがいしゃですとがはじまった。",
+      "sentenceKR": "철도 회사에서 파업이 시작됐다."
+    },
+    {
+      "word": "ストロー",
+      "reading": "ストロー",
+      "meaningKR": "빨대",
+      "sentenceJP": "ストローでジュースを飲む。",
+      "sentenceReading": "すとろーでじゅーすをのむ。",
+      "sentenceKR": "빨대로 주스를 마신다."
+    },
+    {
+      "word": "ストロボ",
+      "reading": "ストロボ",
+      "meaningKR": "스트로보, 섬광등",
+      "sentenceJP": "暗い室内でストロボをたく。",
+      "sentenceReading": "くらいしつないですとろぼをたく。",
+      "sentenceKR": "어두운 실내에서 스트로보를 터뜨린다."
+    },
+    {
+      "word": "すばしこい",
+      "reading": "すばしこい",
+      "meaningKR": "재빠르다, 날렵하다",
+      "sentenceJP": "あの猫は小さくてすばしこい。",
+      "sentenceReading": "あのねこはちいさくてすばしこい。",
+      "sentenceKR": "저 고양이는 작고 재빠르다."
+    },
+    {
+      "word": "素早い",
+      "reading": "すばやい",
+      "meaningKR": "빠른, 재빠른",
+      "sentenceJP": "素早い対応に感心した。",
+      "sentenceReading": "すばやいたいおうにかんしんした。",
+      "sentenceKR": "신속한 대응에 감탄했다."
+    },
+    {
+      "word": "ずばり",
+      "reading": "ずばり",
+      "meaningKR": "단도직입적으로, 솔직히",
+      "sentenceJP": "彼はずばり核心を突いた。",
+      "sentenceReading": "かれはずばりかくしんをついた。",
+      "sentenceKR": "그는 단도직입적으로 핵심을 찔렀다."
+    },
+    {
+      "word": "スプリング",
+      "reading": "スプリング",
+      "meaningKR": "용수철, 스프링",
+      "sentenceJP": "ベッドのスプリングが壊れた。",
+      "sentenceReading": "べっどのすぷりんぐがこわれた。",
+      "sentenceKR": "침대의 스프링이 망가졌다."
+    },
+    {
+      "word": "スペース",
+      "reading": "スペース",
+      "meaningKR": "공간, 자리",
+      "sentenceJP": "荷物を置くスペースがない。",
+      "sentenceReading": "にもつをおくすぺーすがない。",
+      "sentenceKR": "짐을 놓을 공간이 없다."
+    },
+    {
+      "word": "ずぶぬれ",
+      "reading": "ずぶぬれ",
+      "meaningKR": "흠뻑 젖음",
+      "sentenceJP": "雨で全身ずぶぬれになった。",
+      "sentenceReading": "あめでぜんしんずぶぬれになった。",
+      "sentenceKR": "비 때문에 온몸이 흠뻑 젖었다."
+    },
+    {
+      "word": "スポーツカー",
+      "reading": "スポーツカー",
+      "meaningKR": "스포츠카",
+      "sentenceJP": "彼は赤いスポーツカーを買った。",
+      "sentenceReading": "かれはあかいすぽーつかーをかった。",
+      "sentenceKR": "그는 빨간 스포츠카를 샀다."
+    },
+    {
+      "word": "澄ます",
+      "reading": "すます",
+      "meaningKR": "맑게 하다, 귀를 기울이다",
+      "sentenceJP": "耳を澄まして風の音を聞く。",
+      "sentenceReading": "みみをすましてかぜのおとをきく。",
+      "sentenceKR": "귀를 기울여 바람 소리를 듣는다."
+    },
+    {
+      "word": "清ます",
+      "reading": "すます",
+      "meaningKR": "깨끗이 하다, 귀를 기울이다",
+      "sentenceJP": "耳を清まして虫の音を聞く。",
+      "sentenceReading": "みみをすましてむしのおとをきく。",
+      "sentenceKR": "귀를 기울여 벌레 소리를 듣는다."
+    },
+    {
+      "word": "済ます",
+      "reading": "すます",
+      "meaningKR": "끝내다, 해결하다, 때우다",
+      "sentenceJP": "昼食はパンで済ます。",
+      "sentenceReading": "ちゅうしょくはぱんですます。",
+      "sentenceKR": "점심은 빵으로 때운다."
+    },
+    {
+      "word": "すみやか",
+      "reading": "すみやか",
+      "meaningKR": "신속한, 재빠른",
+      "sentenceJP": "問題にはすみやかに対処する。",
+      "sentenceReading": "もんだいにはすみやかにたいしょする。",
+      "sentenceKR": "문제에는 신속하게 대처한다."
+    },
+    {
+      "word": "スラックス",
+      "reading": "スラックス",
+      "meaningKR": "슬랙스, 긴 바지",
+      "sentenceJP": "黒いスラックスを買った。",
+      "sentenceReading": "くろいすらっくすをかった。",
+      "sentenceKR": "검은색 슬랙스를 샀다."
+    },
+    {
+      "word": "ずらっと",
+      "reading": "ずらっと",
+      "meaningKR": "죽 늘어선 모양",
+      "sentenceJP": "店先に商品がずらっと並ぶ。",
+      "sentenceReading": "みせさきにしょうひんがずらっとならぶ。",
+      "sentenceKR": "가게 앞에 상품이 죽 늘어서 있다."
+    },
+    {
+      "word": "ずるずる",
+      "reading": "ずるずる",
+      "meaningKR": "질질, 훌쩍훌쩍",
+      "sentenceJP": "会議がずるずる長引いた。",
+      "sentenceReading": "かいぎがずるずるながびいた。",
+      "sentenceKR": "회의가 질질 길어졌다."
+    },
+    {
+      "word": "ずれ",
+      "reading": "ずれ",
+      "meaningKR": "차이, 어긋남",
+      "sentenceJP": "二人の認識にずれがある。",
+      "sentenceReading": "ふたりのにんしきにずれがある。",
+      "sentenceKR": "두 사람의 인식에 차이가 있다."
+    },
+    {
+      "word": "すれちがい",
+      "reading": "すれちがい",
+      "meaningKR": "스쳐 지나감, 엇갈림",
+      "sentenceJP": "駅で彼とすれちがい、声をかけた。",
+      "sentenceReading": "えきでかれとすれちがい、こえをかけた。",
+      "sentenceKR": "역에서 그와 스쳐 지나가다가 말을 걸었다."
     }
   ]
 }
