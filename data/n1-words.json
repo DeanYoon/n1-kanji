@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-21T23:53:06.784Z",
-  "count": 1440,
+  "generatedAt": "2026-10-22T23:49:45.727Z",
+  "count": 1485,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -11524,6 +11524,366 @@
       "sentenceJP": "駅で彼とすれちがい、声をかけた。",
       "sentenceReading": "えきでかれとすれちがい、こえをかけた。",
       "sentenceKR": "역에서 그와 스쳐 지나가다가 말을 걸었다."
+    },
+    {
+      "word": "擦れる",
+      "reading": "すれる",
+      "meaningKR": "쓸리다, 마찰되다",
+      "sentenceJP": "靴でかかとが擦れた。",
+      "sentenceReading": "くつでかかとがすれた。",
+      "sentenceKR": "신발 때문에 뒤꿈치가 쓸렸다."
+    },
+    {
+      "word": "すんなり",
+      "reading": "すんなり",
+      "meaningKR": "순조롭게, 날씬하게",
+      "sentenceJP": "交渉はすんなりまとまった。",
+      "sentenceReading": "こうしょうはすんなりまとまった。",
+      "sentenceKR": "협상은 순조롭게 타결되었다."
+    },
+    {
+      "word": "生育",
+      "reading": "せいいく",
+      "meaningKR": "생육, 성장과 발달",
+      "sentenceJP": "温暖な地域で生育する植物だ。",
+      "sentenceReading": "おんだんなちいきでせいいくするしょくぶつだ。",
+      "sentenceKR": "온난한 지역에서 자라는 식물이다."
+    },
+    {
+      "word": "成育",
+      "reading": "せいいく",
+      "meaningKR": "성장, 양육",
+      "sentenceJP": "子供の健全な成育を支える。",
+      "sentenceReading": "こどものけんぜんなせいいくをささえる。",
+      "sentenceKR": "아이의 건전한 성장을 지원한다."
+    },
+    {
+      "word": "成果",
+      "reading": "せいか",
+      "meaningKR": "성과, 결실",
+      "sentenceJP": "努力が大きな成果を生んだ。",
+      "sentenceReading": "どりょくがおおきなせいかをうんだ。",
+      "sentenceKR": "노력이 큰 성과를 낳았다."
+    },
+    {
+      "word": "正解",
+      "reading": "せいかい",
+      "meaningKR": "정답, 올바른 해답",
+      "sentenceJP": "ようやく正解にたどり着いた。",
+      "sentenceReading": "ようやくせいかいにたどりついた。",
+      "sentenceKR": "마침내 정답에 도달했다."
+    },
+    {
+      "word": "正義",
+      "reading": "せいぎ",
+      "meaningKR": "정의, 올바름",
+      "sentenceJP": "彼は最後まで正義を貫いた。",
+      "sentenceReading": "かれはさいごまでせいぎをつらぬいた。",
+      "sentenceKR": "그는 끝까지 정의를 관철했다."
+    },
+    {
+      "word": "生計",
+      "reading": "せいけい",
+      "meaningKR": "생계, 생활 수단",
+      "sentenceJP": "漁業で生計を立てている。",
+      "sentenceReading": "ぎょぎょうでせいけいをたてている。",
+      "sentenceKR": "어업으로 생계를 꾸리고 있다."
+    },
+    {
+      "word": "政権",
+      "reading": "せいけん",
+      "meaningKR": "정권, 정치 권력",
+      "sentenceJP": "新政権が改革に着手した。",
+      "sentenceReading": "しんせいけんがかいかくにちゃくしゅした。",
+      "sentenceKR": "새 정권이 개혁에 착수했다."
+    },
+    {
+      "word": "星座",
+      "reading": "せいざ",
+      "meaningKR": "별자리",
+      "sentenceJP": "冬の星座を観察した。",
+      "sentenceReading": "ふゆのせいざをかんさつした。",
+      "sentenceKR": "겨울 별자리를 관찰했다."
+    },
+    {
+      "word": "制裁",
+      "reading": "せいさい",
+      "meaningKR": "제재, 처벌",
+      "sentenceJP": "違反国に経済制裁を科した。",
+      "sentenceReading": "いはんこくにけいざいせいさいをかした。",
+      "sentenceKR": "위반국에 경제 제재를 가했다."
+    },
+    {
+      "word": "政策",
+      "reading": "せいさく",
+      "meaningKR": "정책, 정치적 방침",
+      "sentenceJP": "政府は新たな政策を発表した。",
+      "sentenceReading": "せいふはあらたなせいさくをはっぴょうした。",
+      "sentenceKR": "정부는 새로운 정책을 발표했다."
+    },
+    {
+      "word": "生死",
+      "reading": "せいし",
+      "meaningKR": "생사, 삶과 죽음",
+      "sentenceJP": "仲間の生死を確認する。",
+      "sentenceReading": "なかまのせいしをかくにんする。",
+      "sentenceKR": "동료의 생사를 확인한다."
+    },
+    {
+      "word": "静止",
+      "reading": "せいし",
+      "meaningKR": "정지, 움직이지 않음",
+      "sentenceJP": "車両はその場で静止した。",
+      "sentenceReading": "しゃりょうはそのばでせいしした。",
+      "sentenceKR": "차량은 그 자리에서 정지했다."
+    },
+    {
+      "word": "誠実",
+      "reading": "せいじつ",
+      "meaningKR": "성실함, 진실함",
+      "sentenceJP": "誠実な態度が信頼を生む。",
+      "sentenceReading": "せいじつなたいどがしんらいをうむ。",
+      "sentenceKR": "성실한 태도가 신뢰를 낳는다."
+    },
+    {
+      "word": "成熟",
+      "reading": "せいじゅく",
+      "meaningKR": "성숙, 숙성",
+      "sentenceJP": "果実が十分に成熟した。",
+      "sentenceReading": "かじつがじゅうぶんにせいじゅくした。",
+      "sentenceKR": "과일이 충분히 익었다."
+    },
+    {
+      "word": "青春",
+      "reading": "せいしゅん",
+      "meaningKR": "청춘, 젊은 시절",
+      "sentenceJP": "青春をこの町で過ごした。",
+      "sentenceReading": "せいしゅんをこのまちですごした。",
+      "sentenceKR": "청춘을 이 마을에서 보냈다."
+    },
+    {
+      "word": "清純",
+      "reading": "せいじゅん",
+      "meaningKR": "청순함, 순수함",
+      "sentenceJP": "清純な印象の女優だ。",
+      "sentenceReading": "せいじゅんないんしょうのじょゆうだ。",
+      "sentenceKR": "청순한 인상의 여배우다."
+    },
+    {
+      "word": "聖書",
+      "reading": "せいしょ",
+      "meaningKR": "성경",
+      "sentenceJP": "聖書の一節を声に出して読んだ。",
+      "sentenceReading": "せいしょのいっせつをこえにだしてよんだ。",
+      "sentenceKR": "성경의 한 구절을 소리 내어 읽었다."
+    },
+    {
+      "word": "正常",
+      "reading": "せいじょう",
+      "meaningKR": "정상",
+      "sentenceJP": "装置は正常に作動している。",
+      "sentenceReading": "そうちはせいじょうにさどうしている。",
+      "sentenceKR": "장치는 정상적으로 작동하고 있다."
+    },
+    {
+      "word": "制する",
+      "reading": "せいする",
+      "meaningKR": "제어하다, 억제하다",
+      "sentenceJP": "感情を制するのは難しい。",
+      "sentenceReading": "かんじょうをせいするのはむずかしい。",
+      "sentenceKR": "감정을 억제하기는 어렵다."
+    },
+    {
+      "word": "整然",
+      "reading": "せいぜん",
+      "meaningKR": "정연함, 질서정연함",
+      "sentenceJP": "書類が整然と並んでいる。",
+      "sentenceReading": "しょるいがせいぜんとならんでいる。",
+      "sentenceKR": "서류가 질서정연하게 놓여 있다."
+    },
+    {
+      "word": "盛装",
+      "reading": "せいそう",
+      "meaningKR": "성장, 화려한 옷차림",
+      "sentenceJP": "式典には盛装して出席した。",
+      "sentenceReading": "しきてんにはせいそうしてしゅっせきした。",
+      "sentenceKR": "기념식에는 정장을 차려입고 참석했다."
+    },
+    {
+      "word": "盛大",
+      "reading": "せいだい",
+      "meaningKR": "성대함, 장대함",
+      "sentenceJP": "盛大な拍手が会場に響いた。",
+      "sentenceReading": "せいだいなはくしゅがかいじょうにひびいた。",
+      "sentenceKR": "성대한 박수가 행사장에 울려 퍼졌다."
+    },
+    {
+      "word": "清濁",
+      "reading": "せいだく",
+      "meaningKR": "선악, 청탁",
+      "sentenceJP": "清濁併せ呑む度量が必要だ。",
+      "sentenceReading": "せいだくあわせのむどりょうがひつようだ。",
+      "sentenceKR": "선악을 모두 포용하는 아량이 필요하다."
+    },
+    {
+      "word": "制定",
+      "reading": "せいてい",
+      "meaningKR": "제정, 수립",
+      "sentenceJP": "新たな法律が制定された。",
+      "sentenceReading": "あらたなほうりつがせいていされた。",
+      "sentenceKR": "새로운 법률이 제정되었다."
+    },
+    {
+      "word": "静的",
+      "reading": "せいてき",
+      "meaningKR": "정적, 고정적",
+      "sentenceJP": "静的な画像を表示する。",
+      "sentenceReading": "せいてきながぞうをひょうじする。",
+      "sentenceKR": "정적인 이미지를 표시한다."
+    },
+    {
+      "word": "製鉄",
+      "reading": "せいてつ",
+      "meaningKR": "제철, 철강 제조",
+      "sentenceJP": "この町は製鉄で栄えた。",
+      "sentenceReading": "このまちはせいてつでさかえた。",
+      "sentenceKR": "이 마을은 제철업으로 번성했다."
+    },
+    {
+      "word": "晴天",
+      "reading": "せいてん",
+      "meaningKR": "맑은 날씨",
+      "sentenceJP": "晴天に恵まれ、試合が行われた。",
+      "sentenceReading": "せいてんにめぐまれ、しあいがおこなわれた。",
+      "sentenceKR": "맑은 날씨 속에서 경기가 열렸다."
+    },
+    {
+      "word": "正当",
+      "reading": "せいとう",
+      "meaningKR": "정당함, 타당함",
+      "sentenceJP": "彼の要求は正当なものだ。",
+      "sentenceReading": "かれのようきゅうはせいとうなものだ。",
+      "sentenceKR": "그의 요구는 정당한 것이다."
+    },
+    {
+      "word": "制服",
+      "reading": "せいふく",
+      "meaningKR": "제복, 교복",
+      "sentenceJP": "制服を着て学校へ向かった。",
+      "sentenceReading": "せいふくをきてがっこうへむかった。",
+      "sentenceKR": "교복을 입고 학교로 향했다."
+    },
+    {
+      "word": "征服",
+      "reading": "せいふく",
+      "meaningKR": "정복, 극복",
+      "sentenceJP": "彼はついに恐怖を征服した。",
+      "sentenceReading": "かれはついにきょうふくをせいふくした。",
+      "sentenceKR": "그는 마침내 공포를 극복했다."
+    },
+    {
+      "word": "製法",
+      "reading": "せいほう",
+      "meaningKR": "제조법",
+      "sentenceJP": "この菓子は伝統的な製法で作る。",
+      "sentenceReading": "このかしはでんとうてきなせいほうでつくる。",
+      "sentenceKR": "이 과자는 전통적인 제조법으로 만든다."
+    },
+    {
+      "word": "精密",
+      "reading": "せいみつ",
+      "meaningKR": "정밀함, 정교함",
+      "sentenceJP": "精密な検査が必要だ。",
+      "sentenceReading": "せいみつなけんさがひつようだ。",
+      "sentenceKR": "정밀한 검사가 필요하다."
+    },
+    {
+      "word": "税務署",
+      "reading": "ぜいむしょ",
+      "meaningKR": "세무서",
+      "sentenceJP": "明日、税務署へ相談に行く。",
+      "sentenceReading": "あした、ぜいむしょへそうだんにいく。",
+      "sentenceKR": "내일 세무서에 상담하러 간다."
+    },
+    {
+      "word": "制約",
+      "reading": "せいやく",
+      "meaningKR": "제약, 제한",
+      "sentenceJP": "時間の制約で計画を縮小した。",
+      "sentenceReading": "じかんのせいやくでけいかくをしゅくしょうした。",
+      "sentenceKR": "시간 제약으로 계획을 축소했다."
+    },
+    {
+      "word": "勢力",
+      "reading": "せいりょく",
+      "meaningKR": "세력, 영향력",
+      "sentenceJP": "新党が急速に勢力を伸ばした。",
+      "sentenceReading": "しんとうがきゅうそくにせいりょくをのばした。",
+      "sentenceKR": "신당이 급속히 세력을 확장했다."
+    },
+    {
+      "word": "整列",
+      "reading": "せいれつ",
+      "meaningKR": "정렬, 줄서기",
+      "sentenceJP": "生徒たちは校庭に整列した。",
+      "sentenceReading": "せいとたちはこうていにせいれつした。",
+      "sentenceKR": "학생들은 운동장에 정렬했다."
+    },
+    {
+      "word": "セール",
+      "reading": "セール",
+      "meaningKR": "할인 판매, 세일",
+      "sentenceJP": "セールで靴を安く買った。",
+      "sentenceReading": "せーるでくつをやすくかった。",
+      "sentenceKR": "세일 때 신발을 싸게 샀다."
+    },
+    {
+      "word": "急かす",
+      "reading": "せかす",
+      "meaningKR": "재촉하다",
+      "sentenceJP": "そんなに急かさないでください。",
+      "sentenceReading": "そんなにせかさないでください。",
+      "sentenceKR": "그렇게 재촉하지 마세요."
+    },
+    {
+      "word": "伜",
+      "reading": "せがれ",
+      "meaningKR": "아들, 내 아들",
+      "sentenceJP": "うちの伜も来春就職します。",
+      "sentenceReading": "うちのせがれもらいしゅんしゅうしょくします。",
+      "sentenceKR": "우리 아들도 내년 봄에 취직합니다."
+    },
+    {
+      "word": "責務",
+      "reading": "せきむ",
+      "meaningKR": "책무, 의무",
+      "sentenceJP": "市民を守るのが警察の責務だ。",
+      "sentenceReading": "しみんをまもるのがけいさつのせきむだ。",
+      "sentenceKR": "시민을 지키는 것이 경찰의 책무다."
+    },
+    {
+      "word": "セクション",
+      "reading": "セクション",
+      "meaningKR": "부분, 구역",
+      "sentenceJP": "このセクションを先に読もう。",
+      "sentenceReading": "このせくしょんをさきによもう。",
+      "sentenceKR": "이 부분을 먼저 읽자."
+    },
+    {
+      "word": "世辞",
+      "reading": "せじ",
+      "meaningKR": "아첨, 빈말",
+      "sentenceJP": "彼の言葉はお世辞にすぎない。",
+      "sentenceReading": "かれのことばはおせじにすぎない。",
+      "sentenceKR": "그의 말은 빈말에 불과하다."
+    },
+    {
+      "word": "世帯",
+      "reading": "せたい",
+      "meaningKR": "가구, 세대",
+      "sentenceJP": "この地域は単身世帯が多い。",
+      "sentenceReading": "このちいきはたんしんせたいがおおい。",
+      "sentenceKR": "이 지역은 1인 가구가 많다."
     }
   ]
 }
