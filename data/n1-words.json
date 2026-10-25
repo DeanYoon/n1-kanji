@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-22T23:49:45.727Z",
-  "count": 1485,
+  "generatedAt": "2026-10-25T22:59:32.259Z",
+  "count": 1530,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -11884,6 +11884,366 @@
       "sentenceJP": "この地域は単身世帯が多い。",
       "sentenceReading": "このちいきはたんしんせたいがおおい。",
       "sentenceKR": "이 지역은 1인 가구가 많다."
+    },
+    {
+      "word": "是正",
+      "reading": "ぜせい",
+      "meaningKR": "시정, 바로잡음",
+      "sentenceJP": "不備を是正する必要がある。",
+      "sentenceReading": "ふびをぜせいするひつようがある。",
+      "sentenceKR": "미비점을 시정할 필요가 있다."
+    },
+    {
+      "word": "世代",
+      "reading": "せだい",
+      "meaningKR": "세대",
+      "sentenceJP": "若い世代の意見を聞こう。",
+      "sentenceReading": "わかいせだいのいけんをきこう。",
+      "sentenceKR": "젊은 세대의 의견을 들어 보자."
+    },
+    {
+      "word": "切開",
+      "reading": "せっかい",
+      "meaningKR": "절개",
+      "sentenceJP": "医師が患部を切開した。",
+      "sentenceReading": "いしがかんぶをせっかいした。",
+      "sentenceKR": "의사가 환부를 절개했다."
+    },
+    {
+      "word": "セックス",
+      "reading": "セックス",
+      "meaningKR": "성관계, 섹스",
+      "sentenceJP": "セックスについて率直に話す。",
+      "sentenceReading": "せっくすについてそっちょくにはなす。",
+      "sentenceKR": "성관계에 대해 솔직하게 이야기한다."
+    },
+    {
+      "word": "切実",
+      "reading": "せつじつ",
+      "meaningKR": "절실함, 심각함",
+      "sentenceJP": "住宅不足は切実な問題だ。",
+      "sentenceReading": "じゅうたくぶそくはせつじつなもんだいだ。",
+      "sentenceKR": "주택 부족은 절실한 문제다."
+    },
+    {
+      "word": "接触",
+      "reading": "せっしょく",
+      "meaningKR": "접촉",
+      "sentenceJP": "他人との接触を避ける。",
+      "sentenceReading": "たにんとのせっしょくをさける。",
+      "sentenceKR": "타인과의 접촉을 피한다."
+    },
+    {
+      "word": "接続詞",
+      "reading": "せつぞくし",
+      "meaningKR": "접속사",
+      "sentenceJP": "接続詞を使って文をつなぐ。",
+      "sentenceReading": "せつぞくしをつかってぶんをつなぐ。",
+      "sentenceKR": "접속사를 사용해 문장을 잇는다."
+    },
+    {
+      "word": "設置",
+      "reading": "せっち",
+      "meaningKR": "설치",
+      "sentenceJP": "駅前に防犯カメラを設置した。",
+      "sentenceReading": "えきまえにぼうはんかめらをせっちした。",
+      "sentenceKR": "역 앞에 방범 카메라를 설치했다."
+    },
+    {
+      "word": "折衷",
+      "reading": "せっちゅう",
+      "meaningKR": "절충, 혼합",
+      "sentenceJP": "両案を折衷した計画を作る。",
+      "sentenceReading": "りょうあんをせっちゅうしたけいかくをつくる。",
+      "sentenceKR": "두 안을 절충한 계획을 세운다."
+    },
+    {
+      "word": "設定",
+      "reading": "せってい",
+      "meaningKR": "설정",
+      "sentenceJP": "画面で音量を設定する。",
+      "sentenceReading": "がめんでおんりょうをせっていする。",
+      "sentenceKR": "화면에서 음량을 설정한다."
+    },
+    {
+      "word": "説得",
+      "reading": "せっとく",
+      "meaningKR": "설득",
+      "sentenceJP": "彼を説得するのは難しい。",
+      "sentenceReading": "かれをせっとくするのはむずかしい。",
+      "sentenceKR": "그를 설득하기는 어렵다."
+    },
+    {
+      "word": "切ない",
+      "reading": "せつない",
+      "meaningKR": "애달프다, 가슴 아프다",
+      "sentenceJP": "別れを思うと切ない。",
+      "sentenceReading": "わかれをおもうとせつない。",
+      "sentenceKR": "이별을 생각하면 가슴이 아프다."
+    },
+    {
+      "word": "絶版",
+      "reading": "ぜっぱん",
+      "meaningKR": "절판",
+      "sentenceJP": "この本はすでに絶版だ。",
+      "sentenceReading": "このほんはすでにぜっぱんだ。",
+      "sentenceKR": "이 책은 이미 절판되었다."
+    },
+    {
+      "word": "設立",
+      "reading": "せつりつ",
+      "meaningKR": "설립",
+      "sentenceJP": "会社を設立して十年になる。",
+      "sentenceReading": "かいしゃをせつりつしてじゅうねんになる。",
+      "sentenceKR": "회사를 설립한 지 10년이 된다."
+    },
+    {
+      "word": "攻め",
+      "reading": "せめ",
+      "meaningKR": "공격, 공세",
+      "sentenceJP": "守りより攻めを重視する。",
+      "sentenceReading": "まもりよりせめをじゅうしする。",
+      "sentenceKR": "수비보다 공격을 중시한다."
+    },
+    {
+      "word": "ゼリー",
+      "reading": "ゼリー",
+      "meaningKR": "젤리",
+      "sentenceJP": "冷たいゼリーをデザートにした。",
+      "sentenceReading": "つめたいぜりーをでざーとにした。",
+      "sentenceKR": "차가운 젤리를 디저트로 먹었다."
+    },
+    {
+      "word": "セレモニー",
+      "reading": "セレモニー",
+      "meaningKR": "의식, 기념행사",
+      "sentenceJP": "開会セレモニーが始まった。",
+      "sentenceReading": "かいかいせれもにーがはじまった。",
+      "sentenceKR": "개회 행사가 시작되었다."
+    },
+    {
+      "word": "世論",
+      "reading": "せろん",
+      "meaningKR": "여론",
+      "sentenceJP": "世論はその政策に反発した。",
+      "sentenceReading": "せろんはそのせいさくにはんぱつした。",
+      "sentenceKR": "여론은 그 정책에 반발했다."
+    },
+    {
+      "word": "先",
+      "reading": "せん",
+      "meaningKR": "선수, 우선",
+      "sentenceJP": "相手に先を越された。",
+      "sentenceReading": "あいてにせんをこされた。",
+      "sentenceKR": "상대에게 선수를 빼앗겼다."
+    },
+    {
+      "word": "繊維",
+      "reading": "せんい",
+      "meaningKR": "섬유",
+      "sentenceJP": "繊維産業が町を支えている。",
+      "sentenceReading": "せんいさんぎょうがまちをささえている。",
+      "sentenceKR": "섬유 산업이 마을을 지탱하고 있다."
+    },
+    {
+      "word": "全快",
+      "reading": "ぜんかい",
+      "meaningKR": "완쾌",
+      "sentenceJP": "祖父はすっかり全快した。",
+      "sentenceReading": "そふはすっかりぜんかいした。",
+      "sentenceKR": "할아버지는 완전히 회복하셨다."
+    },
+    {
+      "word": "宣教",
+      "reading": "せんきょう",
+      "meaningKR": "선교",
+      "sentenceJP": "彼は海外で宣教活動に励む。",
+      "sentenceReading": "かれはかいがいでせんきょうかつどうにはげむ。",
+      "sentenceKR": "그는 해외에서 선교 활동에 힘쓴다."
+    },
+    {
+      "word": "宣言",
+      "reading": "せんげん",
+      "meaningKR": "선언, 선포",
+      "sentenceJP": "政府は非常事態を宣言した。",
+      "sentenceReading": "せいふはひじょうじたいをせんげんした。",
+      "sentenceKR": "정부는 비상사태를 선언했다."
+    },
+    {
+      "word": "戦災",
+      "reading": "せんさい",
+      "meaningKR": "전쟁 피해",
+      "sentenceJP": "戦災で多くの家屋が焼けた。",
+      "sentenceReading": "せんさいでおおくのかおくがやけた。",
+      "sentenceKR": "전쟁 피해로 많은 가옥이 불탔다."
+    },
+    {
+      "word": "専修",
+      "reading": "せんしゅう",
+      "meaningKR": "전공, 전문 수학",
+      "sentenceJP": "大学で日本文学を専修する。",
+      "sentenceReading": "だいがくでにほんぶんがくをせんしゅうする。",
+      "sentenceKR": "대학에서 일본 문학을 전공한다."
+    },
+    {
+      "word": "戦術",
+      "reading": "せんじゅつ",
+      "meaningKR": "전술",
+      "sentenceJP": "監督は新しい戦術を試した。",
+      "sentenceReading": "かんとくはあたらしいせんじゅつをためした。",
+      "sentenceKR": "감독은 새로운 전술을 시험했다."
+    },
+    {
+      "word": "センス",
+      "reading": "センス",
+      "meaningKR": "감각, 센스",
+      "sentenceJP": "彼女は服選びのセンスがいい。",
+      "sentenceReading": "かのじょはふくえらびのせんすがいい。",
+      "sentenceKR": "그녀는 옷을 고르는 감각이 좋다."
+    },
+    {
+      "word": "潜水",
+      "reading": "せんすい",
+      "meaningKR": "잠수",
+      "sentenceJP": "潜水して海底を調査した。",
+      "sentenceReading": "せんすいしてかいていをちょうさした。",
+      "sentenceKR": "잠수하여 해저를 조사했다."
+    },
+    {
+      "word": "全盛",
+      "reading": "ぜんせい",
+      "meaningKR": "전성, 번영의 절정",
+      "sentenceJP": "当時、この町は全盛を極めた。",
+      "sentenceReading": "とうじ、このまちはぜんせいをきわめた。",
+      "sentenceKR": "당시 이 마을은 전성기를 누렸다."
+    },
+    {
+      "word": "先代",
+      "reading": "せんだい",
+      "meaningKR": "선대, 전대",
+      "sentenceJP": "先代からこの店を受け継いだ。",
+      "sentenceReading": "せんだいからこのみせをうけついだ。",
+      "sentenceKR": "선대로부터 이 가게를 물려받았다."
+    },
+    {
+      "word": "先だって",
+      "reading": "せんだって",
+      "meaningKR": "최근, 일전에",
+      "sentenceJP": "先だって、京都を訪れた。",
+      "sentenceReading": "せんだって、きょうとをおとずれた。",
+      "sentenceKR": "일전에 교토를 방문했다."
+    },
+    {
+      "word": "先着",
+      "reading": "せんちゃく",
+      "meaningKR": "선착, 먼저 도착함",
+      "sentenceJP": "先着百名に記念品を贈る。",
+      "sentenceReading": "せんちゃくひゃくめいにきねんひんをおくる。",
+      "sentenceKR": "선착순 100명에게 기념품을 준다."
+    },
+    {
+      "word": "前提",
+      "reading": "ぜんてい",
+      "meaningKR": "전제, 선결 조건",
+      "sentenceJP": "信頼関係を前提に話し合う。",
+      "sentenceReading": "しんらいかんけいをぜんていにはなしあう。",
+      "sentenceKR": "신뢰 관계를 전제로 대화한다."
+    },
+    {
+      "word": "先天的",
+      "reading": "せんてんてき",
+      "meaningKR": "선천적, 타고난",
+      "sentenceJP": "彼には先天的な才能がある。",
+      "sentenceReading": "かれにはせんてんてきなさいのうがある。",
+      "sentenceKR": "그에게는 선천적인 재능이 있다."
+    },
+    {
+      "word": "前途",
+      "reading": "ぜんと",
+      "meaningKR": "앞날, 장래 전망",
+      "sentenceJP": "前途は明るいと信じている。",
+      "sentenceReading": "ぜんとはあかるいとしんじている。",
+      "sentenceKR": "앞날이 밝다고 믿고 있다."
+    },
+    {
+      "word": "戦闘",
+      "reading": "せんとう",
+      "meaningKR": "전투, 교전",
+      "sentenceJP": "激しい戦闘が夜まで続いた。",
+      "sentenceReading": "はげしいせんとうがよるまでつづいた。",
+      "sentenceKR": "격렬한 전투가 밤까지 계속되었다."
+    },
+    {
+      "word": "潜入",
+      "reading": "せんにゅう",
+      "meaningKR": "잠입, 침투",
+      "sentenceJP": "捜査官が組織に潜入した。",
+      "sentenceReading": "そうさかんがそしきにせんにゅうした。",
+      "sentenceKR": "수사관이 조직에 잠입했다."
+    },
+    {
+      "word": "船舶",
+      "reading": "せんぱく",
+      "meaningKR": "선박",
+      "sentenceJP": "港には多くの船舶が停泊する。",
+      "sentenceReading": "みなとにはおおくのせんぱくがていはくする。",
+      "sentenceKR": "항구에는 많은 선박이 정박한다."
+    },
+    {
+      "word": "全滅",
+      "reading": "ぜんめつ",
+      "meaningKR": "전멸, 완전 소멸",
+      "sentenceJP": "害虫は薬でほぼ全滅した。",
+      "sentenceReading": "がいちゅうはくすりでほぼぜんめつした。",
+      "sentenceKR": "해충은 약으로 거의 전멸했다."
+    },
+    {
+      "word": "専用",
+      "reading": "せんよう",
+      "meaningKR": "전용",
+      "sentenceJP": "これは職員専用の入口です。",
+      "sentenceReading": "これはしょくいんせんようのいりぐちです。",
+      "sentenceKR": "이곳은 직원 전용 출입구입니다."
+    },
+    {
+      "word": "占領",
+      "reading": "せんりょう",
+      "meaningKR": "점령, 독차지",
+      "sentenceJP": "軍が首都を占領した。",
+      "sentenceReading": "ぐんがしゅとをせんりょうした。",
+      "sentenceKR": "군대가 수도를 점령했다."
+    },
+    {
+      "word": "善良",
+      "reading": "ぜんりょう",
+      "meaningKR": "선량함, 착함",
+      "sentenceJP": "彼は善良な市民として知られる。",
+      "sentenceReading": "かれはぜんりょうなしみんとしてしられる。",
+      "sentenceKR": "그는 선량한 시민으로 알려져 있다."
+    },
+    {
+      "word": "戦力",
+      "reading": "せんりょく",
+      "meaningKR": "전력, 전투 능력",
+      "sentenceJP": "若手選手が新たな戦力になる。",
+      "sentenceReading": "わかてせんしゅがあらたなせんりょくになる。",
+      "sentenceKR": "젊은 선수가 새로운 전력이 된다."
+    },
+    {
+      "word": "前例",
+      "reading": "ぜんれい",
+      "meaningKR": "전례, 선례",
+      "sentenceJP": "前例のない改革に挑む。",
+      "sentenceReading": "ぜんれいのないかいかくにいどむ。",
+      "sentenceKR": "전례 없는 개혁에 도전한다."
+    },
+    {
+      "word": "相応",
+      "reading": "そうおう",
+      "meaningKR": "상응함, 걸맞음",
+      "sentenceJP": "年齢相応の服装を選ぶ。",
+      "sentenceReading": "ねんれいそうおうのふくそうをえらぶ。",
+      "sentenceKR": "나이에 걸맞은 옷차림을 고른다."
     }
   ]
 }
