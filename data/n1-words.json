@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-25T22:59:32.259Z",
-  "count": 1530,
+  "generatedAt": "2026-10-27T00:11:08.453Z",
+  "count": 1575,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -12244,6 +12244,366 @@
       "sentenceJP": "年齢相応の服装を選ぶ。",
       "sentenceReading": "ねんれいそうおうのふくそうをえらぶ。",
       "sentenceKR": "나이에 걸맞은 옷차림을 고른다."
+    },
+    {
+      "word": "総会",
+      "reading": "そうかい",
+      "meaningKR": "총회",
+      "sentenceJP": "総会は来月開かれる",
+      "sentenceReading": "そうかいはらいげつひらかれる",
+      "sentenceKR": "총회는 다음 달에 열린다"
+    },
+    {
+      "word": "創刊",
+      "reading": "そうかん",
+      "meaningKR": "창간",
+      "sentenceJP": "雑誌の創刊が正式に決まった",
+      "sentenceReading": "ざっしのそうかんがせいしきにきまった",
+      "sentenceKR": "잡지 창간이 정식으로 결정되었다"
+    },
+    {
+      "word": "雑木",
+      "reading": "ぞうき",
+      "meaningKR": "잡목",
+      "sentenceJP": "庭の雑木をきれいに剪定した",
+      "sentenceReading": "にわのぞうきをきれいにせんていした",
+      "sentenceKR": "정원의 잡목을 깔끔하게 가지치기했다"
+    },
+    {
+      "word": "早急",
+      "reading": "そうきゅう",
+      "meaningKR": "긴급함",
+      "sentenceJP": "早急な対応が求められる",
+      "sentenceReading": "そうきゅうなたいおうがもとめられる",
+      "sentenceKR": "긴급한 대응이 요구된다"
+    },
+    {
+      "word": "早急",
+      "reading": "さっきゅう",
+      "meaningKR": "긴급함",
+      "sentenceJP": "早急に資料を提出してください",
+      "sentenceReading": "さっきゅうにしりょうをていしゅつしてください",
+      "sentenceKR": "자료를 조속히 제출해 주세요"
+    },
+    {
+      "word": "増強",
+      "reading": "ぞうきょう",
+      "meaningKR": "증강",
+      "sentenceJP": "警備体制を増強する",
+      "sentenceReading": "けいびたいせいをぞうきょうする",
+      "sentenceKR": "경비 체제를 강화한다"
+    },
+    {
+      "word": "送金",
+      "reading": "そうきん",
+      "meaningKR": "송금",
+      "sentenceJP": "今日中に送金をお願いします",
+      "sentenceReading": "きょうじゅうにそうきんをおねがいします",
+      "sentenceKR": "오늘 안으로 송금해 주세요"
+    },
+    {
+      "word": "走行",
+      "reading": "そうこう",
+      "meaningKR": "주행",
+      "sentenceJP": "雪道での走行には注意が必要だ",
+      "sentenceReading": "ゆきみちでのそうこうにはちゅういがひつようだ",
+      "sentenceKR": "눈길 주행에는 주의가 필요하다"
+    },
+    {
+      "word": "総合",
+      "reading": "そうごう",
+      "meaningKR": "종합",
+      "sentenceJP": "総合的に判断する必要がある",
+      "sentenceReading": "そうごうてきにはんだんするひつようがある",
+      "sentenceKR": "종합적으로 판단할 필요가 있다"
+    },
+    {
+      "word": "捜索",
+      "reading": "そうさく",
+      "meaningKR": "수색",
+      "sentenceJP": "警察が行方不明者を捜索した",
+      "sentenceReading": "けいさつがゆくえふめいしゃをそうさくした",
+      "sentenceKR": "경찰이 실종자를 수색했다"
+    },
+    {
+      "word": "蔵相",
+      "reading": "ぞうしょう",
+      "meaningKR": "재무장관",
+      "sentenceJP": "蔵相は新たな財政方針を示した",
+      "sentenceReading": "ぞうしょうはあらたなざいせいほうしんをしめした",
+      "sentenceKR": "재무장관은 새로운 재정 방침을 제시했다"
+    },
+    {
+      "word": "装飾",
+      "reading": "そうしょく",
+      "meaningKR": "장식",
+      "sentenceJP": "壁の装飾が美しい",
+      "sentenceReading": "かべのそうしょくがうつくしい",
+      "sentenceKR": "벽의 장식이 아름답다"
+    },
+    {
+      "word": "増進",
+      "reading": "ぞうしん",
+      "meaningKR": "증진",
+      "sentenceJP": "運動は健康の増進に役立つ",
+      "sentenceReading": "うんどうはけんこうのぞうしんにやくだつ",
+      "sentenceKR": "운동은 건강 증진에 도움이 된다"
+    },
+    {
+      "word": "相対",
+      "reading": "そうたい",
+      "meaningKR": "상대적임",
+      "sentenceJP": "価値は状況によって相対的に変わる",
+      "sentenceReading": "かちはじょうきょうによってそうたいてきにかわる",
+      "sentenceKR": "가치는 상황에 따라 상대적으로 달라진다"
+    },
+    {
+      "word": "壮大",
+      "reading": "そうだい",
+      "meaningKR": "장대함",
+      "sentenceJP": "壮大な景色に息をのんだ",
+      "sentenceReading": "そうだいなけしきにいきをのんだ",
+      "sentenceKR": "장대한 경치에 숨을 죽였다"
+    },
+    {
+      "word": "騒動",
+      "reading": "そうどう",
+      "meaningKR": "소동, 폭동",
+      "sentenceJP": "町中を巻き込む騒動になった。",
+      "sentenceReading": "まちじゅうをまきこむそうどうになった。",
+      "sentenceKR": "온 동네를 휩쓸어 넣는 소동이 벌어졌다."
+    },
+    {
+      "word": "遭難",
+      "reading": "そうなん",
+      "meaningKR": "조난, 재난 사고",
+      "sentenceJP": "登山隊が吹雪で遭難した。",
+      "sentenceReading": "とざんたいがふぶきでそうなんした。",
+      "sentenceKR": "등산대가 눈보라로 조난당했다."
+    },
+    {
+      "word": "相場",
+      "reading": "そうば",
+      "meaningKR": "시세, 시장 가격",
+      "sentenceJP": "金の相場が急に上がった。",
+      "sentenceReading": "きんのそうばがきゅうにあがった。",
+      "sentenceKR": "금 시세가 갑자기 올랐다."
+    },
+    {
+      "word": "装備",
+      "reading": "そうび",
+      "meaningKR": "장비",
+      "sentenceJP": "冬山用の装備を整える。",
+      "sentenceReading": "ふゆやまようのそうびをととのえる。",
+      "sentenceKR": "겨울 산행용 장비를 갖춘다."
+    },
+    {
+      "word": "創立",
+      "reading": "そうりつ",
+      "meaningKR": "창립, 설립",
+      "sentenceJP": "学校は今年創立百年を迎える。",
+      "sentenceReading": "がっこうはことしそうりつひゃくねんをむかえる。",
+      "sentenceKR": "학교는 올해 창립 100주년을 맞는다."
+    },
+    {
+      "word": "添える",
+      "reading": "そえる",
+      "meaningKR": "덧붙이다, 첨부하다",
+      "sentenceJP": "手紙に写真を一枚添えた。",
+      "sentenceReading": "てがみにしゃしんをいちまいそえた。",
+      "sentenceKR": "편지에 사진 한 장을 첨부했다."
+    },
+    {
+      "word": "ソース",
+      "reading": "ソース",
+      "meaningKR": "출처, 정보원",
+      "sentenceJP": "情報のソースを確認する。",
+      "sentenceReading": "じょうほうのそーすをかくにんする。",
+      "sentenceKR": "정보의 출처를 확인한다."
+    },
+    {
+      "word": "即座に",
+      "reading": "そくざに",
+      "meaningKR": "즉시, 그 자리에서",
+      "sentenceJP": "彼は即座に危険を察知した。",
+      "sentenceReading": "かれはそくざにきけんをさっちした。",
+      "sentenceKR": "그는 즉시 위험을 감지했다."
+    },
+    {
+      "word": "促進",
+      "reading": "そくしん",
+      "meaningKR": "촉진, 장려",
+      "sentenceJP": "運動は血行の促進に役立つ。",
+      "sentenceReading": "うんどうはけっこうのそくしんにやくだつ。",
+      "sentenceKR": "운동은 혈액 순환 촉진에 도움이 된다."
+    },
+    {
+      "word": "即する",
+      "reading": "そくする",
+      "meaningKR": "부합하다, 맞추다",
+      "sentenceJP": "現状に即した対策が必要だ。",
+      "sentenceReading": "げんじょうにそくしたたいさくがひつようだ。",
+      "sentenceKR": "현실에 맞는 대책이 필요하다."
+    },
+    {
+      "word": "束縛",
+      "reading": "そくばく",
+      "meaningKR": "속박, 구속",
+      "sentenceJP": "親の束縛から逃れたい。",
+      "sentenceReading": "おやのそくばくからのがれたい。",
+      "sentenceKR": "부모의 속박에서 벗어나고 싶다."
+    },
+    {
+      "word": "側面",
+      "reading": "そくめん",
+      "meaningKR": "측면, 옆면",
+      "sentenceJP": "問題の別の側面に目を向ける。",
+      "sentenceReading": "もんだいのべつのそくめんにめをむける。",
+      "sentenceKR": "문제의 다른 측면에 눈을 돌린다."
+    },
+    {
+      "word": "損う",
+      "reading": "そこなう",
+      "meaningKR": "해치다, 손상시키다",
+      "sentenceJP": "過労は健康を損う。",
+      "sentenceReading": "かろうはけんこうをそこなう。",
+      "sentenceKR": "과로는 건강을 해친다."
+    },
+    {
+      "word": "そこら",
+      "reading": "そこら",
+      "meaningKR": "그 근처, 그 주변",
+      "sentenceJP": "そこらに荷物を置かないで。",
+      "sentenceReading": "そこらににもつをおかないで。",
+      "sentenceKR": "그 근처에 짐을 두지 마."
+    },
+    {
+      "word": "素材",
+      "reading": "そざい",
+      "meaningKR": "소재, 원재료",
+      "sentenceJP": "この家具は天然素材で作られた。",
+      "sentenceReading": "このかぐはてんねんそざいでつくられた。",
+      "sentenceKR": "이 가구는 천연 소재로 만들어졌다."
+    },
+    {
+      "word": "阻止",
+      "reading": "そし",
+      "meaningKR": "저지, 방해",
+      "sentenceJP": "事故を未然に阻止した。",
+      "sentenceReading": "じこをみぜんにそしした。",
+      "sentenceKR": "사고를 미연에 방지했다."
+    },
+    {
+      "word": "訴訟",
+      "reading": "そしょう",
+      "meaningKR": "소송",
+      "sentenceJP": "会社を相手に訴訟を起こした。",
+      "sentenceReading": "かいしゃをあいてにそしょうをおこした。",
+      "sentenceKR": "회사를 상대로 소송을 제기했다."
+    },
+    {
+      "word": "育ち",
+      "reading": "そだち",
+      "meaningKR": "성장 배경, 자라온 환경",
+      "sentenceJP": "彼は育ちの良さがにじみ出ている。",
+      "sentenceReading": "かれはそだちのよさがにじみでている。",
+      "sentenceKR": "그는 좋은 성장 배경이 자연스럽게 드러난다."
+    },
+    {
+      "word": "措置",
+      "reading": "そち",
+      "meaningKR": "조치",
+      "sentenceJP": "政府は緊急措置を講じた。",
+      "sentenceReading": "せいふはきんきゅうそちをこうじた。",
+      "sentenceKR": "정부는 긴급 조치를 취했다."
+    },
+    {
+      "word": "ソックス",
+      "reading": "ソックス",
+      "meaningKR": "양말",
+      "sentenceJP": "新しいソックスを三足買った。",
+      "sentenceReading": "あたらしいそっくすをさんぞくかった。",
+      "sentenceKR": "새 양말을 세 켤레 샀다."
+    },
+    {
+      "word": "素っ気無い",
+      "reading": "そっけない",
+      "meaningKR": "쌀쌀맞다, 무뚝뚝하다",
+      "sentenceJP": "彼の返事は素っ気無かった。",
+      "sentenceReading": "かれのへんじはそっけなかった。",
+      "sentenceKR": "그의 대답은 쌀쌀맞았다."
+    },
+    {
+      "word": "外方",
+      "reading": "そっぽ",
+      "meaningKR": "외면, 딴 곳을 봄",
+      "sentenceJP": "彼は私に外方を向いた。",
+      "sentenceReading": "かれはわたしにそっぽをむいた。",
+      "sentenceKR": "그는 나를 외면했다."
+    },
+    {
+      "word": "備え付ける",
+      "reading": "そなえつける",
+      "meaningKR": "비치하다, 설치하다",
+      "sentenceJP": "各部屋に消火器を備え付ける。",
+      "sentenceReading": "かくへやにしょうかきをそなえつける。",
+      "sentenceKR": "각 방에 소화기를 비치한다."
+    },
+    {
+      "word": "備わる",
+      "reading": "そなわる",
+      "meaningKR": "갖추어져 있다",
+      "sentenceJP": "この車には最新機能が備わっている。",
+      "sentenceReading": "このくるまにはさいしんきのうがそなわっている。",
+      "sentenceKR": "이 차에는 최신 기능이 갖추어져 있다."
+    },
+    {
+      "word": "具わる",
+      "reading": "そなわる",
+      "meaningKR": "갖추고 있다, 타고나다",
+      "sentenceJP": "彼には優れた才能が具わっている。",
+      "sentenceReading": "かれにはすぐれたさいのうがそなわっている。",
+      "sentenceKR": "그에게는 뛰어난 재능이 갖추어져 있다."
+    },
+    {
+      "word": "聳える",
+      "reading": "そびえる",
+      "meaningKR": "우뚝 솟다",
+      "sentenceJP": "山頂に巨大な塔が聳えている。",
+      "sentenceReading": "さんちょうにきょだいなとうがそびえている。",
+      "sentenceKR": "산 정상에 거대한 탑이 우뚝 솟아 있다."
+    },
+    {
+      "word": "素朴",
+      "reading": "そぼく",
+      "meaningKR": "소박함, 순박함",
+      "sentenceJP": "素朴な味わいが魅力だ。",
+      "sentenceReading": "そぼくなあじわいがみりょくだ。",
+      "sentenceKR": "소박한 맛이 매력이다."
+    },
+    {
+      "word": "背く",
+      "reading": "そむく",
+      "meaningKR": "거스르다, 배반하다",
+      "sentenceJP": "規則に背く行為は許されない。",
+      "sentenceReading": "きそくにそむくこういはゆるされない。",
+      "sentenceKR": "규칙을 어기는 행위는 용납되지 않는다."
+    },
+    {
+      "word": "染まる",
+      "reading": "そまる",
+      "meaningKR": "물들다, 염색되다",
+      "sentenceJP": "夕焼けで空が赤く染まった。",
+      "sentenceReading": "ゆうやけでそらがあかくそまった。",
+      "sentenceKR": "저녁노을로 하늘이 붉게 물들었다."
+    },
+    {
+      "word": "染める",
+      "reading": "そめる",
+      "meaningKR": "물들이다, 염색하다",
+      "sentenceJP": "布を藍色に染める。",
+      "sentenceReading": "ぬのをあいいろにそめる。",
+      "sentenceKR": "천을 남색으로 물들인다."
     }
   ]
 }
