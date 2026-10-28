@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T00:11:08.453Z",
-  "count": 1575,
+  "generatedAt": "2026-10-28T00:12:51.046Z",
+  "count": 1620,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -12604,6 +12604,366 @@
       "sentenceJP": "布を藍色に染める。",
       "sentenceReading": "ぬのをあいいろにそめる。",
       "sentenceKR": "천을 남색으로 물들인다."
+    },
+    {
+      "word": "そらす",
+      "reading": "そらす",
+      "meaningKR": "휘게 하다, 뒤틀다",
+      "sentenceJP": "職人が熱で板をそらした。",
+      "sentenceReading": "しょくにんがねつでいたをそらした。",
+      "sentenceKR": "장인이 열로 판자를 휘게 했다."
+    },
+    {
+      "word": "そり (～にのる)",
+      "reading": "そり (～にのる)",
+      "meaningKR": "썰매",
+      "sentenceJP": "冬は家族でそりに乗る。",
+      "sentenceReading": "ふゆはかぞくでそりにのる。",
+      "sentenceKR": "겨울에는 가족과 썰매를 탄다."
+    },
+    {
+      "word": "反る",
+      "reading": "そる",
+      "meaningKR": "휘다, 뒤틀리다",
+      "sentenceJP": "板が湿気で反っている。",
+      "sentenceReading": "いたがしっけでそっている。",
+      "sentenceKR": "판자가 습기 때문에 휘어 있다."
+    },
+    {
+      "word": "それゆえ",
+      "reading": "それゆえ",
+      "meaningKR": "그러므로, 그 때문에",
+      "sentenceJP": "道が凍っている。それゆえ危険だ。",
+      "sentenceReading": "みちがこおっている。それゆえきけんだ。",
+      "sentenceKR": "길이 얼어 있다. 그러므로 위험하다."
+    },
+    {
+      "word": "ソロ",
+      "reading": "ソロ",
+      "meaningKR": "독주, 솔로",
+      "sentenceJP": "彼はソロで舞台に立った。",
+      "sentenceReading": "かれはそろでぶたいにたった。",
+      "sentenceKR": "그는 솔로로 무대에 섰다."
+    },
+    {
+      "word": "揃い",
+      "reading": "そろい",
+      "meaningKR": "세트, 한 벌",
+      "sentenceJP": "二人は揃いの服を着た。",
+      "sentenceReading": "ふたりはそろいのふくをきた。",
+      "sentenceKR": "두 사람은 같은 옷을 입었다."
+    },
+    {
+      "word": "ぞんざい",
+      "reading": "ぞんざい",
+      "meaningKR": "무례함, 되는대로 함",
+      "sentenceJP": "客をぞんざいに扱ってはいけない。",
+      "sentenceReading": "きゃくをぞんざいにあつかってはいけない。",
+      "sentenceKR": "손님을 함부로 대해서는 안 된다."
+    },
+    {
+      "word": "損失",
+      "reading": "そんしつ",
+      "meaningKR": "손실",
+      "sentenceJP": "事故で多額の損失が出た。",
+      "sentenceReading": "じこでたがくのそんしつがでた。",
+      "sentenceKR": "사고로 큰 손실이 발생했다."
+    },
+    {
+      "word": "存続",
+      "reading": "そんぞく",
+      "meaningKR": "존속, 지속",
+      "sentenceJP": "会社の存続が危ぶまれている。",
+      "sentenceReading": "かいしゃのそんぞくがあやぶまれている。",
+      "sentenceKR": "회사의 존속이 위태로운 상황이다."
+    },
+    {
+      "word": "ダース",
+      "reading": "ダース",
+      "meaningKR": "다스, 열두 개",
+      "sentenceJP": "卵を一ダース買った。",
+      "sentenceReading": "たまごをいちだーすかった。",
+      "sentenceKR": "달걀을 한 다스 샀다."
+    },
+    {
+      "word": "対応",
+      "reading": "たいおう",
+      "meaningKR": "대응, 대처",
+      "sentenceJP": "迅速な対応が求められる。",
+      "sentenceReading": "じんそくなたいおうがもとめられる。",
+      "sentenceKR": "신속한 대응이 요구된다."
+    },
+    {
+      "word": "大家",
+      "reading": "たいか",
+      "meaningKR": "명문가, 부유한 집안",
+      "sentenceJP": "彼女は地方の大家に嫁いだ。",
+      "sentenceReading": "かのじょはちほうのたいかにとついだ。",
+      "sentenceKR": "그녀는 지방의 명문가로 시집갔다."
+    },
+    {
+      "word": "退化",
+      "reading": "たいか",
+      "meaningKR": "퇴화",
+      "sentenceJP": "使わない器官は退化する。",
+      "sentenceReading": "つかわないきかんはたいかする。",
+      "sentenceKR": "사용하지 않는 기관은 퇴화한다."
+    },
+    {
+      "word": "大概",
+      "reading": "たいがい",
+      "meaningKR": "대개, 대체로",
+      "sentenceJP": "休日は大概家で過ごす。",
+      "sentenceReading": "きゅうじつはたいがいいえですごす。",
+      "sentenceKR": "휴일에는 대개 집에서 지낸다."
+    },
+    {
+      "word": "体格",
+      "reading": "たいかく",
+      "meaningKR": "체격, 체구",
+      "sentenceJP": "彼は体格に恵まれている。",
+      "sentenceReading": "かれはたいかくにめぐまれている。",
+      "sentenceKR": "그는 좋은 체격을 타고났다."
+    },
+    {
+      "word": "大金",
+      "reading": "たいきん",
+      "meaningKR": "거액",
+      "sentenceJP": "彼は事業で大金を手にした。",
+      "sentenceReading": "かれはじぎょうでたいきんをてにした。",
+      "sentenceKR": "그는 사업으로 거액을 손에 넣었다."
+    },
+    {
+      "word": "待遇",
+      "reading": "たいぐう",
+      "meaningKR": "대우",
+      "sentenceJP": "経験に応じて待遇が変わる。",
+      "sentenceReading": "けいけんにおうじてたいぐうがかわる。",
+      "sentenceKR": "경력에 따라 대우가 달라진다."
+    },
+    {
+      "word": "対決",
+      "reading": "たいけつ",
+      "meaningKR": "대결",
+      "sentenceJP": "両チームの対決が始まった。",
+      "sentenceReading": "りょうちーむのたいけつがはじまった。",
+      "sentenceKR": "양 팀의 대결이 시작되었다."
+    },
+    {
+      "word": "体験",
+      "reading": "たいけん",
+      "meaningKR": "체험",
+      "sentenceJP": "農作業を実際に体験した。",
+      "sentenceReading": "のうさぎょうをじっさいにたいけんした。",
+      "sentenceKR": "농사일을 실제로 체험했다."
+    },
+    {
+      "word": "対抗",
+      "reading": "たいこう",
+      "meaningKR": "대항",
+      "sentenceJP": "新商品で他社に対抗する。",
+      "sentenceReading": "しんしょうひんでたしゃにたいこうする。",
+      "sentenceKR": "신상품으로 타사에 대항한다."
+    },
+    {
+      "word": "退治",
+      "reading": "たいじ",
+      "meaningKR": "퇴치",
+      "sentenceJP": "庭の害虫を退治した。",
+      "sentenceReading": "にわのがいちゅうをたいじした。",
+      "sentenceKR": "정원의 해충을 퇴치했다."
+    },
+    {
+      "word": "大衆",
+      "reading": "たいしゅう",
+      "meaningKR": "대중",
+      "sentenceJP": "その歌は大衆に広く愛された。",
+      "sentenceReading": "そのうたはたいしゅうにひろくあいされた。",
+      "sentenceKR": "그 노래는 대중에게 널리 사랑받았다."
+    },
+    {
+      "word": "対処",
+      "reading": "たいしょ",
+      "meaningKR": "대처",
+      "sentenceJP": "問題には冷静に対処しよう。",
+      "sentenceReading": "もんだいにはれいせいにたいしょしよう。",
+      "sentenceKR": "문제에는 침착하게 대처하자."
+    },
+    {
+      "word": "退職",
+      "reading": "たいしょく",
+      "meaningKR": "퇴직",
+      "sentenceJP": "父は昨年会社を退職した。",
+      "sentenceReading": "ちちはさくねんかいしゃをたいしょくした。",
+      "sentenceKR": "아버지는 지난해 회사를 퇴직했다."
+    },
+    {
+      "word": "題する",
+      "reading": "だいする",
+      "meaningKR": "제목을 붙이다",
+      "sentenceJP": "「未来」と題する本を出版した。",
+      "sentenceReading": "みらいとだいするほんをしゅっぱんした。",
+      "sentenceKR": "‘미래’라는 제목의 책을 출판했다."
+    },
+    {
+      "word": "態勢",
+      "reading": "たいせい",
+      "meaningKR": "태세",
+      "sentenceJP": "緊急時に備えて態勢を整える。",
+      "sentenceReading": "きんきゅうじにそなえてたいせいをととのえる。",
+      "sentenceKR": "비상시에 대비해 태세를 갖춘다."
+    },
+    {
+      "word": "対談",
+      "reading": "たいだん",
+      "meaningKR": "대담",
+      "sentenceJP": "作家同士の対談が掲載された。",
+      "sentenceReading": "さっかどうしのたいだんがけいさいされた。",
+      "sentenceKR": "작가들 간의 대담이 게재되었다."
+    },
+    {
+      "word": "大胆",
+      "reading": "だいたん",
+      "meaningKR": "대담함",
+      "sentenceJP": "彼女は大胆な計画を提案した。",
+      "sentenceReading": "かのじょはだいたんなけいかくをていあんした。",
+      "sentenceKR": "그녀는 대담한 계획을 제안했다."
+    },
+    {
+      "word": "対等",
+      "reading": "たいとう",
+      "meaningKR": "대등함",
+      "sentenceJP": "両国は対等な関係を築いた。",
+      "sentenceReading": "りょうこくはたいとうなかんけいをきずいた。",
+      "sentenceKR": "양국은 대등한 관계를 구축했다."
+    },
+    {
+      "word": "台無し",
+      "reading": "だいなし",
+      "meaningKR": "엉망이 됨",
+      "sentenceJP": "雨で旅行が台無しになった。",
+      "sentenceReading": "あめでりょこうがだいなしになった。",
+      "sentenceKR": "비 때문에 여행을 망쳤다."
+    },
+    {
+      "word": "滞納",
+      "reading": "たいのう",
+      "meaningKR": "체납, 미납",
+      "sentenceJP": "家賃を三か月滞納した。",
+      "sentenceReading": "やちんをさんかげつたいのうした。",
+      "sentenceKR": "집세를 석 달간 체납했다."
+    },
+    {
+      "word": "対比",
+      "reading": "たいひ",
+      "meaningKR": "대조, 비교",
+      "sentenceJP": "新旧の制度を対比する。",
+      "sentenceReading": "しんきゅうのせいどをたいひする。",
+      "sentenceKR": "신구 제도를 대조한다."
+    },
+    {
+      "word": "タイピスト",
+      "reading": "タイピスト",
+      "meaningKR": "타이피스트, 타자수",
+      "sentenceJP": "彼女は熟練のタイピストだ。",
+      "sentenceReading": "かのじょはじゅくれんのたいぴすとだ。",
+      "sentenceKR": "그녀는 숙련된 타이피스트다."
+    },
+    {
+      "word": "大部",
+      "reading": "たいぶ",
+      "meaningKR": "상당히, 대부분",
+      "sentenceJP": "病気は大部よくなった。",
+      "sentenceReading": "びょうきはたいぶよくなった。",
+      "sentenceKR": "병이 상당히 좋아졌다."
+    },
+    {
+      "word": "大便",
+      "reading": "だいべん",
+      "meaningKR": "대변, 배설물",
+      "sentenceJP": "医師が大便を検査した。",
+      "sentenceReading": "いしがだいべんをけんさした。",
+      "sentenceKR": "의사가 대변을 검사했다."
+    },
+    {
+      "word": "代弁",
+      "reading": "だいべん",
+      "meaningKR": "대변, 대신 말함",
+      "sentenceJP": "皆の思いを彼が代弁した。",
+      "sentenceReading": "みんなのおもいをかれがだいべんした。",
+      "sentenceKR": "모두의 생각을 그가 대변했다."
+    },
+    {
+      "word": "待望",
+      "reading": "たいぼう",
+      "meaningKR": "대망, 오래 기다림",
+      "sentenceJP": "待望の新作が発売された。",
+      "sentenceReading": "たいぼうのしんさくがはつばいされた。",
+      "sentenceKR": "기다리던 신작이 출시되었다."
+    },
+    {
+      "word": "台本",
+      "reading": "だいほん",
+      "meaningKR": "대본, 각본",
+      "sentenceJP": "台本を何度も読み返した。",
+      "sentenceReading": "だいほんをなんどもよみかえした。",
+      "sentenceKR": "대본을 몇 번이나 다시 읽었다."
+    },
+    {
+      "word": "タイマー",
+      "reading": "タイマー",
+      "meaningKR": "타이머",
+      "sentenceJP": "タイマーを五分に設定した。",
+      "sentenceReading": "たいまーをごふんにせっていした。",
+      "sentenceKR": "타이머를 5분으로 설정했다."
+    },
+    {
+      "word": "怠慢",
+      "reading": "たいまん",
+      "meaningKR": "태만, 직무 소홀",
+      "sentenceJP": "管理の怠慢が事故を招いた。",
+      "sentenceReading": "かんりのたいまんがじこをまねいた。",
+      "sentenceKR": "관리 태만이 사고를 초래했다."
+    },
+    {
+      "word": "タイミング",
+      "reading": "タイミング",
+      "meaningKR": "타이밍, 시기",
+      "sentenceJP": "話を切り出すタイミングを待つ。",
+      "sentenceReading": "はなしをきりだすたいみんぐをまつ。",
+      "sentenceKR": "말을 꺼낼 타이밍을 기다린다."
+    },
+    {
+      "word": "タイム",
+      "reading": "タイム",
+      "meaningKR": "시간, 기록",
+      "sentenceJP": "マラソンのタイムを縮めた。",
+      "sentenceReading": "まらそんのたいむをちぢめた。",
+      "sentenceKR": "마라톤 기록을 단축했다."
+    },
+    {
+      "word": "タイムリー",
+      "reading": "タイムリー",
+      "meaningKR": "시기적절한, 적시타",
+      "sentenceJP": "タイムリーな助言に救われた。",
+      "sentenceReading": "たいむりーなじょげんにすくわれた。",
+      "sentenceKR": "시기적절한 조언 덕분에 살았다."
+    },
+    {
+      "word": "対面",
+      "reading": "たいめん",
+      "meaningKR": "대면, 만남",
+      "sentenceJP": "取引先と初めて対面した。",
+      "sentenceReading": "とりひきさきとはじめてたいめんした。",
+      "sentenceKR": "거래처 사람과 처음 대면했다."
+    },
+    {
+      "word": "代用",
+      "reading": "だいよう",
+      "meaningKR": "대용, 대신 사용함",
+      "sentenceJP": "牛乳の代用として豆乳を使う。",
+      "sentenceReading": "ぎゅうにゅうのだいようとしてとうにゅうをつかう。",
+      "sentenceKR": "우유 대신 두유를 사용한다."
     }
   ]
 }
