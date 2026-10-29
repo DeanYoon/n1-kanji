@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-28T00:12:51.046Z",
-  "count": 1620,
+  "generatedAt": "2026-10-29T00:34:19.266Z",
+  "count": 1665,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -12964,6 +12964,366 @@
       "sentenceJP": "牛乳の代用として豆乳を使う。",
       "sentenceReading": "ぎゅうにゅうのだいようとしてとうにゅうをつかう。",
       "sentenceKR": "우유 대신 두유를 사용한다."
+    },
+    {
+      "word": "体力",
+      "reading": "たいりょく",
+      "meaningKR": "체력",
+      "sentenceJP": "毎朝走って体力をつける。",
+      "sentenceReading": "まいあさはしってたいりょくをつける。",
+      "sentenceKR": "매일 아침 달리며 체력을 기른다."
+    },
+    {
+      "word": "タイル",
+      "reading": "タイル",
+      "meaningKR": "타일",
+      "sentenceJP": "浴室のタイルを張り替えた。",
+      "sentenceReading": "よくしつのたいるをはりかえた。",
+      "sentenceKR": "욕실 타일을 새로 교체했다."
+    },
+    {
+      "word": "対話",
+      "reading": "たいわ",
+      "meaningKR": "대화",
+      "sentenceJP": "対話を通じて理解を深める。",
+      "sentenceReading": "たいわをつうじてりかいをふかめる。",
+      "sentenceKR": "대화를 통해 이해를 깊게 한다."
+    },
+    {
+      "word": "耐える",
+      "reading": "たえる",
+      "meaningKR": "견디다",
+      "sentenceJP": "厳しい暑さに耐える。",
+      "sentenceReading": "きびしいあつさにたえる。",
+      "sentenceKR": "혹독한 더위를 견딘다."
+    },
+    {
+      "word": "堪える",
+      "reading": "たえる",
+      "meaningKR": "참다, 견디다",
+      "sentenceJP": "その光景は見るに堪えない。",
+      "sentenceReading": "そのこうけいはみるにたえない。",
+      "sentenceKR": "그 광경은 차마 볼 수 없다."
+    },
+    {
+      "word": "絶える",
+      "reading": "たえる",
+      "meaningKR": "끊기다, 소멸하다",
+      "sentenceJP": "この地域では伝統が絶えつつある。",
+      "sentenceReading": "このちいきではでんとうがたえつつある。",
+      "sentenceKR": "이 지역에서는 전통이 사라져 가고 있다."
+    },
+    {
+      "word": "断える",
+      "reading": "たえる",
+      "meaningKR": "끊기다, 자취를 감추다",
+      "sentenceJP": "人の往来が断えて久しい。",
+      "sentenceReading": "ひとのおうらいがたえてひさしい。",
+      "sentenceKR": "사람들의 왕래가 끊긴 지 오래다."
+    },
+    {
+      "word": "打開",
+      "reading": "だかい",
+      "meaningKR": "타개, 돌파구",
+      "sentenceJP": "交渉の行き詰まりを打開した。",
+      "sentenceReading": "こうしょうのいきづまりをだかいした。",
+      "sentenceKR": "교착 상태에 빠진 협상을 타개했다."
+    },
+    {
+      "word": "焚火",
+      "reading": "たきび",
+      "meaningKR": "모닥불",
+      "sentenceJP": "焚火を囲んで夜を過ごした。",
+      "sentenceReading": "たきびをかこんでよるをすごした。",
+      "sentenceKR": "모닥불에 둘러앉아 밤을 보냈다."
+    },
+    {
+      "word": "妥協",
+      "reading": "だきょう",
+      "meaningKR": "타협, 양보",
+      "sentenceJP": "双方が妥協して合意に達した。",
+      "sentenceReading": "そうほうがだきょうしてごういにたっした。",
+      "sentenceKR": "양측이 타협하여 합의에 이르렀다."
+    },
+    {
+      "word": "たくましい",
+      "reading": "たくましい",
+      "meaningKR": "건장하다, 씩씩하다",
+      "sentenceJP": "彼はたくましい体つきをしている。",
+      "sentenceReading": "かれはたくましいからだつきをしている。",
+      "sentenceKR": "그는 건장한 체격을 지니고 있다."
+    },
+    {
+      "word": "巧み",
+      "reading": "たくみ",
+      "meaningKR": "능숙함, 교묘함",
+      "sentenceJP": "巧みな話術で観客を引き込んだ。",
+      "sentenceReading": "たくみなわじゅつでかんきゃくをひきこんだ。",
+      "sentenceKR": "능숙한 화술로 관객을 사로잡았다."
+    },
+    {
+      "word": "丈",
+      "reading": "たけ",
+      "meaningKR": "길이, 높이",
+      "sentenceJP": "スカートの丈を少し詰めた。",
+      "sentenceReading": "すかーとのたけをすこしつめた。",
+      "sentenceKR": "치마 길이를 조금 줄였다."
+    },
+    {
+      "word": "打撃",
+      "reading": "だげき",
+      "meaningKR": "타격, 피해",
+      "sentenceJP": "不況が業界に大きな打撃を与えた。",
+      "sentenceReading": "ふきょうがぎょうかいにおおきなだげきをあたえた。",
+      "sentenceKR": "불황이 업계에 큰 타격을 주었다."
+    },
+    {
+      "word": "妥結",
+      "reading": "だけつ",
+      "meaningKR": "타결, 합의",
+      "sentenceJP": "長い交渉の末に妥結した。",
+      "sentenceReading": "ながいこうしょうのすえにだけつした。",
+      "sentenceKR": "오랜 협상 끝에 타결되었다."
+    },
+    {
+      "word": "駄作",
+      "reading": "ださく",
+      "meaningKR": "졸작",
+      "sentenceJP": "これは駄作だと批判された。",
+      "sentenceReading": "これはださくだとひはんされた。",
+      "sentenceKR": "이것은 졸작이라는 비판을 받았다."
+    },
+    {
+      "word": "足し算",
+      "reading": "たしざん",
+      "meaningKR": "덧셈",
+      "sentenceJP": "足し算なら暗算でできる。",
+      "sentenceReading": "たしざんならあんざんでできる。",
+      "sentenceKR": "덧셈이라면 암산으로 할 수 있다."
+    },
+    {
+      "word": "多数決",
+      "reading": "たすうけつ",
+      "meaningKR": "다수결",
+      "sentenceJP": "最後は多数決で決めよう。",
+      "sentenceReading": "さいごはたすうけつできめよう。",
+      "sentenceKR": "마지막에는 다수결로 정하자."
+    },
+    {
+      "word": "助け",
+      "reading": "たすけ",
+      "meaningKR": "도움",
+      "sentenceJP": "彼の助けがなければ無理だった。",
+      "sentenceReading": "かれのたすけがなければむりだった。",
+      "sentenceKR": "그의 도움이 없었다면 불가능했다."
+    },
+    {
+      "word": "携わる",
+      "reading": "たずさわる",
+      "meaningKR": "종사하다",
+      "sentenceJP": "新製品の開発に携わっている。",
+      "sentenceReading": "しんせいひんのかいはつにたずさわっている。",
+      "sentenceKR": "신제품 개발에 종사하고 있다."
+    },
+    {
+      "word": "漂う",
+      "reading": "ただよう",
+      "meaningKR": "감돌다",
+      "sentenceJP": "花の香りが部屋に漂っている。",
+      "sentenceReading": "はなのかおりがへやにただよっている。",
+      "sentenceKR": "꽃향기가 방 안에 감돌고 있다."
+    },
+    {
+      "word": "立ち去る",
+      "reading": "たちさる",
+      "meaningKR": "떠나다",
+      "sentenceJP": "彼は黙ってその場を立ち去った。",
+      "sentenceReading": "かれはだまってそのばをたちさった。",
+      "sentenceKR": "그는 말없이 그 자리를 떠났다."
+    },
+    {
+      "word": "立ち寄る",
+      "reading": "たちよる",
+      "meaningKR": "잠시 들르다",
+      "sentenceJP": "帰りに本屋へ立ち寄った。",
+      "sentenceReading": "かえりにほんやへたちよった。",
+      "sentenceKR": "돌아오는 길에 서점에 들렀다."
+    },
+    {
+      "word": "抱っこ",
+      "reading": "だっこ",
+      "meaningKR": "안아 주기",
+      "sentenceJP": "赤ちゃんを優しく抱っこする。",
+      "sentenceReading": "あかちゃんをやさしくだっこする。",
+      "sentenceKR": "아기를 다정하게 안아 준다."
+    },
+    {
+      "word": "達者",
+      "reading": "たっしゃ",
+      "meaningKR": "건강함, 능숙함",
+      "sentenceJP": "祖父は今も達者に暮らしている。",
+      "sentenceReading": "そふはいまもたっしゃにくらしている。",
+      "sentenceKR": "할아버지는 지금도 건강하게 지내신다."
+    },
+    {
+      "word": "脱出",
+      "reading": "だっしゅつ",
+      "meaningKR": "탈출",
+      "sentenceJP": "非常口から無事に脱出した。",
+      "sentenceReading": "ひじょうぐちからぶじにだっしゅつした。",
+      "sentenceKR": "비상구를 통해 무사히 탈출했다."
+    },
+    {
+      "word": "脱する",
+      "reading": "だっする",
+      "meaningKR": "벗어나다",
+      "sentenceJP": "危機を脱する方法を探す。",
+      "sentenceReading": "ききをだっするほうほうをさがす。",
+      "sentenceKR": "위기에서 벗어날 방법을 찾는다."
+    },
+    {
+      "word": "達成",
+      "reading": "たっせい",
+      "meaningKR": "달성",
+      "sentenceJP": "ついに目標を達成した。",
+      "sentenceReading": "ついにもくひょうをたっせいした。",
+      "sentenceKR": "마침내 목표를 달성했다."
+    },
+    {
+      "word": "脱退",
+      "reading": "だったい",
+      "meaningKR": "탈퇴",
+      "sentenceJP": "彼はその団体から脱退した。",
+      "sentenceReading": "かれはそのだんたいからだったいした。",
+      "sentenceKR": "그는 그 단체에서 탈퇴했다."
+    },
+    {
+      "word": "だったら",
+      "reading": "だったら",
+      "meaningKR": "그렇다면",
+      "sentenceJP": "嫌だったら断ってもいいよ。",
+      "sentenceReading": "いやだったらことわってもいいよ。",
+      "sentenceKR": "싫다면 거절해도 괜찮아."
+    },
+    {
+      "word": "立て替える",
+      "reading": "たてかえる",
+      "meaningKR": "대신 지불하다, 돈을 대신 내다",
+      "sentenceJP": "昼食代は私が立て替える。",
+      "sentenceReading": "ちゅうしょくだいはわたしがたてかえる。",
+      "sentenceKR": "점심값은 내가 대신 낼게."
+    },
+    {
+      "word": "建前",
+      "reading": "たてまえ",
+      "meaningKR": "겉으로 내세우는 입장, 명분",
+      "sentenceJP": "建前と本音は違う。",
+      "sentenceReading": "たてまえとほんねはちがう。",
+      "sentenceKR": "겉으로 내세우는 말과 속마음은 다르다."
+    },
+    {
+      "word": "奉る",
+      "reading": "たてまつる",
+      "meaningKR": "바치다, 삼가 행하다",
+      "sentenceJP": "神前に供物を奉る。",
+      "sentenceReading": "しんぜんにくもつをたてまつる。",
+      "sentenceKR": "신전에 제물을 바친다."
+    },
+    {
+      "word": "だと",
+      "reading": "だと",
+      "meaningKR": "그렇다면, ~인 경우에는",
+      "sentenceJP": "雨だと、試合は中止だ。",
+      "sentenceReading": "あめだと、しあいはちゅうしだ。",
+      "sentenceKR": "비가 오면 경기는 중지된다."
+    },
+    {
+      "word": "他動詞",
+      "reading": "たどうし",
+      "meaningKR": "타동사",
+      "sentenceJP": "「開ける」は他動詞だ。",
+      "sentenceReading": "「あける」はたどうしだ。",
+      "sentenceKR": "‘열다’는 타동사다."
+    },
+    {
+      "word": "辿り着く",
+      "reading": "たどりつく",
+      "meaningKR": "겨우 도착하다, 당도하다",
+      "sentenceJP": "夜明け前に山頂へ辿り着く。",
+      "sentenceReading": "よあけまえにさんちょうへたどりつく。",
+      "sentenceKR": "동트기 전에 산 정상에 도착한다."
+    },
+    {
+      "word": "辿る",
+      "reading": "たどる",
+      "meaningKR": "따라가다, 더듬다",
+      "sentenceJP": "記憶を辿って故郷を描く。",
+      "sentenceReading": "きおくをたどってふるさとをえがく。",
+      "sentenceKR": "기억을 더듬어 고향을 그린다."
+    },
+    {
+      "word": "束ねる",
+      "reading": "たばねる",
+      "meaningKR": "묶다, 통솔하다",
+      "sentenceJP": "書類を輪ゴムで束ねる。",
+      "sentenceReading": "しょるいをわごむでたばねる。",
+      "sentenceKR": "서류를 고무줄로 묶는다."
+    },
+    {
+      "word": "だぶだぶ",
+      "reading": "だぶだぶ",
+      "meaningKR": "헐렁헐렁한 모양",
+      "sentenceJP": "このズボンはだぶだぶだ。",
+      "sentenceReading": "このずぼんはだぶだぶだ。",
+      "sentenceKR": "이 바지는 너무 헐렁하다."
+    },
+    {
+      "word": "他方",
+      "reading": "たほう",
+      "meaningKR": "다른 한편, 반면",
+      "sentenceJP": "他方では反対意見も多い。",
+      "sentenceReading": "たほうでははんたいいけんもおおい。",
+      "sentenceKR": "다른 한편으로는 반대 의견도 많다."
+    },
+    {
+      "word": "多忙",
+      "reading": "たぼう",
+      "meaningKR": "매우 바쁨, 다망함",
+      "sentenceJP": "多忙のため出席できない。",
+      "sentenceReading": "たぼうのためしゅっせきできない。",
+      "sentenceKR": "매우 바빠서 참석할 수 없다."
+    },
+    {
+      "word": "給う",
+      "reading": "たまう",
+      "meaningKR": "주시다, 하사하다",
+      "sentenceJP": "神よ、我に力を給え。",
+      "sentenceReading": "かみよ、われにちからをたまえ。",
+      "sentenceKR": "신이시여, 제게 힘을 주소서."
+    },
+    {
+      "word": "魂",
+      "reading": "たましい",
+      "meaningKR": "영혼, 정신",
+      "sentenceJP": "作品に魂を込める。",
+      "sentenceReading": "さくひんにたましいをこめる。",
+      "sentenceKR": "작품에 혼을 담는다."
+    },
+    {
+      "word": "溜まり",
+      "reading": "たまり",
+      "meaningKR": "쌓인 것, 밀린 것",
+      "sentenceJP": "家賃の溜まりをまとめて払う。",
+      "sentenceReading": "やちんのたまりをまとめてはらう。",
+      "sentenceKR": "밀린 집세를 한꺼번에 낸다."
+    },
+    {
+      "word": "賜る",
+      "reading": "たまわる",
+      "meaningKR": "하사하다, 받들어 받다",
+      "sentenceJP": "皆様からご支援を賜る。",
+      "sentenceReading": "みなさまからごしえんをたまわる。",
+      "sentenceKR": "여러분으로부터 지원을 받다."
     }
   ]
 }
