@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-29T00:34:19.266Z",
-  "count": 1665,
+  "generatedAt": "2026-10-30T00:33:26.471Z",
+  "count": 1710,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -13324,6 +13324,366 @@
       "sentenceJP": "皆様からご支援を賜る。",
       "sentenceReading": "みなさまからごしえんをたまわる。",
       "sentenceKR": "여러분으로부터 지원을 받다."
+    },
+    {
+      "word": "保つ",
+      "reading": "たもつ",
+      "meaningKR": "유지하다, 보존하다",
+      "sentenceJP": "健康を保つため、毎朝歩いている。",
+      "sentenceReading": "けんこうをたもつため、まいあさあるいている。",
+      "sentenceKR": "건강을 유지하기 위해 매일 아침 걷고 있다."
+    },
+    {
+      "word": "たやすい",
+      "reading": "たやすい",
+      "meaningKR": "쉽다, 간단하다",
+      "sentenceJP": "この問題はたやすいように見える。",
+      "sentenceReading": "このもんだいはたやすいようにみえる。",
+      "sentenceKR": "이 문제는 쉬워 보인다."
+    },
+    {
+      "word": "多様",
+      "reading": "たよう",
+      "meaningKR": "다양함, 다양성",
+      "sentenceJP": "多様な意見を尊重すべきだ。",
+      "sentenceReading": "たようないけんをそんちょうすべきだ。",
+      "sentenceKR": "다양한 의견을 존중해야 한다."
+    },
+    {
+      "word": "だるい",
+      "reading": "だるい",
+      "meaningKR": "나른하다, 몸이 무겁다",
+      "sentenceJP": "疲れがたまり、体がだるい。",
+      "sentenceReading": "つかれがたまり、からだがだるい。",
+      "sentenceKR": "피로가 쌓여 몸이 나른하다."
+    },
+    {
+      "word": "弛み",
+      "reading": "たるみ",
+      "meaningKR": "느슨해짐, 해이함",
+      "sentenceJP": "気の弛みが事故につながる。",
+      "sentenceReading": "きのたるみがじこにつながる。",
+      "sentenceKR": "마음의 해이가 사고로 이어진다."
+    },
+    {
+      "word": "弛む",
+      "reading": "たるむ",
+      "meaningKR": "느슨해지다, 해이해지다",
+      "sentenceJP": "張った糸が少し弛んでいる。",
+      "sentenceReading": "はったいとがすこしたるんでいる。",
+      "sentenceKR": "팽팽했던 실이 조금 느슨해져 있다."
+    },
+    {
+      "word": "垂れる",
+      "reading": "たれる",
+      "meaningKR": "늘어지다, 뚝뚝 떨어지다",
+      "sentenceJP": "雨水が軒先から垂れている。",
+      "sentenceReading": "あまみずがのきさきからたれている。",
+      "sentenceKR": "빗물이 처마 끝에서 떨어지고 있다."
+    },
+    {
+      "word": "タレント",
+      "reading": "タレント",
+      "meaningKR": "연예인, 스타",
+      "sentenceJP": "人気タレントが番組に出演した。",
+      "sentenceReading": "にんきたれんとがばんぐみにしゅつえんした。",
+      "sentenceKR": "인기 연예인이 방송에 출연했다."
+    },
+    {
+      "word": "タワー",
+      "reading": "タワー",
+      "meaningKR": "탑, 타워",
+      "sentenceJP": "東京タワーから夜景を眺めた。",
+      "sentenceReading": "とうきょうたわーからやけいをながめた。",
+      "sentenceKR": "도쿄 타워에서 야경을 바라보았다."
+    },
+    {
+      "word": "単一",
+      "reading": "たんいつ",
+      "meaningKR": "단일, 하나뿐임",
+      "sentenceJP": "単一の原因では説明できない。",
+      "sentenceReading": "たんいつのげんいんではせつめいできない。",
+      "sentenceKR": "단일 원인만으로는 설명할 수 없다."
+    },
+    {
+      "word": "短歌",
+      "reading": "たんか",
+      "meaningKR": "단가, 일본 정형시",
+      "sentenceJP": "短歌を詠んで心を表した。",
+      "sentenceReading": "たんかをよんでこころをあらわした。",
+      "sentenceKR": "단가를 지어 마음을 표현했다."
+    },
+    {
+      "word": "担架",
+      "reading": "たんか",
+      "meaningKR": "들것",
+      "sentenceJP": "救急隊員が担架で患者を運んだ。",
+      "sentenceReading": "きゅうきゅうたいいんがたんかでかんじゃをはこんだ。",
+      "sentenceKR": "구급대원이 들것으로 환자를 옮겼다."
+    },
+    {
+      "word": "短気",
+      "reading": "たんき",
+      "meaningKR": "다혈질, 성급함",
+      "sentenceJP": "彼は短気ですぐ腹を立てる。",
+      "sentenceReading": "かれはたんきですぐはらをたてる。",
+      "sentenceKR": "그는 성격이 급해서 금방 화를 낸다."
+    },
+    {
+      "word": "団結",
+      "reading": "だんけつ",
+      "meaningKR": "단결, 결속",
+      "sentenceJP": "仲間の団結が勝利をもたらした。",
+      "sentenceReading": "なかまのだんけつがしょうりをもたらした。",
+      "sentenceKR": "동료들의 단결이 승리를 가져왔다."
+    },
+    {
+      "word": "探検",
+      "reading": "たんけん",
+      "meaningKR": "탐험",
+      "sentenceJP": "未知の洞窟を探検した。",
+      "sentenceReading": "みちのどうくつをたんけんした。",
+      "sentenceKR": "미지의 동굴을 탐험했다."
+    },
+    {
+      "word": "断言",
+      "reading": "だんげん",
+      "meaningKR": "단언, 확언",
+      "sentenceJP": "彼は無実だと断言した。",
+      "sentenceReading": "かれはむじつだとだんげんした。",
+      "sentenceKR": "그는 결백하다고 단언했다."
+    },
+    {
+      "word": "短縮",
+      "reading": "たんしゅく",
+      "meaningKR": "단축, 축소",
+      "sentenceJP": "会議時間を三十分短縮した。",
+      "sentenceReading": "かいぎじかんをさんじゅっぷんたんしゅくした。",
+      "sentenceKR": "회의 시간을 30분 단축했다."
+    },
+    {
+      "word": "断然",
+      "reading": "だんぜん",
+      "meaningKR": "단연, 확실히",
+      "sentenceJP": "品質ならこちらが断然上だ。",
+      "sentenceReading": "ひんしつならこちらがだんぜんうえだ。",
+      "sentenceKR": "품질이라면 이쪽이 단연 우위다."
+    },
+    {
+      "word": "炭素",
+      "reading": "たんそ",
+      "meaningKR": "탄소",
+      "sentenceJP": "炭素は生命を支える元素だ。",
+      "sentenceReading": "たんそはせいめいをささえるげんそだ。",
+      "sentenceKR": "탄소는 생명을 지탱하는 원소다."
+    },
+    {
+      "word": "短大",
+      "reading": "たんだい",
+      "meaningKR": "단기대학",
+      "sentenceJP": "姉は地元の短大に通っている。",
+      "sentenceReading": "あねはじもとのたんだいにかよっている。",
+      "sentenceKR": "언니는 지역 단기대학에 다니고 있다."
+    },
+    {
+      "word": "単調",
+      "reading": "たんちょう",
+      "meaningKR": "단조로움",
+      "sentenceJP": "単調な作業に飽きてきた。",
+      "sentenceReading": "たんちょうなさぎょうにあきてきた。",
+      "sentenceKR": "단조로운 작업에 싫증이 나기 시작했다."
+    },
+    {
+      "word": "単独",
+      "reading": "たんどく",
+      "meaningKR": "단독",
+      "sentenceJP": "彼は単独で山頂を目指した。",
+      "sentenceReading": "かれはたんどくでさんちょうをめざした。",
+      "sentenceKR": "그는 단독으로 산 정상을 향했다."
+    },
+    {
+      "word": "旦那",
+      "reading": "だんな",
+      "meaningKR": "남편",
+      "sentenceJP": "旦那は今夜帰りが遅い。",
+      "sentenceReading": "だんなはこんやかえりがおそい。",
+      "sentenceKR": "남편은 오늘 밤 늦게 돌아온다."
+    },
+    {
+      "word": "短波",
+      "reading": "たんぱ",
+      "meaningKR": "단파",
+      "sentenceJP": "短波で海外放送を受信する。",
+      "sentenceReading": "たんぱでかいがいほうそうをじゅしんする。",
+      "sentenceKR": "단파로 해외 방송을 수신한다."
+    },
+    {
+      "word": "蛋白質",
+      "reading": "たんぱくしつ",
+      "meaningKR": "단백질",
+      "sentenceJP": "肉や豆から蛋白質を摂る。",
+      "sentenceReading": "にくやまめからたんぱくしつをとる。",
+      "sentenceKR": "고기와 콩으로 단백질을 섭취한다."
+    },
+    {
+      "word": "ダンプ",
+      "reading": "ダンプ",
+      "meaningKR": "덤프트럭",
+      "sentenceJP": "ダンプが土砂を運んでいる。",
+      "sentenceReading": "だんぷがどしゃをはこんでいる。",
+      "sentenceKR": "덤프트럭이 토사를 나르고 있다."
+    },
+    {
+      "word": "断面",
+      "reading": "だんめん",
+      "meaningKR": "단면",
+      "sentenceJP": "木の断面に年輪が見える。",
+      "sentenceReading": "きのだんめんにねんりんがみえる。",
+      "sentenceKR": "나무 단면에 나이테가 보인다."
+    },
+    {
+      "word": "弾力",
+      "reading": "だんりょく",
+      "meaningKR": "탄력성, 유연성",
+      "sentenceJP": "この素材は弾力に富んでいる。",
+      "sentenceReading": "このそざいはだんりょくにとんでいる。",
+      "sentenceKR": "이 소재는 탄력이 풍부하다."
+    },
+    {
+      "word": "治安",
+      "reading": "ちあん",
+      "meaningKR": "치안",
+      "sentenceJP": "この町は治安が良くて安心だ。",
+      "sentenceReading": "このまちはちあんがよくてあんしんだ。",
+      "sentenceKR": "이 동네는 치안이 좋아서 안심이다."
+    },
+    {
+      "word": "チームワーク",
+      "reading": "チームワーク",
+      "meaningKR": "팀워크",
+      "sentenceJP": "優勝にはチームワークが欠かせない。",
+      "sentenceReading": "ゆうしょうにはちーむわーくがかかせない。",
+      "sentenceKR": "우승하려면 팀워크가 필수다."
+    },
+    {
+      "word": "チェンジ",
+      "reading": "チェンジ",
+      "meaningKR": "변경, 변화",
+      "sentenceJP": "気分転換に髪型をチェンジした。",
+      "sentenceReading": "きぶんてんかんにかみがたをちぇんじした。",
+      "sentenceKR": "기분 전환을 위해 머리 모양을 바꿨다."
+    },
+    {
+      "word": "違える",
+      "reading": "ちがえる",
+      "meaningKR": "다르게 하다, 바꾸다",
+      "sentenceJP": "部屋ごとに壁の色を違える。",
+      "sentenceReading": "へやごとにかべのいろをちがえる。",
+      "sentenceKR": "방마다 벽의 색을 다르게 한다."
+    },
+    {
+      "word": "畜産",
+      "reading": "ちくさん",
+      "meaningKR": "축산",
+      "sentenceJP": "この地域では畜産が盛んだ。",
+      "sentenceReading": "このちいきではちくさんがさかんだ。",
+      "sentenceKR": "이 지역에서는 축산업이 활발하다."
+    },
+    {
+      "word": "畜生",
+      "reading": "ちくしょう",
+      "meaningKR": "짐승, 젠장",
+      "sentenceJP": "畜生、あと一歩だった。",
+      "sentenceReading": "ちくしょう、あといっぽだった。",
+      "sentenceKR": "젠장, 한 걸음만 더 가면 됐는데."
+    },
+    {
+      "word": "蓄積",
+      "reading": "ちくせき",
+      "meaningKR": "축적, 저장",
+      "sentenceJP": "疲労の蓄積が病気を招く。",
+      "sentenceReading": "ひろうのちくせきがびょうきをまねく。",
+      "sentenceKR": "피로의 축적이 병을 부른다."
+    },
+    {
+      "word": "地形",
+      "reading": "ちけい",
+      "meaningKR": "지형",
+      "sentenceJP": "この地域は複雑な地形を持つ。",
+      "sentenceReading": "このちいきはふくざつなちけいをもつ。",
+      "sentenceKR": "이 지역은 복잡한 지형을 지니고 있다."
+    },
+    {
+      "word": "知性",
+      "reading": "ちせい",
+      "meaningKR": "지성",
+      "sentenceJP": "彼の発言には知性が感じられる。",
+      "sentenceReading": "かれのはつげんにはちせいがかんじられる。",
+      "sentenceKR": "그의 발언에서는 지성이 느껴진다."
+    },
+    {
+      "word": "乳",
+      "reading": "ちち",
+      "meaningKR": "젖, 유방",
+      "sentenceJP": "赤ん坊が母の乳を飲む。",
+      "sentenceReading": "あかんぼうがははのちちをのむ。",
+      "sentenceKR": "아기가 엄마의 젖을 먹는다."
+    },
+    {
+      "word": "縮まる",
+      "reading": "ちぢまる",
+      "meaningKR": "줄어들다, 수축하다",
+      "sentenceJP": "両者の距離が縮まった。",
+      "sentenceReading": "りょうしゃのきょりがちぢまった。",
+      "sentenceKR": "양측의 거리가 좁혀졌다."
+    },
+    {
+      "word": "秩序",
+      "reading": "ちつじょ",
+      "meaningKR": "질서",
+      "sentenceJP": "社会の秩序を守る必要がある。",
+      "sentenceReading": "しゃかいのちつじょをまもるひつようがある。",
+      "sentenceKR": "사회의 질서를 지킬 필요가 있다."
+    },
+    {
+      "word": "窒息",
+      "reading": "ちっそく",
+      "meaningKR": "질식",
+      "sentenceJP": "煙を吸って窒息しかけた。",
+      "sentenceReading": "けむりをすってちっそくしかけた。",
+      "sentenceKR": "연기를 마셔서 질식할 뻔했다."
+    },
+    {
+      "word": "知的",
+      "reading": "ちてき",
+      "meaningKR": "지적인",
+      "sentenceJP": "彼女は知的な印象を与える。",
+      "sentenceReading": "かのじょはちてきないんしょうをあたえる。",
+      "sentenceKR": "그녀는 지적인 인상을 준다."
+    },
+    {
+      "word": "着手",
+      "reading": "ちゃくしゅ",
+      "meaningKR": "착수",
+      "sentenceJP": "新事業の準備に着手した。",
+      "sentenceReading": "しんじぎょうのじゅんびにちゃくしゅした。",
+      "sentenceKR": "새 사업 준비에 착수했다."
+    },
+    {
+      "word": "着色",
+      "reading": "ちゃくしょく",
+      "meaningKR": "착색, 색칠",
+      "sentenceJP": "布を青く着色した。",
+      "sentenceReading": "ぬのをあおくちゃくしょくした。",
+      "sentenceKR": "천을 파랗게 착색했다."
+    },
+    {
+      "word": "着席",
+      "reading": "ちゃくせき",
+      "meaningKR": "착석",
+      "sentenceJP": "全員が静かに着席した。",
+      "sentenceReading": "ぜんいんがしずかにちゃくせきした。",
+      "sentenceKR": "모두가 조용히 착석했다."
     }
   ]
 }
