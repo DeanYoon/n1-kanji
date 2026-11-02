@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-30T00:33:26.471Z",
-  "count": 1710,
+  "generatedAt": "2026-11-02T00:09:02.379Z",
+  "count": 1755,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -13684,6 +13684,366 @@
       "sentenceJP": "全員が静かに着席した。",
       "sentenceReading": "ぜんいんがしずかにちゃくせきした。",
       "sentenceKR": "모두가 조용히 착석했다."
+    },
+    {
+      "word": "着目",
+      "reading": "ちゃくもく",
+      "meaningKR": "주목",
+      "sentenceJP": "彼の新しい手法に着目した。",
+      "sentenceReading": "かれのあたらしいしゅほうにちゃくもくした。",
+      "sentenceKR": "그의 새로운 수법에 주목했다."
+    },
+    {
+      "word": "着陸",
+      "reading": "ちゃくりく",
+      "meaningKR": "착륙",
+      "sentenceJP": "飛行機は無事に着陸した。",
+      "sentenceReading": "ひこうきはぶじにちゃくりくした。",
+      "sentenceKR": "비행기는 무사히 착륙했다."
+    },
+    {
+      "word": "着工",
+      "reading": "ちゃっこう",
+      "meaningKR": "착공",
+      "sentenceJP": "新庁舎は来月着工する。",
+      "sentenceReading": "しんちょうしゃはらいげつちゃっこうする。",
+      "sentenceKR": "새 청사는 다음 달에 착공한다."
+    },
+    {
+      "word": "茶の間",
+      "reading": "ちゃのま",
+      "meaningKR": "다다미방 거실",
+      "sentenceJP": "家族が茶の間に集まった。",
+      "sentenceReading": "かぞくがちゃのまにあつまった。",
+      "sentenceKR": "가족이 다다미방 거실에 모였다."
+    },
+    {
+      "word": "茶の湯",
+      "reading": "ちゃのゆ",
+      "meaningKR": "다도",
+      "sentenceJP": "祖母から茶の湯を習う。",
+      "sentenceReading": "そぼからちゃのゆをならう。",
+      "sentenceKR": "할머니에게 다도를 배운다."
+    },
+    {
+      "word": "ちやほや",
+      "reading": "ちやほや",
+      "meaningKR": "응석을 받아 줌",
+      "sentenceJP": "子供をちやほやしすぎるな。",
+      "sentenceReading": "こどもをちやほやしすぎるな。",
+      "sentenceKR": "아이를 너무 떠받들어 주지 마라."
+    },
+    {
+      "word": "チャンネル",
+      "reading": "チャンネル",
+      "meaningKR": "채널",
+      "sentenceJP": "テレビのチャンネルを変えた。",
+      "sentenceReading": "てれびのちゃんねるをかえた。",
+      "sentenceKR": "텔레비전 채널을 바꿨다."
+    },
+    {
+      "word": "宙返り",
+      "reading": "ちゅうがえり",
+      "meaningKR": "공중제비",
+      "sentenceJP": "飛行機が空中で宙返りした。",
+      "sentenceReading": "ひこうきがくうちゅうでちゅうがえりした。",
+      "sentenceKR": "비행기가 공중에서 공중제비를 돌았다."
+    },
+    {
+      "word": "中継",
+      "reading": "ちゅうけい",
+      "meaningKR": "중계",
+      "sentenceJP": "試合を生中継で見た。",
+      "sentenceReading": "しあいをなまちゅうけいでみた。",
+      "sentenceKR": "경기를 생중계로 봤다."
+    },
+    {
+      "word": "忠告",
+      "reading": "ちゅうこく",
+      "meaningKR": "충고",
+      "sentenceJP": "友人の忠告に従った。",
+      "sentenceReading": "ゆうじんのちゅうこくにしたがった。",
+      "sentenceKR": "친구의 충고를 따랐다."
+    },
+    {
+      "word": "中傷",
+      "reading": "ちゅうしょう",
+      "meaningKR": "중상모략",
+      "sentenceJP": "ネット上の中傷に傷ついた。",
+      "sentenceReading": "ねっとじょうのちゅうしょうにきずついた。",
+      "sentenceKR": "인터넷상의 비방에 상처받았다."
+    },
+    {
+      "word": "中枢",
+      "reading": "ちゅうすう",
+      "meaningKR": "중추",
+      "sentenceJP": "首都は政治の中枢を担う。",
+      "sentenceReading": "しゅとはせいじのちゅうすうをになう。",
+      "sentenceKR": "수도는 정치의 중추를 담당한다."
+    },
+    {
+      "word": "抽選",
+      "reading": "ちゅうせん",
+      "meaningKR": "추첨",
+      "sentenceJP": "抽選で旅行券が当たった。",
+      "sentenceReading": "ちゅうせんでりょこうけんがあたった。",
+      "sentenceKR": "추첨에서 여행권에 당첨됐다."
+    },
+    {
+      "word": "中断",
+      "reading": "ちゅうだん",
+      "meaningKR": "중단",
+      "sentenceJP": "大雨で試合が中断した。",
+      "sentenceReading": "おおあめでしあいがちゅうだんした。",
+      "sentenceKR": "폭우로 경기가 중단됐다."
+    },
+    {
+      "word": "中毒",
+      "reading": "ちゅうどく",
+      "meaningKR": "중독",
+      "sentenceJP": "彼は食中毒で入院した。",
+      "sentenceReading": "かれはしょくちゅうどくでにゅういんした。",
+      "sentenceKR": "그는 식중독으로 입원했다."
+    },
+    {
+      "word": "中腹",
+      "reading": "ちゅうふく",
+      "meaningKR": "산 중턱, 산허리",
+      "sentenceJP": "山の中腹で少し休んだ。",
+      "sentenceReading": "やまのちゅうふくですこしやすんだ。",
+      "sentenceKR": "산 중턱에서 잠시 쉬었다."
+    },
+    {
+      "word": "中立",
+      "reading": "ちゅうりつ",
+      "meaningKR": "중립",
+      "sentenceJP": "国は紛争で中立を保った。",
+      "sentenceReading": "くにはふんそうでちゅうりつをたもった。",
+      "sentenceKR": "그 나라는 분쟁에서 중립을 지켰다."
+    },
+    {
+      "word": "中和",
+      "reading": "ちゅうわ",
+      "meaningKR": "중화, 상쇄",
+      "sentenceJP": "酸がアルカリを中和する。",
+      "sentenceReading": "さんがあるかりをちゅうわする。",
+      "sentenceKR": "산이 알칼리를 중화한다."
+    },
+    {
+      "word": "～著",
+      "reading": "～ちょ",
+      "meaningKR": "~가 씀, ~ 저",
+      "sentenceJP": "村上春樹著の新作を買った。",
+      "sentenceReading": "むらかみはるきちょのしんさくをかった。",
+      "sentenceKR": "무라카미 하루키가 쓴 신작을 샀다."
+    },
+    {
+      "word": "腸",
+      "reading": "ちょう",
+      "meaningKR": "장, 창자",
+      "sentenceJP": "腸の調子を整える薬です。",
+      "sentenceReading": "ちょうのちょうしをととのえるくすりです。",
+      "sentenceKR": "장 상태를 조절하는 약입니다."
+    },
+    {
+      "word": "蝶",
+      "reading": "ちょう",
+      "meaningKR": "나비",
+      "sentenceJP": "白い蝶が庭を舞っている。",
+      "sentenceReading": "しろいちょうがにわをまっている。",
+      "sentenceKR": "흰 나비가 정원에서 날아다니고 있다."
+    },
+    {
+      "word": "超",
+      "reading": "ちょう",
+      "meaningKR": "초-, 극도의",
+      "sentenceJP": "超高層ビルが街にそびえる。",
+      "sentenceReading": "ちょうこうそうびるがまちにそびえる。",
+      "sentenceKR": "초고층 빌딩이 도시에 우뚝 솟아 있다."
+    },
+    {
+      "word": "調印",
+      "reading": "ちょういん",
+      "meaningKR": "조인, 서명",
+      "sentenceJP": "両国は和平協定に調印した。",
+      "sentenceReading": "りょうこくはわへいきょうていにちょういんした。",
+      "sentenceKR": "양국은 평화 협정에 조인했다."
+    },
+    {
+      "word": "聴覚",
+      "reading": "ちょうかく",
+      "meaningKR": "청각",
+      "sentenceJP": "年齢とともに聴覚が衰えた。",
+      "sentenceReading": "ねんれいとともにちょうかくがおとろえた。",
+      "sentenceKR": "나이가 들면서 청각이 쇠퇴했다."
+    },
+    {
+      "word": "長官",
+      "reading": "ちょうかん",
+      "meaningKR": "장관, 기관장",
+      "sentenceJP": "長官が記者会見を開いた。",
+      "sentenceReading": "ちょうかんがきしゃかいけんをひらいた。",
+      "sentenceKR": "장관이 기자 회견을 열었다."
+    },
+    {
+      "word": "聴講",
+      "reading": "ちょうこう",
+      "meaningKR": "청강",
+      "sentenceJP": "大学で歴史学を聴講する。",
+      "sentenceReading": "だいがくでれきしがくをちょうこうする。",
+      "sentenceKR": "대학에서 역사학을 청강한다."
+    },
+    {
+      "word": "徴収",
+      "reading": "ちょうしゅう",
+      "meaningKR": "징수",
+      "sentenceJP": "市が住民税を徴収する。",
+      "sentenceReading": "しがじゅうみんぜいをちょうしゅうする。",
+      "sentenceKR": "시가 주민세를 징수한다."
+    },
+    {
+      "word": "聴診器",
+      "reading": "ちょうしんき",
+      "meaningKR": "청진기",
+      "sentenceJP": "医師は聴診器を胸に当てた。",
+      "sentenceReading": "いしはちょうしんきをむねにあてた。",
+      "sentenceKR": "의사는 청진기를 가슴에 댔다."
+    },
+    {
+      "word": "調停",
+      "reading": "ちょうてい",
+      "meaningKR": "조정, 중재",
+      "sentenceJP": "両者の争いを調停した。",
+      "sentenceReading": "りょうしゃのあらそいをちょうていした。",
+      "sentenceKR": "양측의 다툼을 조정했다."
+    },
+    {
+      "word": "重複",
+      "reading": "ちょうふく",
+      "meaningKR": "중복, 겹침",
+      "sentenceJP": "内容の重複を避けてください。",
+      "sentenceReading": "ないようのちょうふくをさけてください。",
+      "sentenceKR": "내용의 중복을 피해주세요."
+    },
+    {
+      "word": "長編",
+      "reading": "ちょうへん",
+      "meaningKR": "장편",
+      "sentenceJP": "長編小説を一晩で読み終えた。",
+      "sentenceReading": "ちょうへんしょうせつをひとばんでよみおえた。",
+      "sentenceKR": "장편 소설을 하룻밤 만에 다 읽었다."
+    },
+    {
+      "word": "重宝",
+      "reading": "ちょうほう",
+      "meaningKR": "유용함",
+      "sentenceJP": "この鍋は軽くて重宝している。",
+      "sentenceReading": "このなべはかるくてちょうほうしている。",
+      "sentenceKR": "이 냄비는 가벼워서 유용하게 쓰고 있다."
+    },
+    {
+      "word": "調理",
+      "reading": "ちょうり",
+      "meaningKR": "조리",
+      "sentenceJP": "毎朝、自分で朝食を調理する。",
+      "sentenceReading": "まいあさ、じぶんでちょうしょくをちょうりする。",
+      "sentenceKR": "매일 아침 직접 아침 식사를 조리한다."
+    },
+    {
+      "word": "調和",
+      "reading": "ちょうわ",
+      "meaningKR": "조화",
+      "sentenceJP": "木々と建物が美しく調和している。",
+      "sentenceReading": "きぎとたてものがうつくしくちょうわしている。",
+      "sentenceKR": "나무들과 건물이 아름답게 조화를 이루고 있다."
+    },
+    {
+      "word": "ちょくちょく",
+      "reading": "ちょくちょく",
+      "meaningKR": "종종",
+      "sentenceJP": "彼とは駅でちょくちょく会う。",
+      "sentenceReading": "かれとはえきでちょくちょくあう。",
+      "sentenceKR": "그와는 역에서 종종 만난다."
+    },
+    {
+      "word": "直面",
+      "reading": "ちょくめん",
+      "meaningKR": "직면",
+      "sentenceJP": "我々は深刻な問題に直面した。",
+      "sentenceReading": "われわれはしんこくなもんだいにちょくめんした。",
+      "sentenceKR": "우리는 심각한 문제에 직면했다."
+    },
+    {
+      "word": "著書",
+      "reading": "ちょしょ",
+      "meaningKR": "저서",
+      "sentenceJP": "彼の著書は海外でも読まれている。",
+      "sentenceReading": "かれのちょしょはかいがいでもよまれている。",
+      "sentenceKR": "그의 저서는 해외에서도 읽히고 있다."
+    },
+    {
+      "word": "貯蓄",
+      "reading": "ちょちく",
+      "meaningKR": "저축",
+      "sentenceJP": "老後に備えて毎月貯蓄する。",
+      "sentenceReading": "ろうごにそなえてまいつきちょちくする。",
+      "sentenceKR": "노후에 대비해 매달 저축한다."
+    },
+    {
+      "word": "直感",
+      "reading": "ちょっかん",
+      "meaningKR": "직감",
+      "sentenceJP": "直感を信じて進路を決めた。",
+      "sentenceReading": "ちょっかんをしんじてしんろをきめた。",
+      "sentenceKR": "직감을 믿고 진로를 정했다."
+    },
+    {
+      "word": "著名",
+      "reading": "ちょめい",
+      "meaningKR": "저명함",
+      "sentenceJP": "著名な作家が講演を行った。",
+      "sentenceReading": "ちょめいなさっかがこうえんをおこなった。",
+      "sentenceKR": "저명한 작가가 강연을 했다."
+    },
+    {
+      "word": "ちらっと",
+      "reading": "ちらっと",
+      "meaningKR": "힐끗",
+      "sentenceJP": "彼の姿が窓越しにちらっと見えた。",
+      "sentenceReading": "かれのすがたがまどごしにちらっとみえた。",
+      "sentenceKR": "그의 모습이 창문 너머로 힐끗 보였다."
+    },
+    {
+      "word": "塵",
+      "reading": "ちり",
+      "meaningKR": "먼지",
+      "sentenceJP": "棚の上に塵が積もっている。",
+      "sentenceReading": "たなのうえにちりがつもっている。",
+      "sentenceKR": "선반 위에 먼지가 쌓여 있다."
+    },
+    {
+      "word": "塵取り",
+      "reading": "ちりとり",
+      "meaningKR": "쓰레받기",
+      "sentenceJP": "塵取りで床のごみを集めた。",
+      "sentenceReading": "ちりとりでゆかのごみをあつめた。",
+      "sentenceKR": "쓰레받기로 바닥의 쓰레기를 모았다."
+    },
+    {
+      "word": "賃金",
+      "reading": "ちんぎん",
+      "meaningKR": "임금",
+      "sentenceJP": "労働に見合う賃金を求める。",
+      "sentenceReading": "ろうどうにみあうちんぎんをもとめる。",
+      "sentenceKR": "노동에 걸맞은 임금을 요구한다."
+    },
+    {
+      "word": "沈殿",
+      "reading": "ちんでん",
+      "meaningKR": "침전",
+      "sentenceJP": "液体の底に成分が沈殿した。",
+      "sentenceReading": "えきたいのそこにせいぶんがちんでんした。",
+      "sentenceKR": "액체 바닥에 성분이 침전되었다."
     }
   ]
 }
