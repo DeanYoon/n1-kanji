@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-02T00:09:02.379Z",
-  "count": 1755,
+  "generatedAt": "2026-11-03T02:44:33.384Z",
+  "count": 1800,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -14044,6 +14044,366 @@
       "sentenceJP": "液体の底に成分が沈殿した。",
       "sentenceReading": "えきたいのそこにせいぶんがちんでんした。",
       "sentenceKR": "액체 바닥에 성분이 침전되었다."
+    },
+    {
+      "word": "沈没",
+      "reading": "ちんぼつ",
+      "meaningKR": "침몰",
+      "sentenceJP": "嵐で貨物船が沈没した。",
+      "sentenceReading": "あらしでかもつせんがちんぼつした。",
+      "sentenceKR": "폭풍으로 화물선이 침몰했다."
+    },
+    {
+      "word": "沈黙",
+      "reading": "ちんもく",
+      "meaningKR": "침묵",
+      "sentenceJP": "彼は質問に対して沈黙を貫いた。",
+      "sentenceReading": "かれはしつもんにたいしてちんもくをつらぬいた。",
+      "sentenceKR": "그는 질문에 대해 침묵으로 일관했다."
+    },
+    {
+      "word": "陳列",
+      "reading": "ちんれつ",
+      "meaningKR": "진열",
+      "sentenceJP": "新商品を店頭に陳列する。",
+      "sentenceReading": "しんしょうひんをてんとうにちんれつする。",
+      "sentenceKR": "신상품을 매장에 진열한다."
+    },
+    {
+      "word": "追及",
+      "reading": "ついきゅう",
+      "meaningKR": "추궁, 규명",
+      "sentenceJP": "事故の責任を厳しく追及する。",
+      "sentenceReading": "じこのせきにんをきびしくついきゅうする。",
+      "sentenceKR": "사고의 책임을 엄중히 추궁한다."
+    },
+    {
+      "word": "追跡",
+      "reading": "ついせき",
+      "meaningKR": "추적",
+      "sentenceJP": "警察は逃走車を追跡した。",
+      "sentenceReading": "けいさつはとうそうしゃをついせきした。",
+      "sentenceKR": "경찰은 도주 차량을 추적했다."
+    },
+    {
+      "word": "追放",
+      "reading": "ついほう",
+      "meaningKR": "추방",
+      "sentenceJP": "彼は組織から永久に追放された。",
+      "sentenceReading": "かれはそしきからえいきゅうについほうされた。",
+      "sentenceKR": "그는 조직에서 영구 추방되었다."
+    },
+    {
+      "word": "費やす",
+      "reading": "ついやす",
+      "meaningKR": "쓰다, 들이다",
+      "sentenceJP": "研究に十年を費やした。",
+      "sentenceReading": "けんきゅうにじゅうねんをついやした。",
+      "sentenceKR": "연구에 10년을 들였다."
+    },
+    {
+      "word": "墜落",
+      "reading": "ついらく",
+      "meaningKR": "추락",
+      "sentenceJP": "小型機が山中に墜落した。",
+      "sentenceReading": "こがたきがさんちゅうについらくした。",
+      "sentenceKR": "소형기가 산속에 추락했다."
+    },
+    {
+      "word": "痛感",
+      "reading": "つうかん",
+      "meaningKR": "절감, 통감",
+      "sentenceJP": "経験不足を改めて痛感した。",
+      "sentenceReading": "けいけんぶそくをあらためてつうかんした。",
+      "sentenceKR": "경험 부족을 새삼 절감했다."
+    },
+    {
+      "word": "通常",
+      "reading": "つうじょう",
+      "meaningKR": "보통, 통상",
+      "sentenceJP": "通常は九時から営業します。",
+      "sentenceReading": "つうじょうはくじからえいぎょうします。",
+      "sentenceKR": "보통은 9시부터 영업합니다."
+    },
+    {
+      "word": "痛切",
+      "reading": "つうせつ",
+      "meaningKR": "절실한, 뼈저린",
+      "sentenceJP": "事態の深刻さを痛切に感じた。",
+      "sentenceReading": "じたいのしんこくさをつうせつにかんじた。",
+      "sentenceKR": "사태의 심각성을 절실히 느꼈다."
+    },
+    {
+      "word": "杖",
+      "reading": "つえ",
+      "meaningKR": "지팡이",
+      "sentenceJP": "祖父は杖をついて散歩する。",
+      "sentenceReading": "そふはつえをついてさんぽする。",
+      "sentenceKR": "할아버지는 지팡이를 짚고 산책한다."
+    },
+    {
+      "word": "使い道",
+      "reading": "つかいみち",
+      "meaningKR": "용도, 쓸모",
+      "sentenceJP": "この箱には別の使い道がある。",
+      "sentenceReading": "このはこにはべつのつかいみちがある。",
+      "sentenceKR": "이 상자에는 다른 용도가 있다."
+    },
+    {
+      "word": "仕える",
+      "reading": "つかえる",
+      "meaningKR": "섬기다, 모시다",
+      "sentenceJP": "彼は長年王に忠実に仕えた。",
+      "sentenceReading": "かれはながねんおうにちゅうじつにつかえた。",
+      "sentenceKR": "그는 오랫동안 왕을 충실히 섬겼다."
+    },
+    {
+      "word": "司る",
+      "reading": "つかさどる",
+      "meaningKR": "관장하다, 다스리다",
+      "sentenceJP": "この器官は呼吸を司る。",
+      "sentenceReading": "このきかんはこきゅうをつかさどる。",
+      "sentenceKR": "이 기관은 호흡을 관장한다."
+    },
+    {
+      "word": "つかの間",
+      "reading": "つかのま",
+      "meaningKR": "잠깐, 짧은 순간",
+      "sentenceJP": "つかの間の休息を楽しんだ。",
+      "sentenceReading": "つかのまのきゅうそくをたのしんだ。",
+      "sentenceKR": "잠깐의 휴식을 즐겼다."
+    },
+    {
+      "word": "月並",
+      "reading": "つきなみ",
+      "meaningKR": "평범함, 진부함",
+      "sentenceJP": "月並な表現は避けよう。",
+      "sentenceReading": "つきなみなひょうげんはさけよう。",
+      "sentenceKR": "진부한 표현은 피하자."
+    },
+    {
+      "word": "継目",
+      "reading": "つぎめ",
+      "meaningKR": "이음매, 접합부",
+      "sentenceJP": "板の継目から水が漏れた。",
+      "sentenceReading": "いたのつぎめからみずがもれた。",
+      "sentenceKR": "판자의 이음매에서 물이 샜다."
+    },
+    {
+      "word": "尽きる",
+      "reading": "つきる",
+      "meaningKR": "다하다, 바닥나다",
+      "sentenceJP": "食料が三日で尽きた。",
+      "sentenceReading": "しょくりょうがみっかでつきた。",
+      "sentenceKR": "식량이 사흘 만에 바닥났다."
+    },
+    {
+      "word": "尽くす",
+      "reading": "つくす",
+      "meaningKR": "다하다, 헌신하다",
+      "sentenceJP": "患者のために力を尽くす。",
+      "sentenceReading": "かんじゃのためにちからをつくす。",
+      "sentenceKR": "환자를 위해 힘을 다한다."
+    },
+    {
+      "word": "つくづく",
+      "reading": "つくづく",
+      "meaningKR": "새삼, 절실히",
+      "sentenceJP": "健康の大切さをつくづく感じた。",
+      "sentenceReading": "けんこうのたいせつさをつくづくかんじた。",
+      "sentenceKR": "건강의 소중함을 새삼 절실히 느꼈다."
+    },
+    {
+      "word": "作り",
+      "reading": "つくり",
+      "meaningKR": "구조, 만듦새",
+      "sentenceJP": "この椅子は丈夫な作りだ。",
+      "sentenceReading": "このいすはじょうぶなつくりだ。",
+      "sentenceKR": "이 의자는 튼튼한 구조로 되어 있다."
+    },
+    {
+      "word": "造り",
+      "reading": "つくり",
+      "meaningKR": "구조, 만듦새",
+      "sentenceJP": "この船は頑丈な造りだ。",
+      "sentenceReading": "このふねはがんじょうなつくりだ。",
+      "sentenceKR": "이 배는 견고한 구조로 되어 있다."
+    },
+    {
+      "word": "繕う",
+      "reading": "つくろう",
+      "meaningKR": "꿰매다, 수선하다",
+      "sentenceJP": "破れた靴下を繕う。",
+      "sentenceReading": "やぶれたくつしたをつくろう。",
+      "sentenceKR": "찢어진 양말을 꿰맨다."
+    },
+    {
+      "word": "付け加える",
+      "reading": "つけくわえる",
+      "meaningKR": "덧붙이다, 추가하다",
+      "sentenceJP": "最後に一言付け加えた。",
+      "sentenceReading": "さいごにひとことつけくわえた。",
+      "sentenceKR": "마지막으로 한마디 덧붙였다."
+    },
+    {
+      "word": "告げる",
+      "reading": "つげる",
+      "meaningKR": "알리다, 고하다",
+      "sentenceJP": "ベルが授業の終わりを告げる。",
+      "sentenceReading": "べるがじゅぎょうのおわりをつげる。",
+      "sentenceKR": "종이 수업의 끝을 알린다."
+    },
+    {
+      "word": "つじつま (はなしの～)",
+      "reading": "つじつま (はなしの～)",
+      "meaningKR": "말의 앞뒤, 일관성",
+      "sentenceJP": "彼の話はつじつまが合わない。",
+      "sentenceReading": "かれのはなしはつじつまがあわない。",
+      "sentenceKR": "그의 이야기는 앞뒤가 맞지 않는다."
+    },
+    {
+      "word": "筒",
+      "reading": "つつ",
+      "meaningKR": "통, 관",
+      "sentenceJP": "筒の中を光が通る。",
+      "sentenceReading": "つつのなかをひかりがとおる。",
+      "sentenceKR": "통 안으로 빛이 통과한다."
+    },
+    {
+      "word": "突く",
+      "reading": "つつく",
+      "meaningKR": "찌르다, 쿡쿡 건드리다",
+      "sentenceJP": "箸で料理を突く。",
+      "sentenceReading": "はしでりょうりをつつく。",
+      "sentenceKR": "젓가락으로 음식을 쿡쿡 건드린다."
+    },
+    {
+      "word": "突っ突く",
+      "reading": "つっつく",
+      "meaningKR": "재촉하다, 부추기다",
+      "sentenceJP": "同僚を突っ突いて返事を促した。",
+      "sentenceReading": "どうりょうをつっついてへんじをうながした。",
+      "sentenceKR": "동료를 재촉해 답변을 유도했다."
+    },
+    {
+      "word": "謹む",
+      "reading": "つつしむ",
+      "meaningKR": "삼가다, 조심하다",
+      "sentenceJP": "軽率な発言は謹みます。",
+      "sentenceReading": "けいそつなはつげんはつつしみます。",
+      "sentenceKR": "경솔한 발언은 삼가겠습니다."
+    },
+    {
+      "word": "突っ張る",
+      "reading": "つっぱる",
+      "meaningKR": "떠받치다, 고집을 부리다",
+      "sentenceJP": "棒で天井を突っ張る。",
+      "sentenceReading": "ぼうでてんじょうをつっぱる。",
+      "sentenceKR": "막대로 천장을 떠받친다."
+    },
+    {
+      "word": "務まる",
+      "reading": "つとまる",
+      "meaningKR": "감당할 수 있다, 적임이다",
+      "sentenceJP": "この仕事は私には務まらない。",
+      "sentenceReading": "このしごとはわたしにはつとまらない。",
+      "sentenceKR": "이 일은 내가 감당할 수 없다."
+    },
+    {
+      "word": "勤め先",
+      "reading": "つとめさき",
+      "meaningKR": "직장, 근무처",
+      "sentenceJP": "勤め先は駅の近くです。",
+      "sentenceReading": "つとめさきはえきのちかくです。",
+      "sentenceKR": "직장은 역 근처입니다."
+    },
+    {
+      "word": "努めて",
+      "reading": "つとめて",
+      "meaningKR": "애써, 되도록",
+      "sentenceJP": "努めて冷静に話してください。",
+      "sentenceReading": "つとめてれいせいにはなしてください。",
+      "sentenceKR": "되도록 침착하게 이야기해 주세요."
+    },
+    {
+      "word": "津波",
+      "reading": "つなみ",
+      "meaningKR": "쓰나미, 지진해일",
+      "sentenceJP": "津波が沿岸の町を襲った。",
+      "sentenceReading": "つなみがえんがんのまちをおそった。",
+      "sentenceKR": "쓰나미가 연안 마을을 덮쳤다."
+    },
+    {
+      "word": "つねる",
+      "reading": "つねる",
+      "meaningKR": "꼬집다",
+      "sentenceJP": "弟の頬を軽くつねる。",
+      "sentenceReading": "おとうとのほおをかるくつねる。",
+      "sentenceKR": "남동생의 볼을 살짝 꼬집는다."
+    },
+    {
+      "word": "角",
+      "reading": "つの",
+      "meaningKR": "뿔",
+      "sentenceJP": "鹿の角が枝に引っかかった。",
+      "sentenceReading": "しかのつのがえだにひっかかった。",
+      "sentenceKR": "사슴의 뿔이 나뭇가지에 걸렸다."
+    },
+    {
+      "word": "募る",
+      "reading": "つのる",
+      "meaningKR": "모집하다, 모으다",
+      "sentenceJP": "地域から参加者を募る。",
+      "sentenceReading": "ちいきからさんかしゃをつのる。",
+      "sentenceKR": "지역에서 참가자를 모집한다."
+    },
+    {
+      "word": "唾",
+      "reading": "つば",
+      "meaningKR": "침, 타액",
+      "sentenceJP": "唾を道に吐いてはいけない。",
+      "sentenceReading": "つばをみちにはいてはいけない。",
+      "sentenceKR": "길에 침을 뱉으면 안 된다."
+    },
+    {
+      "word": "呟く",
+      "reading": "つぶやく",
+      "meaningKR": "중얼거리다",
+      "sentenceJP": "彼は小声で不満を呟いた。",
+      "sentenceReading": "かれはこごえでふまんをつぶやいた。",
+      "sentenceKR": "그는 작은 목소리로 불만을 중얼거렸다."
+    },
+    {
+      "word": "つぶら",
+      "reading": "つぶら",
+      "meaningKR": "동그란 모양",
+      "sentenceJP": "子猫のつぶらな瞳が愛らしい。",
+      "sentenceReading": "こねこのつぶらなひとみがあいらしい。",
+      "sentenceKR": "새끼 고양이의 동그란 눈망울이 사랑스럽다."
+    },
+    {
+      "word": "つぶる (めを～)",
+      "reading": "つぶる (めを～)",
+      "meaningKR": "눈을 감다",
+      "sentenceJP": "怖くて思わず目をつぶった。",
+      "sentenceReading": "こわくておもわずめをつぶった。",
+      "sentenceKR": "무서워서 나도 모르게 눈을 감았다."
+    },
+    {
+      "word": "壷",
+      "reading": "つぼ",
+      "meaningKR": "항아리, 단지",
+      "sentenceJP": "古い壷に花を生けた。",
+      "sentenceReading": "ふるいつぼにはなをいけた。",
+      "sentenceKR": "오래된 항아리에 꽃을 꽂았다."
+    },
+    {
+      "word": "蕾",
+      "reading": "つぼみ",
+      "meaningKR": "꽃봉오리",
+      "sentenceJP": "桜の蕾が少し膨らんだ。",
+      "sentenceReading": "さくらのつぼみがすこしふくらんだ。",
+      "sentenceKR": "벚꽃 봉오리가 조금 부풀었다."
     }
   ]
 }
