@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T02:44:33.384Z",
-  "count": 1800,
+  "generatedAt": "2026-11-04T01:00:53.808Z",
+  "count": 1845,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -14404,6 +14404,366 @@
       "sentenceJP": "桜の蕾が少し膨らんだ。",
       "sentenceReading": "さくらのつぼみがすこしふくらんだ。",
       "sentenceKR": "벚꽃 봉오리가 조금 부풀었다."
+    },
+    {
+      "word": "連なる",
+      "reading": "つらなる",
+      "meaningKR": "이어지다, 줄지어 늘어서다",
+      "sentenceJP": "山々が遠くまで連なっている。",
+      "sentenceReading": "やまやまがとおくまでつらなっている。",
+      "sentenceKR": "산들이 멀리까지 이어져 있다."
+    },
+    {
+      "word": "貫く",
+      "reading": "つらぬく",
+      "meaningKR": "관통하다, 관철하다",
+      "sentenceJP": "彼は最後まで信念を貫いた。",
+      "sentenceReading": "かれはさいごまでしんねんをつらぬいた。",
+      "sentenceKR": "그는 끝까지 신념을 관철했다."
+    },
+    {
+      "word": "連ねる",
+      "reading": "つらねる",
+      "meaningKR": "연결하다, 나란히 늘어놓다",
+      "sentenceJP": "著名人が名簿に名を連ねた。",
+      "sentenceReading": "ちょめいじんがめいぼになをつらねた。",
+      "sentenceKR": "저명인들이 명단에 이름을 올렸다."
+    },
+    {
+      "word": "釣り鐘",
+      "reading": "つりがね",
+      "meaningKR": "범종, 절의 종",
+      "sentenceJP": "寺の釣り鐘が静かに響いた。",
+      "sentenceReading": "てらのつりがねがしずかにひびいた。",
+      "sentenceKR": "절의 종이 고요히 울려 퍼졌다."
+    },
+    {
+      "word": "吊り革",
+      "reading": "つりかわ",
+      "meaningKR": "손잡이 끈",
+      "sentenceJP": "電車の吊り革につかまった。",
+      "sentenceReading": "でんしゃのつりかわにつかまった。",
+      "sentenceKR": "전철의 손잡이를 잡았다."
+    },
+    {
+      "word": "手当",
+      "reading": "てあて",
+      "meaningKR": "수당, 보상; 치료",
+      "sentenceJP": "すぐにけがの手当を受けた。",
+      "sentenceReading": "すぐにけがのてあてをうけた。",
+      "sentenceKR": "곧바로 부상 치료를 받았다."
+    },
+    {
+      "word": "定義",
+      "reading": "ていぎ",
+      "meaningKR": "정의",
+      "sentenceJP": "言葉の定義を確認する。",
+      "sentenceReading": "ことばのていぎをかくにんする。",
+      "sentenceKR": "단어의 정의를 확인한다."
+    },
+    {
+      "word": "提供",
+      "reading": "ていきょう",
+      "meaningKR": "제공, 후원",
+      "sentenceJP": "無料の食事を提供する。",
+      "sentenceReading": "むりょうのしょくじをていきょうする。",
+      "sentenceKR": "무료 식사를 제공한다."
+    },
+    {
+      "word": "提携",
+      "reading": "ていけい",
+      "meaningKR": "제휴, 협력",
+      "sentenceJP": "両社が技術面で提携した。",
+      "sentenceReading": "りょうしゃがぎじゅつめんでていけいした。",
+      "sentenceKR": "두 회사가 기술 분야에서 제휴했다."
+    },
+    {
+      "word": "体裁",
+      "reading": "ていさい",
+      "meaningKR": "격식, 형식, 외관",
+      "sentenceJP": "報告書の体裁を整えた。",
+      "sentenceReading": "ほうこくしょのていさいをととのえた。",
+      "sentenceKR": "보고서의 형식을 다듬었다."
+    },
+    {
+      "word": "提示",
+      "reading": "ていじ",
+      "meaningKR": "제시, 제안",
+      "sentenceJP": "身分証を提示してください。",
+      "sentenceReading": "みぶんしょうをていじしてください。",
+      "sentenceKR": "신분증을 제시해 주세요."
+    },
+    {
+      "word": "ティシュペーパー",
+      "reading": "ティシュペーパー",
+      "meaningKR": "티슈",
+      "sentenceJP": "ティシュペーパーで涙を拭いた。",
+      "sentenceReading": "てぃしゅぺえぱあでなみだをふいた。",
+      "sentenceKR": "티슈로 눈물을 닦았다."
+    },
+    {
+      "word": "定食",
+      "reading": "ていしょく",
+      "meaningKR": "정식, 세트 메뉴",
+      "sentenceJP": "日替わり定食を注文した。",
+      "sentenceReading": "ひがわりていしょくをちゅうもんした。",
+      "sentenceKR": "오늘의 정식을 주문했다."
+    },
+    {
+      "word": "訂正",
+      "reading": "ていせい",
+      "meaningKR": "정정, 수정",
+      "sentenceJP": "誤字を訂正して再提出した。",
+      "sentenceReading": "ごじをていせいしてさいていしゅつした。",
+      "sentenceKR": "오자를 수정하여 다시 제출했다."
+    },
+    {
+      "word": "停滞",
+      "reading": "ていたい",
+      "meaningKR": "정체, 침체",
+      "sentenceJP": "交渉が長く停滞している。",
+      "sentenceReading": "こうしょうがながくていたいしている。",
+      "sentenceKR": "협상이 오랫동안 정체되어 있다."
+    },
+    {
+      "word": "邸宅",
+      "reading": "ていたく",
+      "meaningKR": "저택",
+      "sentenceJP": "豪華な邸宅が丘の上に建っている。",
+      "sentenceReading": "ごうかなていたくがおかのうえにたっている。",
+      "sentenceKR": "언덕 위에 호화로운 저택이 서 있다."
+    },
+    {
+      "word": "定年",
+      "reading": "ていねん",
+      "meaningKR": "정년",
+      "sentenceJP": "父は来年定年を迎える。",
+      "sentenceReading": "ちちはらいねんていねんをむかえる。",
+      "sentenceKR": "아버지는 내년에 정년을 맞는다."
+    },
+    {
+      "word": "堤防",
+      "reading": "ていぼう",
+      "meaningKR": "제방",
+      "sentenceJP": "大雨で堤防が崩れかけた。",
+      "sentenceReading": "おおあめでていぼうがくずれかけた。",
+      "sentenceKR": "폭우로 제방이 무너질 뻔했다."
+    },
+    {
+      "word": "手遅れ",
+      "reading": "ておくれ",
+      "meaningKR": "때를 놓침, 너무 늦음",
+      "sentenceJP": "今から治療しても手遅れだ。",
+      "sentenceReading": "いまからちりょうしてもておくれだ。",
+      "sentenceKR": "지금 치료해도 이미 늦었다."
+    },
+    {
+      "word": "でかい",
+      "reading": "でかい",
+      "meaningKR": "거대한, 아주 큰",
+      "sentenceJP": "あの犬は驚くほどでかい。",
+      "sentenceReading": "あのいぬはおどろくほどでかい。",
+      "sentenceKR": "저 개는 놀랄 만큼 크다."
+    },
+    {
+      "word": "手掛かり",
+      "reading": "てがかり",
+      "meaningKR": "단서",
+      "sentenceJP": "事件を解く手掛かりを見つけた。",
+      "sentenceReading": "じけんをとくてがかりをみつけた。",
+      "sentenceKR": "사건을 풀 단서를 발견했다."
+    },
+    {
+      "word": "手掛ける",
+      "reading": "てがける",
+      "meaningKR": "맡다, 다루다",
+      "sentenceJP": "有名な建築家が設計を手掛けた。",
+      "sentenceReading": "ゆうめいなけんちくかがせっけいをてがけた。",
+      "sentenceKR": "유명한 건축가가 설계를 맡았다."
+    },
+    {
+      "word": "手数",
+      "reading": "てかず",
+      "meaningKR": "수고, 품",
+      "sentenceJP": "完成までかなりの手数がかかった。",
+      "sentenceReading": "かんせいまでかなりのてかずがかかった。",
+      "sentenceKR": "완성까지 상당한 품이 들었다."
+    },
+    {
+      "word": "手軽",
+      "reading": "てがる",
+      "meaningKR": "간편함, 손쉬움",
+      "sentenceJP": "この道具は手軽に使える。",
+      "sentenceReading": "このどうぐはてがるにつかえる。",
+      "sentenceKR": "이 도구는 간편하게 사용할 수 있다."
+    },
+    {
+      "word": "適応",
+      "reading": "てきおう",
+      "meaningKR": "적응",
+      "sentenceJP": "留学生は新生活に適応した。",
+      "sentenceReading": "りゅうがくせいはしんせいかつにてきおうした。",
+      "sentenceKR": "유학생은 새로운 생활에 적응했다."
+    },
+    {
+      "word": "適宜",
+      "reading": "てきぎ",
+      "meaningKR": "적절히, 상황에 맞게",
+      "sentenceJP": "必要に応じて適宜修正してください。",
+      "sentenceReading": "ひつようにおうじててきぎしゅうせいしてください。",
+      "sentenceKR": "필요에 따라 적절히 수정해 주세요."
+    },
+    {
+      "word": "適性",
+      "reading": "てきせい",
+      "meaningKR": "적성",
+      "sentenceJP": "彼女には医師の適性がある。",
+      "sentenceReading": "かのじょにはいしのてきせいがある。",
+      "sentenceKR": "그녀는 의사로서의 적성이 있다."
+    },
+    {
+      "word": "できもの",
+      "reading": "できもの",
+      "meaningKR": "종기, 피부 발진",
+      "sentenceJP": "腕に赤いできものができた。",
+      "sentenceReading": "うでにあかいできものができた。",
+      "sentenceKR": "팔에 빨간 종기가 생겼다."
+    },
+    {
+      "word": "手際",
+      "reading": "てぎわ",
+      "meaningKR": "솜씨, 일 처리 능력",
+      "sentenceJP": "彼は手際よく荷物をまとめた。",
+      "sentenceReading": "かれはてぎわよくにもつをまとめた。",
+      "sentenceKR": "그는 능숙하게 짐을 꾸렸다."
+    },
+    {
+      "word": "出くわす",
+      "reading": "でくわす",
+      "meaningKR": "우연히 마주치다, 맞닥뜨리다",
+      "sentenceJP": "帰り道で事故に出くわした。",
+      "sentenceReading": "かえりみちでじこにでくわした。",
+      "sentenceKR": "돌아오는 길에 사고를 맞닥뜨렸다."
+    },
+    {
+      "word": "手順",
+      "reading": "てじゅん",
+      "meaningKR": "절차, 순서",
+      "sentenceJP": "手順を確認してから始めよう。",
+      "sentenceReading": "てじゅんをかくにんしてからはじめよう。",
+      "sentenceKR": "절차를 확인한 뒤 시작하자."
+    },
+    {
+      "word": "手錠",
+      "reading": "てじょう",
+      "meaningKR": "수갑",
+      "sentenceJP": "容疑者は手錠をかけられた。",
+      "sentenceReading": "ようぎしゃはてじょうをかけられた。",
+      "sentenceKR": "용의자는 수갑을 찼다."
+    },
+    {
+      "word": "手数",
+      "reading": "てすう",
+      "meaningKR": "수고, 번거로움",
+      "sentenceJP": "手数をおかけしてすみません。",
+      "sentenceReading": "てすうをおかけしてすみません。",
+      "sentenceKR": "번거롭게 해 드려 죄송합니다."
+    },
+    {
+      "word": "デコレーション",
+      "reading": "デコレーション",
+      "meaningKR": "장식",
+      "sentenceJP": "デコレーションで部屋が華やいだ。",
+      "sentenceReading": "でこれーしょんでへやがはなやいだ。",
+      "sentenceKR": "장식으로 방이 화사해졌다."
+    },
+    {
+      "word": "手近",
+      "reading": "てぢか",
+      "meaningKR": "가까운, 손쉬운",
+      "sentenceJP": "手近な材料で修理した。",
+      "sentenceReading": "てぢかなざいりょうでしゅうりした。",
+      "sentenceKR": "가까이 있는 재료로 수리했다."
+    },
+    {
+      "word": "てっきり",
+      "reading": "てっきり",
+      "meaningKR": "틀림없이, 당연히",
+      "sentenceJP": "てっきり君も来ると思った。",
+      "sentenceReading": "てっきりきみもくるとおもった。",
+      "sentenceKR": "당연히 너도 올 줄 알았다."
+    },
+    {
+      "word": "鉄鋼",
+      "reading": "てっこう",
+      "meaningKR": "철강",
+      "sentenceJP": "鉄鋼の需要が急増している。",
+      "sentenceReading": "てっこうのじゅようがきゅうぞうしている。",
+      "sentenceKR": "철강 수요가 급증하고 있다."
+    },
+    {
+      "word": "デッサン",
+      "reading": "デッサン",
+      "meaningKR": "데생, 밑그림",
+      "sentenceJP": "デッサンの基礎を毎日学ぶ。",
+      "sentenceReading": "でっさんのきそをまいにちまなぶ。",
+      "sentenceKR": "매일 데생의 기초를 배운다."
+    },
+    {
+      "word": "徹する",
+      "reading": "てっする",
+      "meaningKR": "철저히 하다, 전념하다",
+      "sentenceJP": "彼は裏方に徹した。",
+      "sentenceReading": "かれはうらかたにてっした。",
+      "sentenceKR": "그는 뒤에서 돕는 역할에 전념했다."
+    },
+    {
+      "word": "てっぺん",
+      "reading": "てっぺん",
+      "meaningKR": "꼭대기, 정상",
+      "sentenceJP": "山のてっぺんに旗を立てた。",
+      "sentenceReading": "やまのてっぺんにはたをたてた。",
+      "sentenceKR": "산꼭대기에 깃발을 세웠다."
+    },
+    {
+      "word": "鉄棒",
+      "reading": "てつぼう",
+      "meaningKR": "철봉, 쇠막대",
+      "sentenceJP": "鉄棒で逆上がりを練習する。",
+      "sentenceReading": "てつぼうでさかあがりをれんしゅうする。",
+      "sentenceKR": "철봉에서 거꾸로 오르기를 연습한다."
+    },
+    {
+      "word": "出直し",
+      "reading": "でなおし",
+      "meaningKR": "재정비, 새 출발",
+      "sentenceJP": "計画は一から出直しだ。",
+      "sentenceReading": "けいかくはいちからでなおしだ。",
+      "sentenceKR": "계획은 처음부터 다시 세워야 한다."
+    },
+    {
+      "word": "掌",
+      "reading": "てのひら",
+      "meaningKR": "손바닥",
+      "sentenceJP": "掌に汗がにじんだ。",
+      "sentenceReading": "てのひらにあせがにじんだ。",
+      "sentenceKR": "손바닥에 땀이 배어 나왔다."
+    },
+    {
+      "word": "手配",
+      "reading": "てはい",
+      "meaningKR": "준비, 수배",
+      "sentenceJP": "宿の手配は済んでいる。",
+      "sentenceReading": "やどのてはいはすんでいる。",
+      "sentenceKR": "숙소 준비는 끝났다."
+    },
+    {
+      "word": "手筈",
+      "reading": "てはず",
+      "meaningKR": "준비, 계획",
+      "sentenceJP": "会議の手筈は整った。",
+      "sentenceReading": "かいぎのてはずはととのった。",
+      "sentenceKR": "회의 준비는 모두 갖춰졌다."
     }
   ]
 }
