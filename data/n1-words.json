@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-04T01:00:53.808Z",
-  "count": 1845,
+  "generatedAt": "2026-11-05T01:15:23.373Z",
+  "count": 1890,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -14764,6 +14764,366 @@
       "sentenceJP": "会議の手筈は整った。",
       "sentenceReading": "かいぎのてはずはととのった。",
       "sentenceKR": "회의 준비는 모두 갖춰졌다."
+    },
+    {
+      "word": "手引",
+      "reading": "てびき",
+      "meaningKR": "안내, 지침서",
+      "sentenceJP": "初心者向けの手引を読んだ。",
+      "sentenceReading": "しょしんしゃむけのてびきをよんだ。",
+      "sentenceKR": "초보자용 안내서를 읽었다."
+    },
+    {
+      "word": "手本",
+      "reading": "てほん",
+      "meaningKR": "본보기, 모범",
+      "sentenceJP": "彼の仕事ぶりを手本にする。",
+      "sentenceReading": "かれのしごとぶりをてほんにする。",
+      "sentenceKR": "그의 일하는 모습을 본보기로 삼는다."
+    },
+    {
+      "word": "手回し",
+      "reading": "てまわし",
+      "meaningKR": "준비, 사전 조치",
+      "sentenceJP": "必要な手回しは済んでいる。",
+      "sentenceReading": "ひつようなてまわしはすんでいる。",
+      "sentenceKR": "필요한 준비는 끝나 있다."
+    },
+    {
+      "word": "手元",
+      "reading": "てもと",
+      "meaningKR": "수중의 돈, 평소의 솜씨",
+      "sentenceJP": "手元に現金が少し残っている。",
+      "sentenceReading": "てもとにげんきんがすこしのこっている。",
+      "sentenceKR": "수중에 현금이 조금 남아 있다."
+    },
+    {
+      "word": "デモンストレーション",
+      "reading": "デモンストレーション",
+      "meaningKR": "시연",
+      "sentenceJP": "新製品のデモンストレーションを行った。",
+      "sentenceReading": "しんせいひんのでもんすとれえしょんをおこなった。",
+      "sentenceKR": "신제품 시연을 진행했다."
+    },
+    {
+      "word": "照り返す",
+      "reading": "てりかえす",
+      "meaningKR": "반사하다, 빛을 되비추다",
+      "sentenceJP": "雪原が朝日を照り返す。",
+      "sentenceReading": "せつげんがあさひをてりかえす。",
+      "sentenceKR": "설원이 아침 햇살을 반사한다."
+    },
+    {
+      "word": "テレックス",
+      "reading": "テレックス",
+      "meaningKR": "텔렉스",
+      "sentenceJP": "支社へテレックスを送った。",
+      "sentenceReading": "ししゃへてれっくすをおくった。",
+      "sentenceKR": "지사로 텔렉스를 보냈다."
+    },
+    {
+      "word": "手分け",
+      "reading": "てわけ",
+      "meaningKR": "분담",
+      "sentenceJP": "皆で手分けして資料を探した。",
+      "sentenceReading": "みんなでてわけしてしりょうをさがした。",
+      "sentenceKR": "모두 분담해서 자료를 찾았다."
+    },
+    {
+      "word": "天",
+      "reading": "てん",
+      "meaningKR": "하늘, 천국",
+      "sentenceJP": "天を仰いで無事を祈った。",
+      "sentenceReading": "てんをあおいでぶじをいのった。",
+      "sentenceKR": "하늘을 우러러 무사하기를 빌었다."
+    },
+    {
+      "word": "田園",
+      "reading": "でんえん",
+      "meaningKR": "전원, 농촌 지역",
+      "sentenceJP": "美しい田園風景が広がる。",
+      "sentenceReading": "うつくしいでんえんふうけいがひろがる。",
+      "sentenceKR": "아름다운 전원 풍경이 펼쳐진다."
+    },
+    {
+      "word": "天下",
+      "reading": "てんか",
+      "meaningKR": "천하, 온 나라",
+      "sentenceJP": "彼は天下を取ると誓った。",
+      "sentenceReading": "かれはてんかをとるとちかった。",
+      "sentenceKR": "그는 천하를 차지하겠다고 맹세했다."
+    },
+    {
+      "word": "転回",
+      "reading": "てんかい",
+      "meaningKR": "회전, 선회",
+      "sentenceJP": "飛行機が空中で転回した。",
+      "sentenceReading": "ひこうきがくうちゅうでてんかいした。",
+      "sentenceKR": "비행기가 공중에서 선회했다."
+    },
+    {
+      "word": "連休",
+      "reading": "れんきゅう",
+      "meaningKR": "연휴",
+      "sentenceJP": "連休は家族と温泉へ行く。",
+      "sentenceReading": "れんきゅうはかぞくとおんせんへいく。",
+      "sentenceKR": "연휴에는 가족과 온천에 간다."
+    },
+    {
+      "word": "レンジ",
+      "reading": "レンジ",
+      "meaningKR": "범위, 조리용 레인지",
+      "sentenceJP": "料理をレンジで温めた。",
+      "sentenceReading": "りょうりをれんじであたためた。",
+      "sentenceKR": "요리를 전자레인지에 데웠다."
+    },
+    {
+      "word": "連日",
+      "reading": "れんじつ",
+      "meaningKR": "연일, 날마다",
+      "sentenceJP": "連日雨が降り続いている。",
+      "sentenceReading": "れんじつあめがふりつづいている。",
+      "sentenceKR": "연일 비가 계속 내리고 있다."
+    },
+    {
+      "word": "連帯",
+      "reading": "れんたい",
+      "meaningKR": "연대",
+      "sentenceJP": "仲間との連帯を強めた。",
+      "sentenceReading": "なかまとのれんたいをつよめた。",
+      "sentenceKR": "동료들과의 연대를 강화했다."
+    },
+    {
+      "word": "レンタカー",
+      "reading": "レンタカー",
+      "meaningKR": "렌터카",
+      "sentenceJP": "旅行先でレンタカーを借りた。",
+      "sentenceReading": "りょこうさきでれんたかあをかりた。",
+      "sentenceKR": "여행지에서 렌터카를 빌렸다."
+    },
+    {
+      "word": "連中",
+      "reading": "れんちゅう",
+      "meaningKR": "무리, 패거리",
+      "sentenceJP": "あの連中には近づかないほうがいい。",
+      "sentenceReading": "あのれんちゅうにはちかづかないほうがいい。",
+      "sentenceKR": "저들과는 가까이하지 않는 게 좋다."
+    },
+    {
+      "word": "レントゲン",
+      "reading": "レントゲン",
+      "meaningKR": "엑스레이",
+      "sentenceJP": "医師が胸のレントゲンを撮った。",
+      "sentenceReading": "いしがむねのれんとげんをとった。",
+      "sentenceKR": "의사가 흉부 엑스레이를 찍었다."
+    },
+    {
+      "word": "連邦",
+      "reading": "れんぽう",
+      "meaningKR": "연방",
+      "sentenceJP": "その国は複数の州から成る連邦だ。",
+      "sentenceReading": "そのくにはふくすうのしゅうからなるれんぽうだ。",
+      "sentenceKR": "그 나라는 여러 주로 이루어진 연방이다."
+    },
+    {
+      "word": "連盟",
+      "reading": "れんめい",
+      "meaningKR": "연맹",
+      "sentenceJP": "各国の競技連盟が会議を開いた。",
+      "sentenceReading": "かっこくのきょうぎれんめいがかいぎをひらいた。",
+      "sentenceKR": "각국의 경기 연맹이 회의를 열었다."
+    },
+    {
+      "word": "老衰",
+      "reading": "ろうすい",
+      "meaningKR": "노쇠",
+      "sentenceJP": "祖父は老衰で静かに息を引き取った。",
+      "sentenceReading": "そふはろうすいでしずかにいきをひきとった。",
+      "sentenceKR": "할아버지는 노쇠로 평온히 숨을 거두셨다."
+    },
+    {
+      "word": "朗読",
+      "reading": "ろうどく",
+      "meaningKR": "낭독",
+      "sentenceJP": "彼女は壇上で詩を朗読した。",
+      "sentenceReading": "かのじょはだんじょうでしをろうどくした。",
+      "sentenceKR": "그녀는 단상에서 시를 낭독했다."
+    },
+    {
+      "word": "浪費",
+      "reading": "ろうひ",
+      "meaningKR": "낭비",
+      "sentenceJP": "電力の浪費を今すぐ減らそう。",
+      "sentenceReading": "でんりょくのろうひをいますぐへらそう。",
+      "sentenceKR": "전력 낭비를 지금 당장 줄이자."
+    },
+    {
+      "word": "労力",
+      "reading": "ろうりょく",
+      "meaningKR": "노력, 수고",
+      "sentenceJP": "この調査には多大な労力がかかる。",
+      "sentenceReading": "このちょうさにはただいなろうりょくがかかる。",
+      "sentenceKR": "이 조사에는 많은 노력이 든다."
+    },
+    {
+      "word": "ロープウエイ",
+      "reading": "ロープウエイ",
+      "meaningKR": "케이블카",
+      "sentenceJP": "観光客はロープウエイで山頂へ向かった。",
+      "sentenceReading": "かんこうきゃくはろおぷうえいでさんちょうへむかった。",
+      "sentenceKR": "관광객은 케이블카를 타고 정상으로 향했다."
+    },
+    {
+      "word": "ロープ",
+      "reading": "ロープ",
+      "meaningKR": "밧줄",
+      "sentenceJP": "作業員がロープで荷物を固定した。",
+      "sentenceReading": "さぎょういんがろおぷでにもつをこていした。",
+      "sentenceKR": "작업원이 밧줄로 짐을 고정했다."
+    },
+    {
+      "word": "ろくな",
+      "reading": "ろくな",
+      "meaningKR": "변변한, 제대로 된",
+      "sentenceJP": "ろくな説明もないまま会議が始まった。",
+      "sentenceReading": "ろくなせつめいもないままかいぎがはじまった。",
+      "sentenceKR": "제대로 된 설명도 없이 회의가 시작됐다."
+    },
+    {
+      "word": "露骨",
+      "reading": "ろこつ",
+      "meaningKR": "노골적인",
+      "sentenceJP": "彼は露骨に不満を口にした。",
+      "sentenceReading": "かれはろこつにふまんをくちにした。",
+      "sentenceKR": "그는 노골적으로 불만을 드러냈다."
+    },
+    {
+      "word": "ロマンチック",
+      "reading": "ロマンチック",
+      "meaningKR": "낭만적인",
+      "sentenceJP": "二人はロマンチックな夜を過ごした。",
+      "sentenceReading": "ふたりはろまんちっくなよるをすごした。",
+      "sentenceKR": "두 사람은 낭만적인 밤을 보냈다."
+    },
+    {
+      "word": "論議",
+      "reading": "ろんぎ",
+      "meaningKR": "논의",
+      "sentenceJP": "その問題は今も論議を呼んでいる。",
+      "sentenceReading": "そのもんだいはいまもろんぎをよんでいる。",
+      "sentenceKR": "그 문제는 지금도 논의를 불러일으키고 있다."
+    },
+    {
+      "word": "論理",
+      "reading": "ろんり",
+      "meaningKR": "논리",
+      "sentenceJP": "彼の説明には論理が欠けている。",
+      "sentenceReading": "かれのせつめいにはろんりがかけている。",
+      "sentenceKR": "그의 설명에는 논리가 부족하다."
+    },
+    {
+      "word": "惑星",
+      "reading": "わくせい",
+      "meaningKR": "행성",
+      "sentenceJP": "火星は地球に近い惑星だ。",
+      "sentenceReading": "かせいはちきゅうにちかいわくせいだ。",
+      "sentenceKR": "화성은 지구와 가까운 행성이다."
+    },
+    {
+      "word": "技",
+      "reading": "わざ",
+      "meaningKR": "기술, 솜씨",
+      "sentenceJP": "職人の技が光る作品だ。",
+      "sentenceReading": "しょくにんのわざがひかるさくひんだ。",
+      "sentenceKR": "장인의 솜씨가 돋보이는 작품이다."
+    },
+    {
+      "word": "わざわざ",
+      "reading": "わざわざ",
+      "meaningKR": "일부러, 특별히 수고해서",
+      "sentenceJP": "わざわざ駅まで迎えに来てくれた。",
+      "sentenceReading": "わざわざえきまでむかえにきてくれた。",
+      "sentenceKR": "일부러 역까지 마중 나와 주었다."
+    },
+    {
+      "word": "煩わしい",
+      "reading": "わずらわしい",
+      "meaningKR": "번거로운, 성가신",
+      "sentenceJP": "複雑な手続きは煩わしい。",
+      "sentenceReading": "ふくざつなてつづきはわずらわしい。",
+      "sentenceKR": "복잡한 절차는 번거롭다."
+    },
+    {
+      "word": "渡り鳥",
+      "reading": "わたりどり",
+      "meaningKR": "철새",
+      "sentenceJP": "春になると渡り鳥が戻ってくる。",
+      "sentenceReading": "はるになるとわたりどりがもどってくる。",
+      "sentenceKR": "봄이 되면 철새가 돌아온다."
+    },
+    {
+      "word": "ワット",
+      "reading": "ワット",
+      "meaningKR": "와트",
+      "sentenceJP": "この電球は六十ワットです。",
+      "sentenceReading": "このでんきゅうはろくじゅうわっとです。",
+      "sentenceKR": "이 전구는 60와트입니다."
+    },
+    {
+      "word": "詫び",
+      "reading": "わび",
+      "meaningKR": "사과",
+      "sentenceJP": "彼から正式な詫びがあった。",
+      "sentenceReading": "かれからせいしきなわびがあった。",
+      "sentenceKR": "그에게서 정식으로 사과가 있었다."
+    },
+    {
+      "word": "和文",
+      "reading": "わぶん",
+      "meaningKR": "일본어 문장, 일본어 글",
+      "sentenceJP": "契約書を和文で作成した。",
+      "sentenceReading": "けいやくしょをわぶんでさくせいした。",
+      "sentenceKR": "계약서를 일본어로 작성했다."
+    },
+    {
+      "word": "藁",
+      "reading": "わら",
+      "meaningKR": "짚",
+      "sentenceJP": "藁を束ねて屋根を葺く。",
+      "sentenceReading": "わらをたばねてやねをふく。",
+      "sentenceKR": "짚을 묶어 지붕을 인다."
+    },
+    {
+      "word": "～割",
+      "reading": "～わり",
+      "meaningKR": "~할, ~퍼센트",
+      "sentenceJP": "売上の三割を貯金する。",
+      "sentenceReading": "うりあげのさんわりをちょきんする。",
+      "sentenceKR": "매출의 30퍼센트를 저축한다."
+    },
+    {
+      "word": "割当",
+      "reading": "わりあて",
+      "meaningKR": "할당, 배정",
+      "sentenceJP": "部屋の割当を見直した。",
+      "sentenceReading": "へやのわりあてをみなおした。",
+      "sentenceKR": "방 배정을 재검토했다."
+    },
+    {
+      "word": "割込む",
+      "reading": "わりこむ",
+      "meaningKR": "끼어들다, 새치기하다",
+      "sentenceJP": "彼は会話に突然割り込んだ。",
+      "sentenceReading": "かれはかいわにとつぜんわりこんだ。",
+      "sentenceKR": "그는 대화에 갑자기 끼어들었다."
+    },
+    {
+      "word": "悪者",
+      "reading": "わるもの",
+      "meaningKR": "악인, 나쁜 사람",
+      "sentenceJP": "最後は彼だけが悪者になった。",
+      "sentenceReading": "さいごはかれだけがわるものになった。",
+      "sentenceKR": "결국 그만 나쁜 사람이 되었다."
     }
   ]
 }
