@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-05T01:15:23.373Z",
-  "count": 1890,
+  "generatedAt": "2026-11-06T01:19:34.838Z",
+  "count": 1935,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -15124,6 +15124,366 @@
       "sentenceJP": "最後は彼だけが悪者になった。",
       "sentenceReading": "さいごはかれだけがわるものになった。",
       "sentenceKR": "결국 그만 나쁜 사람이 되었다."
+    },
+    {
+      "word": "我",
+      "reading": "われ",
+      "meaningKR": "나 자신, 자아",
+      "sentenceJP": "我を忘れて踊り続けた。",
+      "sentenceReading": "われをわすれておどりつづけた。",
+      "sentenceKR": "나 자신을 잊고 계속 춤췄다."
+    },
+    {
+      "word": "捗る",
+      "reading": "はかどる",
+      "meaningKR": "진척되다",
+      "sentenceJP": "作業が順調に捗っている。",
+      "sentenceReading": "さぎょうがじゅんちょうにはかどっている。",
+      "sentenceKR": "작업이 순조롭게 진척되고 있다."
+    },
+    {
+      "word": "はかない",
+      "reading": "はかない",
+      "meaningKR": "덧없다",
+      "sentenceJP": "はかない命だからこそ美しい。",
+      "sentenceReading": "はかないいのちだからこそうつくしい。",
+      "sentenceKR": "덧없는 생명이기에 아름답다."
+    },
+    {
+      "word": "ばかばかしい",
+      "reading": "ばかばかしい",
+      "meaningKR": "어리석다, 시시하다",
+      "sentenceJP": "そんな議論はばかばかしい。",
+      "sentenceReading": "そんなぎろんはばかばかしい。",
+      "sentenceKR": "그런 논의는 어리석기 짝이 없다."
+    },
+    {
+      "word": "破棄",
+      "reading": "はき",
+      "meaningKR": "파기",
+      "sentenceJP": "契約の破棄を正式に通知した。",
+      "sentenceReading": "けいやくのはきをせいしきにつうちした。",
+      "sentenceKR": "계약 파기를 정식으로 통보했다."
+    },
+    {
+      "word": "剥ぐ",
+      "reading": "はぐ",
+      "meaningKR": "벗기다, 떼어 내다",
+      "sentenceJP": "木の皮を丁寧に剥いだ。",
+      "sentenceReading": "きのかわをていねいにはいだ。",
+      "sentenceKR": "나무껍질을 조심스럽게 벗겼다."
+    },
+    {
+      "word": "迫害",
+      "reading": "はくがい",
+      "meaningKR": "박해",
+      "sentenceJP": "少数派への迫害を許さない。",
+      "sentenceReading": "しょうすうはへのはくがいをゆるさない。",
+      "sentenceKR": "소수자에 대한 박해를 용납하지 않는다."
+    },
+    {
+      "word": "薄弱",
+      "reading": "はくじゃく",
+      "meaningKR": "박약함, 빈약함",
+      "sentenceJP": "その主張は根拠が薄弱だ。",
+      "sentenceReading": "そのしゅちょうはこんきょがはくじゃくだ。",
+      "sentenceKR": "그 주장은 근거가 빈약하다."
+    },
+    {
+      "word": "白状",
+      "reading": "はくじょう",
+      "meaningKR": "자백",
+      "sentenceJP": "彼はついに罪を白状した。",
+      "sentenceReading": "かれはついにつみをはくじょうした。",
+      "sentenceKR": "그는 마침내 죄를 자백했다."
+    },
+    {
+      "word": "漠然",
+      "reading": "ばくぜん",
+      "meaningKR": "막연함",
+      "sentenceJP": "将来に漠然とした不安を抱く。",
+      "sentenceReading": "しょうらいにばくぜんとしたふあんをいだく。",
+      "sentenceKR": "장래에 대해 막연한 불안을 품다."
+    },
+    {
+      "word": "爆弾",
+      "reading": "ばくだん",
+      "meaningKR": "폭탄",
+      "sentenceJP": "駅で爆弾が発見された。",
+      "sentenceReading": "えきでばくだんがはっけんされた。",
+      "sentenceKR": "역에서 폭탄이 발견되었다."
+    },
+    {
+      "word": "爆破",
+      "reading": "ばくは",
+      "meaningKR": "폭파",
+      "sentenceJP": "古いビルを爆破する計画だ。",
+      "sentenceReading": "ふるいびるをばくはするけいかくだ。",
+      "sentenceKR": "낡은 건물을 폭파할 계획이다."
+    },
+    {
+      "word": "暴露",
+      "reading": "ばくろ",
+      "meaningKR": "폭로",
+      "sentenceJP": "不正の実態を新聞が暴露した。",
+      "sentenceReading": "ふせいのじったいをしんぶんがばくろした。",
+      "sentenceKR": "신문이 부정행위의 실태를 폭로했다."
+    },
+    {
+      "word": "励ます",
+      "reading": "はげます",
+      "meaningKR": "격려하다, 북돋우다",
+      "sentenceJP": "仲間の言葉が私を励ました。",
+      "sentenceReading": "なかまのことばがわたしをはげました。",
+      "sentenceKR": "동료의 말이 나를 격려했다."
+    },
+    {
+      "word": "励む",
+      "reading": "はげむ",
+      "meaningKR": "힘쓰다, 매진하다",
+      "sentenceJP": "毎日研究に励んでいる。",
+      "sentenceReading": "まいにちけんきゅうにはげんでいる。",
+      "sentenceKR": "매일 연구에 매진하고 있다."
+    },
+    {
+      "word": "剥げる",
+      "reading": "はげる",
+      "meaningKR": "벗겨지다, 바래다",
+      "sentenceJP": "塗装が剥げて、地金が見えた。",
+      "sentenceReading": "とそうがはげて、じがねがみえた。",
+      "sentenceKR": "도장이 벗겨져 바탕 금속이 보였다."
+    },
+    {
+      "word": "化ける",
+      "reading": "ばける",
+      "meaningKR": "둔갑하다, 모습을 바꾸다",
+      "sentenceJP": "狐が美女に化けて現れた。",
+      "sentenceReading": "きつねがびじょにばけてあらわれた。",
+      "sentenceKR": "여우가 미녀로 둔갑해 나타났다."
+    },
+    {
+      "word": "派遣",
+      "reading": "はけん",
+      "meaningKR": "파견",
+      "sentenceJP": "技術者を海外へ派遣する。",
+      "sentenceReading": "ぎじゅつしゃをかいがいへはけんする。",
+      "sentenceKR": "기술자를 해외로 파견한다."
+    },
+    {
+      "word": "恥",
+      "reading": "はじ",
+      "meaningKR": "수치, 창피",
+      "sentenceJP": "人前で恥をかいてしまった。",
+      "sentenceReading": "ひとまえではじをかいてしまった。",
+      "sentenceKR": "남들 앞에서 창피를 당하고 말았다."
+    },
+    {
+      "word": "弾く",
+      "reading": "はじく",
+      "meaningKR": "현을 튕기다, 연주하다",
+      "sentenceJP": "指先で琴の弦を弾く。",
+      "sentenceReading": "ゆびさきでことのげんをはじく。",
+      "sentenceKR": "손끝으로 고토의 현을 튕긴다."
+    },
+    {
+      "word": "パジャマ",
+      "reading": "パジャマ",
+      "meaningKR": "잠옷",
+      "sentenceJP": "新しいパジャマで眠った。",
+      "sentenceReading": "あたらしいぱじゃまでねむった。",
+      "sentenceKR": "새 잠옷을 입고 잤다."
+    },
+    {
+      "word": "恥じらう",
+      "reading": "はじらう",
+      "meaningKR": "수줍어하다",
+      "sentenceJP": "彼女は褒められて恥じらった。",
+      "sentenceReading": "かのじょはほめられてはじらった。",
+      "sentenceKR": "그녀는 칭찬을 받고 수줍어했다."
+    },
+    {
+      "word": "恥じる",
+      "reading": "はじる",
+      "meaningKR": "부끄러워하다",
+      "sentenceJP": "自分の軽率な行動を恥じる。",
+      "sentenceReading": "じぶんのけいそつなこうどうをはじる。",
+      "sentenceKR": "자신의 경솔한 행동을 부끄러워한다."
+    },
+    {
+      "word": "橋渡し",
+      "reading": "はしわたし",
+      "meaningKR": "가교, 중개",
+      "sentenceJP": "両国の橋渡し役を務めた。",
+      "sentenceReading": "りょうこくのはしわたしやくをつとめた。",
+      "sentenceKR": "양국의 가교 역할을 맡았다."
+    },
+    {
+      "word": "弾む",
+      "reading": "はずむ",
+      "meaningKR": "튀어 오르다, 활기를 띠다",
+      "sentenceJP": "楽しい話に会話が弾んだ。",
+      "sentenceReading": "たのしいはなしにかいわがはずんだ。",
+      "sentenceKR": "즐거운 이야기로 대화가 활기를 띠었다."
+    },
+    {
+      "word": "破損",
+      "reading": "はそん",
+      "meaningKR": "파손",
+      "sentenceJP": "輸送中に商品が破損した。",
+      "sentenceReading": "ゆそうちゅうにしょうひんがはそんした。",
+      "sentenceKR": "운송 중에 상품이 파손되었다."
+    },
+    {
+      "word": "叩く",
+      "reading": "はたく",
+      "meaningKR": "두드리다, 털다",
+      "sentenceJP": "布団を外で強く叩いた。",
+      "sentenceReading": "ふとんをそとでつよくはたいた。",
+      "sentenceKR": "밖에서 이불을 세게 털었다."
+    },
+    {
+      "word": "裸足",
+      "reading": "はだし",
+      "meaningKR": "맨발",
+      "sentenceJP": "子供たちは裸足で走り回った。",
+      "sentenceReading": "こどもたちははだしではしりまわった。",
+      "sentenceKR": "아이들은 맨발로 뛰어다녔다."
+    },
+    {
+      "word": "果たす",
+      "reading": "はたす",
+      "meaningKR": "완수하다, 이행하다",
+      "sentenceJP": "彼は最後まで責任を果たした。",
+      "sentenceReading": "かれはさいごまでせきにんをはたした。",
+      "sentenceKR": "그는 끝까지 책임을 다했다."
+    },
+    {
+      "word": "蜂蜜",
+      "reading": "はちみつ",
+      "meaningKR": "꿀",
+      "sentenceJP": "蜂蜜を紅茶に少し加えた。",
+      "sentenceReading": "はちみつをこうちゃにすこしくわえた。",
+      "sentenceKR": "홍차에 꿀을 조금 넣었다."
+    },
+    {
+      "word": "パチンコ",
+      "reading": "パチンコ",
+      "meaningKR": "파친코",
+      "sentenceJP": "仕事帰りにパチンコへ寄った。",
+      "sentenceReading": "しごとがえりにぱちんこへよった。",
+      "sentenceKR": "퇴근길에 파친코에 들렀다."
+    },
+    {
+      "word": "罰",
+      "reading": "ばつ",
+      "meaningKR": "벌, 처벌",
+      "sentenceJP": "規則を破れば罰を受ける。",
+      "sentenceReading": "きそくをやぶればばつをうける。",
+      "sentenceKR": "규칙을 어기면 벌을 받는다."
+    },
+    {
+      "word": "発育",
+      "reading": "はついく",
+      "meaningKR": "신체 발육, 성장",
+      "sentenceJP": "子どもの発育には睡眠が大切だ。",
+      "sentenceReading": "こどものはついくにはすいみんがたいせつだ。",
+      "sentenceKR": "아이의 발육에는 수면이 중요하다."
+    },
+    {
+      "word": "発芽",
+      "reading": "はつが",
+      "meaningKR": "발아",
+      "sentenceJP": "暖かくなり、種が発芽した。",
+      "sentenceReading": "あたたかくなり、たねがはつがした。",
+      "sentenceKR": "날씨가 따뜻해져 씨앗이 발아했다."
+    },
+    {
+      "word": "発掘",
+      "reading": "はっくつ",
+      "meaningKR": "발굴",
+      "sentenceJP": "遺跡の発掘作業が始まった。",
+      "sentenceReading": "いせきのはっくつさぎょうがはじまった。",
+      "sentenceKR": "유적 발굴 작업이 시작되었다."
+    },
+    {
+      "word": "発言",
+      "reading": "はつげん",
+      "meaningKR": "발언",
+      "sentenceJP": "彼の発言が議論を呼んだ。",
+      "sentenceReading": "かれのはつげんがぎろんをよんだ。",
+      "sentenceKR": "그의 발언이 논란을 불러일으켰다."
+    },
+    {
+      "word": "バッジ",
+      "reading": "バッジ",
+      "meaningKR": "배지",
+      "sentenceJP": "胸に社員バッジを付けた。",
+      "sentenceReading": "むねにしゃいんばっじをつけた。",
+      "sentenceKR": "가슴에 사원 배지를 달았다."
+    },
+    {
+      "word": "発生",
+      "reading": "はっせい",
+      "meaningKR": "발생",
+      "sentenceJP": "駅前で事故が発生した。",
+      "sentenceReading": "えきまえでじこがはっせいした。",
+      "sentenceKR": "역 앞에서 사고가 발생했다."
+    },
+    {
+      "word": "仕立てる",
+      "reading": "したてる",
+      "meaningKR": "맞추어 만들다",
+      "sentenceJP": "この布で春物の服を仕立てる。",
+      "sentenceReading": "このぬのではるもののふくをしたてる。",
+      "sentenceKR": "이 천으로 봄옷을 맞춘다."
+    },
+    {
+      "word": "下取り",
+      "reading": "したどり",
+      "meaningKR": "보상 판매, 중고품 인수",
+      "sentenceJP": "古い車を下取りに出した。",
+      "sentenceReading": "ふるいくるまをしたどりにだした。",
+      "sentenceKR": "낡은 차를 보상 판매로 넘겼다."
+    },
+    {
+      "word": "下火",
+      "reading": "したび",
+      "meaningKR": "쇠퇴, 한풀 꺾임",
+      "sentenceJP": "一時のブームも今は下火だ。",
+      "sentenceReading": "いちじのぶーむもいまはしたびだ。",
+      "sentenceKR": "한때의 열풍도 지금은 한풀 꺾였다."
+    },
+    {
+      "word": "実",
+      "reading": "じつ",
+      "meaningKR": "열매, 성과",
+      "sentenceJP": "努力が実を結び、合格した。",
+      "sentenceReading": "どりょくがみをむすび、ごうかくした。",
+      "sentenceKR": "노력이 결실을 맺어 합격했다."
+    },
+    {
+      "word": "実家",
+      "reading": "じっか",
+      "meaningKR": "본가, 부모님 댁",
+      "sentenceJP": "週末は実家でゆっくり過ごす。",
+      "sentenceReading": "しゅうまつはじっかでゆっくりすごす。",
+      "sentenceKR": "주말에는 부모님 댁에서 푹 쉰다."
+    },
+    {
+      "word": "失格",
+      "reading": "しっかく",
+      "meaningKR": "실격",
+      "sentenceJP": "規定違反で選手は失格になった。",
+      "sentenceReading": "きていいはんでせんしゅはしっかくになった。",
+      "sentenceKR": "규정 위반으로 선수가 실격되었다."
+    },
+    {
+      "word": "質疑",
+      "reading": "しつぎ",
+      "meaningKR": "질의",
+      "sentenceJP": "説明会の後に質疑を行います。",
+      "sentenceReading": "せつめいかいのあとにしつぎをおこないます。",
+      "sentenceKR": "설명회 후에 질의를 진행합니다."
     }
   ]
 }
