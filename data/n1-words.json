@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-06T01:19:34.838Z",
-  "count": 1935,
+  "generatedAt": "2026-11-09T00:26:08.676Z",
+  "count": 1980,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -15484,6 +15484,366 @@
       "sentenceJP": "説明会の後に質疑を行います。",
       "sentenceReading": "せつめいかいのあとにしつぎをおこないます。",
       "sentenceKR": "설명회 후에 질의를 진행합니다."
+    },
+    {
+      "word": "失脚",
+      "reading": "しっきゃく",
+      "meaningKR": "실각, 지위 상실",
+      "sentenceJP": "大臣は不祥事で失脚した。",
+      "sentenceReading": "だいじんはふしょうじでしっきゃくした。",
+      "sentenceKR": "장관은 불미스러운 일로 실각했다."
+    },
+    {
+      "word": "実業家",
+      "reading": "じつぎょうか",
+      "meaningKR": "실업가, 사업가",
+      "sentenceJP": "彼は若くして成功した実業家だ。",
+      "sentenceReading": "かれはわかくしてせいこうしたじつぎょうかだ。",
+      "sentenceKR": "그는 젊어서 성공한 사업가다."
+    },
+    {
+      "word": "シック",
+      "reading": "シック",
+      "meaningKR": "세련된, 멋진",
+      "sentenceJP": "シックな服装がよく似合う。",
+      "sentenceReading": "しっくなふくそうがよくにあう。",
+      "sentenceKR": "세련된 옷차림이 무척 잘 어울린다."
+    },
+    {
+      "word": "じっくり",
+      "reading": "じっくり",
+      "meaningKR": "찬찬히, 꼼꼼히",
+      "sentenceJP": "この問題をじっくり考えよう。",
+      "sentenceReading": "このもんだいをじっくりかんがえよう。",
+      "sentenceKR": "이 문제를 찬찬히 생각해 보자."
+    },
+    {
+      "word": "躾",
+      "reading": "しつけ",
+      "meaningKR": "예절 교육, 훈육",
+      "sentenceJP": "子どもの躾は家庭から始まる。",
+      "sentenceReading": "こどものしつけはかていからはじまる。",
+      "sentenceKR": "아이의 예절 교육은 가정에서 시작된다."
+    },
+    {
+      "word": "躾ける",
+      "reading": "しつける",
+      "meaningKR": "훈육하다, 예절을 가르치다",
+      "sentenceJP": "子犬を厳しく躾ける。",
+      "sentenceReading": "こいぬをきびしくしつける。",
+      "sentenceKR": "강아지를 엄격하게 훈련한다."
+    },
+    {
+      "word": "実践",
+      "reading": "じっせん",
+      "meaningKR": "실천",
+      "sentenceJP": "学んだ理論を現場で実践する。",
+      "sentenceReading": "まなんだりろんをげんばでじっせんする。",
+      "sentenceKR": "배운 이론을 현장에서 실천한다."
+    },
+    {
+      "word": "質素",
+      "reading": "しっそ",
+      "meaningKR": "검소함, 소박함",
+      "sentenceJP": "彼女は質素な暮らしを好む。",
+      "sentenceReading": "かのじょはしっそなくらしをこのむ。",
+      "sentenceKR": "그녀는 검소한 생활을 좋아한다."
+    },
+    {
+      "word": "実態",
+      "reading": "じったい",
+      "meaningKR": "실태, 실제 상태",
+      "sentenceJP": "調査で被害の実態が明らかになった。",
+      "sentenceReading": "ちょうさでひがいのじったいがあきらかになった。",
+      "sentenceKR": "조사로 피해 실태가 밝혀졌다."
+    },
+    {
+      "word": "失調",
+      "reading": "しっちょう",
+      "meaningKR": "불균형, 기능 이상",
+      "sentenceJP": "自律神経の失調で体調を崩した。",
+      "sentenceReading": "じりつしんけいのしっちょうでたいちょうをくずした。",
+      "sentenceKR": "자율 신경의 이상으로 건강이 나빠졌다."
+    },
+    {
+      "word": "嫉妬",
+      "reading": "しっと",
+      "meaningKR": "질투",
+      "sentenceJP": "友人の成功に嫉妬した。",
+      "sentenceReading": "ゆうじんのせいこうにしっとした。",
+      "sentenceKR": "친구의 성공을 질투했다."
+    },
+    {
+      "word": "実費",
+      "reading": "じっぴ",
+      "meaningKR": "실비, 실제 비용",
+      "sentenceJP": "交通費は実費で支給されます。",
+      "sentenceReading": "こうつうひはじっぴでしきゅうされます。",
+      "sentenceKR": "교통비는 실비로 지급됩니다."
+    },
+    {
+      "word": "指摘",
+      "reading": "してき",
+      "meaningKR": "지적",
+      "sentenceJP": "先生の指摘は的確だった。",
+      "sentenceReading": "せんせいのしてきはてきかくだった。",
+      "sentenceKR": "선생님의 지적은 정확했다."
+    },
+    {
+      "word": "自転",
+      "reading": "じてん",
+      "meaningKR": "자전, 회전",
+      "sentenceJP": "地球は一日一回自転する。",
+      "sentenceReading": "ちきゅうはいちにちいっかいじてんする。",
+      "sentenceKR": "지구는 하루에 한 번 자전한다."
+    },
+    {
+      "word": "助動詞",
+      "reading": "じょどうし",
+      "meaningKR": "조동사",
+      "sentenceJP": "「ない」は助動詞として働く。",
+      "sentenceReading": "「ない」はじょどうしとしてはたらく。",
+      "sentenceKR": "‘ない’는 조동사로 기능한다."
+    },
+    {
+      "word": "淑やか",
+      "reading": "しとやか",
+      "meaningKR": "단아한",
+      "sentenceJP": "淑やかな物腰が印象的だ。",
+      "sentenceReading": "しとやかなものごしがいんしょうてきだ。",
+      "sentenceKR": "단아한 몸가짐이 인상적이다."
+    },
+    {
+      "word": "萎びる",
+      "reading": "しなびる",
+      "meaningKR": "시들다",
+      "sentenceJP": "野菜が冷蔵庫で萎びた。",
+      "sentenceReading": "やさいがれいぞうこでしなびた。",
+      "sentenceKR": "채소가 냉장고에서 시들었다."
+    },
+    {
+      "word": "シナリオ",
+      "reading": "シナリオ",
+      "meaningKR": "시나리오",
+      "sentenceJP": "新作映画のシナリオを書く。",
+      "sentenceReading": "しんさくえいがのしなりおをかく。",
+      "sentenceKR": "신작 영화의 시나리오를 쓴다."
+    },
+    {
+      "word": "しなやか",
+      "reading": "しなやか",
+      "meaningKR": "유연한",
+      "sentenceJP": "しなやかな枝が風に揺れる。",
+      "sentenceReading": "しなやかなえだがかぜにゆれる。",
+      "sentenceKR": "유연한 가지가 바람에 흔들린다."
+    },
+    {
+      "word": "屎尿",
+      "reading": "しにょう",
+      "meaningKR": "분뇨",
+      "sentenceJP": "屎尿を適切に処理する。",
+      "sentenceReading": "しにょうをてきせつにしょりする。",
+      "sentenceKR": "분뇨를 적절히 처리한다."
+    },
+    {
+      "word": "地主",
+      "reading": "じぬし",
+      "meaningKR": "토지 소유주",
+      "sentenceJP": "地主と家賃について話し合う。",
+      "sentenceReading": "じぬしとやちんについてはなしあう。",
+      "sentenceKR": "집주인과 집세에 관해 상의한다."
+    },
+    {
+      "word": "凌ぐ",
+      "reading": "しのぐ",
+      "meaningKR": "견디다",
+      "sentenceJP": "寒さを厚着で凌いだ。",
+      "sentenceReading": "さむさをあつぎでしのいだ。",
+      "sentenceKR": "두꺼운 옷으로 추위를 견뎠다."
+    },
+    {
+      "word": "芝",
+      "reading": "しば",
+      "meaningKR": "잔디",
+      "sentenceJP": "庭の芝をきれいに刈る。",
+      "sentenceReading": "にわのしばをきれいにかる。",
+      "sentenceKR": "정원의 잔디를 깔끔하게 깎는다."
+    },
+    {
+      "word": "始発",
+      "reading": "しはつ",
+      "meaningKR": "첫차",
+      "sentenceJP": "始発に乗るため早起きした。",
+      "sentenceReading": "しはつにのるためはやおきした。",
+      "sentenceKR": "첫차를 타려고 일찍 일어났다."
+    },
+    {
+      "word": "耳鼻科",
+      "reading": "じびか",
+      "meaningKR": "이비인후과",
+      "sentenceJP": "耳鼻科で喉を診てもらう。",
+      "sentenceReading": "じびかでのどをみてもらう。",
+      "sentenceKR": "이비인후과에서 목을 진찰받는다."
+    },
+    {
+      "word": "私物",
+      "reading": "しぶつ",
+      "meaningKR": "개인 소지품",
+      "sentenceJP": "私物はロッカーに入れてください。",
+      "sentenceReading": "しぶつはろっかーにいれてください。",
+      "sentenceKR": "개인 소지품은 사물함에 넣어 주세요."
+    },
+    {
+      "word": "しぶとい",
+      "reading": "しぶとい",
+      "meaningKR": "끈질긴",
+      "sentenceJP": "しぶとい相手に苦戦した。",
+      "sentenceReading": "しぶといあいてにくせんした。",
+      "sentenceKR": "끈질긴 상대에게 고전했다."
+    },
+    {
+      "word": "司法",
+      "reading": "しほう",
+      "meaningKR": "사법",
+      "sentenceJP": "司法の独立を守るべきだ。",
+      "sentenceReading": "しほうのどくりつをまもるべきだ。",
+      "sentenceKR": "사법의 독립을 지켜야 한다."
+    },
+    {
+      "word": "始末",
+      "reading": "しまつ",
+      "meaningKR": "뒤처리",
+      "sentenceJP": "事故の始末に追われている。",
+      "sentenceReading": "じこのしまつにおわれている。",
+      "sentenceKR": "사고 뒤처리에 쫓기고 있다."
+    },
+    {
+      "word": "染みる",
+      "reading": "しみる",
+      "meaningKR": "스며들다; 사무치다",
+      "sentenceJP": "冷たい風が傷口に染みる。",
+      "sentenceReading": "つめたいかぜがきずぐちにしみる。",
+      "sentenceKR": "차가운 바람이 상처에 스며들어 아프다."
+    },
+    {
+      "word": "使命",
+      "reading": "しめい",
+      "meaningKR": "사명, 임무",
+      "sentenceJP": "使命を果たすため、現地へ向かう。",
+      "sentenceReading": "しめいをはたすため、げんちへむかう。",
+      "sentenceKR": "사명을 완수하기 위해 현지로 향한다."
+    },
+    {
+      "word": "地元",
+      "reading": "じもと",
+      "meaningKR": "지역, 현지",
+      "sentenceJP": "地元の祭りに毎年参加している。",
+      "sentenceReading": "じもとのまつりにまいとしさんかしている。",
+      "sentenceKR": "지역 축제에 매년 참가하고 있다."
+    },
+    {
+      "word": "視野",
+      "reading": "しや",
+      "meaningKR": "시야, 견문",
+      "sentenceJP": "海外で働き、視野が広がった。",
+      "sentenceReading": "かいがいではたらき、しやがひろがった。",
+      "sentenceKR": "해외에서 일하며 시야가 넓어졌다."
+    },
+    {
+      "word": "弱",
+      "reading": "じゃく",
+      "meaningKR": "조금 못 됨, 약함",
+      "sentenceJP": "会議は一時間弱で終わった。",
+      "sentenceReading": "かいぎはいちじかんじゃくでおわった。",
+      "sentenceKR": "회의는 한 시간 조금 안 되어 끝났다."
+    },
+    {
+      "word": "社交",
+      "reading": "しゃこう",
+      "meaningKR": "사교, 사회생활",
+      "sentenceJP": "社交の場では礼儀が大切だ。",
+      "sentenceReading": "しゃこうのばではれいぎがたいせつだ。",
+      "sentenceKR": "사교 자리에서는 예의가 중요하다."
+    },
+    {
+      "word": "ジャズ",
+      "reading": "ジャズ",
+      "meaningKR": "재즈",
+      "sentenceJP": "夜は静かにジャズを聴く。",
+      "sentenceReading": "よるはしずかにじゃずをきく。",
+      "sentenceKR": "밤에는 조용히 재즈를 듣는다."
+    },
+    {
+      "word": "謝絶",
+      "reading": "しゃぜつ",
+      "meaningKR": "거절, 사절",
+      "sentenceJP": "面会謝絶の札が掛かっている。",
+      "sentenceReading": "めんかいしゃぜつのふだがかかっている。",
+      "sentenceKR": "면회 사절이라는 팻말이 걸려 있다."
+    },
+    {
+      "word": "社宅",
+      "reading": "しゃたく",
+      "meaningKR": "사택",
+      "sentenceJP": "来月、家族で社宅へ引っ越す。",
+      "sentenceReading": "らいげつ、かぞくでしゃたくへひっこす。",
+      "sentenceKR": "다음 달에 가족과 함께 사택으로 이사한다."
+    },
+    {
+      "word": "若干",
+      "reading": "じゃっかん",
+      "meaningKR": "약간, 다소",
+      "sentenceJP": "計画に若干の変更があります。",
+      "sentenceReading": "けいかくにじゃっかんのへんこうがあります。",
+      "sentenceKR": "계획에 약간의 변경이 있습니다."
+    },
+    {
+      "word": "三味線",
+      "reading": "しゃみせん",
+      "meaningKR": "샤미센, 일본 전통 삼현악기",
+      "sentenceJP": "祖母は三味線を上手に弾く。",
+      "sentenceReading": "そぼはしゃみせんをじょうずにひく。",
+      "sentenceKR": "할머니는 샤미센을 능숙하게 연주한다."
+    },
+    {
+      "word": "斜面",
+      "reading": "しゃめん",
+      "meaningKR": "경사면, 비탈",
+      "sentenceJP": "急な斜面を慎重に下った。",
+      "sentenceReading": "きゅうなしゃめんをしんちょうにくだった。",
+      "sentenceKR": "가파른 비탈을 조심스럽게 내려갔다."
+    },
+    {
+      "word": "砂利",
+      "reading": "じゃり",
+      "meaningKR": "자갈",
+      "sentenceJP": "庭に白い砂利を敷いた。",
+      "sentenceReading": "にわにしろいじゃりをしいた。",
+      "sentenceKR": "마당에 흰 자갈을 깔았다."
+    },
+    {
+      "word": "洒落る",
+      "reading": "しゃれる",
+      "meaningKR": "익살을 떨다, 멋을 내다",
+      "sentenceJP": "彼は洒落た店をよく知っている。",
+      "sentenceReading": "かれはしゃれたみせをよくしっている。",
+      "sentenceKR": "그는 세련된 가게를 많이 알고 있다."
+    },
+    {
+      "word": "ジャンパー",
+      "reading": "ジャンパー",
+      "meaningKR": "점퍼, 재킷",
+      "sentenceJP": "寒いのでジャンパーを羽織った。",
+      "sentenceReading": "さむいのでじゃんぱーをはおった。",
+      "sentenceKR": "추워서 점퍼를 걸쳤다."
+    },
+    {
+      "word": "ジャンプ",
+      "reading": "ジャンプ",
+      "meaningKR": "점프, 도약",
+      "sentenceJP": "助走をつけて大きくジャンプした。",
+      "sentenceReading": "じょそうをつけておおきくじゃんぷした。",
+      "sentenceKR": "도움닫기를 해서 크게 점프했다."
     }
   ]
 }
