@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-09T00:26:08.676Z",
-  "count": 1980,
+  "generatedAt": "2026-11-10T03:06:35.899Z",
+  "count": 2025,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -15844,6 +15844,366 @@
       "sentenceJP": "助走をつけて大きくジャンプした。",
       "sentenceReading": "じょそうをつけておおきくじゃんぷした。",
       "sentenceKR": "도움닫기를 해서 크게 점프했다."
+    },
+    {
+      "word": "ジャンボ",
+      "reading": "ジャンボ",
+      "meaningKR": "점보, 초대형",
+      "sentenceJP": "ジャンボ機が空港に着陸した",
+      "sentenceReading": "じゃんぼきがくうこうにちゃくりくした",
+      "sentenceKR": "점보기가 공항에 착륙했다."
+    },
+    {
+      "word": "ジャンル",
+      "reading": "ジャンル",
+      "meaningKR": "장르",
+      "sentenceJP": "このジャンルは若者に人気だ",
+      "sentenceReading": "このじゃんるはわかものににんきだ",
+      "sentenceKR": "이 장르는 젊은이들에게 인기다."
+    },
+    {
+      "word": "主",
+      "reading": "しゅ",
+      "meaningKR": "주인, 주님",
+      "sentenceJP": "神は万物を治める主である",
+      "sentenceReading": "かみはばんぶつをおさめるしゅである",
+      "sentenceKR": "신은 만물을 다스리는 주이다."
+    },
+    {
+      "word": "種",
+      "reading": "しゅ",
+      "meaningKR": "종류, 종",
+      "sentenceJP": "この種は寒さに強い",
+      "sentenceReading": "このしゅはさむさにつよい",
+      "sentenceKR": "이 종은 추위에 강하다."
+    },
+    {
+      "word": "私有",
+      "reading": "しゆう",
+      "meaningKR": "사유",
+      "sentenceJP": "この土地は私有財産だ",
+      "sentenceReading": "このとちはしゆうざいさんだ",
+      "sentenceKR": "이 토지는 사유 재산이다."
+    },
+    {
+      "word": "～宗",
+      "reading": "～しゅう",
+      "meaningKR": "~종, 종파",
+      "sentenceJP": "彼は禅宗の寺で修行する",
+      "sentenceReading": "かれはぜんしゅうのてらでしゅぎょうする",
+      "sentenceKR": "그는 선종 사찰에서 수행한다."
+    },
+    {
+      "word": "収益",
+      "reading": "しゅうえき",
+      "meaningKR": "수익",
+      "sentenceJP": "今年は広告収益が伸びた",
+      "sentenceReading": "ことしはこうこくしゅうえきがのびた",
+      "sentenceKR": "올해는 광고 수익이 늘었다."
+    },
+    {
+      "word": "修学",
+      "reading": "しゅうがく",
+      "meaningKR": "학업, 수학",
+      "sentenceJP": "海外で修学の機会を得た",
+      "sentenceReading": "かいがいでしゅうがくのきかいをえた",
+      "sentenceKR": "해외에서 학업의 기회를 얻었다."
+    },
+    {
+      "word": "周期",
+      "reading": "しゅうき",
+      "meaningKR": "주기",
+      "sentenceJP": "彗星は長い周期で戻ってくる",
+      "sentenceReading": "すいせいはながいしゅうきでもどってくる",
+      "sentenceKR": "혜성은 긴 주기로 돌아온다."
+    },
+    {
+      "word": "衆議院",
+      "reading": "しゅうぎいん",
+      "meaningKR": "중의원",
+      "sentenceJP": "法案は衆議院で可決された",
+      "sentenceReading": "ほうあんはしゅうぎいんでかけつされた",
+      "sentenceKR": "법안은 중의원에서 가결되었다."
+    },
+    {
+      "word": "就業",
+      "reading": "しゅうぎょう",
+      "meaningKR": "취업, 근무",
+      "sentenceJP": "若者の就業を支援する",
+      "sentenceReading": "わかもののしゅうぎょうをしえんする",
+      "sentenceKR": "젊은이들의 취업을 지원한다."
+    },
+    {
+      "word": "従業員",
+      "reading": "じゅうぎょういん",
+      "meaningKR": "종업원, 직원",
+      "sentenceJP": "全従業員に通知を送った",
+      "sentenceReading": "ぜんじゅうぎょういんにつうちをおくった",
+      "sentenceKR": "모든 직원에게 통지를 보냈다."
+    },
+    {
+      "word": "集計",
+      "reading": "しゅうけい",
+      "meaningKR": "집계",
+      "sentenceJP": "回答をすぐに集計した",
+      "sentenceReading": "かいとうをすぐにしゅうけいした",
+      "sentenceKR": "응답을 곧바로 집계했다."
+    },
+    {
+      "word": "襲撃",
+      "reading": "しゅうげき",
+      "meaningKR": "습격",
+      "sentenceJP": "村は夜中に襲撃を受けた",
+      "sentenceReading": "むらはやちゅうにしゅうげきをうけた",
+      "sentenceKR": "마을은 한밤중에 습격을 받았다."
+    },
+    {
+      "word": "収支",
+      "reading": "しゅうし",
+      "meaningKR": "수지, 수입과 지출",
+      "sentenceJP": "今月は収支が黒字になった",
+      "sentenceReading": "こんげつはしゅうしがくろじになった",
+      "sentenceKR": "이번 달에는 수지가 흑자로 돌아섰다."
+    },
+    {
+      "word": "終始",
+      "reading": "しゅうし",
+      "meaningKR": "시종일관",
+      "sentenceJP": "彼は終始穏やかな口調だった。",
+      "sentenceReading": "かれはしゅうしおだやかなくちょうだった。",
+      "sentenceKR": "그는 시종일관 온화한 말투였다."
+    },
+    {
+      "word": "修士",
+      "reading": "しゅうし",
+      "meaningKR": "석사 과정",
+      "sentenceJP": "修士課程で経済学を学ぶ。",
+      "sentenceReading": "しゅうしかていでけいざいがくをまなぶ。",
+      "sentenceKR": "석사 과정에서 경제학을 공부한다."
+    },
+    {
+      "word": "従事",
+      "reading": "じゅうじ",
+      "meaningKR": "종사",
+      "sentenceJP": "医療現場の仕事に従事する。",
+      "sentenceReading": "いりょうげんばのしごとにじゅうじする。",
+      "sentenceKR": "의료 현장의 업무에 종사한다."
+    },
+    {
+      "word": "終日",
+      "reading": "しゅうじつ",
+      "meaningKR": "하루 종일",
+      "sentenceJP": "終日雨が降り続いた。",
+      "sentenceReading": "しゅうじつあめがふりつづいた。",
+      "sentenceKR": "하루 종일 비가 계속 내렸다."
+    },
+    {
+      "word": "充実",
+      "reading": "じゅうじつ",
+      "meaningKR": "충실함",
+      "sentenceJP": "充実した一日を過ごした。",
+      "sentenceReading": "じゅうじつしたいちにちをすごした。",
+      "sentenceKR": "알찬 하루를 보냈다."
+    },
+    {
+      "word": "収集",
+      "reading": "しゅうしゅう",
+      "meaningKR": "수집",
+      "sentenceJP": "古切手の収集が趣味だ。",
+      "sentenceReading": "ふるきってのしゅうしゅうがしゅみだ。",
+      "sentenceKR": "옛 우표 수집이 취미다."
+    },
+    {
+      "word": "十字路",
+      "reading": "じゅうじろ",
+      "meaningKR": "십자로",
+      "sentenceJP": "次の十字路を右に曲がる。",
+      "sentenceReading": "つぎのじゅうじろをみぎにまがる。",
+      "sentenceKR": "다음 십자로에서 오른쪽으로 돈다."
+    },
+    {
+      "word": "執着",
+      "reading": "しゅうじゃく",
+      "meaningKR": "집착",
+      "sentenceJP": "過去への執着を手放す。",
+      "sentenceReading": "かこへのしゅうじゃくをてばなす。",
+      "sentenceKR": "과거에 대한 집착을 내려놓는다."
+    },
+    {
+      "word": "執着",
+      "reading": "しゅうちゃく",
+      "meaningKR": "집착",
+      "sentenceJP": "勝敗に執着しすぎている。",
+      "sentenceReading": "しょうはいにしゅうちゃくしすぎている。",
+      "sentenceKR": "승패에 지나치게 집착하고 있다."
+    },
+    {
+      "word": "柔軟",
+      "reading": "じゅうなん",
+      "meaningKR": "유연함",
+      "sentenceJP": "柔軟な発想が求められる。",
+      "sentenceReading": "じゅうなんなはっそうがもとめられる。",
+      "sentenceKR": "유연한 발상이 요구된다."
+    },
+    {
+      "word": "重複",
+      "reading": "じゅうふく",
+      "meaningKR": "중복",
+      "sentenceJP": "内容が一部重複している。",
+      "sentenceReading": "ないようがいちぶじゅうふくしている。",
+      "sentenceKR": "내용이 일부 중복되어 있다."
+    },
+    {
+      "word": "収容",
+      "reading": "しゅうよう",
+      "meaningKR": "수용",
+      "sentenceJP": "避難所は百人を収容できる。",
+      "sentenceReading": "ひなんじょはひゃくにんをしゅうようできる。",
+      "sentenceKR": "대피소는 백 명을 수용할 수 있다."
+    },
+    {
+      "word": "従来",
+      "reading": "じゅうらい",
+      "meaningKR": "기존",
+      "sentenceJP": "従来の方法を見直す。",
+      "sentenceReading": "じゅうらいのほうほうをみなおす。",
+      "sentenceKR": "기존 방법을 재검토한다."
+    },
+    {
+      "word": "守衛",
+      "reading": "しゅえい",
+      "meaningKR": "경비원",
+      "sentenceJP": "守衛に入館証を見せた。",
+      "sentenceReading": "しゅえいににゅうかんしょうをみせた。",
+      "sentenceKR": "경비원에게 출입증을 보여 주었다."
+    },
+    {
+      "word": "主演",
+      "reading": "しゅえん",
+      "meaningKR": "주연",
+      "sentenceJP": "彼女が新作映画に主演する。",
+      "sentenceReading": "かのじょがしんさくえいがにしゅえんする。",
+      "sentenceKR": "그녀가 신작 영화에 주연으로 출연한다."
+    },
+    {
+      "word": "主観",
+      "reading": "しゅかん",
+      "meaningKR": "주관, 주관성",
+      "sentenceJP": "主観に頼らず事実を見よう。",
+      "sentenceReading": "しゅかんにたよらずじじつをみよう。",
+      "sentenceKR": "주관에 의존하지 말고 사실을 보자."
+    },
+    {
+      "word": "修行",
+      "reading": "しゅぎょう",
+      "meaningKR": "수행, 수련",
+      "sentenceJP": "彼は寺で厳しい修行を積んだ。",
+      "sentenceReading": "かれはてらできびしいしゅぎょうをつんだ。",
+      "sentenceKR": "그는 절에서 혹독한 수행을 쌓았다."
+    },
+    {
+      "word": "塾",
+      "reading": "じゅく",
+      "meaningKR": "입시 학원, 보습 학원",
+      "sentenceJP": "放課後は塾で数学を学ぶ。",
+      "sentenceReading": "ほうかごはじゅくですうがくをまなぶ。",
+      "sentenceKR": "방과 후에는 학원에서 수학을 배운다."
+    },
+    {
+      "word": "祝賀",
+      "reading": "しゅくが",
+      "meaningKR": "축하, 경축",
+      "sentenceJP": "優勝の祝賀会が開かれた。",
+      "sentenceReading": "ゆうしょうのしゅくがかいがひらかれた。",
+      "sentenceKR": "우승 축하 행사가 열렸다."
+    },
+    {
+      "word": "宿命",
+      "reading": "しゅくめい",
+      "meaningKR": "숙명, 운명",
+      "sentenceJP": "彼はそれを宿命として受け入れた。",
+      "sentenceReading": "かれはそれをしゅくめいとしてうけいれた。",
+      "sentenceKR": "그는 그것을 숙명으로 받아들였다."
+    },
+    {
+      "word": "手芸",
+      "reading": "しゅげい",
+      "meaningKR": "수예, 수공예",
+      "sentenceJP": "母は手芸を趣味にしている。",
+      "sentenceReading": "はははしゅげいをしゅみにしている。",
+      "sentenceKR": "어머니는 수예를 취미로 삼고 있다."
+    },
+    {
+      "word": "主権",
+      "reading": "しゅけん",
+      "meaningKR": "주권",
+      "sentenceJP": "国家の主権を尊重すべきだ。",
+      "sentenceReading": "こっかのしゅけんをそんちょうすべきだ。",
+      "sentenceKR": "국가의 주권을 존중해야 한다."
+    },
+    {
+      "word": "主催",
+      "reading": "しゅさい",
+      "meaningKR": "주최, 주관",
+      "sentenceJP": "市が夏祭りを主催する。",
+      "sentenceReading": "しがなつまつりをしゅさいする。",
+      "sentenceKR": "시에서 여름 축제를 주최한다."
+    },
+    {
+      "word": "取材",
+      "reading": "しゅざい",
+      "meaningKR": "취재, 자료 수집",
+      "sentenceJP": "記者が現地で取材を続けた。",
+      "sentenceReading": "きしゃがげんちでしゅざいをつづけた。",
+      "sentenceKR": "기자가 현지에서 취재를 계속했다."
+    },
+    {
+      "word": "趣旨",
+      "reading": "しゅし",
+      "meaningKR": "취지, 목적",
+      "sentenceJP": "会議の趣旨を簡潔に説明した。",
+      "sentenceReading": "かいぎのしゅしをかんけつにせつめいした。",
+      "sentenceKR": "회의의 취지를 간결하게 설명했다."
+    },
+    {
+      "word": "種々",
+      "reading": "しゅじゅ",
+      "meaningKR": "여러 가지, 갖가지",
+      "sentenceJP": "店には種々の道具がそろっている。",
+      "sentenceReading": "みせにはしゅじゅのどうぐがそろっている。",
+      "sentenceKR": "가게에는 여러 가지 도구가 갖추어져 있다."
+    },
+    {
+      "word": "主食",
+      "reading": "しゅしょく",
+      "meaningKR": "주식, 주식량",
+      "sentenceJP": "米を主食とする国は多い。",
+      "sentenceReading": "こめをしゅしょくとするくにはおおい。",
+      "sentenceKR": "쌀을 주식으로 하는 나라는 많다."
+    },
+    {
+      "word": "主人公",
+      "reading": "しゅじんこう",
+      "meaningKR": "주인공",
+      "sentenceJP": "この小説の主人公は医師だ。",
+      "sentenceReading": "このしょうせつのしゅじんこうはいしだ。",
+      "sentenceKR": "이 소설의 주인공은 의사다."
+    },
+    {
+      "word": "主体",
+      "reading": "しゅたい",
+      "meaningKR": "주체, 중심이 되는 존재",
+      "sentenceJP": "学生が主体となって企画した。",
+      "sentenceReading": "がくせいがしゅたいとなってきかくした。",
+      "sentenceKR": "학생들이 주체가 되어 기획했다."
+    },
+    {
+      "word": "主題",
+      "reading": "しゅだい",
+      "meaningKR": "주제, 테마",
+      "sentenceJP": "映画の主題は家族の絆だ。",
+      "sentenceReading": "えいがのしゅだいはかぞくのきずなだ。",
+      "sentenceKR": "영화의 주제는 가족의 유대다."
     }
   ]
 }
