@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-10T03:06:35.899Z",
-  "count": 2025,
+  "generatedAt": "2026-11-11T00:58:47.686Z",
+  "count": 2070,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -16204,6 +16204,366 @@
       "sentenceJP": "映画の主題は家族の絆だ。",
       "sentenceReading": "えいがのしゅだいはかぞくのきずなだ。",
       "sentenceKR": "영화의 주제는 가족의 유대다."
+    },
+    {
+      "word": "出演",
+      "reading": "しゅつえん",
+      "meaningKR": "출연",
+      "sentenceJP": "彼は来月の舞台に出演する。",
+      "sentenceReading": "かれはらいげつのぶたいにしゅつえんする。",
+      "sentenceKR": "그는 다음 달 연극에 출연한다."
+    },
+    {
+      "word": "出血",
+      "reading": "しゅっけつ",
+      "meaningKR": "출혈",
+      "sentenceJP": "傷口から出血が続いている。",
+      "sentenceReading": "きずぐちからしゅっけつがつづいている。",
+      "sentenceKR": "상처에서 출혈이 계속되고 있다."
+    },
+    {
+      "word": "出現",
+      "reading": "しゅつげん",
+      "meaningKR": "출현",
+      "sentenceJP": "森に巨大な熊が出現した。",
+      "sentenceReading": "もりにきょだいなくまがしゅつげんした。",
+      "sentenceKR": "숲에 거대한 곰이 나타났다."
+    },
+    {
+      "word": "出産",
+      "reading": "しゅっさん",
+      "meaningKR": "출산",
+      "sentenceJP": "妹は無事に男児を出産した。",
+      "sentenceReading": "いもうとはぶじにだんじをしゅっさんした。",
+      "sentenceKR": "여동생은 무사히 남자아이를 출산했다."
+    },
+    {
+      "word": "出社",
+      "reading": "しゅっしゃ",
+      "meaningKR": "출근",
+      "sentenceJP": "毎朝九時までに出社する。",
+      "sentenceReading": "まいあさくじまでにしゅっしゃする。",
+      "sentenceKR": "매일 아침 아홉 시까지 출근한다."
+    },
+    {
+      "word": "出生",
+      "reading": "しゅっしょう",
+      "meaningKR": "출생",
+      "sentenceJP": "子供の出生を役所に届けた。",
+      "sentenceReading": "こどものしゅっしょうをやくしょにとどけた。",
+      "sentenceKR": "아이의 출생을 관공서에 신고했다."
+    },
+    {
+      "word": "出生",
+      "reading": "しゅっせい",
+      "meaningKR": "출생",
+      "sentenceJP": "彼の出生地は北海道だ。",
+      "sentenceReading": "かれのしゅっせいちはほっかいどうだ。",
+      "sentenceKR": "그의 출생지는 홋카이도다."
+    },
+    {
+      "word": "微量",
+      "reading": "びりょう",
+      "meaningKR": "미량",
+      "sentenceJP": "この薬には微量の鉄が含まれる。",
+      "sentenceReading": "このくすりにはびりょうのてつがふくまれる。",
+      "sentenceKR": "이 약에는 미량의 철분이 들어 있다."
+    },
+    {
+      "word": "昼飯",
+      "reading": "ひるめし",
+      "meaningKR": "점심밥",
+      "sentenceJP": "昼飯を食べてから戻ります。",
+      "sentenceReading": "ひるめしをたべてからもどります。",
+      "sentenceKR": "점심을 먹고 돌아오겠습니다."
+    },
+    {
+      "word": "比例",
+      "reading": "ひれい",
+      "meaningKR": "비례",
+      "sentenceJP": "努力に比例して成果が伸びる。",
+      "sentenceReading": "どりょくにひれいしてせいかがのびる。",
+      "sentenceKR": "노력에 비례해 성과가 늘어난다."
+    },
+    {
+      "word": "疲労",
+      "reading": "ひろう",
+      "meaningKR": "피로",
+      "sentenceJP": "長旅の疲労が一気に出た。",
+      "sentenceReading": "ながたびのひろうがいっきにでた。",
+      "sentenceKR": "긴 여행의 피로가 한꺼번에 몰려왔다."
+    },
+    {
+      "word": "敏感",
+      "reading": "びんかん",
+      "meaningKR": "민감함",
+      "sentenceJP": "彼女は匂いにとても敏感だ。",
+      "sentenceReading": "かのじょはにおいにとてもびんかんだ。",
+      "sentenceKR": "그녀는 냄새에 매우 민감하다."
+    },
+    {
+      "word": "貧困",
+      "reading": "ひんこん",
+      "meaningKR": "빈곤",
+      "sentenceJP": "貧困から抜け出す道を探す。",
+      "sentenceReading": "ひんこんからぬけだすみちをさがす。",
+      "sentenceKR": "빈곤에서 벗어날 길을 찾는다."
+    },
+    {
+      "word": "品質",
+      "reading": "ひんしつ",
+      "meaningKR": "품질",
+      "sentenceJP": "この製品は品質が安定している。",
+      "sentenceReading": "このせいひんはひんしつがあんていしている。",
+      "sentenceKR": "이 제품은 품질이 안정적이다."
+    },
+    {
+      "word": "貧弱",
+      "reading": "ひんじゃく",
+      "meaningKR": "빈약함",
+      "sentenceJP": "この計画は根拠が貧弱だ。",
+      "sentenceReading": "このけいかくはこんきょがひんじゃくだ。",
+      "sentenceKR": "이 계획은 근거가 빈약하다."
+    },
+    {
+      "word": "品種",
+      "reading": "ひんしゅ",
+      "meaningKR": "품종, 종류",
+      "sentenceJP": "この品種は寒さに強い。",
+      "sentenceReading": "このひんしゅはさむさにつよい。",
+      "sentenceKR": "이 품종은 추위에 강하다."
+    },
+    {
+      "word": "ヒント",
+      "reading": "ヒント",
+      "meaningKR": "힌트",
+      "sentenceJP": "ヒントを頼りに謎を解いた。",
+      "sentenceReading": "ひんとをたよりになぞをといた。",
+      "sentenceKR": "힌트를 바탕으로 수수께끼를 풀었다."
+    },
+    {
+      "word": "頻繁",
+      "reading": "ひんぱん",
+      "meaningKR": "빈번함",
+      "sentenceJP": "彼は頻繁に海外へ行く。",
+      "sentenceReading": "かれはひんぱんにかいがいへいく。",
+      "sentenceKR": "그는 자주 해외에 간다."
+    },
+    {
+      "word": "貧乏",
+      "reading": "びんぼう",
+      "meaningKR": "가난",
+      "sentenceJP": "貧乏でも心は豊かだ。",
+      "sentenceReading": "びんぼうでもこころはゆたかだ。",
+      "sentenceKR": "가난해도 마음은 풍요롭다."
+    },
+    {
+      "word": "ファイト",
+      "reading": "ファイト",
+      "meaningKR": "힘내, 투지",
+      "sentenceJP": "ファイト！最後まで頑張れ。",
+      "sentenceReading": "ふぁいと！さいごまでがんばれ。",
+      "sentenceKR": "힘내! 끝까지 최선을 다해."
+    },
+    {
+      "word": "ファイル",
+      "reading": "ファイル",
+      "meaningKR": "파일, 서류철",
+      "sentenceJP": "ファイルをメールに添付した。",
+      "sentenceReading": "ふぁいるをめえるにてんぷした。",
+      "sentenceKR": "파일을 이메일에 첨부했다."
+    },
+    {
+      "word": "ファン",
+      "reading": "ファン",
+      "meaningKR": "팬",
+      "sentenceJP": "彼女はその歌手のファンだ。",
+      "sentenceReading": "かのじょはそのかしゅのふぁんだ。",
+      "sentenceKR": "그녀는 그 가수의 팬이다."
+    },
+    {
+      "word": "不意",
+      "reading": "ふい",
+      "meaningKR": "뜻밖, 갑작스러움",
+      "sentenceJP": "不意に名前を呼ばれた。",
+      "sentenceReading": "ふいになまえをよばれた。",
+      "sentenceKR": "갑자기 이름을 불렸다."
+    },
+    {
+      "word": "フィルタ",
+      "reading": "フィルタ",
+      "meaningKR": "필터",
+      "sentenceJP": "フィルタを定期的に交換する。",
+      "sentenceReading": "ふぃるたをていきてきにこうかんする。",
+      "sentenceKR": "필터를 정기적으로 교체한다."
+    },
+    {
+      "word": "封",
+      "reading": "ふう",
+      "meaningKR": "봉인",
+      "sentenceJP": "手紙に封をして投函した。",
+      "sentenceReading": "てがみにふうをしてとうかんした。",
+      "sentenceKR": "편지를 봉하고 우체통에 넣었다."
+    },
+    {
+      "word": "封鎖",
+      "reading": "ふうさ",
+      "meaningKR": "봉쇄, 자금 동결",
+      "sentenceJP": "警察が道路を封鎖した。",
+      "sentenceReading": "けいさつがどうろをふうさした。",
+      "sentenceKR": "경찰이 도로를 봉쇄했다."
+    },
+    {
+      "word": "風車",
+      "reading": "ふうしゃ",
+      "meaningKR": "풍차",
+      "sentenceJP": "丘の上で風車が回っている。",
+      "sentenceReading": "おかのうえでふうしゃがまわっている。",
+      "sentenceKR": "언덕 위에서 풍차가 돌고 있다."
+    },
+    {
+      "word": "風習",
+      "reading": "ふうしゅう",
+      "meaningKR": "풍습",
+      "sentenceJP": "地域の風習を大切にする。",
+      "sentenceReading": "ちいきのふうしゅうをたいせつにする。",
+      "sentenceKR": "지역의 풍습을 소중히 여긴다."
+    },
+    {
+      "word": "風俗",
+      "reading": "ふうぞく",
+      "meaningKR": "풍속, 유흥업",
+      "sentenceJP": "国によって風俗は異なる。",
+      "sentenceReading": "くにによってふうぞくはことなる。",
+      "sentenceKR": "나라마다 풍속은 다르다."
+    },
+    {
+      "word": "ブーツ",
+      "reading": "ブーツ",
+      "meaningKR": "부츠",
+      "sentenceJP": "雨の日はブーツを履く。",
+      "sentenceReading": "あめのひはぶうつをはく。",
+      "sentenceKR": "비 오는 날에는 부츠를 신는다."
+    },
+    {
+      "word": "風土",
+      "reading": "ふうど",
+      "meaningKR": "풍토, 자연환경과 기후",
+      "sentenceJP": "この土地の風土に合った作物だ。",
+      "sentenceReading": "このとちのふうどにあったさくもつだ。",
+      "sentenceKR": "이 지역의 풍토에 맞는 작물이다."
+    },
+    {
+      "word": "ブーム",
+      "reading": "ブーム",
+      "meaningKR": "붐, 열풍",
+      "sentenceJP": "韓国で新たなブームが起きた。",
+      "sentenceReading": "かんこくであらたなぶーむがおきた。",
+      "sentenceKR": "한국에서 새로운 붐이 일었다."
+    },
+    {
+      "word": "フォーム",
+      "reading": "フォーム",
+      "meaningKR": "자세, 폼",
+      "sentenceJP": "正しいフォームで球を投げる。",
+      "sentenceReading": "ただしいふぉーむでたまをなげる。",
+      "sentenceKR": "올바른 자세로 공을 던진다."
+    },
+    {
+      "word": "部下",
+      "reading": "ぶか",
+      "meaningKR": "부하",
+      "sentenceJP": "部下の意見にも耳を傾ける。",
+      "sentenceReading": "ぶかのいけんにもみみをかたむける。",
+      "sentenceKR": "부하의 의견에도 귀를 기울인다."
+    },
+    {
+      "word": "不可欠",
+      "reading": "ふかけつ",
+      "meaningKR": "필수 불가결함",
+      "sentenceJP": "水は生命に不可欠なものだ。",
+      "sentenceReading": "みずはせいめいにふかけつなものだ。",
+      "sentenceKR": "물은 생명에 필수 불가결한 것이다."
+    },
+    {
+      "word": "ぶかぶか",
+      "reading": "ぶかぶか",
+      "meaningKR": "헐렁헐렁함",
+      "sentenceJP": "この上着は私にはぶかぶかだ。",
+      "sentenceReading": "このうわぎはわたしにはぶかぶかだ。",
+      "sentenceKR": "이 겉옷은 나에게 너무 헐렁하다."
+    },
+    {
+      "word": "不吉",
+      "reading": "ふきつ",
+      "meaningKR": "불길함",
+      "sentenceJP": "不吉な夢を見て目が覚めた。",
+      "sentenceReading": "ふきつなゆめをみてめがさめた。",
+      "sentenceKR": "불길한 꿈을 꾸고 잠에서 깼다."
+    },
+    {
+      "word": "不況",
+      "reading": "ふきょう",
+      "meaningKR": "불황",
+      "sentenceJP": "長引く不況で店が閉まった。",
+      "sentenceReading": "ながびくふきょうでみせがしまった。",
+      "sentenceKR": "장기 불황으로 가게가 문을 닫았다."
+    },
+    {
+      "word": "布巾",
+      "reading": "ふきん",
+      "meaningKR": "행주",
+      "sentenceJP": "濡れた布巾で机を拭いた。",
+      "sentenceReading": "ぬれたふきんでつくえをふいた。",
+      "sentenceKR": "젖은 행주로 책상을 닦았다."
+    },
+    {
+      "word": "複合",
+      "reading": "ふくごう",
+      "meaningKR": "복합",
+      "sentenceJP": "複合施設が駅前に完成した。",
+      "sentenceReading": "ふくごうしせつがえきまえにかんせいした。",
+      "sentenceKR": "복합 시설이 역 앞에 완공되었다."
+    },
+    {
+      "word": "福祉",
+      "reading": "ふくし",
+      "meaningKR": "복지",
+      "sentenceJP": "高齢者福祉の充実を図る。",
+      "sentenceReading": "こうれいしゃふくしのじゅうじつをはかる。",
+      "sentenceKR": "노인 복지의 충실화를 도모한다."
+    },
+    {
+      "word": "覆面",
+      "reading": "ふくめん",
+      "meaningKR": "복면, 위장",
+      "sentenceJP": "覆面の男が突然現れた。",
+      "sentenceReading": "ふくめんのおとこがとつぜんあらわれた。",
+      "sentenceKR": "복면을 쓴 남자가 갑자기 나타났다."
+    },
+    {
+      "word": "膨れる",
+      "reading": "ふくれる",
+      "meaningKR": "부풀다, 팽창하다",
+      "sentenceJP": "風船が大きく膨れる。",
+      "sentenceReading": "ふうせんがおおきくふくれる。",
+      "sentenceKR": "풍선이 크게 부푼다."
+    },
+    {
+      "word": "不景気",
+      "reading": "ふけいき",
+      "meaningKR": "불경기",
+      "sentenceJP": "不景気で客足が遠のいた。",
+      "sentenceReading": "ふけいきできゃくあしがとおのいた。",
+      "sentenceKR": "불경기로 손님의 발길이 뜸해졌다."
+    },
+    {
+      "word": "耽る",
+      "reading": "ふける",
+      "meaningKR": "몰두하다, 탐닉하다",
+      "sentenceJP": "読書に耽って夜が更けた。",
+      "sentenceReading": "どくしょにふけってよるがふけた。",
+      "sentenceKR": "독서에 몰두하다 보니 밤이 깊었다."
     }
   ]
 }
