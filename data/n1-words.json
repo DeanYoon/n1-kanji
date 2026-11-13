@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-12T02:05:59.016Z",
-  "count": 2115,
+  "generatedAt": "2026-11-13T01:38:28.007Z",
+  "count": 2160,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -16924,6 +16924,366 @@
       "sentenceJP": "市場はブル相場に転じた。",
       "sentenceReading": "しじょうはぶるそうばにてんじた。",
       "sentenceKR": "시장은 강세장으로 전환됐다."
+    },
+    {
+      "word": "震わせる",
+      "reading": "ふるわせる",
+      "meaningKR": "떨리게 하다",
+      "sentenceJP": "彼は怒りで声を震わせた。",
+      "sentenceReading": "かれはいかりでこえをふるわせた。",
+      "sentenceKR": "그는 분노로 목소리를 떨었다."
+    },
+    {
+      "word": "無礼",
+      "reading": "ぶれい",
+      "meaningKR": "무례함",
+      "sentenceJP": "無礼な態度は許されない。",
+      "sentenceReading": "ぶれいなたいどはゆるされない。",
+      "sentenceKR": "무례한 태도는 용납되지 않는다."
+    },
+    {
+      "word": "付録",
+      "reading": "ふろく",
+      "meaningKR": "부록",
+      "sentenceJP": "雑誌の付録に地図が付いている。",
+      "sentenceReading": "ざっしのふろくにちずがついている。",
+      "sentenceKR": "잡지 부록에 지도가 딸려 있다."
+    },
+    {
+      "word": "フロント",
+      "reading": "フロント",
+      "meaningKR": "프런트, 접수대",
+      "sentenceJP": "ホテルのフロントで鍵を受け取る。",
+      "sentenceReading": "ほてるのふろんとでかぎをうけとる。",
+      "sentenceKR": "호텔 프런트에서 열쇠를 받는다."
+    },
+    {
+      "word": "憤慨",
+      "reading": "ふんがい",
+      "meaningKR": "분개, 격분",
+      "sentenceJP": "不当な判決に市民が憤慨した。",
+      "sentenceReading": "ふとうなはんけつにしみんがふんがいした。",
+      "sentenceKR": "부당한 판결에 시민들이 분개했다."
+    },
+    {
+      "word": "文化財",
+      "reading": "ぶんかざい",
+      "meaningKR": "문화재",
+      "sentenceJP": "この寺は重要文化財に指定された。",
+      "sentenceReading": "このてらはじゅうようぶんかざいにしていされた。",
+      "sentenceKR": "이 절은 중요 문화재로 지정되었다."
+    },
+    {
+      "word": "分業",
+      "reading": "ぶんぎょう",
+      "meaningKR": "분업",
+      "sentenceJP": "作業を分業して効率を上げる。",
+      "sentenceReading": "さぎょうをぶんぎょうしてこうりつをあげる。",
+      "sentenceKR": "작업을 분담하여 효율을 높인다."
+    },
+    {
+      "word": "文語",
+      "reading": "ぶんご",
+      "meaningKR": "문어, 문어체",
+      "sentenceJP": "この表現は文語でよく使われる。",
+      "sentenceReading": "このひょうげんはぶんごでよくつかわれる。",
+      "sentenceKR": "이 표현은 문어체에서 자주 쓰인다."
+    },
+    {
+      "word": "分散",
+      "reading": "ぶんさん",
+      "meaningKR": "분산",
+      "sentenceJP": "避難所を各地に分散させる。",
+      "sentenceReading": "ひなんじょをかくちにぶんさんさせる。",
+      "sentenceKR": "대피소를 각지에 분산시킨다."
+    },
+    {
+      "word": "分子",
+      "reading": "ぶんし",
+      "meaningKR": "분자, 분수의 분자",
+      "sentenceJP": "分子の動きを観察する。",
+      "sentenceReading": "ぶんしのうごきをかんさつする。",
+      "sentenceKR": "분자의 움직임을 관찰한다."
+    },
+    {
+      "word": "紛失",
+      "reading": "ふんしつ",
+      "meaningKR": "분실",
+      "sentenceJP": "財布を紛失して警察に届けた。",
+      "sentenceReading": "さいふをふんしつしてけいさつにとどけた。",
+      "sentenceKR": "지갑을 분실하여 경찰에 신고했다."
+    },
+    {
+      "word": "噴出",
+      "reading": "ふんしゅつ",
+      "meaningKR": "분출",
+      "sentenceJP": "火山から熱いガスが噴出した。",
+      "sentenceReading": "かざんからあついがすがふんしゅつした。",
+      "sentenceKR": "화산에서 뜨거운 가스가 분출했다."
+    },
+    {
+      "word": "文書",
+      "reading": "ぶんしょ",
+      "meaningKR": "문서",
+      "sentenceJP": "文書を電子メールで送った。",
+      "sentenceReading": "ぶんしょをでんしめえるでおくった。",
+      "sentenceKR": "문서를 이메일로 보냈다."
+    },
+    {
+      "word": "紛争",
+      "reading": "ふんそう",
+      "meaningKR": "분쟁",
+      "sentenceJP": "両国間の紛争が長期化した。",
+      "sentenceReading": "りょうこくかんのふんそうがちょうきかした。",
+      "sentenceKR": "양국 간의 분쟁이 장기화되었다."
+    },
+    {
+      "word": "ふんだん",
+      "reading": "ふんだん",
+      "meaningKR": "풍부하게, 아낌없이",
+      "sentenceJP": "新鮮な果物をふんだんに使う。",
+      "sentenceReading": "しんせんなくだものをふんだんにつかう。",
+      "sentenceKR": "신선한 과일을 듬뿍 사용한다."
+    },
+    {
+      "word": "分担",
+      "reading": "ぶんたん",
+      "meaningKR": "분담, 역할 나눔",
+      "sentenceJP": "作業を三人で分担する。",
+      "sentenceReading": "さぎょうをさんにんでぶんたんする。",
+      "sentenceKR": "작업을 세 사람이 분담한다."
+    },
+    {
+      "word": "奮闘",
+      "reading": "ふんとう",
+      "meaningKR": "분투, 고군분투",
+      "sentenceJP": "難題の解決に奮闘した。",
+      "sentenceReading": "なんだいのかいけつにふんとうした。",
+      "sentenceKR": "난제 해결을 위해 분투했다."
+    },
+    {
+      "word": "分配",
+      "reading": "ぶんぱい",
+      "meaningKR": "분배, 배분",
+      "sentenceJP": "利益を公平に分配する。",
+      "sentenceReading": "りえきをこうへいにぶんぱいする。",
+      "sentenceKR": "이익을 공평하게 분배한다."
+    },
+    {
+      "word": "分母",
+      "reading": "ぶんぼ",
+      "meaningKR": "분모",
+      "sentenceJP": "分母をそろえて計算する。",
+      "sentenceReading": "ぶんぼをそろえてけいさんする。",
+      "sentenceKR": "분모를 통일하여 계산한다."
+    },
+    {
+      "word": "粉末",
+      "reading": "ふんまつ",
+      "meaningKR": "분말, 가루",
+      "sentenceJP": "粉末を水に溶かして飲む。",
+      "sentenceReading": "ふんまつをみずにとかしてのむ。",
+      "sentenceKR": "분말을 물에 녹여 마신다."
+    },
+    {
+      "word": "分離",
+      "reading": "ぶんり",
+      "meaningKR": "분리",
+      "sentenceJP": "ごみを種類別に分離する。",
+      "sentenceReading": "ごみをしゅるいべつにぶんりする。",
+      "sentenceKR": "쓰레기를 종류별로 분리한다."
+    },
+    {
+      "word": "分裂",
+      "reading": "ぶんれつ",
+      "meaningKR": "분열, 결렬",
+      "sentenceJP": "党内の意見が二つに分裂した。",
+      "sentenceReading": "とうないのいけんがふたつにぶんれつした。",
+      "sentenceKR": "당내 의견이 둘로 분열되었다."
+    },
+    {
+      "word": "ペア",
+      "reading": "ペア",
+      "meaningKR": "한 쌍, 짝",
+      "sentenceJP": "二人一組のペアを作る。",
+      "sentenceReading": "ふたりひとくみのぺあをつくる。",
+      "sentenceKR": "두 명씩 짝을 만든다."
+    },
+    {
+      "word": "兵器",
+      "reading": "へいき",
+      "meaningKR": "병기, 무기",
+      "sentenceJP": "新型兵器の開発を禁止する。",
+      "sentenceReading": "しんがたへいきのかいはつをきんしする。",
+      "sentenceKR": "신형 병기의 개발을 금지한다."
+    },
+    {
+      "word": "閉口",
+      "reading": "へいこう",
+      "meaningKR": "난감함, 질림",
+      "sentenceJP": "彼の無礼な態度には閉口した。",
+      "sentenceReading": "かれのぶれいなたいどにはへいこうした。",
+      "sentenceKR": "그의 무례한 태도에는 질려 버렸다."
+    },
+    {
+      "word": "閉鎖",
+      "reading": "へいさ",
+      "meaningKR": "폐쇄, 폐업",
+      "sentenceJP": "老朽化で工場を閉鎖した。",
+      "sentenceReading": "ろうきゅうかでこうじょうをへいさした。",
+      "sentenceKR": "노후화로 공장을 폐쇄했다."
+    },
+    {
+      "word": "兵士",
+      "reading": "へいし",
+      "meaningKR": "병사, 군인",
+      "sentenceJP": "兵士たちは国境を守った。",
+      "sentenceReading": "へいしたちはこっきょうをまもった。",
+      "sentenceKR": "병사들은 국경을 지켰다."
+    },
+    {
+      "word": "平常",
+      "reading": "へいじょう",
+      "meaningKR": "평상시, 보통 때",
+      "sentenceJP": "平常どおり業務を続ける。",
+      "sentenceReading": "へいじょうどおりぎょうむをつづける。",
+      "sentenceKR": "평소대로 업무를 계속한다."
+    },
+    {
+      "word": "平方",
+      "reading": "へいほう",
+      "meaningKR": "제곱, 평방",
+      "sentenceJP": "部屋は二十平方メートルある。",
+      "sentenceReading": "へやはにじゅうへいほうめーとるある。",
+      "sentenceKR": "방은 20제곱미터이다."
+    },
+    {
+      "word": "並列",
+      "reading": "へいれつ",
+      "meaningKR": "병렬, 나란히 배열함",
+      "sentenceJP": "二つの処理を並列で行う。",
+      "sentenceReading": "ふたつのしょりをへいれつでおこなう。",
+      "sentenceKR": "두 가지 처리를 병렬로 수행한다."
+    },
+    {
+      "word": "ベース",
+      "reading": "ベース",
+      "meaningKR": "기초, 베이스(저음)",
+      "sentenceJP": "この曲はベースの音が響く。",
+      "sentenceReading": "このきょくはべえすのおとがひびく。",
+      "sentenceKR": "이 곡은 베이스 소리가 울려 퍼진다."
+    },
+    {
+      "word": "辟易",
+      "reading": "へきえき",
+      "meaningKR": "진저리, 질림",
+      "sentenceJP": "長引く会議に皆が辟易した。",
+      "sentenceReading": "ながびくかいぎにみながへきえきした。",
+      "sentenceKR": "길어지는 회의에 모두가 진저리를 냈다."
+    },
+    {
+      "word": "ぺこぺこ",
+      "reading": "ぺこぺこ",
+      "meaningKR": "아첨하다, 몹시 배고프다",
+      "sentenceJP": "腹がぺこぺこで力が出ない。",
+      "sentenceReading": "はらがぺこぺこでちからがでない。",
+      "sentenceKR": "배가 너무 고파서 힘이 나지 않는다."
+    },
+    {
+      "word": "ベスト",
+      "reading": "ベスト",
+      "meaningKR": "최고, 조끼",
+      "sentenceJP": "今回の案がベストだと思う。",
+      "sentenceReading": "こんかいのあんがべすとだとおもう。",
+      "sentenceKR": "이번 방안이 최선이라고 생각한다."
+    },
+    {
+      "word": "ベストセラー",
+      "reading": "ベストセラー",
+      "meaningKR": "베스트셀러",
+      "sentenceJP": "この小説は世界的なベストセラーだ。",
+      "sentenceReading": "このしょうせつはせかいてきなべすとせらあだ。",
+      "sentenceKR": "이 소설은 세계적인 베스트셀러다."
+    },
+    {
+      "word": "隔たる",
+      "reading": "へだたる",
+      "meaningKR": "멀리 떨어져 있다",
+      "sentenceJP": "二人の心は遠く隔たっていた。",
+      "sentenceReading": "ふたりのこころはとおくへだたっていた。",
+      "sentenceKR": "두 사람의 마음은 멀리 떨어져 있었다."
+    },
+    {
+      "word": "縁",
+      "reading": "へり",
+      "meaningKR": "가장자리",
+      "sentenceJP": "畳の縁が擦り切れている。",
+      "sentenceReading": "たたみのへりがすりきれている。",
+      "sentenceKR": "다다미 가장자리가 닳아 있다."
+    },
+    {
+      "word": "へりくだる",
+      "reading": "へりくだる",
+      "meaningKR": "자신을 낮추다",
+      "sentenceJP": "彼は必要以上にへりくだった。",
+      "sentenceReading": "かれはひつよういじょうにへりくだった。",
+      "sentenceKR": "그는 필요 이상으로 자신을 낮췄다."
+    },
+    {
+      "word": "弁解",
+      "reading": "べんかい",
+      "meaningKR": "변명, 해명",
+      "sentenceJP": "苦しい弁解はもう聞きたくない。",
+      "sentenceReading": "くるしいべんかいはもうききたくない。",
+      "sentenceKR": "궁색한 변명은 더 이상 듣고 싶지 않다."
+    },
+    {
+      "word": "変革",
+      "reading": "へんかく",
+      "meaningKR": "변혁, 개혁",
+      "sentenceJP": "組織の変革には時間がかかる。",
+      "sentenceReading": "そしきのへんかくにはじかんがかかる。",
+      "sentenceKR": "조직의 변혁에는 시간이 걸린다."
+    },
+    {
+      "word": "返還",
+      "reading": "へんかん",
+      "meaningKR": "반환",
+      "sentenceJP": "借りた資料を期限内に返還する。",
+      "sentenceReading": "かりたしりょうをきげんないにへんかんする。",
+      "sentenceKR": "빌린 자료를 기한 내에 반환한다."
+    },
+    {
+      "word": "便宜",
+      "reading": "べんぎ",
+      "meaningKR": "편의, 편의 제공",
+      "sentenceJP": "来客の便宜を図って駅まで送る。",
+      "sentenceReading": "らいきゃくのべんぎをはかってえきまでおくる。",
+      "sentenceKR": "손님의 편의를 위해 역까지 바래다준다."
+    },
+    {
+      "word": "偏見",
+      "reading": "へんけん",
+      "meaningKR": "편견",
+      "sentenceJP": "年齢に対する偏見をなくしたい。",
+      "sentenceReading": "ねんれいにたいするへんけんをなくしたい。",
+      "sentenceKR": "나이에 대한 편견을 없애고 싶다."
+    },
+    {
+      "word": "弁護",
+      "reading": "べんご",
+      "meaningKR": "변호, 옹호",
+      "sentenceJP": "弁護士が被告人を弁護する。",
+      "sentenceReading": "べんごしがひこくにんをべんごする。",
+      "sentenceKR": "변호사가 피고인을 변호한다."
+    },
+    {
+      "word": "返済",
+      "reading": "へんさい",
+      "meaningKR": "상환, 변제",
+      "sentenceJP": "借金を三年で返済した。",
+      "sentenceReading": "しゃっきんをさんねんでへんさいした。",
+      "sentenceKR": "빚을 3년 만에 갚았다."
     }
   ]
 }
