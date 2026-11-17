@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-16T00:38:07.973Z",
-  "count": 2205,
+  "generatedAt": "2026-11-17T03:21:36.139Z",
+  "count": 2250,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -17644,6 +17644,366 @@
       "sentenceJP": "この水筒は保温性が高い。",
       "sentenceReading": "このすいとうはほおんせいがたかい。",
       "sentenceKR": "이 보온병은 보온성이 뛰어나다."
+    },
+    {
+      "word": "捕獲",
+      "reading": "ほかく",
+      "meaningKR": "포획",
+      "sentenceJP": "警察が逃げた猿を捕獲した。",
+      "sentenceReading": "けいさつがにげたさるをほかくした。",
+      "sentenceKR": "경찰이 달아난 원숭이를 포획했다."
+    },
+    {
+      "word": "保管",
+      "reading": "ほかん",
+      "meaningKR": "보관",
+      "sentenceJP": "書類は金庫で保管してください。",
+      "sentenceReading": "しょるいはきんこでほかんしてください。",
+      "sentenceKR": "서류는 금고에 보관해 주세요."
+    },
+    {
+      "word": "補給",
+      "reading": "ほきゅう",
+      "meaningKR": "보급, 보충",
+      "sentenceJP": "途中の村で水を補給した。",
+      "sentenceReading": "とちゅうのむらでみずをほきゅうした。",
+      "sentenceKR": "도중에 있는 마을에서 물을 보충했다."
+    },
+    {
+      "word": "補強",
+      "reading": "ほきょう",
+      "meaningKR": "보강",
+      "sentenceJP": "古い橋を鉄骨で補強する。",
+      "sentenceReading": "ふるいはしをてっこつでほきょうする。",
+      "sentenceKR": "낡은 다리를 철골로 보강한다."
+    },
+    {
+      "word": "募金",
+      "reading": "ぼきん",
+      "meaningKR": "모금",
+      "sentenceJP": "駅前で被災地への募金を呼びかけた。",
+      "sentenceReading": "えきまえでひさいちへのぼきんをよびかけた。",
+      "sentenceKR": "역 앞에서 재해 지역을 위한 모금을 호소했다."
+    },
+    {
+      "word": "牧師",
+      "reading": "ぼくし",
+      "meaningKR": "목사",
+      "sentenceJP": "牧師が静かに祈りを捧げた。",
+      "sentenceReading": "ぼくしがしずかにいのりをささげた。",
+      "sentenceKR": "목사가 조용히 기도를 올렸다."
+    },
+    {
+      "word": "捕鯨",
+      "reading": "ほげい",
+      "meaningKR": "포경, 고래잡이",
+      "sentenceJP": "捕鯨を巡る議論が続いている。",
+      "sentenceReading": "ほげいをめぐるぎろんがつづいている。",
+      "sentenceKR": "포경을 둘러싼 논의가 계속되고 있다."
+    },
+    {
+      "word": "惚ける",
+      "reading": "ぼける",
+      "meaningKR": "노망들다, 흐려지다",
+      "sentenceJP": "祖父は最近少し惚けてきた。",
+      "sentenceReading": "そふはさいきんすこしぼけてきた。",
+      "sentenceKR": "할아버지는 최근 조금 노망이 들기 시작했다."
+    },
+    {
+      "word": "保険",
+      "reading": "ほけん",
+      "meaningKR": "보험, 보장",
+      "sentenceJP": "海外旅行保険に加入した。",
+      "sentenceReading": "かいがいりょこうほけんにかにゅうした。",
+      "sentenceKR": "해외 여행 보험에 가입했다."
+    },
+    {
+      "word": "母校",
+      "reading": "ぼこう",
+      "meaningKR": "모교",
+      "sentenceJP": "卒業後、久々に母校を訪ねた。",
+      "sentenceReading": "そつぎょうご、ひさびさにぼこうをたずねた。",
+      "sentenceKR": "졸업 후 오랜만에 모교를 찾았다."
+    },
+    {
+      "word": "母国",
+      "reading": "ぼこく",
+      "meaningKR": "모국",
+      "sentenceJP": "母国の料理が恋しくなった。",
+      "sentenceReading": "ぼこくのりょうりがこいしくなった。",
+      "sentenceKR": "모국 음식이 그리워졌다."
+    },
+    {
+      "word": "誇る",
+      "reading": "ほこる",
+      "meaningKR": "자랑하다, 자부하다",
+      "sentenceJP": "この町は美しい湖を誇る。",
+      "sentenceReading": "このまちはうつくしいみずうみをほこる。",
+      "sentenceKR": "이 마을은 아름다운 호수를 자랑한다."
+    },
+    {
+      "word": "綻びる",
+      "reading": "ほころびる",
+      "meaningKR": "솔기가 터지다, 활짝 웃다",
+      "sentenceJP": "古いシャツの袖が綻びている。",
+      "sentenceReading": "ふるいしゃつのそでがほころびている。",
+      "sentenceKR": "낡은 셔츠의 소매가 터져 있다."
+    },
+    {
+      "word": "干し～",
+      "reading": "ほし～",
+      "meaningKR": "말린 ~",
+      "sentenceJP": "干し椎茸を水で戻して使う。",
+      "sentenceReading": "ほししいたけをみずでもどしてつかう。",
+      "sentenceKR": "말린 표고버섯을 물에 불려 사용한다."
+    },
+    {
+      "word": "ポジション",
+      "reading": "ポジション",
+      "meaningKR": "위치, 포지션",
+      "sentenceJP": "希望のポジションを任された。",
+      "sentenceReading": "きぼうのぽじしょんをまかされた。",
+      "sentenceKR": "희망하던 포지션을 맡게 되었다."
+    },
+    {
+      "word": "干し物",
+      "reading": "ほしもの",
+      "meaningKR": "널어 말리는 빨래",
+      "sentenceJP": "干し物を急いで取り込んだ。",
+      "sentenceReading": "ほしものをいそいでとりこんだ。",
+      "sentenceKR": "널어 둔 빨래를 서둘러 걷었다."
+    },
+    {
+      "word": "保守",
+      "reading": "ほしゅ",
+      "meaningKR": "보수, 유지 관리",
+      "sentenceJP": "保守点検を定期的に行う。",
+      "sentenceReading": "ほしゅてんけんをていきてきにおこなう。",
+      "sentenceKR": "정기적으로 유지 보수 점검을 한다."
+    },
+    {
+      "word": "補充",
+      "reading": "ほじゅう",
+      "meaningKR": "보충, 보급",
+      "sentenceJP": "水筒の水を補充した。",
+      "sentenceReading": "すいとうのみずをほじゅうした。",
+      "sentenceKR": "물통에 물을 보충했다."
+    },
+    {
+      "word": "補助",
+      "reading": "ほじょ",
+      "meaningKR": "보조, 지원",
+      "sentenceJP": "彼の仕事を補助する。",
+      "sentenceReading": "かれのしごとをほじょする。",
+      "sentenceKR": "그의 일을 보조한다."
+    },
+    {
+      "word": "舗装",
+      "reading": "ほそう",
+      "meaningKR": "포장, 노면",
+      "sentenceJP": "この道路は舗装が新しい。",
+      "sentenceReading": "このどうろはほそうがあたらしい。",
+      "sentenceKR": "이 도로는 포장이 새것이다."
+    },
+    {
+      "word": "補足",
+      "reading": "ほそく",
+      "meaningKR": "보충, 보충 설명",
+      "sentenceJP": "説明に補足を加えます。",
+      "sentenceReading": "せつめいにほそくをくわえます。",
+      "sentenceKR": "설명에 보충 내용을 덧붙이겠습니다."
+    },
+    {
+      "word": "墓地",
+      "reading": "ぼち",
+      "meaningKR": "묘지",
+      "sentenceJP": "墓地の周りは静かだった。",
+      "sentenceReading": "ぼちのまわりはしずかだった。",
+      "sentenceKR": "묘지 주변은 조용했다."
+    },
+    {
+      "word": "発作",
+      "reading": "ほっさ",
+      "meaningKR": "발작",
+      "sentenceJP": "突然、喘息の発作が起きた。",
+      "sentenceReading": "とつぜん、ぜんそくのほっさがおきた。",
+      "sentenceKR": "갑자기 천식 발작이 일어났다."
+    },
+    {
+      "word": "没収",
+      "reading": "ぼっしゅう",
+      "meaningKR": "몰수",
+      "sentenceJP": "税関で荷物を没収された。",
+      "sentenceReading": "ぜいかんでにもつをぼっしゅうされた。",
+      "sentenceKR": "세관에서 짐을 몰수당했다."
+    },
+    {
+      "word": "発足",
+      "reading": "ほっそく",
+      "meaningKR": "출범, 발족",
+      "sentenceJP": "新委員会が正式に発足した。",
+      "sentenceReading": "しんいいんかいがせいしきにほっそくした。",
+      "sentenceKR": "새 위원회가 정식으로 출범했다."
+    },
+    {
+      "word": "ポット",
+      "reading": "ポット",
+      "meaningKR": "포트, 보온 주전자",
+      "sentenceJP": "ポットからお茶を注いだ。",
+      "sentenceReading": "ぽっとからおちゃをそそいだ。",
+      "sentenceKR": "포트에서 차를 따랐다."
+    },
+    {
+      "word": "ほっぺた",
+      "reading": "ほっぺた",
+      "meaningKR": "볼, 볼때기",
+      "sentenceJP": "寒さでほっぺたが赤くなった。",
+      "sentenceReading": "さむさでほっぺたがあかくなった。",
+      "sentenceKR": "추위에 볼이 빨개졌다."
+    },
+    {
+      "word": "ぼつぼつ",
+      "reading": "ぼつぼつ",
+      "meaningKR": "슬슬, 군데군데",
+      "sentenceJP": "ぼつぼつ帰る時間だ。",
+      "sentenceReading": "ぼつぼつかえるじかんだ。",
+      "sentenceKR": "슬슬 돌아갈 시간이다."
+    },
+    {
+      "word": "没落",
+      "reading": "ぼつらく",
+      "meaningKR": "몰락, 쇠퇴",
+      "sentenceJP": "名門企業が急速に没落した。",
+      "sentenceReading": "めいもんきぎょうがきゅうそくにぼつらくした。",
+      "sentenceKR": "명문 기업이 급속히 몰락했다."
+    },
+    {
+      "word": "解ける",
+      "reading": "ほどける",
+      "meaningKR": "풀리다, 느슨해지다",
+      "sentenceJP": "靴ひもが歩くうちに解けた。",
+      "sentenceReading": "くつひもがあるくうちにほどけた。",
+      "sentenceKR": "걷는 동안 신발 끈이 풀렸다."
+    },
+    {
+      "word": "施す",
+      "reading": "ほどこす",
+      "meaningKR": "베풀다, 시행하다",
+      "sentenceJP": "医師が患者に治療を施す。",
+      "sentenceReading": "いしがかんじゃにちりょうをほどこす。",
+      "sentenceKR": "의사가 환자에게 치료를 시행한다."
+    },
+    {
+      "word": "ほとり",
+      "reading": "ほとり",
+      "meaningKR": "물가, 호숫가",
+      "sentenceJP": "湖のほとりを静かに歩く。",
+      "sentenceReading": "みずうみのほとりをしずかにあるく。",
+      "sentenceKR": "호숫가를 조용히 걷는다."
+    },
+    {
+      "word": "ぼやく",
+      "reading": "ぼやく",
+      "meaningKR": "투덜거리다, 불평하다",
+      "sentenceJP": "彼は仕事が多いとぼやく。",
+      "sentenceReading": "かれはしごとがおおいとぼやく。",
+      "sentenceKR": "그는 일이 많다고 투덜거린다."
+    },
+    {
+      "word": "ぼやける",
+      "reading": "ぼやける",
+      "meaningKR": "흐릿해지다, 희미해지다",
+      "sentenceJP": "霧で遠くの景色がぼやける。",
+      "sentenceReading": "きりでとおくのけしきがぼやける。",
+      "sentenceKR": "안개 때문에 먼 풍경이 흐릿해진다."
+    },
+    {
+      "word": "保養",
+      "reading": "ほよう",
+      "meaningKR": "요양, 휴양",
+      "sentenceJP": "温泉地でゆっくり保養する。",
+      "sentenceReading": "おんせんちでゆっくりほようする。",
+      "sentenceKR": "온천지에서 느긋하게 요양한다."
+    },
+    {
+      "word": "捕虜",
+      "reading": "ほりょ",
+      "meaningKR": "포로",
+      "sentenceJP": "敵の兵士を捕虜として扱う。",
+      "sentenceReading": "てきのへいしをほりょとしてあつかう。",
+      "sentenceKR": "적군 병사를 포로로 대우한다."
+    },
+    {
+      "word": "ボルト",
+      "reading": "ボルト",
+      "meaningKR": "볼트, 전압 단위 볼트",
+      "sentenceJP": "ボルトをしっかり締める。",
+      "sentenceReading": "ぼるとをしっかりしめる。",
+      "sentenceKR": "볼트를 단단히 조인다."
+    },
+    {
+      "word": "滅びる",
+      "reading": "ほろびる",
+      "meaningKR": "멸망하다, 소멸하다",
+      "sentenceJP": "古い王国はやがて滅びた。",
+      "sentenceReading": "ふるいおうこくはやがてほろびた。",
+      "sentenceKR": "오래된 왕국은 결국 멸망했다."
+    },
+    {
+      "word": "滅ぼす",
+      "reading": "ほろぼす",
+      "meaningKR": "멸망시키다, 파괴하다",
+      "sentenceJP": "戦争が多くの町を滅ぼした。",
+      "sentenceReading": "せんそうがおおくのまちをほろぼした。",
+      "sentenceKR": "전쟁이 많은 도시를 파괴했다."
+    },
+    {
+      "word": "本格",
+      "reading": "ほんかく",
+      "meaningKR": "본격, 정식",
+      "sentenceJP": "来月から本格的な工事が始まる。",
+      "sentenceReading": "らいげつからほんかくてきなこうじがはじまる。",
+      "sentenceKR": "다음 달부터 본격적인 공사가 시작된다."
+    },
+    {
+      "word": "本館",
+      "reading": "ほんかん",
+      "meaningKR": "본관",
+      "sentenceJP": "会議は本館の二階で行う。",
+      "sentenceReading": "かいぎはほんかんのにかいでおこなう。",
+      "sentenceKR": "회의는 본관 2층에서 진행한다."
+    },
+    {
+      "word": "本気",
+      "reading": "ほんき",
+      "meaningKR": "진심, 진지함",
+      "sentenceJP": "彼は本気で優勝を狙っている。",
+      "sentenceReading": "かれはほんきでゆうしょうをねらっている。",
+      "sentenceKR": "그는 진심으로 우승을 노리고 있다."
+    },
+    {
+      "word": "本国",
+      "reading": "ほんごく",
+      "meaningKR": "본국, 고국",
+      "sentenceJP": "大使は本国の指示を待った。",
+      "sentenceReading": "たいしはほんごくのしじをまった。",
+      "sentenceKR": "대사는 본국의 지시를 기다렸다."
+    },
+    {
+      "word": "本質",
+      "reading": "ほんしつ",
+      "meaningKR": "본질, 본성",
+      "sentenceJP": "問題の本質を見極める。",
+      "sentenceReading": "もんだいのほんしつをみきわめる。",
+      "sentenceKR": "문제의 본질을 꿰뚫어 본다."
+    },
+    {
+      "word": "本体",
+      "reading": "ほんたい",
+      "meaningKR": "본체, 실체",
+      "sentenceJP": "機械の本体を箱から出す。",
+      "sentenceReading": "きかいのほんたいをはこからだす。",
+      "sentenceKR": "기계 본체를 상자에서 꺼낸다."
     }
   ]
 }
