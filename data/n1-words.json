@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-17T03:21:36.139Z",
-  "count": 2250,
+  "generatedAt": "2026-11-18T02:41:59.141Z",
+  "count": 2295,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -18004,6 +18004,366 @@
       "sentenceJP": "機械の本体を箱から出す。",
       "sentenceReading": "きかいのほんたいをはこからだす。",
       "sentenceKR": "기계 본체를 상자에서 꺼낸다."
+    },
+    {
+      "word": "本音",
+      "reading": "ほんね",
+      "meaningKR": "속마음, 본심",
+      "sentenceJP": "彼はようやく本音を漏らした。",
+      "sentenceReading": "かれはようやくほんねをもらした。",
+      "sentenceKR": "그는 마침내 속마음을 털어놓았다."
+    },
+    {
+      "word": "本能",
+      "reading": "ほんのう",
+      "meaningKR": "본능",
+      "sentenceJP": "危険を本能で察知した。",
+      "sentenceReading": "きけんをほんのうでさっちした。",
+      "sentenceKR": "위험을 본능적으로 감지했다."
+    },
+    {
+      "word": "本場",
+      "reading": "ほんば",
+      "meaningKR": "본고장",
+      "sentenceJP": "本場の寿司を味わった。",
+      "sentenceReading": "ほんばのすしをあじわった。",
+      "sentenceKR": "본고장의 초밥을 맛보았다."
+    },
+    {
+      "word": "ポンプ",
+      "reading": "ポンプ",
+      "meaningKR": "펌프",
+      "sentenceJP": "ポンプで水をくみ上げる。",
+      "sentenceReading": "ぽんぷでみずをくみあげる。",
+      "sentenceKR": "펌프로 물을 퍼 올린다."
+    },
+    {
+      "word": "本文",
+      "reading": "ほんぶん",
+      "meaningKR": "본문",
+      "sentenceJP": "メールの本文を確認してください。",
+      "sentenceReading": "めえるのほんぶんをかくにんしてください。",
+      "sentenceKR": "메일 본문을 확인해 주세요."
+    },
+    {
+      "word": "本名",
+      "reading": "ほんみょう",
+      "meaningKR": "본명",
+      "sentenceJP": "彼はついに本名を名乗った。",
+      "sentenceReading": "かれはついにほんみょうをなのった。",
+      "sentenceKR": "그는 마침내 본명을 밝혔다."
+    },
+    {
+      "word": "マーク",
+      "reading": "マーク",
+      "meaningKR": "표시, 마크",
+      "sentenceJP": "重要箇所にマークを付ける。",
+      "sentenceReading": "じゅうようかしょにまあくをつける。",
+      "sentenceKR": "중요한 부분에 표시한다."
+    },
+    {
+      "word": "マイ～",
+      "reading": "マイ～",
+      "meaningKR": "나의, 개인용",
+      "sentenceJP": "毎日マイボトルを持ち歩く。",
+      "sentenceReading": "まいにちまいぼとるをもちあるく。",
+      "sentenceKR": "매일 개인 물병을 들고 다닌다."
+    },
+    {
+      "word": "マイクロフォン",
+      "reading": "マイクロフォン",
+      "meaningKR": "마이크",
+      "sentenceJP": "彼はマイクロフォンを握った。",
+      "sentenceReading": "かれはまいくろふぉんをにぎった。",
+      "sentenceKR": "그는 마이크를 잡았다."
+    },
+    {
+      "word": "埋蔵",
+      "reading": "まいぞう",
+      "meaningKR": "매장, 묻혀 있음",
+      "sentenceJP": "地下には石油が埋蔵されている。",
+      "sentenceReading": "ちかにはせきゆがまいぞうされている。",
+      "sentenceKR": "지하에는 석유가 매장되어 있다."
+    },
+    {
+      "word": "舞う",
+      "reading": "まう",
+      "meaningKR": "춤추다, 흩날리다",
+      "sentenceJP": "桜の花びらが風に舞う。",
+      "sentenceReading": "さくらのはなびらがかぜにまう。",
+      "sentenceKR": "벚꽃잎이 바람에 흩날린다."
+    },
+    {
+      "word": "真上",
+      "reading": "まうえ",
+      "meaningKR": "바로 위",
+      "sentenceJP": "鳥が私の真上を飛んでいる。",
+      "sentenceReading": "とりがわたしのまうえをとんでいる。",
+      "sentenceKR": "새가 내 바로 위를 날고 있다."
+    },
+    {
+      "word": "前売",
+      "reading": "まえうり",
+      "meaningKR": "사전 판매, 예매",
+      "sentenceJP": "前売券なら少し安く買える。",
+      "sentenceReading": "まえうりけんならすこしやすくかえる。",
+      "sentenceKR": "예매권이면 조금 싸게 살 수 있다."
+    },
+    {
+      "word": "前置き",
+      "reading": "まえおき",
+      "meaningKR": "서두, 머리말",
+      "sentenceJP": "長い前置きは省いてください。",
+      "sentenceReading": "ながいまえおきははぶいてください。",
+      "sentenceKR": "긴 서두는 생략해 주세요."
+    },
+    {
+      "word": "任す",
+      "reading": "まかす",
+      "meaningKR": "맡기다",
+      "sentenceJP": "この仕事は彼に任すことにした。",
+      "sentenceReading": "このしごとはかれにまかすことにした。",
+      "sentenceKR": "이 일은 그에게 맡기기로 했다."
+    },
+    {
+      "word": "負かす",
+      "reading": "まかす",
+      "meaningKR": "이기다, 물리치다",
+      "sentenceJP": "昨年の王者を負かした。",
+      "sentenceReading": "さくねんのおうじゃをまかした。",
+      "sentenceKR": "작년 우승자를 물리쳤다."
+    },
+    {
+      "word": "賄う",
+      "reading": "まかなう",
+      "meaningKR": "충당하다, 제공하다",
+      "sentenceJP": "食費はアルバイト代で賄う。",
+      "sentenceReading": "しょくひはあるばいとだいでまかなう。",
+      "sentenceKR": "식비는 아르바이트비로 충당한다."
+    },
+    {
+      "word": "紛らわしい",
+      "reading": "まぎらわしい",
+      "meaningKR": "혼동하기 쉬운, 헷갈리는",
+      "sentenceJP": "この二つの標識は紛らわしい。",
+      "sentenceReading": "このふたつのひょうしきはまぎらわしい。",
+      "sentenceKR": "이 두 표지는 헷갈리기 쉽다."
+    },
+    {
+      "word": "紛れる",
+      "reading": "まぎれる",
+      "meaningKR": "뒤섞이다, 숨어들다",
+      "sentenceJP": "人混みに紛れて姿を消した。",
+      "sentenceReading": "ひとごみにまぎれてすがたをけした。",
+      "sentenceKR": "인파에 섞여 모습을 감췄다."
+    },
+    {
+      "word": "真心",
+      "reading": "まごころ",
+      "meaningKR": "진심, 성의",
+      "sentenceJP": "真心を込めて手紙を書いた。",
+      "sentenceReading": "まごころをこめててがみをかいた。",
+      "sentenceKR": "진심을 담아 편지를 썼다."
+    },
+    {
+      "word": "まごつく",
+      "reading": "まごつく",
+      "meaningKR": "당황하다, 갈피를 못 잡다",
+      "sentenceJP": "急な質問にまごついてしまった。",
+      "sentenceReading": "きゅうなしつもんにまごついてしまった。",
+      "sentenceKR": "갑작스러운 질문에 당황하고 말았다."
+    },
+    {
+      "word": "誠",
+      "reading": "まこと",
+      "meaningKR": "진실, 신의",
+      "sentenceJP": "誠を尽くして客に接する。",
+      "sentenceReading": "まことをつくしてきゃくにせっする。",
+      "sentenceKR": "정성을 다해 손님을 대한다."
+    },
+    {
+      "word": "誠に",
+      "reading": "まことに",
+      "meaningKR": "진심으로, 대단히",
+      "sentenceJP": "誠に申し訳ございません。",
+      "sentenceReading": "まことにもうしわけございません。",
+      "sentenceKR": "진심으로 죄송합니다."
+    },
+    {
+      "word": "まさしく",
+      "reading": "まさしく",
+      "meaningKR": "바로, 틀림없이",
+      "sentenceJP": "彼こそまさしく真の英雄だ。",
+      "sentenceReading": "かれこそまさしくしんのえいゆうだ。",
+      "sentenceKR": "그야말로 진정한 영웅이다."
+    },
+    {
+      "word": "勝る",
+      "reading": "まさる",
+      "meaningKR": "능가하다, 뛰어나다",
+      "sentenceJP": "経験では彼女に勝る者はいない。",
+      "sentenceReading": "けいけんではかのじょにまさるものはいない。",
+      "sentenceKR": "경험 면에서 그녀를 능가할 사람은 없다."
+    },
+    {
+      "word": "～増し",
+      "reading": "～増し",
+      "meaningKR": "~증가",
+      "sentenceJP": "前年比二割増しの売上を記録した。",
+      "sentenceReading": "ぜんねんひにわりましのうりあげをきろくした。",
+      "sentenceKR": "전년 대비 20% 증가한 매출을 기록했다."
+    },
+    {
+      "word": "交える",
+      "reading": "まじえる",
+      "meaningKR": "섞다, 곁들이다",
+      "sentenceJP": "冗談を交えて楽しく説明した。",
+      "sentenceReading": "じょうだんをまじえてたのしくせつめいした。",
+      "sentenceKR": "농담을 섞어 재미있게 설명했다."
+    },
+    {
+      "word": "真下",
+      "reading": "ました",
+      "meaningKR": "바로 아래",
+      "sentenceJP": "駅の真下を地下鉄が走っている。",
+      "sentenceReading": "えきのましたをちかてつがはしっている。",
+      "sentenceKR": "역 바로 아래로 지하철이 달리고 있다."
+    },
+    {
+      "word": "まして",
+      "reading": "まして",
+      "meaningKR": "하물며, 더구나",
+      "sentenceJP": "大人でも難しい。まして子供には無理だ。",
+      "sentenceReading": "おとなでもむずかしい。ましてこどもにはむりだ。",
+      "sentenceKR": "어른에게도 어렵다. 하물며 아이에게는 무리다."
+    },
+    {
+      "word": "交わる",
+      "reading": "まじわる",
+      "meaningKR": "교차하다, 어울리다",
+      "sentenceJP": "二本の道がここで交わる。",
+      "sentenceReading": "にほんのみちがここでまじわる。",
+      "sentenceKR": "두 갈래 길이 여기서 교차한다."
+    },
+    {
+      "word": "麻酔",
+      "reading": "ますい",
+      "meaningKR": "마취",
+      "sentenceJP": "麻酔が効いて痛みを感じない。",
+      "sentenceReading": "ますいがきいていたみをかんじない。",
+      "sentenceKR": "마취가 들어 통증을 느끼지 못한다."
+    },
+    {
+      "word": "またがる (うまを～)",
+      "reading": "またがる (うまを～)",
+      "meaningKR": "걸터앉다",
+      "sentenceJP": "彼は軽やかに馬にまたがった。",
+      "sentenceReading": "かれはかろやかにうまにまたがった。",
+      "sentenceKR": "그는 가볍게 말에 올라탔다."
+    },
+    {
+      "word": "待ち合わせ",
+      "reading": "まちあわせ",
+      "meaningKR": "만남 약속",
+      "sentenceJP": "駅前で待ち合わせをしよう。",
+      "sentenceReading": "えきまえでまちあわせをしよう。",
+      "sentenceKR": "역 앞에서 만나기로 하자."
+    },
+    {
+      "word": "待ち遠しい",
+      "reading": "まちどおしい",
+      "meaningKR": "손꼽아 기다려지다",
+      "sentenceJP": "春休みが今から待ち遠しい。",
+      "sentenceReading": "はるやすみがいまからまちどおしい。",
+      "sentenceKR": "벌써부터 봄방학이 기다려진다."
+    },
+    {
+      "word": "待ち望む",
+      "reading": "まちのぞむ",
+      "meaningKR": "간절히 기다리다",
+      "sentenceJP": "誰もが平和の訪れを待ち望む。",
+      "sentenceReading": "だれもがへいわのおとずれをまちのぞむ。",
+      "sentenceKR": "누구나 평화가 찾아오기를 간절히 기다린다."
+    },
+    {
+      "word": "まちまち",
+      "reading": "まちまち",
+      "meaningKR": "제각각",
+      "sentenceJP": "参加者の意見はまちまちだ。",
+      "sentenceReading": "さんかしゃのいけんはまちまちだ。",
+      "sentenceKR": "참가자들의 의견은 제각각이다."
+    },
+    {
+      "word": "末期",
+      "reading": "まっき",
+      "meaningKR": "말기, 임종",
+      "sentenceJP": "末期の患者に寄り添う。",
+      "sentenceReading": "まっきのかんじゃによりそう。",
+      "sentenceKR": "말기 환자의 곁을 지킨다."
+    },
+    {
+      "word": "真っ二つ",
+      "reading": "まっぷたつ",
+      "meaningKR": "정확히 둘로",
+      "sentenceJP": "板を真っ二つに割った。",
+      "sentenceReading": "いたをまっぷたつにわった。",
+      "sentenceKR": "판자를 정확히 둘로 쪼갰다."
+    },
+    {
+      "word": "まと",
+      "reading": "まと",
+      "meaningKR": "표적",
+      "sentenceJP": "矢が的の中心に当たった。",
+      "sentenceReading": "やがまとのちゅうしんにあたった。",
+      "sentenceKR": "화살이 과녁의 중심에 맞았다."
+    },
+    {
+      "word": "纏まり",
+      "reading": "まとまり",
+      "meaningKR": "통일성, 짜임새",
+      "sentenceJP": "この文章は纏まりがない。",
+      "sentenceReading": "このぶんしょうはまとまりがない。",
+      "sentenceKR": "이 글은 짜임새가 없다."
+    },
+    {
+      "word": "纏め",
+      "reading": "まとめ",
+      "meaningKR": "정리, 결론",
+      "sentenceJP": "会議の纏めを彼に任せた。",
+      "sentenceReading": "かいぎのまとめをかれにまかせた。",
+      "sentenceKR": "회의 정리를 그에게 맡겼다."
+    },
+    {
+      "word": "免れる",
+      "reading": "まぬがれる",
+      "meaningKR": "면하다, 모면하다",
+      "sentenceJP": "幸い処罰を免れた。",
+      "sentenceReading": "さいわいしょばつをまぬがれた。",
+      "sentenceKR": "다행히 처벌을 면했다."
+    },
+    {
+      "word": "招き",
+      "reading": "まねき",
+      "meaningKR": "초대",
+      "sentenceJP": "友人から招きを受けた。",
+      "sentenceReading": "ゆうじんからまねきをうけた。",
+      "sentenceKR": "친구에게 초대를 받았다."
+    },
+    {
+      "word": "瞬き",
+      "reading": "まばたき",
+      "meaningKR": "눈 깜박임",
+      "sentenceJP": "彼は瞬きもせず見つめた。",
+      "sentenceReading": "かれはまばたきもせずみつめた。",
+      "sentenceKR": "그는 눈도 깜박이지 않고 바라봤다."
+    },
+    {
+      "word": "麻痺",
+      "reading": "まひ",
+      "meaningKR": "마비",
+      "sentenceJP": "足の麻痺が少し残った。",
+      "sentenceReading": "あしのまひがすこしのこった。",
+      "sentenceKR": "다리에 마비가 조금 남았다."
     }
   ]
 }
