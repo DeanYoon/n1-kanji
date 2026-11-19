@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-18T02:41:59.141Z",
-  "count": 2295,
+  "generatedAt": "2026-11-19T02:11:29.705Z",
+  "count": 2340,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -18364,6 +18364,366 @@
       "sentenceJP": "足の麻痺が少し残った。",
       "sentenceReading": "あしのまひがすこしのこった。",
       "sentenceKR": "다리에 마비가 조금 남았다."
+    },
+    {
+      "word": "～まみれ",
+      "reading": "～まみれ",
+      "meaningKR": "~투성이",
+      "sentenceJP": "泥まみれの靴を洗った。",
+      "sentenceReading": "どろまみれのくつをあらった。",
+      "sentenceKR": "진흙투성이인 신발을 씻었다."
+    },
+    {
+      "word": "眉",
+      "reading": "まゆ",
+      "meaningKR": "눈썹",
+      "sentenceJP": "彼は太い眉が印象的だ。",
+      "sentenceReading": "かれはふといまゆがいんしょうてきだ。",
+      "sentenceKR": "그는 굵은 눈썹이 인상적이다."
+    },
+    {
+      "word": "鞠",
+      "reading": "まり",
+      "meaningKR": "공",
+      "sentenceJP": "鞠を庭でついて遊ぶ。",
+      "sentenceReading": "まりをにわでついてあそぶ。",
+      "sentenceKR": "마당에서 공을 튀기며 논다."
+    },
+    {
+      "word": "丸ごと",
+      "reading": "まるごと",
+      "meaningKR": "통째로",
+      "sentenceJP": "りんごを丸ごとかじった。",
+      "sentenceReading": "りんごをまるごとかじった。",
+      "sentenceKR": "사과를 통째로 베어 먹었다."
+    },
+    {
+      "word": "まるっきり",
+      "reading": "まるっきり",
+      "meaningKR": "완전히",
+      "sentenceJP": "説明はまるっきり嘘だった。",
+      "sentenceReading": "せつめいはまるっきりうそだった。",
+      "sentenceKR": "설명은 완전히 거짓말이었다."
+    },
+    {
+      "word": "丸々",
+      "reading": "まるまる",
+      "meaningKR": "꼬박, 통째로",
+      "sentenceJP": "丸々三日間寝込んだ。",
+      "sentenceReading": "まるまるみっかかんねこんだ。",
+      "sentenceKR": "꼬박 사흘 동안 앓아누웠다."
+    },
+    {
+      "word": "丸める",
+      "reading": "まるめる",
+      "meaningKR": "둥글게 말다",
+      "sentenceJP": "紙を丸めて箱に入れた。",
+      "sentenceReading": "かみをまるめてはこにいれた。",
+      "sentenceKR": "종이를 둥글게 말아 상자에 넣었다."
+    },
+    {
+      "word": "満月",
+      "reading": "まんげつ",
+      "meaningKR": "보름달",
+      "sentenceJP": "今夜は満月がよく見える。",
+      "sentenceReading": "こんやはまんげつがよくみえる。",
+      "sentenceKR": "오늘 밤은 보름달이 잘 보인다."
+    },
+    {
+      "word": "満場",
+      "reading": "まんじょう",
+      "meaningKR": "장내 전체",
+      "sentenceJP": "満場一致で案が通った。",
+      "sentenceReading": "まんじょういっちであんがとおった。",
+      "sentenceKR": "만장일치로 안건이 통과되었다."
+    },
+    {
+      "word": "真ん前",
+      "reading": "まんまえ",
+      "meaningKR": "바로 앞",
+      "sentenceJP": "駅の真ん前で待っている。",
+      "sentenceReading": "えきのまんまえでまっている。",
+      "sentenceKR": "역 바로 앞에서 기다리고 있다."
+    },
+    {
+      "word": "真ん丸い",
+      "reading": "まんまるい",
+      "meaningKR": "새하얗다",
+      "sentenceJP": "猫が真ん丸い目を向けた。",
+      "sentenceReading": "ねこがまんまるいめをむけた。",
+      "sentenceKR": "고양이가 동그란 눈으로 바라보았다."
+    },
+    {
+      "word": "真ん円い",
+      "reading": "まんまるい",
+      "meaningKR": "완전히 둥글다",
+      "sentenceJP": "真ん円い月が空に浮かぶ。",
+      "sentenceReading": "まんまるいつきがそらにうかぶ。",
+      "sentenceKR": "둥근 달이 하늘에 떠 있다."
+    },
+    {
+      "word": "～味",
+      "reading": "～み",
+      "meaningKR": "~한 맛, ~한 기운",
+      "sentenceJP": "この薬は苦みが強い。",
+      "sentenceReading": "このくすりはにがみがつよい。",
+      "sentenceKR": "이 약은 쓴맛이 강하다."
+    },
+    {
+      "word": "見合い",
+      "reading": "みあい",
+      "meaningKR": "맞선",
+      "sentenceJP": "姉は日曜に見合いをする。",
+      "sentenceReading": "あねはにちようにみあいをする。",
+      "sentenceKR": "언니는 일요일에 맞선을 본다."
+    },
+    {
+      "word": "見合わせる",
+      "reading": "みあわせる",
+      "meaningKR": "서로 바라보다, 보류하다",
+      "sentenceJP": "二人は顔を見合わせた。",
+      "sentenceReading": "ふたりはかおをみあわせた。",
+      "sentenceKR": "두 사람은 서로 얼굴을 마주 보았다."
+    },
+    {
+      "word": "見落とす",
+      "reading": "みおとす",
+      "meaningKR": "간과하다, 못 보고 지나치다",
+      "sentenceJP": "大事な点を見落としていた",
+      "sentenceReading": "だいじなてんをみおとしていた",
+      "sentenceKR": "중요한 점을 놓치고 있었다"
+    },
+    {
+      "word": "未開",
+      "reading": "みかい",
+      "meaningKR": "미개, 미개척 지역",
+      "sentenceJP": "調査隊は未開の地へ進んだ",
+      "sentenceReading": "ちょうさたいはみかいのちへすすんだ",
+      "sentenceKR": "조사대는 미개척지로 나아갔다"
+    },
+    {
+      "word": "味覚",
+      "reading": "みかく",
+      "meaningKR": "미각",
+      "sentenceJP": "風邪で味覚が鈍っている",
+      "sentenceReading": "かぜでみかくがにぶっている",
+      "sentenceKR": "감기 때문에 미각이 둔해져 있다"
+    },
+    {
+      "word": "幹",
+      "reading": "みき",
+      "meaningKR": "나무줄기",
+      "sentenceJP": "太い幹に小鳥が止まった",
+      "sentenceReading": "ふといみきにことりがとまった",
+      "sentenceKR": "굵은 나무줄기에 작은 새가 앉았다"
+    },
+    {
+      "word": "見苦しい",
+      "reading": "みぐるしい",
+      "meaningKR": "보기 흉한",
+      "sentenceJP": "人前で怒鳴るのは見苦しい",
+      "sentenceReading": "ひとまえでどなるのはみぐるしい",
+      "sentenceKR": "남들 앞에서 고함치는 것은 보기 흉하다"
+    },
+    {
+      "word": "見込み",
+      "reading": "みこみ",
+      "meaningKR": "가능성, 전망",
+      "sentenceJP": "合格の見込みは十分にある",
+      "sentenceReading": "ごうかくのみこみはじゅうぶんにある",
+      "sentenceKR": "합격할 가능성은 충분히 있다"
+    },
+    {
+      "word": "未婚",
+      "reading": "みこん",
+      "meaningKR": "미혼",
+      "sentenceJP": "彼は三十歳だがまだ未婚だ",
+      "sentenceReading": "かれはさんじゅっさいだがまだみこんだ",
+      "sentenceKR": "그는 서른 살이지만 아직 미혼이다"
+    },
+    {
+      "word": "未熟",
+      "reading": "みじゅく",
+      "meaningKR": "미숙함, 미숙한",
+      "sentenceJP": "私の技術はまだ未熟だ",
+      "sentenceReading": "わたしのぎじゅつはまだみじゅくだ",
+      "sentenceKR": "내 기술은 아직 미숙하다"
+    },
+    {
+      "word": "微塵",
+      "reading": "みじん",
+      "meaningKR": "티끌, 미립자",
+      "sentenceJP": "彼には反省の色が微塵もない",
+      "sentenceReading": "かれにははんせいのいろがみじんもない",
+      "sentenceKR": "그에게는 반성하는 기색이 조금도 없다"
+    },
+    {
+      "word": "水気",
+      "reading": "みずけ",
+      "meaningKR": "물기, 수분",
+      "sentenceJP": "豆腐の水気をよく切っておく",
+      "sentenceReading": "とうふのみずけをよくきっておく",
+      "sentenceKR": "두부의 물기를 잘 빼 둔다"
+    },
+    {
+      "word": "ミスプリント",
+      "reading": "ミスプリント",
+      "meaningKR": "오식, 인쇄 오류",
+      "sentenceJP": "本文にミスプリントが見つかった",
+      "sentenceReading": "ほんぶんにみすぷりんとがみつかった",
+      "sentenceKR": "본문에서 인쇄 오류가 발견되었다"
+    },
+    {
+      "word": "みすぼらしい",
+      "reading": "みすぼらしい",
+      "meaningKR": "초라한, 남루한",
+      "sentenceJP": "彼はみすぼらしい服を着ていた",
+      "sentenceReading": "かれはみすぼらしいふくをきていた",
+      "sentenceKR": "그는 초라한 옷을 입고 있었다"
+    },
+    {
+      "word": "ミセス",
+      "reading": "ミセス",
+      "meaningKR": "부인, 미세스",
+      "sentenceJP": "ミセス・スミスが会場に着いた",
+      "sentenceReading": "みせすすみすがかいじょうについた",
+      "sentenceKR": "스미스 부인이 행사장에 도착했다"
+    },
+    {
+      "word": "見せびらかす",
+      "reading": "みせびらかす",
+      "meaningKR": "과시하다, 자랑해 보이다",
+      "sentenceJP": "彼は新車を皆に見せびらかした",
+      "sentenceReading": "かれはしんしゃをみなにみせびらかした",
+      "sentenceKR": "그는 새 차를 모두에게 자랑해 보였다"
+    },
+    {
+      "word": "見せ物",
+      "reading": "みせもの",
+      "meaningKR": "구경거리, 볼거리",
+      "sentenceJP": "動物を見せ物にするべきではない",
+      "sentenceReading": "どうぶつをみせものにするべきではない",
+      "sentenceKR": "동물을 구경거리로 삼아서는 안 된다"
+    },
+    {
+      "word": "溝",
+      "reading": "みぞ",
+      "meaningKR": "도랑, 배수로, 간극",
+      "sentenceJP": "溝に雨水が流れ込んだ。",
+      "sentenceReading": "みぞにあまみずがながれこんだ。",
+      "sentenceKR": "도랑으로 빗물이 흘러들었다."
+    },
+    {
+      "word": "満たす",
+      "reading": "みたす",
+      "meaningKR": "채우다, 충족하다",
+      "sentenceJP": "条件を満たす応募者を選ぶ。",
+      "sentenceReading": "じょうけんをみたすおうぼしゃをえらぶ。",
+      "sentenceKR": "조건을 충족하는 지원자를 뽑는다."
+    },
+    {
+      "word": "乱す",
+      "reading": "みだす",
+      "meaningKR": "어지럽히다, 흐트러뜨리다",
+      "sentenceJP": "大声で会議の秩序を乱すな。",
+      "sentenceReading": "おおごえでかいぎのちつじょをみだすな。",
+      "sentenceKR": "큰 소리로 회의 질서를 어지럽히지 마라."
+    },
+    {
+      "word": "乱れる",
+      "reading": "みだれる",
+      "meaningKR": "흐트러지다, 혼란스러워지다",
+      "sentenceJP": "強風で髪が乱れてしまった。",
+      "sentenceReading": "きょうふうでかみがみだれてしまった。",
+      "sentenceKR": "강풍에 머리가 흐트러지고 말았다."
+    },
+    {
+      "word": "未知",
+      "reading": "みち",
+      "meaningKR": "미지, 아직 알려지지 않음",
+      "sentenceJP": "未知の世界への扉を開く。",
+      "sentenceReading": "みちのせかいへのとびらをひらく。",
+      "sentenceKR": "미지의 세계로 향하는 문을 연다."
+    },
+    {
+      "word": "身近",
+      "reading": "みぢか",
+      "meaningKR": "가까움, 친숙함",
+      "sentenceJP": "身近な問題から考えよう。",
+      "sentenceReading": "みぢかなもんだいからかんがえよう。",
+      "sentenceKR": "우리 주변의 문제부터 생각해 보자."
+    },
+    {
+      "word": "導く",
+      "reading": "みちびく",
+      "meaningKR": "이끌다, 인도하다",
+      "sentenceJP": "教師が生徒を正解へ導く。",
+      "sentenceReading": "きょうしがせいとをせいかいへみちびく。",
+      "sentenceKR": "교사가 학생을 정답으로 이끈다."
+    },
+    {
+      "word": "密集",
+      "reading": "みっしゅう",
+      "meaningKR": "밀집",
+      "sentenceJP": "古い家が密集する地域だ。",
+      "sentenceReading": "ふるいいえがみっしゅうするちいきだ。",
+      "sentenceKR": "오래된 집들이 밀집한 지역이다."
+    },
+    {
+      "word": "密接",
+      "reading": "みっせつ",
+      "meaningKR": "밀접함",
+      "sentenceJP": "睡眠は健康と密接に関わる。",
+      "sentenceReading": "すいみんはけんこうとみっせつにかかわる。",
+      "sentenceKR": "수면은 건강과 밀접하게 관련된다."
+    },
+    {
+      "word": "密度",
+      "reading": "みつど",
+      "meaningKR": "밀도",
+      "sentenceJP": "この液体は密度が高い。",
+      "sentenceReading": "このえきたいはみつどがたかい。",
+      "sentenceKR": "이 액체는 밀도가 높다."
+    },
+    {
+      "word": "見積もり",
+      "reading": "みつもり",
+      "meaningKR": "견적, 추산",
+      "sentenceJP": "修理の見積もりを依頼した。",
+      "sentenceReading": "しゅうりのみつもりをいらいした。",
+      "sentenceKR": "수리 견적을 의뢰했다."
+    },
+    {
+      "word": "未定",
+      "reading": "みてい",
+      "meaningKR": "미정",
+      "sentenceJP": "会議の日程はまだ未定です。",
+      "sentenceReading": "かいぎのにっていはまだみていです。",
+      "sentenceKR": "회의 일정은 아직 미정입니다."
+    },
+    {
+      "word": "見通し",
+      "reading": "みとおし",
+      "meaningKR": "전망, 조망",
+      "sentenceJP": "景気回復の見通しは明るい。",
+      "sentenceReading": "けいきかいふくのみとおしはあかるい。",
+      "sentenceKR": "경기 회복 전망은 밝다."
+    },
+    {
+      "word": "見なす",
+      "reading": "みなす",
+      "meaningKR": "간주하다, 여기다",
+      "sentenceJP": "欠席者は辞退と見なします。",
+      "sentenceReading": "けっせきしゃはじたいとみなします。",
+      "sentenceKR": "결석자는 사퇴한 것으로 간주합니다."
+    },
+    {
+      "word": "源",
+      "reading": "みなもと",
+      "meaningKR": "근원, 원천",
+      "sentenceJP": "この泉は川の源だ。",
+      "sentenceReading": "このいずみはかわのみなもとだ。",
+      "sentenceKR": "이 샘은 강의 발원지다."
     }
   ]
 }
