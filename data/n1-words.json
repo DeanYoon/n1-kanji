@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-19T02:11:29.705Z",
-  "count": 2340,
+  "generatedAt": "2026-11-20T01:59:15.650Z",
+  "count": 2385,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -18724,6 +18724,366 @@
       "sentenceJP": "この泉は川の源だ。",
       "sentenceReading": "このいずみはかわのみなもとだ。",
       "sentenceKR": "이 샘은 강의 발원지다."
+    },
+    {
+      "word": "見習う",
+      "reading": "みならう",
+      "meaningKR": "본받다",
+      "sentenceJP": "先輩の姿勢を見習いたい。",
+      "sentenceReading": "せんぱいのしせいをみならいたい。",
+      "sentenceKR": "선배의 자세를 본받고 싶다."
+    },
+    {
+      "word": "身なり",
+      "reading": "みなり",
+      "meaningKR": "옷차림, 외모",
+      "sentenceJP": "彼はいつも身なりが整っている。",
+      "sentenceReading": "かれはいつもみなりがととのっている。",
+      "sentenceKR": "그는 언제나 옷차림이 단정하다."
+    },
+    {
+      "word": "峰",
+      "reading": "みね",
+      "meaningKR": "봉우리, 산등성이",
+      "sentenceJP": "雪が峰を白く染めた。",
+      "sentenceReading": "ゆきがみねをしろくそめた。",
+      "sentenceKR": "눈이 봉우리를 하얗게 물들였다."
+    },
+    {
+      "word": "身の上",
+      "reading": "みのうえ",
+      "meaningKR": "신상, 개인사",
+      "sentenceJP": "彼女は自分の身の上を語った。",
+      "sentenceReading": "かのじょはじぶんのみのうえをかたった。",
+      "sentenceKR": "그녀는 자신의 개인사를 이야기했다."
+    },
+    {
+      "word": "見逃す",
+      "reading": "みのがす",
+      "meaningKR": "놓치다, 눈감아 주다",
+      "sentenceJP": "小さな変化を見逃してはいけない。",
+      "sentenceReading": "ちいさなへんかをみのがしてはいけない。",
+      "sentenceKR": "작은 변화를 놓쳐서는 안 된다."
+    },
+    {
+      "word": "身の回り",
+      "reading": "みのまわり",
+      "meaningKR": "신변, 소지품",
+      "sentenceJP": "身の回りをきれいに整える。",
+      "sentenceReading": "みのまわりをきれいにととのえる。",
+      "sentenceKR": "주변을 깔끔하게 정돈한다."
+    },
+    {
+      "word": "見計らう",
+      "reading": "みはからう",
+      "meaningKR": "때를 가늠하다, 적당히 고르다",
+      "sentenceJP": "頃合いを見計らって声をかけた。",
+      "sentenceReading": "ころあいをみはからってこえをかけた。",
+      "sentenceKR": "적당한 때를 보아 말을 걸었다."
+    },
+    {
+      "word": "見晴らし",
+      "reading": "みはらし",
+      "meaningKR": "전망, 조망",
+      "sentenceJP": "頂上からの見晴らしは最高だ。",
+      "sentenceReading": "ちょうじょうからのみはらしはさいこうだ。",
+      "sentenceKR": "정상에서 바라보는 전망은 최고다."
+    },
+    {
+      "word": "身振り",
+      "reading": "みぶり",
+      "meaningKR": "몸짓, 제스처",
+      "sentenceJP": "身振りを交えて道を説明した。",
+      "sentenceReading": "みぶりをまじえてみちをせつめいした。",
+      "sentenceKR": "몸짓을 섞어 길을 설명했다."
+    },
+    {
+      "word": "脈",
+      "reading": "みゃく",
+      "meaningKR": "맥박",
+      "sentenceJP": "緊張で脈が速くなった。",
+      "sentenceReading": "きんちょうでみゃくがはやくなった。",
+      "sentenceKR": "긴장해서 맥박이 빨라졌다."
+    },
+    {
+      "word": "ミュージック",
+      "reading": "ミュージック",
+      "meaningKR": "음악",
+      "sentenceJP": "軽快なミュージックが流れている。",
+      "sentenceReading": "けいかいなみゅーじっくがながれている。",
+      "sentenceKR": "경쾌한 음악이 흐르고 있다."
+    },
+    {
+      "word": "未練",
+      "reading": "みれん",
+      "meaningKR": "미련, 아쉬움",
+      "sentenceJP": "故郷に未練を残して旅立った。",
+      "sentenceReading": "ふるさとにみれんをのこしてたびだった。",
+      "sentenceKR": "고향에 미련을 남긴 채 길을 떠났다."
+    },
+    {
+      "word": "見渡す",
+      "reading": "みわたす",
+      "meaningKR": "널리 바라보다, 둘러보다",
+      "sentenceJP": "展望台から町全体を見渡す。",
+      "sentenceReading": "てんぼうだいからまちぜんたいをみわたす。",
+      "sentenceKR": "전망대에서 마을 전체를 한눈에 바라본다."
+    },
+    {
+      "word": "民宿",
+      "reading": "みんしゅく",
+      "meaningKR": "민박",
+      "sentenceJP": "海辺の民宿に一泊した。",
+      "sentenceReading": "うみべのみんしゅくにいっぱくした。",
+      "sentenceKR": "바닷가 민박집에서 하룻밤 묵었다."
+    },
+    {
+      "word": "民族",
+      "reading": "みんぞく",
+      "meaningKR": "민족",
+      "sentenceJP": "この地域には多くの民族が暮らす。",
+      "sentenceReading": "このちいきにはおおくのみんぞくがくらす。",
+      "sentenceKR": "이 지역에는 많은 민족이 산다."
+    },
+    {
+      "word": "民俗",
+      "reading": "みんぞく",
+      "meaningKR": "민속",
+      "sentenceJP": "日本の民俗を研究している。",
+      "sentenceReading": "にほんのみんぞくをけんきゅうしている。",
+      "sentenceKR": "일본의 민속을 연구하고 있다."
+    },
+    {
+      "word": "無意味",
+      "reading": "むいみ",
+      "meaningKR": "무의미함",
+      "sentenceJP": "その議論は無意味だ。",
+      "sentenceReading": "そのぎろんはむいみだ。",
+      "sentenceKR": "그 논의는 무의미하다."
+    },
+    {
+      "word": "ムード",
+      "reading": "ムード",
+      "meaningKR": "분위기",
+      "sentenceJP": "店内は明るいムードだ。",
+      "sentenceReading": "てんないはあかるいむうどだ。",
+      "sentenceKR": "가게 안은 밝은 분위기다."
+    },
+    {
+      "word": "無口",
+      "reading": "むくち",
+      "meaningKR": "과묵함",
+      "sentenceJP": "彼は無口だが優しい。",
+      "sentenceReading": "かれはむくちだがやさしい。",
+      "sentenceKR": "그는 과묵하지만 다정하다."
+    },
+    {
+      "word": "婿",
+      "reading": "むこ",
+      "meaningKR": "사위",
+      "sentenceJP": "昨夜、娘の婿と酒を飲んだ。",
+      "sentenceReading": "さくや、むすめのむことさけをのんだ。",
+      "sentenceKR": "어젯밤 딸의 남편과 술을 마셨다."
+    },
+    {
+      "word": "無効",
+      "reading": "むこう",
+      "meaningKR": "무효",
+      "sentenceJP": "この切符はもう無効だ。",
+      "sentenceReading": "このきっぷはもうむこうだ。",
+      "sentenceKR": "이 표는 이미 무효다."
+    },
+    {
+      "word": "無言",
+      "reading": "むごん",
+      "meaningKR": "무언, 침묵",
+      "sentenceJP": "彼は無言で席を立った。",
+      "sentenceReading": "かれはむごんでせきをたった。",
+      "sentenceKR": "그는 말없이 자리에서 일어났다."
+    },
+    {
+      "word": "無邪気",
+      "reading": "むじゃき",
+      "meaningKR": "천진난만함",
+      "sentenceJP": "子供の無邪気な笑顔が眩しい。",
+      "sentenceReading": "こどものむじゃきなえがおがまぶしい。",
+      "sentenceKR": "아이의 천진난만한 미소가 눈부시다."
+    },
+    {
+      "word": "むしる",
+      "reading": "むしる",
+      "meaningKR": "뜯다, 쥐어뜯다",
+      "sentenceJP": "庭の雑草を一本ずつむしる。",
+      "sentenceReading": "にわのざっそうをいっぽんずつむしる。",
+      "sentenceKR": "마당의 잡초를 한 포기씩 뽑는다."
+    },
+    {
+      "word": "結び",
+      "reading": "むすび",
+      "meaningKR": "마무리, 결론",
+      "sentenceJP": "話の結びが少し弱い。",
+      "sentenceReading": "はなしのむすびがすこしよわい。",
+      "sentenceKR": "이야기의 마무리가 조금 약하다."
+    },
+    {
+      "word": "結び付き",
+      "reading": "むすびつき",
+      "meaningKR": "연관, 관계",
+      "sentenceJP": "両国の経済的な結び付きは強い。",
+      "sentenceReading": "りょうこくのけいざいてきなむすびつきはつよい。",
+      "sentenceKR": "양국의 경제적 유대는 강하다."
+    },
+    {
+      "word": "結び付く",
+      "reading": "むすびつく",
+      "meaningKR": "연결되다, 관련되다",
+      "sentenceJP": "努力が成果に結び付いた。",
+      "sentenceReading": "どりょくがせいかにむすびついた。",
+      "sentenceKR": "노력이 성과로 이어졌다."
+    },
+    {
+      "word": "結び付ける",
+      "reading": "むすびつける",
+      "meaningKR": "결부시키다, 연결하다",
+      "sentenceJP": "理論と実践を結び付ける。",
+      "sentenceReading": "りろんとじっせんをむすびつける。",
+      "sentenceKR": "이론과 실천을 결부시킨다."
+    },
+    {
+      "word": "無線",
+      "reading": "むせん",
+      "meaningKR": "무선, 무전",
+      "sentenceJP": "無線で本部に連絡した。",
+      "sentenceReading": "むせんでほんぶにれんらくした。",
+      "sentenceKR": "무전으로 본부에 연락했다."
+    },
+    {
+      "word": "無駄遣い",
+      "reading": "むだづかい",
+      "meaningKR": "낭비",
+      "sentenceJP": "彼は給料を無駄遣いした。",
+      "sentenceReading": "かれはきゅうりょうをむだづかいした。",
+      "sentenceKR": "그는 월급을 낭비했다."
+    },
+    {
+      "word": "無断",
+      "reading": "むだん",
+      "meaningKR": "무단, 허락 없이",
+      "sentenceJP": "無断で写真を掲載した。",
+      "sentenceReading": "むだんでしゃしんをけいさいした。",
+      "sentenceKR": "허락 없이 사진을 게재했다."
+    },
+    {
+      "word": "無知",
+      "reading": "むち",
+      "meaningKR": "무지",
+      "sentenceJP": "彼は歴史に無知だ。",
+      "sentenceReading": "かれはれきしにむちだ。",
+      "sentenceKR": "그는 역사에 무지하다."
+    },
+    {
+      "word": "無茶",
+      "reading": "むちゃ",
+      "meaningKR": "무리함, 터무니없음",
+      "sentenceJP": "無茶な要求は断った。",
+      "sentenceReading": "むちゃなようきゅうはことわった。",
+      "sentenceKR": "무리한 요구는 거절했다."
+    },
+    {
+      "word": "無茶苦茶",
+      "reading": "むちゃくちゃ",
+      "meaningKR": "엉망진창",
+      "sentenceJP": "部屋の中が無茶苦茶だ。",
+      "sentenceReading": "へやのなかがむちゃくちゃだ。",
+      "sentenceKR": "방 안이 엉망진창이다."
+    },
+    {
+      "word": "空しい",
+      "reading": "むなしい",
+      "meaningKR": "허무하다, 헛되다",
+      "sentenceJP": "努力が報われず空しい。",
+      "sentenceReading": "どりょくがむくわれずむなしい。",
+      "sentenceKR": "노력이 보답받지 못해 허무하다."
+    },
+    {
+      "word": "無念",
+      "reading": "むねん",
+      "meaningKR": "원통함, 유감",
+      "sentenceJP": "決勝で敗れ、無念だった。",
+      "sentenceReading": "けっしょうでやぶれ、むねんだった。",
+      "sentenceKR": "결승에서 패해 원통했다."
+    },
+    {
+      "word": "無能",
+      "reading": "むのう",
+      "meaningKR": "무능",
+      "sentenceJP": "無能な上司に皆が呆れた。",
+      "sentenceReading": "むのうなじょうしにみんながあきれた。",
+      "sentenceKR": "모두가 무능한 상사에게 질렸다."
+    },
+    {
+      "word": "無闇に",
+      "reading": "むやみに",
+      "meaningKR": "함부로, 마구",
+      "sentenceJP": "無闇に人を疑ってはいけない。",
+      "sentenceReading": "むやみにひとをうたがってはいけない。",
+      "sentenceKR": "함부로 남을 의심해서는 안 된다."
+    },
+    {
+      "word": "無用",
+      "reading": "むよう",
+      "meaningKR": "불필요함, 쓸모없음",
+      "sentenceJP": "そのような心配は無用です。",
+      "sentenceReading": "そのようなしんぱいはむようです。",
+      "sentenceKR": "그런 걱정은 필요 없습니다."
+    },
+    {
+      "word": "斑",
+      "reading": "むら",
+      "meaningKR": "고르지 않음, 얼룩",
+      "sentenceJP": "壁の塗装に斑がある。",
+      "sentenceReading": "かべのとそうにむらがある。",
+      "sentenceKR": "벽의 도장 상태가 고르지 않다."
+    },
+    {
+      "word": "群がる",
+      "reading": "むらがる",
+      "meaningKR": "떼 지어 몰려들다",
+      "sentenceJP": "甘い物に蟻が群がる。",
+      "sentenceReading": "あまいものにありがむらがる。",
+      "sentenceKR": "단것에 개미가 떼 지어 몰려든다."
+    },
+    {
+      "word": "無論",
+      "reading": "むろん",
+      "meaningKR": "물론",
+      "sentenceJP": "無論、私も参加します。",
+      "sentenceReading": "むろん、わたしもさんかします。",
+      "sentenceKR": "물론 저도 참가합니다."
+    },
+    {
+      "word": "名産",
+      "reading": "めいさん",
+      "meaningKR": "명산품, 특산물",
+      "sentenceJP": "この町の名産は桃です。",
+      "sentenceReading": "このまちのめいさんはももです。",
+      "sentenceKR": "이 마을의 특산물은 복숭아입니다."
+    },
+    {
+      "word": "名称",
+      "reading": "めいしょう",
+      "meaningKR": "명칭, 이름",
+      "sentenceJP": "新商品の名称を決める。",
+      "sentenceReading": "しんしょうひんのめいしょうをきめる。",
+      "sentenceKR": "신상품의 명칭을 정한다."
+    },
+    {
+      "word": "命中",
+      "reading": "めいちゅう",
+      "meaningKR": "명중",
+      "sentenceJP": "放った矢が的に命中した。",
+      "sentenceReading": "はなったやがまとにめいちゅうした。",
+      "sentenceKR": "쏜 화살이 과녁에 명중했다."
     }
   ]
 }
