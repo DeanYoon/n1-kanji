@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-20T01:59:15.650Z",
-  "count": 2385,
+  "generatedAt": "2026-11-23T01:20:12.929Z",
+  "count": 2430,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -19084,6 +19084,366 @@
       "sentenceJP": "放った矢が的に命中した。",
       "sentenceReading": "はなったやがまとにめいちゅうした。",
       "sentenceKR": "쏜 화살이 과녁에 명중했다."
+    },
+    {
+      "word": "明白",
+      "reading": "めいはく",
+      "meaningKR": "명백함",
+      "sentenceJP": "その事実は誰の目にも明白だ。",
+      "sentenceReading": "そのじじつはだれのめにもめいはくだ。",
+      "sentenceKR": "그 사실은 누가 보아도 명백하다."
+    },
+    {
+      "word": "名簿",
+      "reading": "めいぼ",
+      "meaningKR": "명부",
+      "sentenceJP": "名簿に名前を記入した。",
+      "sentenceReading": "めいぼになまえをきにゅうした。",
+      "sentenceKR": "명부에 이름을 기입했다."
+    },
+    {
+      "word": "名誉",
+      "reading": "めいよ",
+      "meaningKR": "명예",
+      "sentenceJP": "彼は名誉ある賞を受けた。",
+      "sentenceReading": "かれはめいよあるしょうをうけた。",
+      "sentenceKR": "그는 영예로운 상을 받았다."
+    },
+    {
+      "word": "明瞭",
+      "reading": "めいりょう",
+      "meaningKR": "명료함",
+      "sentenceJP": "説明は簡潔で明瞭だ。",
+      "sentenceReading": "せつめいはかんけつでめいりょうだ。",
+      "sentenceKR": "설명은 간결하고 명료하다."
+    },
+    {
+      "word": "明朗",
+      "reading": "めいろう",
+      "meaningKR": "명랑함",
+      "sentenceJP": "彼女は明朗な性格だ。",
+      "sentenceReading": "かのじょはめいろうなせいかくだ。",
+      "sentenceKR": "그녀는 명랑한 성격이다."
+    },
+    {
+      "word": "メーカー",
+      "reading": "メーカー",
+      "meaningKR": "제조업체",
+      "sentenceJP": "このメーカーは品質が高い。",
+      "sentenceReading": "このめーかーはひんしつがたかい。",
+      "sentenceKR": "이 제조업체는 품질이 좋다."
+    },
+    {
+      "word": "目方",
+      "reading": "めかた",
+      "meaningKR": "무게",
+      "sentenceJP": "荷物の目方を量った。",
+      "sentenceReading": "にもつのめかたをはかった。",
+      "sentenceKR": "짐의 무게를 쟀다."
+    },
+    {
+      "word": "恵み",
+      "reading": "めぐみ",
+      "meaningKR": "은혜",
+      "sentenceJP": "自然の恵みに感謝する。",
+      "sentenceReading": "しぜんのめぐみにかんしゃする。",
+      "sentenceKR": "자연의 은혜에 감사한다."
+    },
+    {
+      "word": "恵む",
+      "reading": "めぐむ",
+      "meaningKR": "베풀다",
+      "sentenceJP": "貧しい人に食べ物を恵む。",
+      "sentenceReading": "まずしいひとにたべものをめぐむ。",
+      "sentenceKR": "가난한 사람에게 먹을 것을 베푼다."
+    },
+    {
+      "word": "目覚しい",
+      "reading": "めざましい",
+      "meaningKR": "눈부시다, 괄목할 만하다",
+      "sentenceJP": "彼の成長は目覚ましい。",
+      "sentenceReading": "かれのせいちょうはめざましい。",
+      "sentenceKR": "그의 성장은 눈부시다."
+    },
+    {
+      "word": "目覚める",
+      "reading": "めざめる",
+      "meaningKR": "깨어나다",
+      "sentenceJP": "鳥の声で目覚めた。",
+      "sentenceReading": "とりのこえでめざめた。",
+      "sentenceKR": "새소리에 잠에서 깼다."
+    },
+    {
+      "word": "召す",
+      "reading": "めす",
+      "meaningKR": "부르다, 입다(높임말)",
+      "sentenceJP": "王は家臣を宮殿に召した。",
+      "sentenceReading": "おうはかしんをきゅうでんにめした。",
+      "sentenceKR": "왕은 신하를 궁전으로 불렀다."
+    },
+    {
+      "word": "雌",
+      "reading": "めす",
+      "meaningKR": "암컷",
+      "sentenceJP": "捕まえた鳥は雌だった。",
+      "sentenceReading": "つかまえたとりはめすだった。",
+      "sentenceKR": "잡은 새는 암컷이었다."
+    },
+    {
+      "word": "目付き",
+      "reading": "めつき",
+      "meaningKR": "눈매, 눈빛",
+      "sentenceJP": "彼は鋭い目付きで睨んだ。",
+      "sentenceReading": "かれはするどいめつきでにらんだ。",
+      "sentenceKR": "그는 날카로운 눈빛으로 노려보았다."
+    },
+    {
+      "word": "滅亡",
+      "reading": "めつぼう",
+      "meaningKR": "멸망",
+      "sentenceJP": "その古代文明は滅亡した。",
+      "sentenceReading": "そのこだいぶんめいはめつぼうした。",
+      "sentenceKR": "그 고대 문명은 멸망했다."
+    },
+    {
+      "word": "メディア",
+      "reading": "メディア",
+      "meaningKR": "미디어, 대중 매체",
+      "sentenceJP": "メディアは世論に大きな影響を与える。",
+      "sentenceReading": "めでぃあはせろんにおおきなえいきょうをあたえる。",
+      "sentenceKR": "미디어는 여론에 큰 영향을 미친다."
+    },
+    {
+      "word": "目途",
+      "reading": "めど",
+      "meaningKR": "목표, 전망",
+      "sentenceJP": "完成の目途がようやく立った。",
+      "sentenceReading": "かんせいのめどがようやくたった。",
+      "sentenceKR": "완성될 전망이 드디어 섰다."
+    },
+    {
+      "word": "目盛",
+      "reading": "めもり",
+      "meaningKR": "눈금",
+      "sentenceJP": "温度計の目盛を正確に読む。",
+      "sentenceReading": "おんどけいのめもりをせいかくによむ。",
+      "sentenceKR": "온도계의 눈금을 정확히 읽는다."
+    },
+    {
+      "word": "メロディー",
+      "reading": "メロディー",
+      "meaningKR": "멜로디, 선율",
+      "sentenceJP": "この曲のメロディーが耳に残る。",
+      "sentenceReading": "このきょくのめろでぃーがみみにのこる。",
+      "sentenceKR": "이 곡의 멜로디가 귀에 남는다."
+    },
+    {
+      "word": "面会",
+      "reading": "めんかい",
+      "meaningKR": "면회",
+      "sentenceJP": "入院中の祖父と面会した。",
+      "sentenceReading": "にゅういんちゅうのそふとめんかいした。",
+      "sentenceKR": "입원 중인 할아버지를 면회했다."
+    },
+    {
+      "word": "免除",
+      "reading": "めんじょ",
+      "meaningKR": "면제",
+      "sentenceJP": "申請すれば授業料が免除される。",
+      "sentenceReading": "しんせいすればじゅぎょうりょうがめんじょされる。",
+      "sentenceKR": "신청하면 수업료가 면제된다."
+    },
+    {
+      "word": "面する",
+      "reading": "めんする",
+      "meaningKR": "면하다, 마주하다",
+      "sentenceJP": "客室は静かな湖に面している。",
+      "sentenceReading": "きゃくしつはしずかなみずうみにめんしている。",
+      "sentenceKR": "객실은 고요한 호수를 향하고 있다."
+    },
+    {
+      "word": "面目",
+      "reading": "めんぼく",
+      "meaningKR": "체면, 명예",
+      "sentenceJP": "失敗してチームの面目を失った。",
+      "sentenceReading": "しっぱいしてちーむのめんぼくをうしなった。",
+      "sentenceKR": "실패하여 팀의 체면을 잃었다."
+    },
+    {
+      "word": "面目",
+      "reading": "めんもく",
+      "meaningKR": "면목, 진가",
+      "sentenceJP": "彼は面目躍如の活躍を見せた。",
+      "sentenceReading": "かれはめんもくやくじょのかつやくをみせた。",
+      "sentenceKR": "그는 진가를 유감없이 발휘했다."
+    },
+    {
+      "word": "～網",
+      "reading": "～もう",
+      "meaningKR": "~망, ~네트워크",
+      "sentenceJP": "交通網が全国に広がっている。",
+      "sentenceReading": "こうつうもうがぜんこくにひろがっている。",
+      "sentenceKR": "교통망이 전국으로 뻗어 있다."
+    },
+    {
+      "word": "設ける",
+      "reading": "もうける",
+      "meaningKR": "마련하다, 설치하다",
+      "sentenceJP": "会議の場を別に設ける。",
+      "sentenceReading": "かいぎのばをべつにもうける。",
+      "sentenceKR": "회의 장소를 따로 마련한다."
+    },
+    {
+      "word": "申し入れる",
+      "reading": "もうしいれる",
+      "meaningKR": "제안하다, 요청하다",
+      "sentenceJP": "労働条件の改善を申し入れた。",
+      "sentenceReading": "ろうどうじょうけんのかいぜんをもうしいれた。",
+      "sentenceKR": "노동 조건의 개선을 요청했다."
+    },
+    {
+      "word": "申込",
+      "reading": "もうしこみ",
+      "meaningKR": "신청, 접수",
+      "sentenceJP": "参加申込は明日までです。",
+      "sentenceReading": "さんかもうしこみはあしたまでです。",
+      "sentenceKR": "참가 신청은 내일까지입니다."
+    },
+    {
+      "word": "申出",
+      "reading": "もうしで",
+      "meaningKR": "신청, 제의",
+      "sentenceJP": "辞退の申出を正式に受理した。",
+      "sentenceReading": "じたいのもうしでをせいしきにじゅりした。",
+      "sentenceKR": "사퇴 의사를 정식으로 받아들였다."
+    },
+    {
+      "word": "申し出る",
+      "reading": "もうしでる",
+      "meaningKR": "신고하다, 자진해서 말하다",
+      "sentenceJP": "不備に気づき、自ら申し出た。",
+      "sentenceReading": "ふびにきづき、みずからもうしでた。",
+      "sentenceKR": "미비점을 깨닫고 스스로 알렸다."
+    },
+    {
+      "word": "申し分",
+      "reading": "もうしぶん",
+      "meaningKR": "이의, 부족한 점",
+      "sentenceJP": "彼の仕事ぶりは申し分ない。",
+      "sentenceReading": "かれのしごとぶりはもうしぶんない。",
+      "sentenceKR": "그의 일하는 태도는 나무랄 데가 없다."
+    },
+    {
+      "word": "盲点",
+      "reading": "もうてん",
+      "meaningKR": "맹점",
+      "sentenceJP": "この計画には意外な盲点がある。",
+      "sentenceReading": "このけいかくにはいがいなもうてんがある。",
+      "sentenceKR": "이 계획에는 뜻밖의 맹점이 있다."
+    },
+    {
+      "word": "猛烈",
+      "reading": "もうれつ",
+      "meaningKR": "맹렬함, 격렬함",
+      "sentenceJP": "猛烈な雨が窓を打ちつけた。",
+      "sentenceReading": "もうれつなあめがまどをうちつけた。",
+      "sentenceKR": "맹렬한 비가 창문을 세차게 때렸다."
+    },
+    {
+      "word": "モーテル",
+      "reading": "モーテル",
+      "meaningKR": "모텔",
+      "sentenceJP": "旅の途中でモーテルに泊まった。",
+      "sentenceReading": "たびのとちゅうでもーてるにとまった。",
+      "sentenceKR": "여행 도중에 모텔에서 묵었다."
+    },
+    {
+      "word": "もがく",
+      "reading": "もがく",
+      "meaningKR": "발버둥 치다",
+      "sentenceJP": "苦境から抜け出そうともがく。",
+      "sentenceReading": "くきょうからぬけだそうともがく。",
+      "sentenceKR": "곤경에서 벗어나려고 발버둥 친다."
+    },
+    {
+      "word": "目録",
+      "reading": "もくろく",
+      "meaningKR": "목록, 카탈로그",
+      "sentenceJP": "展示品の目録を受付でもらう。",
+      "sentenceReading": "てんじひんのもくろくをうけつけでもらう。",
+      "sentenceKR": "접수처에서 전시품 목록을 받는다."
+    },
+    {
+      "word": "目論見",
+      "reading": "もくろみ",
+      "meaningKR": "계획, 속셈",
+      "sentenceJP": "彼の目論見は見事に外れた。",
+      "sentenceReading": "かれのもくろみはみごとにはずれた。",
+      "sentenceKR": "그의 계획은 보기 좋게 빗나갔다."
+    },
+    {
+      "word": "模型",
+      "reading": "もけい",
+      "meaningKR": "모형",
+      "sentenceJP": "新型車の模型を精巧に作る。",
+      "sentenceReading": "しんがたしゃのもけいをせいこうにつくる。",
+      "sentenceKR": "신형 자동차 모형을 정교하게 만든다."
+    },
+    {
+      "word": "模索",
+      "reading": "もさく",
+      "meaningKR": "모색",
+      "sentenceJP": "解決策を模索する日々が続く。",
+      "sentenceReading": "かいけつさくをもさくするひびがつづく。",
+      "sentenceKR": "해결책을 모색하는 나날이 이어진다."
+    },
+    {
+      "word": "もしかして",
+      "reading": "もしかして",
+      "meaningKR": "혹시, 어쩌면",
+      "sentenceJP": "もしかして、道を間違えた？",
+      "sentenceReading": "もしかして、みちをまちがえた？",
+      "sentenceKR": "혹시 길을 잘못 든 거야?"
+    },
+    {
+      "word": "もしくは",
+      "reading": "もしくは",
+      "meaningKR": "또는, 혹은",
+      "sentenceJP": "電話、もしくはメールで連絡ください。",
+      "sentenceReading": "でんわ、もしくはめーるでれんらくください。",
+      "sentenceKR": "전화 또는 이메일로 연락해 주세요."
+    },
+    {
+      "word": "もたらす",
+      "reading": "もたらす",
+      "meaningKR": "가져오다, 초래하다",
+      "sentenceJP": "新技術が社会に変革をもたらす。",
+      "sentenceReading": "しんぎじゅつがしゃかいにへんかくをもたらす。",
+      "sentenceKR": "신기술이 사회에 변혁을 가져온다."
+    },
+    {
+      "word": "持ち切り",
+      "reading": "もちきり",
+      "meaningKR": "온통 화제임",
+      "sentenceJP": "街は新店の話題で持ち切りだ。",
+      "sentenceReading": "まちはしんてんのわだいでもちきりだ。",
+      "sentenceKR": "온 동네가 새 가게 이야기로 떠들썩하다."
+    },
+    {
+      "word": "目下",
+      "reading": "もっか",
+      "meaningKR": "현재, 지금",
+      "sentenceJP": "目下、新製品を開発中です。",
+      "sentenceReading": "もっか、しんせいひんをかいはつちゅうです。",
+      "sentenceKR": "현재 신제품을 개발 중입니다."
+    },
+    {
+      "word": "専ら",
+      "reading": "もっぱら",
+      "meaningKR": "오로지, 주로",
+      "sentenceJP": "休日は専ら家で本を読んでいる。",
+      "sentenceReading": "きゅうじつはもっぱらいえでほんをよんでいる。",
+      "sentenceKR": "휴일에는 주로 집에서 책을 읽는다."
     }
   ]
 }
