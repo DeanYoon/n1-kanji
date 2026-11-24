@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-23T01:20:12.929Z",
-  "count": 2430,
+  "generatedAt": "2026-11-24T05:06:21.450Z",
+  "count": 2475,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -19444,6 +19444,366 @@
       "sentenceJP": "休日は専ら家で本を読んでいる。",
       "sentenceReading": "きゅうじつはもっぱらいえでほんをよんでいる。",
       "sentenceKR": "휴일에는 주로 집에서 책을 읽는다."
+    },
+    {
+      "word": "もてなす",
+      "reading": "もてなす",
+      "meaningKR": "환대하다",
+      "sentenceJP": "心を込めて客をもてなす。",
+      "sentenceReading": "こころをこめてきゃくをもてなす。",
+      "sentenceKR": "정성을 다해 손님을 대접한다."
+    },
+    {
+      "word": "もてる",
+      "reading": "もてる",
+      "meaningKR": "인기가 있다",
+      "sentenceJP": "彼は明るくて皆にもてる。",
+      "sentenceReading": "かれはあかるくてみんなにもてる。",
+      "sentenceKR": "그는 밝아서 모두에게 인기가 있다."
+    },
+    {
+      "word": "モニター",
+      "reading": "モニター",
+      "meaningKR": "모니터",
+      "sentenceJP": "新しいモニターを設置した。",
+      "sentenceReading": "あたらしいもにたーをせっちした。",
+      "sentenceKR": "새 모니터를 설치했다."
+    },
+    {
+      "word": "物好き",
+      "reading": "ものずき",
+      "meaningKR": "별난 호기심",
+      "sentenceJP": "物好きな人もいるものだ。",
+      "sentenceReading": "ものずきなひともいるものだ。",
+      "sentenceKR": "별난 것에 관심을 갖는 사람도 있는 법이다."
+    },
+    {
+      "word": "物足りない",
+      "reading": "ものたりない",
+      "meaningKR": "뭔가 부족하다",
+      "sentenceJP": "この説明では物足りない。",
+      "sentenceReading": "このせつめいではものたりない。",
+      "sentenceKR": "이 설명만으로는 뭔가 부족하다."
+    },
+    {
+      "word": "もはや",
+      "reading": "もはや",
+      "meaningKR": "이미, 이제는",
+      "sentenceJP": "もはや後戻りはできない。",
+      "sentenceReading": "もはやあともどりはできない。",
+      "sentenceKR": "이제는 되돌아갈 수 없다."
+    },
+    {
+      "word": "模範",
+      "reading": "もはん",
+      "meaningKR": "모범",
+      "sentenceJP": "彼は社員の模範となった。",
+      "sentenceReading": "かれはしゃいんのもはんとなった。",
+      "sentenceKR": "그는 사원들의 모범이 되었다."
+    },
+    {
+      "word": "模倣",
+      "reading": "もほう",
+      "meaningKR": "모방",
+      "sentenceJP": "他人の作品を模倣する。",
+      "sentenceReading": "たにんのさくひんをもほうする。",
+      "sentenceKR": "다른 사람의 작품을 모방한다."
+    },
+    {
+      "word": "もめる",
+      "reading": "もめる",
+      "meaningKR": "분쟁이 일어나다",
+      "sentenceJP": "遺産の分配でもめている。",
+      "sentenceReading": "いさんのぶんぱいでもめている。",
+      "sentenceKR": "유산 분배 문제로 다투고 있다."
+    },
+    {
+      "word": "股",
+      "reading": "もも",
+      "meaningKR": "허벅지",
+      "sentenceJP": "転んで股を強く打った。",
+      "sentenceReading": "ころんでももをつよくうった。",
+      "sentenceKR": "넘어져서 허벅지를 세게 부딪쳤다."
+    },
+    {
+      "word": "腿",
+      "reading": "もも",
+      "meaningKR": "허벅지",
+      "sentenceJP": "腿を上げて走りなさい。",
+      "sentenceReading": "ももをあげてはしりなさい。",
+      "sentenceKR": "허벅지를 들어 올리며 달리세요."
+    },
+    {
+      "word": "催す",
+      "reading": "もよおす",
+      "meaningKR": "개최하다",
+      "sentenceJP": "来月、記念式典を催す。",
+      "sentenceReading": "らいげつ、きねんしきてんをもよおす。",
+      "sentenceKR": "다음 달에 기념식을 개최한다."
+    },
+    {
+      "word": "漏らす",
+      "reading": "もらす",
+      "meaningKR": "누설하다",
+      "sentenceJP": "秘密をうっかり漏らした。",
+      "sentenceReading": "ひみつをうっかりもらした。",
+      "sentenceKR": "무심코 비밀을 누설했다."
+    },
+    {
+      "word": "盛り上がる",
+      "reading": "もりあがる",
+      "meaningKR": "고조되다",
+      "sentenceJP": "会場が一気に盛り上がる。",
+      "sentenceReading": "かいじょうがいっきにもりあがる。",
+      "sentenceKR": "행사장 분위기가 단숨에 고조된다."
+    },
+    {
+      "word": "漏る",
+      "reading": "もる",
+      "meaningKR": "새다",
+      "sentenceJP": "古い屋根から雨が漏る。",
+      "sentenceReading": "ふるいやねからあめがもる。",
+      "sentenceKR": "낡은 지붕에서 빗물이 샌다."
+    },
+    {
+      "word": "漏れる",
+      "reading": "もれる",
+      "meaningKR": "새어 나오다, 누설되다",
+      "sentenceJP": "秘密が外部に漏れた。",
+      "sentenceReading": "ひみつががいぶにもれた。",
+      "sentenceKR": "비밀이 외부로 새어 나갔다."
+    },
+    {
+      "word": "脆い",
+      "reading": "もろい",
+      "meaningKR": "깨지기 쉽다, 연약하다",
+      "sentenceJP": "この皿は薄くて脆い。",
+      "sentenceReading": "このさらはうすくてもろい。",
+      "sentenceKR": "이 접시는 얇아서 깨지기 쉽다."
+    },
+    {
+      "word": "もろに",
+      "reading": "もろに",
+      "meaningKR": "정면으로, 고스란히",
+      "sentenceJP": "波をもろにかぶった。",
+      "sentenceReading": "なみをもろにかぶった。",
+      "sentenceKR": "파도를 정면으로 뒤집어썼다."
+    },
+    {
+      "word": "矢",
+      "reading": "や",
+      "meaningKR": "화살",
+      "sentenceJP": "矢が的の中心に刺さった。",
+      "sentenceReading": "やがまとのちゅうしんにささった。",
+      "sentenceKR": "화살이 과녁 중심에 꽂혔다."
+    },
+    {
+      "word": "野外",
+      "reading": "やがい",
+      "meaningKR": "야외",
+      "sentenceJP": "野外で音楽祭が開かれる。",
+      "sentenceReading": "やがいでおんがくさいがひらかれる。",
+      "sentenceKR": "야외에서 음악제가 열린다."
+    },
+    {
+      "word": "～薬",
+      "reading": "～やく",
+      "meaningKR": "약, 약제",
+      "sentenceJP": "医師から睡眠薬を処方された。",
+      "sentenceReading": "いしからすいみんやくをしょほうされた。",
+      "sentenceKR": "의사에게 수면제를 처방받았다."
+    },
+    {
+      "word": "夜具",
+      "reading": "やぐ",
+      "meaningKR": "침구, 이부자리",
+      "sentenceJP": "冬用の夜具を押し入れから出す。",
+      "sentenceReading": "ふゆようのやぐをおしいれからだす。",
+      "sentenceKR": "겨울용 침구를 벽장에서 꺼낸다."
+    },
+    {
+      "word": "役職",
+      "reading": "やくしょく",
+      "meaningKR": "직책, 관리직",
+      "sentenceJP": "彼は重要な役職に就いた。",
+      "sentenceReading": "かれはじゅうようなやくしょくについた。",
+      "sentenceKR": "그는 중요한 직책을 맡았다."
+    },
+    {
+      "word": "役場",
+      "reading": "やくば",
+      "meaningKR": "관공서, 주민센터",
+      "sentenceJP": "書類を役場に提出した。",
+      "sentenceReading": "しょるいをやくばにていしゅつした。",
+      "sentenceKR": "서류를 관공서에 제출했다."
+    },
+    {
+      "word": "やけに",
+      "reading": "やけに",
+      "meaningKR": "유난히, 몹시",
+      "sentenceJP": "今日はやけに静かだ。",
+      "sentenceReading": "きょうはやけにしずかだ。",
+      "sentenceKR": "오늘은 유난히 조용하다."
+    },
+    {
+      "word": "屋敷",
+      "reading": "やしき",
+      "meaningKR": "저택",
+      "sentenceJP": "古い屋敷には広い庭がある。",
+      "sentenceReading": "ふるいやしきにはひろいにわがある。",
+      "sentenceKR": "오래된 저택에는 넓은 정원이 있다."
+    },
+    {
+      "word": "養う",
+      "reading": "やしなう",
+      "meaningKR": "부양하다, 기르다",
+      "sentenceJP": "家族を養うために働く。",
+      "sentenceReading": "かぞくをやしなうためにはたらく。",
+      "sentenceKR": "가족을 부양하기 위해 일한다."
+    },
+    {
+      "word": "野心",
+      "reading": "やしん",
+      "meaningKR": "야심, 포부",
+      "sentenceJP": "彼は大きな野心を抱いている。",
+      "sentenceReading": "かれはおおきなやしんをいだいている。",
+      "sentenceKR": "그는 큰 야심을 품고 있다."
+    },
+    {
+      "word": "安っぽい",
+      "reading": "やすっぽい",
+      "meaningKR": "싸구려 같다, 값싸 보이다",
+      "sentenceJP": "その時計は少し安っぽい。",
+      "sentenceReading": "そのとけいはすこしやすっぽい。",
+      "sentenceKR": "그 시계는 조금 싸구려처럼 보인다."
+    },
+    {
+      "word": "休める",
+      "reading": "やすめる",
+      "meaningKR": "쉬게 하다, 휴식시키다",
+      "sentenceJP": "疲れた体をゆっくり休める。",
+      "sentenceReading": "つかれたからだをゆっくりやすめる。",
+      "sentenceKR": "지친 몸을 푹 쉬게 한다."
+    },
+    {
+      "word": "野生",
+      "reading": "やせい",
+      "meaningKR": "야생",
+      "sentenceJP": "野生の猿が町に現れた。",
+      "sentenceReading": "やせいのさるがまちにあらわれた。",
+      "sentenceKR": "야생 원숭이가 마을에 나타났다."
+    },
+    {
+      "word": "奴",
+      "reading": "やつ",
+      "meaningKR": "녀석, 놈",
+      "sentenceJP": "あいつは本当に嫌な奴だ。",
+      "sentenceReading": "あいつはほんとうにいやなやつだ。",
+      "sentenceKR": "저 녀석은 정말 싫은 놈이다."
+    },
+    {
+      "word": "闇",
+      "reading": "やみ",
+      "meaningKR": "어둠, 불법",
+      "sentenceJP": "事件の真相は闇の中だ。",
+      "sentenceReading": "じけんのしんそうはやみのなかだ。",
+      "sentenceKR": "사건의 진상은 어둠 속에 있다."
+    },
+    {
+      "word": "病む",
+      "reading": "やむ",
+      "meaningKR": "병들다, 앓다",
+      "sentenceJP": "彼は長い間、心を病んでいた。",
+      "sentenceReading": "かれはながいあいだ、こころをやんでいた。",
+      "sentenceKR": "그는 오랫동안 마음의 병을 앓고 있었다."
+    },
+    {
+      "word": "ややこしい",
+      "reading": "ややこしい",
+      "meaningKR": "복잡하다, 까다롭다",
+      "sentenceJP": "この問題は少しややこしい。",
+      "sentenceReading": "このもんだいはすこしややこしい。",
+      "sentenceKR": "이 문제는 조금 복잡하다."
+    },
+    {
+      "word": "やりとおす",
+      "reading": "やりとおす",
+      "meaningKR": "끝까지 해내다",
+      "sentenceJP": "彼は最後まで任務をやり通した。",
+      "sentenceReading": "かれはさいごまでにんむをやりとおした。",
+      "sentenceKR": "그는 끝까지 임무를 완수했다."
+    },
+    {
+      "word": "やりとげる",
+      "reading": "やりとげる",
+      "meaningKR": "완수하다, 성취하다",
+      "sentenceJP": "ついに大きな仕事をやり遂げた。",
+      "sentenceReading": "ついにおおきなしごとをやりとげた。",
+      "sentenceKR": "마침내 큰일을 해냈다."
+    },
+    {
+      "word": "和らげる",
+      "reading": "やわらげる",
+      "meaningKR": "누그러뜨리다, 완화하다",
+      "sentenceJP": "薬で痛みを和らげた。",
+      "sentenceReading": "くすりでいたみをやわらげた。",
+      "sentenceKR": "약으로 통증을 완화했다."
+    },
+    {
+      "word": "ヤング",
+      "reading": "ヤング",
+      "meaningKR": "젊은이, 젊은 층",
+      "sentenceJP": "ヤング向けの雑誌が売れている。",
+      "sentenceReading": "やんぐむけのざっしがうれている。",
+      "sentenceKR": "젊은 층을 위한 잡지가 잘 팔리고 있다."
+    },
+    {
+      "word": "～油",
+      "reading": "～ゆ",
+      "meaningKR": "~유, ~기름",
+      "sentenceJP": "石油の価格が急に上がった。",
+      "sentenceReading": "せきゆのかかくがきゅうにあがった。",
+      "sentenceKR": "석유 가격이 갑자기 올랐다."
+    },
+    {
+      "word": "優位",
+      "reading": "ゆうい",
+      "meaningKR": "우위, 우세",
+      "sentenceJP": "交渉を優位に進めた。",
+      "sentenceReading": "こうしょうをゆういにすすめた。",
+      "sentenceKR": "협상을 유리하게 진행했다."
+    },
+    {
+      "word": "憂鬱",
+      "reading": "ゆううつ",
+      "meaningKR": "우울, 울적함",
+      "sentenceJP": "雨の日は憂鬱な気分になる。",
+      "sentenceReading": "あめのひはゆううつなきぶんになる。",
+      "sentenceKR": "비 오는 날에는 우울한 기분이 든다."
+    },
+    {
+      "word": "有益",
+      "reading": "ゆうえき",
+      "meaningKR": "유익함, 이로움",
+      "sentenceJP": "彼の助言は非常に有益だった。",
+      "sentenceReading": "かれのじょげんはひじょうにゆうえきだった。",
+      "sentenceKR": "그의 조언은 매우 유익했다."
+    },
+    {
+      "word": "優越",
+      "reading": "ゆうえつ",
+      "meaningKR": "우월, 우월함",
+      "sentenceJP": "彼は優越感に浸っている。",
+      "sentenceReading": "かれはゆうえつかんにひたっている。",
+      "sentenceKR": "그는 우월감에 젖어 있다."
+    },
+    {
+      "word": "勇敢",
+      "reading": "ゆうかん",
+      "meaningKR": "용감함, 용맹함",
+      "sentenceJP": "消防士の勇敢な行動を称えた。",
+      "sentenceReading": "しょうぼうしのゆうかんなこうどうをたたえた。",
+      "sentenceKR": "소방관의 용감한 행동을 칭찬했다."
     }
   ]
 }
