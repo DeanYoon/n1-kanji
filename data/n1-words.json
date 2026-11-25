@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-24T05:06:21.450Z",
-  "count": 2475,
+  "generatedAt": "2026-11-25T03:55:04.716Z",
+  "count": 2520,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -19804,6 +19804,366 @@
       "sentenceJP": "消防士の勇敢な行動を称えた。",
       "sentenceReading": "しょうぼうしのゆうかんなこうどうをたたえた。",
       "sentenceKR": "소방관의 용감한 행동을 칭찬했다."
+    },
+    {
+      "word": "夕暮れ",
+      "reading": "ゆうぐれ",
+      "meaningKR": "저녁 무렵, 황혼",
+      "sentenceJP": "夕暮れの空が赤く染まった。",
+      "sentenceReading": "ゆうぐれのそらがあかくそまった。",
+      "sentenceKR": "저녁 무렵의 하늘이 붉게 물들었다."
+    },
+    {
+      "word": "融資",
+      "reading": "ゆうし",
+      "meaningKR": "융자, 대출",
+      "sentenceJP": "銀行から融資を受けた。",
+      "sentenceReading": "ぎんこうからゆうしをうけた。",
+      "sentenceKR": "은행에서 융자를 받았다."
+    },
+    {
+      "word": "有する",
+      "reading": "ゆうする",
+      "meaningKR": "보유하다, 갖추다",
+      "sentenceJP": "この島は豊かな自然を有する。",
+      "sentenceReading": "このしまはゆたかなしぜんをゆうする。",
+      "sentenceKR": "이 섬은 풍요로운 자연을 보유하고 있다."
+    },
+    {
+      "word": "優勢",
+      "reading": "ゆうせい",
+      "meaningKR": "우세, 우위",
+      "sentenceJP": "試合は終始、我が校が優勢だった。",
+      "sentenceReading": "しあいはしゅうし、わがこうがゆうせいだった。",
+      "sentenceKR": "경기는 내내 우리 학교가 우세했다."
+    },
+    {
+      "word": "優先",
+      "reading": "ゆうせん",
+      "meaningKR": "우선, 우선시함",
+      "sentenceJP": "安全を何よりも優先する。",
+      "sentenceReading": "あんぜんをなによりもゆうせんする。",
+      "sentenceKR": "안전을 무엇보다 우선시한다."
+    },
+    {
+      "word": "誘導",
+      "reading": "ゆうどう",
+      "meaningKR": "유도, 안내",
+      "sentenceJP": "係員が客を出口へ誘導した。",
+      "sentenceReading": "かかりいんがきゃくをでぐちへゆうどうした。",
+      "sentenceKR": "직원이 손님을 출구로 유도했다."
+    },
+    {
+      "word": "融通",
+      "reading": "ゆうずう",
+      "meaningKR": "융통성, 자금 융통",
+      "sentenceJP": "彼は融通が利かない。",
+      "sentenceReading": "かれはゆうずうがきかない。",
+      "sentenceKR": "그는 융통성이 없다."
+    },
+    {
+      "word": "優美",
+      "reading": "ゆうび",
+      "meaningKR": "우아함, 우미함",
+      "sentenceJP": "彼女の舞は優美だった。",
+      "sentenceReading": "かのじょのまいはゆうびだった。",
+      "sentenceKR": "그녀의 춤은 우아했다."
+    },
+    {
+      "word": "有望",
+      "reading": "ゆうぼう",
+      "meaningKR": "유망함, 장래성 있음",
+      "sentenceJP": "彼は将来有望な選手だ。",
+      "sentenceReading": "かれはしょうらいゆうぼうなせんしゅだ。",
+      "sentenceKR": "그는 장래가 유망한 선수다."
+    },
+    {
+      "word": "遊牧",
+      "reading": "ゆうぼく",
+      "meaningKR": "유목",
+      "sentenceJP": "彼らは草原で遊牧を続ける。",
+      "sentenceReading": "かれらはそうげんでゆうぼくをつづける。",
+      "sentenceKR": "그들은 초원에서 유목을 계속한다."
+    },
+    {
+      "word": "夕焼け",
+      "reading": "ゆうやけ",
+      "meaningKR": "저녁노을",
+      "sentenceJP": "夕焼けが海を赤く染めた。",
+      "sentenceReading": "ゆうやけがうみをあかくそめた。",
+      "sentenceKR": "저녁노을이 바다를 붉게 물들였다."
+    },
+    {
+      "word": "有力",
+      "reading": "ゆうりょく",
+      "meaningKR": "유력함, 영향력 있음",
+      "sentenceJP": "彼が次期社長の有力候補だ。",
+      "sentenceReading": "かれがじきしゃちょうのゆうりょくこうほだ。",
+      "sentenceKR": "그가 차기 사장의 유력 후보이다."
+    },
+    {
+      "word": "幽霊",
+      "reading": "ゆうれい",
+      "meaningKR": "유령, 귀신",
+      "sentenceJP": "古い屋敷で幽霊を見た。",
+      "sentenceReading": "ふるいやしきでゆうれいをみた。",
+      "sentenceKR": "오래된 저택에서 유령을 보았다."
+    },
+    {
+      "word": "誘惑",
+      "reading": "ゆうわく",
+      "meaningKR": "유혹",
+      "sentenceJP": "甘い誘惑に負けてしまった。",
+      "sentenceReading": "あまいゆうわくにまけてしまった。",
+      "sentenceKR": "달콤한 유혹에 넘어가고 말았다."
+    },
+    {
+      "word": "故",
+      "reading": "ゆえ",
+      "meaningKR": "이유, 까닭",
+      "sentenceJP": "大雨の故に試合は中止された。",
+      "sentenceReading": "おおあめのゆえにしあいはちゅうしされた。",
+      "sentenceKR": "폭우 때문에 경기가 취소되었다."
+    },
+    {
+      "word": "歪む",
+      "reading": "ゆがむ",
+      "meaningKR": "휘다, 뒤틀리다",
+      "sentenceJP": "熱で板が歪んでしまった。",
+      "sentenceReading": "ねつでいたがゆがんでしまった。",
+      "sentenceKR": "열 때문에 판자가 뒤틀리고 말았다."
+    },
+    {
+      "word": "揺さぶる",
+      "reading": "ゆさぶる",
+      "meaningKR": "흔들다, 동요시키다",
+      "sentenceJP": "その発言は世論を揺さぶった。",
+      "sentenceReading": "そのはつげんはよろんをゆさぶった。",
+      "sentenceKR": "그 발언은 여론을 뒤흔들었다."
+    },
+    {
+      "word": "濯ぐ",
+      "reading": "ゆすぐ",
+      "meaningKR": "헹구다",
+      "sentenceJP": "シャツを水でよく濯いだ。",
+      "sentenceReading": "しゃつをみずでよくゆすいだ。",
+      "sentenceKR": "셔츠를 물로 잘 헹궜다."
+    },
+    {
+      "word": "ゆとり",
+      "reading": "ゆとり",
+      "meaningKR": "여유",
+      "sentenceJP": "締め切りまで少しゆとりがある。",
+      "sentenceReading": "しめきりまですこしゆとりがある。",
+      "sentenceKR": "마감까지 조금 여유가 있다."
+    },
+    {
+      "word": "ユニーク",
+      "reading": "ユニーク",
+      "meaningKR": "독특한, 개성 있는",
+      "sentenceJP": "彼の発想は実にユニークだ。",
+      "sentenceReading": "かれのはっそうはじつにゆにーくだ。",
+      "sentenceKR": "그의 발상은 참으로 독특하다."
+    },
+    {
+      "word": "ユニフォーム",
+      "reading": "ユニフォーム",
+      "meaningKR": "유니폼, 제복",
+      "sentenceJP": "新しいユニフォームを着る。",
+      "sentenceReading": "あたらしいゆにふぉーむをきる。",
+      "sentenceKR": "새 유니폼을 입는다."
+    },
+    {
+      "word": "指差す",
+      "reading": "ゆびさす",
+      "meaningKR": "가리키다, 손가락질하다",
+      "sentenceJP": "彼は地図の一点を指差した。",
+      "sentenceReading": "かれはちずのいってんをゆびさした。",
+      "sentenceKR": "그는 지도의 한 지점을 가리켰다."
+    },
+    {
+      "word": "弓",
+      "reading": "ゆみ",
+      "meaningKR": "활",
+      "sentenceJP": "弓を引いて的を狙う。",
+      "sentenceReading": "ゆみをひいてまとをねらう。",
+      "sentenceKR": "활을 당겨 과녁을 겨눈다."
+    },
+    {
+      "word": "揺らぐ",
+      "reading": "ゆらぐ",
+      "meaningKR": "흔들리다, 동요하다",
+      "sentenceJP": "彼への信頼が大きく揺らいだ。",
+      "sentenceReading": "かれへのしんらいがおおきくゆらいだ。",
+      "sentenceKR": "그에 대한 신뢰가 크게 흔들렸다."
+    },
+    {
+      "word": "緩む",
+      "reading": "ゆるむ",
+      "meaningKR": "느슨해지다, 풀리다",
+      "sentenceJP": "靴ひもが歩くうちに緩んだ。",
+      "sentenceReading": "くつひもがあるくうちにゆるんだ。",
+      "sentenceKR": "걷는 동안 신발 끈이 느슨해졌다."
+    },
+    {
+      "word": "緩める",
+      "reading": "ゆるめる",
+      "meaningKR": "느슨하게 하다, 늦추다",
+      "sentenceJP": "ネクタイを少し緩めた。",
+      "sentenceReading": "ねくたいをすこしゆるめた。",
+      "sentenceKR": "넥타이를 조금 느슨하게 했다."
+    },
+    {
+      "word": "緩やか",
+      "reading": "ゆるやか",
+      "meaningKR": "관대한, 완만한",
+      "sentenceJP": "今回は緩やかな基準を設けた。",
+      "sentenceReading": "こんかいはゆるやかなきじゅんをもうけた。",
+      "sentenceKR": "이번에는 완화된 기준을 마련했다."
+    },
+    {
+      "word": "要因",
+      "reading": "よういん",
+      "meaningKR": "주요 요인, 원인",
+      "sentenceJP": "睡眠不足が事故の要因となった。",
+      "sentenceReading": "すいみんぶそくがじこのよういんとなった。",
+      "sentenceKR": "수면 부족이 사고의 원인이 되었다."
+    },
+    {
+      "word": "溶液",
+      "reading": "ようえき",
+      "meaningKR": "용액",
+      "sentenceJP": "塩を溶液に加えて混ぜる。",
+      "sentenceReading": "しおをようえきにくわえてまぜる。",
+      "sentenceKR": "소금을 용액에 넣고 섞는다."
+    },
+    {
+      "word": "用件",
+      "reading": "ようけん",
+      "meaningKR": "용건, 볼일",
+      "sentenceJP": "用件を手短にお話しします。",
+      "sentenceReading": "ようけんをてみじかにおはなしします。",
+      "sentenceKR": "용건을 간단히 말씀드리겠습니다."
+    },
+    {
+      "word": "養護",
+      "reading": "ようご",
+      "meaningKR": "보호, 양호",
+      "sentenceJP": "養護が必要な子供を支援する。",
+      "sentenceReading": "ようごがひつようなこどもをしえんする。",
+      "sentenceKR": "보호가 필요한 아이를 지원한다."
+    },
+    {
+      "word": "用紙",
+      "reading": "ようし",
+      "meaningKR": "용지, 서식",
+      "sentenceJP": "用紙に住所を記入してください。",
+      "sentenceReading": "ようしにじゅうしょをきにゅうしてください。",
+      "sentenceKR": "용지에 주소를 기입해 주세요."
+    },
+    {
+      "word": "様式",
+      "reading": "ようしき",
+      "meaningKR": "양식, 형식",
+      "sentenceJP": "書類の様式を統一した。",
+      "sentenceReading": "しょるいのようしきをとういつした。",
+      "sentenceKR": "서류의 양식을 통일했다."
+    },
+    {
+      "word": "要する",
+      "reading": "ようする",
+      "meaningKR": "필요로 하다, 걸리다",
+      "sentenceJP": "完成まで三年を要する。",
+      "sentenceReading": "かんせいまでさんねんをようする。",
+      "sentenceKR": "완성까지 3년이 걸린다."
+    },
+    {
+      "word": "要請",
+      "reading": "ようせい",
+      "meaningKR": "요청, 요구",
+      "sentenceJP": "政府は避難を要請した。",
+      "sentenceReading": "せいふはひなんをようせいした。",
+      "sentenceKR": "정부는 대피를 요청했다."
+    },
+    {
+      "word": "様相",
+      "reading": "ようそう",
+      "meaningKR": "양상",
+      "sentenceJP": "事態は複雑な様相を呈している。",
+      "sentenceReading": "じたいはふくざつなようそうをていしている。",
+      "sentenceKR": "사태는 복잡한 양상을 띠고 있다."
+    },
+    {
+      "word": "用品",
+      "reading": "ようひん",
+      "meaningKR": "용품, 물품",
+      "sentenceJP": "防災用品を倉庫に備える。",
+      "sentenceReading": "ぼうさいようひんをそうこにそなえる。",
+      "sentenceKR": "방재용품을 창고에 구비한다."
+    },
+    {
+      "word": "洋風",
+      "reading": "ようふう",
+      "meaningKR": "서양식",
+      "sentenceJP": "洋風の建物が並んでいる。",
+      "sentenceReading": "ようふうのたてものがならんでいる。",
+      "sentenceKR": "서양식 건물들이 늘어서 있다."
+    },
+    {
+      "word": "用法",
+      "reading": "ようほう",
+      "meaningKR": "사용법, 용법",
+      "sentenceJP": "薬の用法を必ず守ってください。",
+      "sentenceReading": "くすりのようほうをかならずまもってください。",
+      "sentenceKR": "약의 사용법을 반드시 지켜 주세요."
+    },
+    {
+      "word": "要望",
+      "reading": "ようぼう",
+      "meaningKR": "요구, 희망 사항",
+      "sentenceJP": "住民の要望を市に伝えた。",
+      "sentenceReading": "じゅうみんのようぼうをしにつたえた。",
+      "sentenceKR": "주민의 요구를 시에 전달했다."
+    },
+    {
+      "word": "余暇",
+      "reading": "よか",
+      "meaningKR": "여가, 여가 시간",
+      "sentenceJP": "余暇には読書を楽しんでいる。",
+      "sentenceReading": "よかにはどくしょをたのしんでいる。",
+      "sentenceKR": "여가에는 독서를 즐기고 있다."
+    },
+    {
+      "word": "予感",
+      "reading": "よかん",
+      "meaningKR": "예감",
+      "sentenceJP": "嫌な予感がして足を止めた。",
+      "sentenceReading": "いやなよかんがしてあしをとめた。",
+      "sentenceKR": "불길한 예감이 들어 걸음을 멈췄다."
+    },
+    {
+      "word": "余興",
+      "reading": "よきょう",
+      "meaningKR": "여흥, 오락",
+      "sentenceJP": "宴会の余興で歌を披露した。",
+      "sentenceReading": "えんかいのよきょうでうたをひろうした。",
+      "sentenceKR": "연회의 여흥으로 노래를 선보였다."
+    },
+    {
+      "word": "預金",
+      "reading": "よきん",
+      "meaningKR": "예금",
+      "sentenceJP": "毎月少しずつ預金している。",
+      "sentenceReading": "まいつきすこしずつよきんしている。",
+      "sentenceKR": "매달 조금씩 예금하고 있다."
+    },
+    {
+      "word": "欲",
+      "reading": "よく",
+      "meaningKR": "욕심, 욕망",
+      "sentenceJP": "欲を出すと判断を誤る。",
+      "sentenceReading": "よくをだすとはんだんをあやまる。",
+      "sentenceKR": "욕심을 부리면 판단을 그르친다."
     }
   ]
 }
