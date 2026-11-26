@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-25T03:55:04.716Z",
-  "count": 2520,
+  "generatedAt": "2026-11-26T03:21:08.267Z",
+  "count": 2565,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -20164,6 +20164,366 @@
       "sentenceJP": "欲を出すと判断を誤る。",
       "sentenceReading": "よくをだすとはんだんをあやまる。",
       "sentenceKR": "욕심을 부리면 판단을 그르친다."
+    },
+    {
+      "word": "抑圧",
+      "reading": "よくあつ",
+      "meaningKR": "억압",
+      "sentenceJP": "長年の抑圧から人々は解放された。",
+      "sentenceReading": "ながねんのよくあつからひとびとはかいほうされた。",
+      "sentenceKR": "사람들은 오랜 억압에서 해방되었다."
+    },
+    {
+      "word": "浴室",
+      "reading": "よくしつ",
+      "meaningKR": "욕실",
+      "sentenceJP": "浴室の鏡が湯気で曇っている。",
+      "sentenceReading": "よくしつのかがみがゆげでくもっている。",
+      "sentenceKR": "욕실 거울이 김으로 흐려져 있다."
+    },
+    {
+      "word": "抑制",
+      "reading": "よくせい",
+      "meaningKR": "억제",
+      "sentenceJP": "感情を抑制するのは難しい。",
+      "sentenceReading": "かんじょうをよくせいするのはむずかしい。",
+      "sentenceKR": "감정을 억제하기는 어렵다."
+    },
+    {
+      "word": "欲深い",
+      "reading": "よくふかい",
+      "meaningKR": "욕심이 많다",
+      "sentenceJP": "あまりに欲深い態度は嫌われる。",
+      "sentenceReading": "あまりによくふかいたいどはきらわれる。",
+      "sentenceKR": "지나치게 욕심 많은 태도는 미움을 산다."
+    },
+    {
+      "word": "欲望",
+      "reading": "よくぼう",
+      "meaningKR": "욕망",
+      "sentenceJP": "彼は出世への欲望を隠さない。",
+      "sentenceReading": "かれはしゅっせへのよくぼうをかくさない。",
+      "sentenceKR": "그는 출세에 대한 욕망을 숨기지 않는다."
+    },
+    {
+      "word": "避ける",
+      "reading": "よける",
+      "meaningKR": "피하다",
+      "sentenceJP": "飛んできた石を素早く避けた。",
+      "sentenceReading": "とんできたいしをすばやくよけた。",
+      "sentenceKR": "날아온 돌을 재빨리 피했다."
+    },
+    {
+      "word": "予言",
+      "reading": "よげん",
+      "meaningKR": "예언",
+      "sentenceJP": "彼の予言は驚くほど的中した。",
+      "sentenceReading": "かれのよげんはおどろくほどてきちゅうした。",
+      "sentenceKR": "그의 예언은 놀라울 정도로 적중했다."
+    },
+    {
+      "word": "横綱",
+      "reading": "よこづな",
+      "meaningKR": "요코즈나; 스모 최고 등급",
+      "sentenceJP": "彼はついに横綱へ昇進した。",
+      "sentenceReading": "かれはついによこづなへしょうしんした。",
+      "sentenceKR": "그는 마침내 요코즈나로 승진했다."
+    },
+    {
+      "word": "汚れ",
+      "reading": "よごれ",
+      "meaningKR": "때; 오염",
+      "sentenceJP": "この洗剤なら油汚れも落ちる。",
+      "sentenceReading": "このせんざいならあぶらよごれもおちる。",
+      "sentenceKR": "이 세제라면 기름때도 지워진다."
+    },
+    {
+      "word": "よし (かん)",
+      "reading": "よし (かん)",
+      "meaningKR": "좋아!",
+      "sentenceJP": "よし、これで準備は整った。",
+      "sentenceReading": "よし、これでじゅんびはととのった。",
+      "sentenceKR": "좋아, 이걸로 준비는 끝났다."
+    },
+    {
+      "word": "良し",
+      "reading": "よし",
+      "meaningKR": "좋음; 괜찮음",
+      "sentenceJP": "この案で良しとしましょう。",
+      "sentenceReading": "このあんでよしとしましょう。",
+      "sentenceKR": "이 안으로 좋다고 합시다."
+    },
+    {
+      "word": "善し悪し",
+      "reading": "よしあし",
+      "meaningKR": "좋고 나쁨; 장단점",
+      "sentenceJP": "商品の善し悪しを見極める。",
+      "sentenceReading": "しょうひんのよしあしをみきわめる。",
+      "sentenceKR": "상품의 좋고 나쁨을 판별한다."
+    },
+    {
+      "word": "余所見",
+      "reading": "よそみ",
+      "meaningKR": "한눈팔기",
+      "sentenceJP": "運転中の余所見は危険だ。",
+      "sentenceReading": "うんてんちゅうのよそみはきけんだ。",
+      "sentenceKR": "운전 중 한눈파는 것은 위험하다."
+    },
+    {
+      "word": "余地",
+      "reading": "よち",
+      "meaningKR": "여지; 여유",
+      "sentenceJP": "まだ改善の余地が十分にある。",
+      "sentenceReading": "まだかいぜんのよちがじゅうぶんにある。",
+      "sentenceKR": "아직 개선의 여지가 충분히 있다."
+    },
+    {
+      "word": "よって (よりどころ)",
+      "reading": "よって (よりどころ)",
+      "meaningKR": "따라서; 그러므로",
+      "sentenceJP": "証拠は明白だ。よって有罪とする。",
+      "sentenceReading": "しょうこはめいはくだ。よってゆうざいとする。",
+      "sentenceKR": "증거는 명백하다. 따라서 유죄로 한다."
+    },
+    {
+      "word": "与党",
+      "reading": "よとう",
+      "meaningKR": "여당, 집권당",
+      "sentenceJP": "与党は法案の成立を急いでいる",
+      "sentenceReading": "よとうはほうあんのせいりつをいそいでいる",
+      "sentenceKR": "여당은 법안 통과를 서두르고 있다."
+    },
+    {
+      "word": "呼び止める",
+      "reading": "よびとめる",
+      "meaningKR": "불러 세우다",
+      "sentenceJP": "道でタクシーを呼び止めた",
+      "sentenceReading": "みちでたくしーをよびとめた",
+      "sentenceKR": "길에서 택시를 불러 세웠다."
+    },
+    {
+      "word": "夜更し",
+      "reading": "よふかし",
+      "meaningKR": "밤샘, 늦게까지 깨어 있음",
+      "sentenceJP": "夜更しが続いて体調を崩した",
+      "sentenceReading": "よふかしがつづいてたいちょうをくずした",
+      "sentenceKR": "늦게 자는 날이 계속되어 몸이 상했다."
+    },
+    {
+      "word": "夜更け",
+      "reading": "よふけ",
+      "meaningKR": "깊은 밤, 한밤중",
+      "sentenceJP": "夜更けに突然電話が鳴った",
+      "sentenceReading": "よふけにとつぜんでんわがなった",
+      "sentenceKR": "깊은 밤에 갑자기 전화가 울렸다."
+    },
+    {
+      "word": "余程",
+      "reading": "よほど",
+      "meaningKR": "상당히, 몹시",
+      "sentenceJP": "彼は余程疲れていたのだろう",
+      "sentenceReading": "かれはよほどつかれていたのだろう",
+      "sentenceKR": "그는 상당히 피곤했던 모양이다."
+    },
+    {
+      "word": "読み上げる",
+      "reading": "よみあげる",
+      "meaningKR": "소리 내어 읽다, 낭독하다",
+      "sentenceJP": "司会者が受賞者の名を読み上げた",
+      "sentenceReading": "しかいしゃがじゅしょうしゃのなをよみあげた",
+      "sentenceKR": "사회자가 수상자의 이름을 소리 내어 읽었다."
+    },
+    {
+      "word": "～寄り",
+      "reading": "～より",
+      "meaningKR": "~쪽, ~에 가까운 방향",
+      "sentenceJP": "午後は南寄りの風が強まる",
+      "sentenceReading": "ごごはみなみよりのかぜがつよまる",
+      "sentenceKR": "오후에는 남쪽에서 부는 바람이 강해진다."
+    },
+    {
+      "word": "寄り掛かる",
+      "reading": "よりかかる",
+      "meaningKR": "기대다, 의지하다",
+      "sentenceJP": "壁に寄り掛かって少し休んだ",
+      "sentenceReading": "かべによりかかってすこしやすんだ",
+      "sentenceKR": "벽에 기대어 잠시 쉬었다."
+    },
+    {
+      "word": "世論",
+      "reading": "よろん",
+      "meaningKR": "여론",
+      "sentenceJP": "世論は増税に反対している",
+      "sentenceReading": "よろんはぞうぜいにはんたいしている",
+      "sentenceKR": "여론은 증세에 반대하고 있다."
+    },
+    {
+      "word": "弱る",
+      "reading": "よわる",
+      "meaningKR": "쇠약해지다, 곤란해하다",
+      "sentenceJP": "病気で体がすっかり弱った",
+      "sentenceReading": "びょうきでからだがすっかりよわった",
+      "sentenceKR": "병으로 몸이 완전히 쇠약해졌다."
+    },
+    {
+      "word": "来場",
+      "reading": "らいじょう",
+      "meaningKR": "행사장 방문, 입장",
+      "sentenceJP": "開幕初日に一万人が来場した",
+      "sentenceReading": "かいまくしょにちにいちまんにんがらいじょうした",
+      "sentenceKR": "개막 첫날 만 명이 행사장을 찾았다."
+    },
+    {
+      "word": "ライス",
+      "reading": "ライス",
+      "meaningKR": "밥, 쌀밥",
+      "sentenceJP": "ライスを大盛りでお願いします",
+      "sentenceReading": "らいすをおおもりでおねがいします",
+      "sentenceKR": "밥은 곱빼기로 부탁합니다."
+    },
+    {
+      "word": "酪農",
+      "reading": "らくのう",
+      "meaningKR": "낙농업",
+      "sentenceJP": "この地域では酪農が盛んだ",
+      "sentenceReading": "このちいきではらくのうがさかんだ",
+      "sentenceKR": "이 지역에서는 낙농업이 활발하다."
+    },
+    {
+      "word": "落下",
+      "reading": "らっか",
+      "meaningKR": "낙하, 떨어짐",
+      "sentenceJP": "強風で看板が道路に落下した",
+      "sentenceReading": "きょうふうでかんばんがどうろにらっかした",
+      "sentenceKR": "강풍으로 간판이 도로에 떨어졌다."
+    },
+    {
+      "word": "楽観",
+      "reading": "らっかん",
+      "meaningKR": "낙관, 낙관적 태도",
+      "sentenceJP": "事態を楽観するのは危険だ",
+      "sentenceReading": "じたいをらっかんするのはきけんだ",
+      "sentenceKR": "사태를 낙관하는 것은 위험하다."
+    },
+    {
+      "word": "ランプ",
+      "reading": "ランプ",
+      "meaningKR": "램프; 경사로",
+      "sentenceJP": "机のランプを点けた。",
+      "sentenceReading": "つくえのらんぷをつけた。",
+      "sentenceKR": "책상 위의 램프를 켰다."
+    },
+    {
+      "word": "濫用",
+      "reading": "らんよう",
+      "meaningKR": "남용, 오용",
+      "sentenceJP": "薬の濫用は健康を害する。",
+      "sentenceReading": "くすりのらんようはけんこうをがいする。",
+      "sentenceKR": "약물 남용은 건강을 해친다."
+    },
+    {
+      "word": "リード",
+      "reading": "リード",
+      "meaningKR": "선도; 리드",
+      "sentenceJP": "彼が試合をリードした。",
+      "sentenceReading": "かれがしあいをりーどした。",
+      "sentenceKR": "그가 경기에서 앞서 나갔다."
+    },
+    {
+      "word": "理屈",
+      "reading": "りくつ",
+      "meaningKR": "이론, 이치",
+      "sentenceJP": "そんな理屈は通用しない。",
+      "sentenceReading": "そんなりくつはつうようしない。",
+      "sentenceKR": "그런 이치는 통하지 않는다."
+    },
+    {
+      "word": "利子",
+      "reading": "りし",
+      "meaningKR": "이자",
+      "sentenceJP": "預金に利子が付いた。",
+      "sentenceReading": "よきんにりしがついた。",
+      "sentenceKR": "예금에 이자가 붙었다."
+    },
+    {
+      "word": "利潤",
+      "reading": "りじゅん",
+      "meaningKR": "이윤, 수익",
+      "sentenceJP": "企業は利潤を追求する。",
+      "sentenceReading": "きぎょうはりじゅんをついきゅうする。",
+      "sentenceKR": "기업은 이윤을 추구한다."
+    },
+    {
+      "word": "理性",
+      "reading": "りせい",
+      "meaningKR": "이성, 분별",
+      "sentenceJP": "怒りを抑えて理性を保った。",
+      "sentenceReading": "いかりをおさえてりせいをたもった。",
+      "sentenceKR": "화를 억누르고 이성을 유지했다."
+    },
+    {
+      "word": "利息",
+      "reading": "りそく",
+      "meaningKR": "이자",
+      "sentenceJP": "借金の利息を毎月払う。",
+      "sentenceReading": "しゃっきんのりそくをまいつきはらう。",
+      "sentenceKR": "빚의 이자를 매달 갚는다."
+    },
+    {
+      "word": "立体",
+      "reading": "りったい",
+      "meaningKR": "입체, 입체물",
+      "sentenceJP": "平面図から立体を想像する。",
+      "sentenceReading": "へいめんずからりったいをそうぞうする。",
+      "sentenceKR": "평면도에서 입체를 상상한다."
+    },
+    {
+      "word": "立方",
+      "reading": "りっぽう",
+      "meaningKR": "세제곱, 입방체",
+      "sentenceJP": "三の立方は二十七だ。",
+      "sentenceReading": "さんのりっぽうはにじゅうななだ。",
+      "sentenceKR": "3의 세제곱은 27이다."
+    },
+    {
+      "word": "立法",
+      "reading": "りっぽう",
+      "meaningKR": "입법",
+      "sentenceJP": "国会は立法を担っている。",
+      "sentenceReading": "こっかいはりっぽうをになっている。",
+      "sentenceKR": "국회는 입법을 담당하고 있다."
+    },
+    {
+      "word": "利点",
+      "reading": "りてん",
+      "meaningKR": "이점, 장점",
+      "sentenceJP": "この制度には大きな利点がある。",
+      "sentenceReading": "このせいどにはおおきなりてんがある。",
+      "sentenceKR": "이 제도에는 큰 장점이 있다."
+    },
+    {
+      "word": "略奪",
+      "reading": "りゃくだつ",
+      "meaningKR": "약탈, 강탈",
+      "sentenceJP": "略奪された美術品が戻った。",
+      "sentenceReading": "りゃくだつされたびじゅつひんがもどった。",
+      "sentenceKR": "약탈당한 미술품이 돌아왔다."
+    },
+    {
+      "word": "略語",
+      "reading": "りゃくご",
+      "meaningKR": "약어, 두문자어",
+      "sentenceJP": "略語の意味を辞書で調べた。",
+      "sentenceReading": "りゃくごのいみをじしょでしらべた。",
+      "sentenceKR": "약어의 뜻을 사전에서 찾아봤다."
+    },
+    {
+      "word": "流通",
+      "reading": "りゅうつう",
+      "meaningKR": "유통",
+      "sentenceJP": "商品の流通が滞っている。",
+      "sentenceReading": "しょうひんのりゅうつうがとどこおっている。",
+      "sentenceKR": "상품 유통이 정체되어 있다."
     }
   ]
 }
