@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-26T03:21:08.267Z",
-  "count": 2565,
+  "generatedAt": "2026-11-27T03:26:11.792Z",
+  "count": 2610,
   "totalCount": 2699,
   "done": false,
   "failedWords": [],
@@ -20524,6 +20524,366 @@
       "sentenceJP": "商品の流通が滞っている。",
       "sentenceReading": "しょうひんのりゅうつうがとどこおっている。",
       "sentenceKR": "상품 유통이 정체되어 있다."
+    },
+    {
+      "word": "領域",
+      "reading": "りょういき",
+      "meaningKR": "영역",
+      "sentenceJP": "この研究は未知の領域に挑む。",
+      "sentenceReading": "このけんきゅうはみちのりょういきにいどむ。",
+      "sentenceKR": "이 연구는 미지의 영역에 도전한다."
+    },
+    {
+      "word": "了解",
+      "reading": "りょうかい",
+      "meaningKR": "이해, 동의",
+      "sentenceJP": "ご依頼の内容は了解しました。",
+      "sentenceReading": "ごいらいのないようはりょうかいしました。",
+      "sentenceKR": "의뢰하신 내용은 이해했습니다."
+    },
+    {
+      "word": "領海",
+      "reading": "りょうかい",
+      "meaningKR": "영해",
+      "sentenceJP": "船が領海内を航行している。",
+      "sentenceReading": "ふねがりょうかいないをこうこうしている。",
+      "sentenceKR": "배가 영해 안을 항해하고 있다."
+    },
+    {
+      "word": "両極",
+      "reading": "りょうきょく",
+      "meaningKR": "양극",
+      "sentenceJP": "意見が両極に分かれた。",
+      "sentenceReading": "いけんがりょうきょくにわかれた。",
+      "sentenceKR": "의견이 양극으로 나뉘었다."
+    },
+    {
+      "word": "良好",
+      "reading": "りょうこう",
+      "meaningKR": "양호함",
+      "sentenceJP": "患者の経過は良好だ。",
+      "sentenceReading": "かんじゃのけいかはりょうこうだ。",
+      "sentenceKR": "환자의 경과는 양호하다."
+    },
+    {
+      "word": "良識",
+      "reading": "りょうしき",
+      "meaningKR": "양식, 건전한 판단력",
+      "sentenceJP": "良識ある判断が求められる。",
+      "sentenceReading": "りょうしきあるはんだんがもとめられる。",
+      "sentenceKR": "양식 있는 판단이 요구된다."
+    },
+    {
+      "word": "良質",
+      "reading": "りょうしつ",
+      "meaningKR": "양질",
+      "sentenceJP": "良質な睡眠を十分に取る。",
+      "sentenceReading": "りょうしつなすいみんをじゅうぶんにとる。",
+      "sentenceKR": "양질의 수면을 충분히 취한다."
+    },
+    {
+      "word": "了承",
+      "reading": "りょうしょう",
+      "meaningKR": "양해, 승낙",
+      "sentenceJP": "あらかじめご了承ください。",
+      "sentenceReading": "あらかじめごりょうしょうください。",
+      "sentenceKR": "미리 양해해 주시기 바랍니다."
+    },
+    {
+      "word": "良心",
+      "reading": "りょうしん",
+      "meaningKR": "양심",
+      "sentenceJP": "良心に従って行動した。",
+      "sentenceReading": "りょうしんにしたがってこうどうした。",
+      "sentenceKR": "양심에 따라 행동했다."
+    },
+    {
+      "word": "領地",
+      "reading": "りょうち",
+      "meaningKR": "영지",
+      "sentenceJP": "王は広大な領地を治めた。",
+      "sentenceReading": "おうはこうだいなりょうちをおさめた。",
+      "sentenceKR": "왕은 광대한 영지를 다스렸다."
+    },
+    {
+      "word": "領土",
+      "reading": "りょうど",
+      "meaningKR": "영토",
+      "sentenceJP": "領土問題の解決を目指す。",
+      "sentenceReading": "りょうどもんだいのかいけつをめざす。",
+      "sentenceKR": "영토 문제의 해결을 목표로 한다."
+    },
+    {
+      "word": "両立",
+      "reading": "りょうりつ",
+      "meaningKR": "양립",
+      "sentenceJP": "仕事と育児を両立させる。",
+      "sentenceReading": "しごとといくじをりょうりつさせる。",
+      "sentenceKR": "일과 육아를 양립시킨다."
+    },
+    {
+      "word": "旅客",
+      "reading": "りょかく",
+      "meaningKR": "여객, 승객",
+      "sentenceJP": "旅客は改札口に並んだ。",
+      "sentenceReading": "りょかくはかいさつぐちにならんだ。",
+      "sentenceKR": "승객들은 개찰구에 줄을 섰다."
+    },
+    {
+      "word": "旅券",
+      "reading": "りょけん",
+      "meaningKR": "여권",
+      "sentenceJP": "旅券の有効期限を確認する。",
+      "sentenceReading": "りょけんのゆうこうきげんをかくにんする。",
+      "sentenceKR": "여권의 유효 기간을 확인한다."
+    },
+    {
+      "word": "履歴",
+      "reading": "りれき",
+      "meaningKR": "이력, 기록",
+      "sentenceJP": "ブラウザの履歴を削除した。",
+      "sentenceReading": "ぶらうざのりれきをさくじょした。",
+      "sentenceKR": "브라우저의 기록을 삭제했다."
+    },
+    {
+      "word": "理論",
+      "reading": "りろん",
+      "meaningKR": "이론",
+      "sentenceJP": "この理論には矛盾がある。",
+      "sentenceReading": "このりろんにはむじゅんがある。",
+      "sentenceKR": "이 이론에는 모순이 있다."
+    },
+    {
+      "word": "林業",
+      "reading": "りんぎょう",
+      "meaningKR": "임업",
+      "sentenceJP": "林業は地域の重要な産業だ。",
+      "sentenceReading": "りんぎょうはちいきのじゅうようなさんぎょうだ。",
+      "sentenceKR": "임업은 지역의 중요한 산업이다."
+    },
+    {
+      "word": "類",
+      "reading": "るい",
+      "meaningKR": "종류",
+      "sentenceJP": "この類の問題は初めてだ。",
+      "sentenceReading": "このるいのもんだいははじめてだ。",
+      "sentenceKR": "이런 종류의 문제는 처음이다."
+    },
+    {
+      "word": "類推",
+      "reading": "るいすい",
+      "meaningKR": "유추",
+      "sentenceJP": "過去の事例から結果を類推する。",
+      "sentenceReading": "かこのじれいからけっかをるいすいする。",
+      "sentenceKR": "과거 사례를 통해 결과를 유추한다."
+    },
+    {
+      "word": "類似",
+      "reading": "るいじ",
+      "meaningKR": "유사",
+      "sentenceJP": "両者の構造はよく類似している。",
+      "sentenceReading": "りょうしゃのこうぞうはよくるいじしている。",
+      "sentenceKR": "두 대상의 구조는 매우 유사하다."
+    },
+    {
+      "word": "ルーズ",
+      "reading": "ルーズ",
+      "meaningKR": "칠칠치 못함",
+      "sentenceJP": "彼は時間にルーズな人だ。",
+      "sentenceReading": "かれはじかんにるーずなひとだ。",
+      "sentenceKR": "그는 시간관념이 느슨한 사람이다."
+    },
+    {
+      "word": "冷酷",
+      "reading": "れいこく",
+      "meaningKR": "냉혹함",
+      "sentenceJP": "彼は冷酷な判断を下した。",
+      "sentenceReading": "かれはれいこくなはんだんをくだした。",
+      "sentenceKR": "그는 냉혹한 판단을 내렸다."
+    },
+    {
+      "word": "冷蔵",
+      "reading": "れいぞう",
+      "meaningKR": "냉장",
+      "sentenceJP": "肉はすぐ冷蔵してください。",
+      "sentenceReading": "にくはすぐれいぞうしてください。",
+      "sentenceKR": "고기는 바로 냉장해 주세요."
+    },
+    {
+      "word": "冷淡",
+      "reading": "れいたん",
+      "meaningKR": "냉담함",
+      "sentenceJP": "彼の冷淡な態度に傷ついた。",
+      "sentenceReading": "かれのれいたんなたいどにきずついた。",
+      "sentenceKR": "그의 냉담한 태도에 상처받았다."
+    },
+    {
+      "word": "レース",
+      "reading": "レース",
+      "meaningKR": "경주",
+      "sentenceJP": "明日のレースに出場する。",
+      "sentenceReading": "あしたのれーすにしゅつじょうする。",
+      "sentenceKR": "내일 경주에 출전한다."
+    },
+    {
+      "word": "レギュラー",
+      "reading": "レギュラー",
+      "meaningKR": "정규 멤버",
+      "sentenceJP": "彼はチームのレギュラーだ。",
+      "sentenceReading": "かれはちーむのれぎゅらーだ。",
+      "sentenceKR": "그는 팀의 정규 멤버다."
+    },
+    {
+      "word": "レッスン",
+      "reading": "レッスン",
+      "meaningKR": "수업",
+      "sentenceJP": "毎週ピアノのレッスンを受ける。",
+      "sentenceReading": "まいしゅうぴあののれっすんをうける。",
+      "sentenceKR": "매주 피아노 수업을 받는다."
+    },
+    {
+      "word": "レディー",
+      "reading": "レディー",
+      "meaningKR": "숙녀",
+      "sentenceJP": "彼女は上品なレディーだ。",
+      "sentenceReading": "かのじょはじょうひんなれでぃーだ。",
+      "sentenceKR": "그녀는 품위 있는 숙녀다."
+    },
+    {
+      "word": "レバー",
+      "reading": "レバー",
+      "meaningKR": "레버",
+      "sentenceJP": "このレバーを手前に引いて。",
+      "sentenceReading": "このればーをてまえにひいて。",
+      "sentenceKR": "이 레버를 앞으로 당겨 줘."
+    },
+    {
+      "word": "恋愛",
+      "reading": "れんあい",
+      "meaningKR": "연애",
+      "sentenceJP": "恋愛に年齢は関係ない。",
+      "sentenceReading": "れんあいにねんれいはかんけいない。",
+      "sentenceKR": "연애에 나이는 상관없다."
+    },
+    {
+      "word": "バッテリー",
+      "reading": "バッテリー",
+      "meaningKR": "배터리",
+      "sentenceJP": "バッテリーが切れて車が動かない。",
+      "sentenceReading": "ばってりーがきれてくるまがうごかない。",
+      "sentenceKR": "배터리가 방전되어 차가 움직이지 않는다."
+    },
+    {
+      "word": "バット",
+      "reading": "バット",
+      "meaningKR": "야구 방망이, 큰 통",
+      "sentenceJP": "野球のバットを力強く振った。",
+      "sentenceReading": "やきゅうのばっとをちからづよくふった。",
+      "sentenceKR": "야구 방망이를 힘차게 휘둘렀다."
+    },
+    {
+      "word": "発病",
+      "reading": "はつびょう",
+      "meaningKR": "발병, 병에 걸림",
+      "sentenceJP": "彼は去年、肺炎を発病した。",
+      "sentenceReading": "かれはきょねん、はいえんをはつびょうした。",
+      "sentenceKR": "그는 지난해 폐렴에 걸렸다."
+    },
+    {
+      "word": "初耳",
+      "reading": "はつみみ",
+      "meaningKR": "처음 듣는 이야기",
+      "sentenceJP": "その話はまったくの初耳だ。",
+      "sentenceReading": "そのはなしはまったくのはつみみだ。",
+      "sentenceKR": "그 이야기는 정말 처음 듣는다."
+    },
+    {
+      "word": "果て",
+      "reading": "はて",
+      "meaningKR": "끝, 한계",
+      "sentenceJP": "世界の果てまで旅をしたい。",
+      "sentenceReading": "せかいのはてまでたびをしたい。",
+      "sentenceKR": "세상 끝까지 여행하고 싶다."
+    },
+    {
+      "word": "果てる",
+      "reading": "はてる",
+      "meaningKR": "끝나다, 다하다",
+      "sentenceJP": "彼は異国の地で果てた。",
+      "sentenceReading": "かれはいこくのちではてた。",
+      "sentenceKR": "그는 타국 땅에서 생을 마쳤다."
+    },
+    {
+      "word": "ばてる",
+      "reading": "ばてる",
+      "meaningKR": "지치다, 녹초가 되다",
+      "sentenceJP": "暑さで選手たちはばてている。",
+      "sentenceReading": "あつさでせんしゅたちはばてている。",
+      "sentenceKR": "더위에 선수들은 지쳐 있다."
+    },
+    {
+      "word": "パトカー",
+      "reading": "パトカー",
+      "meaningKR": "순찰차, 경찰차",
+      "sentenceJP": "パトカーが現場に駆けつけた。",
+      "sentenceReading": "ぱとかーがげんばにかけつけた。",
+      "sentenceKR": "경찰차가 현장으로 달려왔다."
+    },
+    {
+      "word": "甚だ",
+      "reading": "はなはだ",
+      "meaningKR": "매우, 몹시",
+      "sentenceJP": "彼の態度は甚だ失礼だ。",
+      "sentenceReading": "かれのたいどははなはだしつれいだ。",
+      "sentenceKR": "그의 태도는 매우 무례하다."
+    },
+    {
+      "word": "華々しい",
+      "reading": "はなばなしい",
+      "meaningKR": "눈부신, 화려한",
+      "sentenceJP": "華々しい活躍で観客を魅了した。",
+      "sentenceReading": "はなばなしいかつやくでかんきゃくをみりょうした。",
+      "sentenceKR": "눈부신 활약으로 관객을 사로잡았다."
+    },
+    {
+      "word": "花びら",
+      "reading": "はなびら",
+      "meaningKR": "꽃잎",
+      "sentenceJP": "桜の花びらが風に舞っている。",
+      "sentenceReading": "さくらのはなびらがかぜにまっている。",
+      "sentenceKR": "벚꽃잎이 바람에 흩날리고 있다."
+    },
+    {
+      "word": "華やか",
+      "reading": "はなやか",
+      "meaningKR": "화려함, 화사함",
+      "sentenceJP": "会場は華やかな雰囲気に包まれた。",
+      "sentenceReading": "かいじょうははなやかなふんいきにつつまれた。",
+      "sentenceKR": "행사장은 화려한 분위기에 휩싸였다."
+    },
+    {
+      "word": "阻む",
+      "reading": "はばむ",
+      "meaningKR": "가로막다, 방해하다",
+      "sentenceJP": "大雪が行く手を阻んだ。",
+      "sentenceReading": "おおゆきがゆくてをはばんだ。",
+      "sentenceKR": "폭설이 앞길을 가로막았다."
+    },
+    {
+      "word": "浜",
+      "reading": "はま",
+      "meaningKR": "해변, 바닷가",
+      "sentenceJP": "夏は家族で浜に遊びに行く。",
+      "sentenceReading": "なつはかぞくではまにあそびにいく。",
+      "sentenceKR": "여름에는 가족과 바닷가에 놀러 간다."
+    },
+    {
+      "word": "浜辺",
+      "reading": "はまべ",
+      "meaningKR": "해변, 물가",
+      "sentenceJP": "浜辺を裸足でゆっくり歩いた。",
+      "sentenceReading": "はまべをはだしでゆっくりあるいた。",
+      "sentenceKR": "해변을 맨발로 천천히 걸었다."
     }
   ]
 }
